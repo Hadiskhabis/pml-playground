@@ -1,0 +1,66 @@
+###############################################
+#  The Practical Markup Language Playground:  #
+#  https://github.com/tajmone/pml-playground  #
+###############################################
+
+
+## TMP Work Files
+#################
+___*.*
+
+# Links and URLs:
+*.lnk
+*.url
+
+## Apps Local Settings & Temp Files
+###################################
+
+# Chrome's debug logs for local HTML pages:
+debug.log
+
+#########################
+## USER-SPECIFIC FILES ##
+#########################
+# Reserved for patterns that might be useful to end users of the project.
+# If you need a pattern added here, submit via a PR or open an Issue.
+
+
+############################
+## COMMON IGNORE PATTERNS ##
+############################
+
+## Apps Local Settings & Temp Files
+###################################
+
+# Chrome's debug logs for local HTML pages:
+debug.log
+
+############################
+## COMMON IGNORE PATTERNS ##
+############################
+
+## Linux
+########
+*~
+.directory
+.fuse_hidden*
+.nfs*
+.Trash-*
+
+## macOS
+########
+*.DS_Store
+._*
+.AppleDouble
+.LSOverride
+Icon
+
+## Windows
+##########
+Thumbs.db
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+.BIN/
+
+# EOF #

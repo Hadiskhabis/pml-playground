@@ -30,6 +30,9 @@ insert_final_newline = true
 [.gitmodules]
 indent_style = tab
 
+[.gitkeep]
+insert_final_newline = false
+
 
 ## Shell Scripts
 ################

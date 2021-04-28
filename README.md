@@ -12,6 +12,7 @@ Created by [Tristano Ajmone] in April 2021.
 
 <!-- MarkdownTOC autolink="true" bracket="round" autoanchor="false" lowercase="only_ascii" uri_encoding="true" levels="1,2,3" -->
 
+- [Repository Contents](#repository-contents)
 - [About](#about)
 - [License](#license)
 - [Links](#links)
@@ -19,6 +20,10 @@ Created by [Tristano Ajmone] in April 2021.
 <!-- /MarkdownTOC -->
 
 -----
+
+# Repository Contents
+
+- [`pml-samples/`][pml-samples/] — shared PML sample documents and chunks.
 
 # About
 
@@ -29,7 +34,6 @@ The project is open to all PML pioneers who are willing to experiment with this 
 # License
 
 Since this project is open to contributions and makes extensive use of third party assets, it doesn't have a project wide license.
-
 Each individual asset is governed by its own license, as indicated in the source files or its `LICENSE` file (if present).
 
 # Links
@@ -89,10 +93,13 @@ Articles by [Christian Neumanns]:
 [Travis badge]: https://travis-ci.com/tajmone/Sublime-PML.svg?branch=main
 [Travis link]: https://travis-ci.com/tajmone/Sublime-PML "Travis CI: EditorConfig validation status"
 
+<!-- project files and folders -->
+
+[pml-samples/]: ./pml-samples/ "Navigate to folder"
+
 <!-- people -->
 
 [Christian Neumanns]: https://github.com/pml-lang "View Christian Neumanns's GitHub profile"
 [Tristano Ajmone]: https://github.com/tajmone "View Tristano Ajmone's GitHub profile"
-
 
 <!-- EOF -->

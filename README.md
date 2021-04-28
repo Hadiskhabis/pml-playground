@@ -4,7 +4,9 @@
 [![Build Status][Travis badge]][Travis link]
 
 An open space to experiment with [PML]  (Practical Markup Language).
-Created by [Tristano Ajmone] in April 2021.
+Created by [Tristano Ajmone] in April 2021; maintained by [Christian Neumanns], [Liam OBrien] and [Tristano Ajmone].
+
+- https://github.com/tajmone/pml-playground
 
 -----
 
@@ -27,7 +29,7 @@ Created by [Tristano Ajmone] in April 2021.
 
 # About
 
-This repository is playground and testbed for experiment with [PML]  (Practical Markup Language), a new [lightweight markup language] created by [Christian Neumanns].
+This repository is playground and testbed for experimenting with [PML]  (Practical Markup Language), a new [lightweight markup language] created by [Christian Neumanns].
 
 The project is open to all PML pioneers who are willing to experiment with this wonderful newborn language and documentation system — the lucky few who will have the chance to shape PML's future, by exploring its potential and proposing new features while the language is still growing.
 
@@ -100,6 +102,7 @@ Articles by [Christian Neumanns]:
 <!-- people -->
 
 [Christian Neumanns]: https://github.com/pml-lang "View Christian Neumanns's GitHub profile"
+[Liam OBrien]: https://github.com/celtic-coder "View Liam OBrien's GitHub profile"
 [Tristano Ajmone]: https://github.com/tajmone "View Tristano Ajmone's GitHub profile"
 
 <!-- EOF -->

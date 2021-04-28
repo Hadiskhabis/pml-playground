@@ -12,12 +12,6 @@ ___*.*
 *.lnk
 *.url
 
-## Apps Local Settings & Temp Files
-###################################
-
-# Chrome's debug logs for local HTML pages:
-debug.log
-
 #########################
 ## USER-SPECIFIC FILES ##
 #########################
@@ -34,10 +28,6 @@ debug.log
 
 # Chrome's debug logs for local HTML pages:
 debug.log
-
-############################
-## COMMON IGNORE PATTERNS ##
-############################
 
 ## Linux
 ########

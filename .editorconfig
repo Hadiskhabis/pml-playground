@@ -42,6 +42,17 @@ trim_trailing_whitespace = true
 insert_final_newline = true
 
 
+## Batch Scripts
+################
+[*.{bat,cmd}]
+indent_style = tab
+indent_size = unset
+end_of_line = crlf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+
 ## Markdown GFM
 ###############
 [*.md]

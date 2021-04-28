@@ -5,12 +5,9 @@
 
 * text=auto
 
-*.sublime-*   text
-
 ## Repository Configuration
 ###########################
 .editorconfig    text eol=lf
-.gitlab-ci.yml   text eol=lf
 .travis.yml      text eol=lf
 .gitattributes   text eol=lf
 .gitconfig       text eol=lf
@@ -19,7 +16,7 @@
 
 ## Documentation Files
 ######################
-*.pml     text
+*.pml     text linguist-language=PML
 *.md      text
 *.txt     text
 LICENSE   text
@@ -27,6 +24,5 @@ LICENSE   text
 ## Scripts
 ##########
 *.sh   text eol=lf
-*.py   text
 
 # EOF #

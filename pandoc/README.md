@@ -2,7 +2,8 @@
 
 Resources for exchanging contents between [pmlc] and [pandoc]  (see: [pml-lang/converter#26]).
 
-- [`filters-lua/`][filters-lua/] — [Pandoc Lua Filters].
+- [`filters-lua/`][filters-lua/] — [Pandoc Lua Filters]:
+    + [`pml-writer/`][pml-writer/] — pandoc to PML converter (WIP).
 
 
 -------------------------------------------------------------------------------
@@ -30,6 +31,7 @@ Resources for exchanging contents between [pmlc] and [pandoc]  (see: [pml-lang/c
 <!-- project files & folders -->
 
 [filters-lua/]: ./filters-lua/ "Navigate to folder: pandoc Lua filters"
+[pml-writer/]: ./filters-lua/pml-writer/ "Navigate to folder: pandoc PML writer"
 
 <!-- Issues/Discussions -->
 

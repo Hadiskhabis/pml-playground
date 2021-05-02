@@ -2,6 +2,8 @@
 
 Exploring the use of [pandoc Lua filters] for converting from PML to pandoc (via HTML as an intermediate format) and to create a [custom writer] for the PML syntax.
 
+- [`pml-writer/`][pml-writer/] — pandoc to PML converter (WIP).
+
 -----
 
 **Table of Contents**
@@ -88,7 +90,7 @@ Pandoc v2.x includes a Lua 5.3 interpreter and library built into the pandoc exe
 
 [lightweight markup languages]: https://en.wikipedia.org/wiki/Lightweight_markup_language "Wikipedia » Lightweight markup language"
 
-<!-- panodc -->
+<!-- pandoc -->
 
 [pandoc]: https://pandoc.org "Visit pandoc website"
 [pandoc.org]: https://pandoc.org "Visit pandoc website"
@@ -142,5 +144,8 @@ Pandoc v2.x includes a Lua 5.3 interpreter and library built into the pandoc exe
 
 [pml-lang/converter#26]: https://github.com/pml-lang/converter/discussions/26 "See Discussion #26 at pml-lang — Pandoc to PML Coverter Filter"
 
+<!-- project files & folders -->
+
+[pml-writer/]: ./pml-writer/ "Navigate to folder: pandoc PML writer"
 
 <!-- EOF -->

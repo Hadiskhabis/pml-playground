@@ -16,13 +16,17 @@
 
 ## Documentation Files
 ######################
-*.pml     text linguist-language=PML
-*.md      text
-*.txt     text
-LICENSE   text
+*.markdown   text
+*.md         text
+*.pml        text linguist-language=PML
+*.txt        text
+LICENSE      text
 
 ## Scripts
 ##########
-*.sh   text eol=lf
+*.sh    text eol=lf
+*.bat   text eol=crlf
+*.com   text eol=crlf
+*.lua   text
 
 # EOF #

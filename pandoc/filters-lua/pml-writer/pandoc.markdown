@@ -3,6 +3,7 @@ title: 'Sample Document: Pandoc markdown'
 author:
 - Author One
 - Author Two
+date: 2021-05-03
 ...
 
 # Section One

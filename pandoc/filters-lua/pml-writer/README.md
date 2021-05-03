@@ -33,7 +33,8 @@ An attempt to implement a PML [custom pandoc writer] via Lua filters.
 
 # Project Status
 
-> **WARNING** — Currently [`pml-writer.lua`][pml-writer.lua] is just a copy of [`sample.lua`][sample.lua], the sample HTML writer that ships with pandoc, and [`default.pml.lua`][default.pml.lua] is just a copy of the default pandoc HTML template.
+> **WARNING** — The [`pml-writer.lua`][pml-writer.lua] file is being developed on a copy of [`sample.lua`][sample.lua], the sample HTML writer that ships with pandoc, so most of its functions still emit HTML output.
+> The PML template [`default.pml.lua`][default.pml.lua] is still pretty much in a draft state.
 
 Since PML is structurally similar to an HTML document, we'll be using the sample HTML writer that ships with pandoc as the foundation for our custom PML writer.
 In many cases, it should be sufficient to simply replace the HTML tags in output string with PML notes, so we could start working on these.

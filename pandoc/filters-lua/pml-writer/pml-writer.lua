@@ -1,13 +1,15 @@
+-- "pml-writer.lua" v0.0.1 | 2021/05/03                | PML 1.4.0 | pandoc 2.13
 -- =============================================================================
--- ** WARNING ** This is just a verbatim copy of the sample writer that ships
---               with pandoc; generated via:
+-- ** WARNING ** This PML writer is being built on top of the sample writer that
+--               ships with pandoc; generated via:
 --
 --    pandoc --print-default-data-file sample.lua > pml-writer.lua
 --
 -- Since it emulates pandoc's HTML writer it will be used as a starting point
 -- to build our PML writer on top of with. PML is structurally similar to HTML,
 -- so most AST nodes can easily be adapted by changing the generated HTML tags
--- to PML nodes.
+-- to PML nodes. In any case, bear in mind that most functions are still left
+-- untouched, as they were in the original codebase.
 -- =============================================================================
 
 -- This is a sample custom writer for pandoc.  It produces output
@@ -48,6 +50,7 @@ local image_mime_type = ({
   or error("unsupported image format `" .. image_format .. "`")
 
 -- Character escaping
+-- @TODO: Adapt to PML escaping rules!
 local function escape(s, in_attribute)
   return s:gsub("[<>&\"']",
     function(x)
@@ -221,7 +224,8 @@ function Plain(s)
 end
 
 function Para(s)
-  return "<p>" .. s .. "</p>"
+  -- return "<p>" .. s .. "</p>"
+  return s
 end
 
 -- lev is an integer, the header level.

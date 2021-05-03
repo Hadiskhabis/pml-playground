@@ -38,6 +38,15 @@
         }
       ]
     },
+    "date": {
+      "t": "MetaInlines",
+      "c": [
+        {
+          "t": "Str",
+          "c": "2021-05-03"
+        }
+      ]
+    },
     "title": {
       "t": "MetaInlines",
       "c": [

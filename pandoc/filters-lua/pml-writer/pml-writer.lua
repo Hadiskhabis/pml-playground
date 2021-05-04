@@ -1,4 +1,5 @@
 -- "pml-writer.lua" v0.0.1 | 2021/05/03                | PML 1.4.0 | pandoc 2.13
+-- "pml-writer.lua" v0.0.1 | 2021/05/03                | PML 1.4.0 | pandoc 2.13
 -- =============================================================================
 -- ** WARNING ** This PML writer is being built on top of the sample writer that
 --               ships with pandoc; generated via:
@@ -10,22 +11,20 @@
 -- so most AST nodes can easily be adapted by changing the generated HTML tags
 -- to PML nodes. In any case, bear in mind that most functions are still left
 -- untouched, as they were in the original codebase.
+--
+-- Invoke with: pandoc -t pml-writer.lua
 -- =============================================================================
 
--- This is a sample custom writer for pandoc.  It produces output
--- that is very similar to that of pandoc's HTML writer.
--- There is one new feature: code blocks marked with class 'dot'
--- are piped through graphviz and images are included in the HTML
--- output using 'data:' URLs. The image format can be controlled
--- via the `image_format` metadata field.
---
--- Invoke with: pandoc -t sample.lua
---
--- Note:  you need not have lua installed on your system to use this
--- custom writer.  However, if you do have lua installed, you can
--- use it to test changes to the script.  'lua sample.lua' will
--- produce informative error messages if your code contains
--- syntax errors.
+-- This is a sample custom writer for pandoc.  It produces output that is very
+-- similar to that of pandoc's HTML writer. There is one new feature: code
+-- blocks marked with class 'dot'are piped through graphviz and images are
+-- included in the HTML output using 'data:' URLs. The image format can be
+-- controlled via the `image_format` metadata field.
+
+-- Note:  you need not have lua installed on your system to use this custom
+-- writer.  However, if you do have lua installed, you can use it to test
+-- changes to the script.  'lua pml-writer.lua' will produce informative error
+-- messages if your code contains syntax errors.
 
 local pipe = pandoc.pipe
 local stringify = (require "pandoc.utils").stringify
@@ -111,6 +110,8 @@ function Doc(body, metadata, variables)
   return table.concat(buffer,'\n') .. '\n'
 end
 
+-- PANDOC ELEMENTS
+-- ===============
 -- The functions that follow render corresponding pandoc elements.
 -- s is always a string, attr is always a table of attributes, and
 -- items is always an array of strings (the items in a list).
@@ -133,11 +134,12 @@ function LineBreak()
 end
 
 function Emph(s)
-  return "<em>" .. s .. "</em>"
+  return "[i " .. s .. "]"
 end
 
 function Strong(s)
-  return "<strong>" .. s .. "</strong>"
+  -- return "<strong>" .. s .. "</strong>"
+  return "[b " .. s .. "]"
 end
 
 function Subscript(s)
@@ -167,7 +169,8 @@ function Image(s, src, tit, attr)
 end
 
 function Code(s, attr)
-  return "<code" .. attributes(attr) .. ">" .. escape(s) .. "</code>"
+  -- return "<code" .. attributes(attr) .. ">" .. escape(s) .. "</code>"
+  return "[c " .. s .. "]"
 end
 
 function InlineMath(s)
@@ -234,7 +237,8 @@ function Header(lev, s, attr)
 end
 
 function BlockQuote(s)
-  return "<blockquote>\n" .. s .. "\n</blockquote>"
+  -- return "<blockquote>\n" .. s .. "\n</blockquote>"
+  return "[quote\n" .. s .. "\n]"
 end
 
 function HorizontalRule()
@@ -363,6 +367,8 @@ function Div(s, attr)
   return "<div" .. attributes(attr) .. ">\n" .. s .. "</div>"
 end
 
+-- RUNTIME WARNINGS
+-- ================
 -- The following code will produce runtime warnings when you haven't defined
 -- all of the functions you need for the custom writer, so it's useful
 -- to include when you're working on a writer.

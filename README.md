@@ -25,8 +25,8 @@ Created by [Tristano Ajmone] in April 2021; maintained by [Christian Neumanns], 
 
 # Repository Contents
 
-- [`pandoc/`][pandoc/] — PML &hArr; pandoc assets.
-- [`pml-samples/`][pml-samples/] — shared PML sample documents and chunks.
+- [`/pandoc/`][pandoc/] — PML &hArr; pandoc assets.
+- [`/pml-samples/`][pml-samples/] — shared PML sample documents and chunks.
 
 # About
 

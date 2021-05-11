@@ -22,8 +22,10 @@ A collection of shared PML example documents and chunks to be used in this proje
 
 # Directory Contents
 
-- [`chunks/`][chunks/] — PML snippets.
-- [`standalone/`][standalone/] — PML documents without `[insert` nodes.
+- [`/chunks/`][chunks/] — PML snippets.
+- [`/standalone/`][standalone/] — PML documents without `[insert` nodes.
+- [`build.sh`][build.sh] — builds all sample docs.
+- `*.pml` — Chunked PML sample documents.
 
 
 # About The Samples
@@ -135,5 +137,7 @@ Want some thematic random text?
 
 [chunks/]: ./chunks/ "Navigate to folder"
 [standalone/]: ./standalone/ "Navigate to folder"
+
+[build.sh]: ./build.sh "View source script"
 
 <!-- EOF -->

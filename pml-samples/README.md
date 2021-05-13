@@ -13,6 +13,7 @@ A collection of shared PML example documents and chunks to be used in this proje
     - [Samples Maintenance](#samples-maintenance)
     - [Samples Types](#samples-types)
 - [Useful Links](#useful-links)
+    - [RTL Languages](#rtl-languages)
     - [Image Placeholders](#image-placeholders)
     - [Text Fillers](#text-fillers)
 
@@ -56,6 +57,24 @@ Again, the whole idea rests on the DRY principle: it's better to store often reu
 -------------------------------------------------------------------------------
 
 # Useful Links
+
+## RTL Languages
+
+References:
+
+- Wikipedia:
+    + [Bidirectional text][WP RTL mark]
+    + [Right-to-left mark][WP LTR mark]
+    + [Left-to-right mark][WP BiDi text]
+    + [Arabic letter mark][WP ALM]
+
+Articles and tutorials:
+
+- [W3C » Authoring HTML: Handling Right-to-left Scripts]
+- [W3C » Structural markup and right-to-left text in HTML]
+- _[Introduction to typing and using RTL text, and configuring software applications to support RTL]_ — with Hebrew examples, by Dotan Cohen.
+- _[RTL Styling 101]_ — Arabic-oriented guide on how to style for RTL in CSS, By Ahmad Shadeed.
+
 
 ## Image Placeholders
 
@@ -110,6 +129,20 @@ Want some thematic random text?
 <!-----------------------------------------------------------------------------
                                REFERENCE LINKS
 ------------------------------------------------------------------------------>
+
+<!-- BiDi RTL/LTR -->
+
+[WP ALM]: https://en.wikipedia.org/wiki/Arabic_letter_mark
+[WP BiDi text]: https://en.wikipedia.org/wiki/Bidirectional_text
+[WP LTR mark]: https://en.wikipedia.org/wiki/Left-to-right_mark
+[WP RTL mark]: https://en.wikipedia.org/wiki/Right-to-left_mark
+
+[W3C » Authoring HTML: Handling Right-to-left Scripts]: https://www.w3.org/TR/i18n-html-tech-bidi/
+[W3C » Structural markup and right-to-left text in HTML]: https://www.w3.org/International/questions/qa-html-dir
+
+[Introduction to typing and using RTL text, and configuring software applications to support RTL]: https://www.dotancohen.com/howto/rtl_right_to_left.html "Read on-line article by Dotan Cohen"
+[RTL Styling 101]: https://rtlstyling.com/posts/rtl-styling/ "Read on-line article by Ahmad Shadeed"
+
 
 <!-- img placeholders -->
 

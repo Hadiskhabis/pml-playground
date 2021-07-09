@@ -2,9 +2,11 @@
      authors = Tristano Ajmone \
      date = 2021-07-09
 
+  [const PML_Ver = "1.5.0"]
+
   [ch title = Basic Formatting
 
-    PML supports text formatting in [b bold ], [i italic ], etc.
+    PML <<PML_Ver>> supports text formatting in [b bold ], [i italic ], etc.
 
     You also include comments [- like this one -] in your source documents,
     to annotate your pending tasks without affecting the final document.

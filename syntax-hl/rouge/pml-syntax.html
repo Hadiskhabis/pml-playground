@@ -454,6 +454,12 @@ pre.rouge .cm {
 pre.rouge .se {
   color: #b180ed;
 }
+pre.rouge .p, pre.rouge .pi {
+  color: #ffae2b;
+}
+pre.rouge .no {
+  color: #ffff00;
+}
 pre.rouge .err {
   color: #ffffff;
   background-color: #ff0000;
@@ -472,6 +478,7 @@ pre.rouge .err {
 <ul class="sectlevel1">
 <li><a href="#comments">Comments</a></li>
 <li><a href="#escapes">Escapes</a></li>
+<li><a href="#constant_parameter">Constant Parameter</a></li>
 </ul>
 </div>
 </div>
@@ -579,6 +586,72 @@ are achieved by preceding with a <code>\</code> the reserved characters <code>[<
 
 </span>Instead<span class="w"> </span>of<span class="w"> </span>writing<span class="w"> </span><span class="se">\[</span>,<span class="w"> </span>we<span class="w"> </span>have<span class="w"> </span>to<span class="w"> </span>write<span class="w"> </span><span class="se">\\\[</span></code></pre>
 </div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="constant_parameter"><a class="anchor" href="#constant_parameter"></a>Constant Parameter</h2>
+<div class="sectionbody">
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Lexer class 
+</td>
+<td class="hdlist2">
+<p><code>Name::Constant</code></p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+CSS class   
+</td>
+<td class="hdlist2">
+<p><code>no</code></p>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><a href="https://www.pml-lang.dev/docs/reference_manual/index.html#node_const" title="PML Reference Manual » Constant Parameter" target="_blank" rel="noopener">Constant parameters</a>
+are a powerful substitution mechanism.</p>
+</div>
+<div class="listingblock">
+<div class="title">Parameters Example</div>
+<div class="content">
+<pre class="rouge highlight" lang="pml"><code class="language-pml" data-lang="pml">[const<span class="w"> </span>examples_root<span class="w"> </span>=<span class="w"> </span>http://www.example.com/project/source_code/examples]<span class="w">
+
+</span>Here<span class="w"> </span>are<span class="w"> </span>two<span class="w"> </span>examples:<span class="w">
+
+</span>[link<span class="w"> </span>url=<span class="p">&lt;&lt;</span><span class="no">examples_root</span><span class="p">&gt;&gt;</span>/ex1.html<span class="w"> </span>text=example<span class="w"> </span>1]<span class="w">
+
+</span>[link<span class="w"> </span>url=<span class="p">&lt;&lt;</span><span class="no">examples_root</span><span class="p">&gt;&gt;</span>/ex2.html<span class="w"> </span>text=example<span class="w"> </span>2].</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Custom IDs definitions in PML are limited to the RegEx pattern <code>[a-zA-Z][a-zA-Z0-9_]*</code>, and the Rouge lexer will mark as <code>Error</code> any references to invalid parameter IDs:</p>
+</div>
+<div class="listingblock">
+<div class="title">Invalid Parameter ID Example</div>
+<div class="content">
+<pre class="rouge highlight" lang="pml"><code class="language-pml" data-lang="pml">[const<span class="w"> </span>invalid.param.id<span class="w"> </span>=<span class="w"> </span>something]<span class="w">
+
+</span>Let<span class="w"> </span>me<span class="w"> </span>tell<span class="w"> </span>you<span class="w"> </span><span class="p">&lt;&lt;</span><span class="err">invalid.param.id</span><span class="p">&gt;&gt;</span></code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>In the future PML will allow custom IDs to be names as in the XML standard.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>

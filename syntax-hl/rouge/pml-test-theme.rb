@@ -32,6 +32,8 @@ module Rouge
       style Comment,
             Comment::Multiline,       :fg => :brown, :italic => true
       style Str::Escape,              :fg => :purple
+      style Punctuation,              :fg => :orange
+      style Name::Constant,           :fg => :yellow
       style Error,                    :fg => :white, :bg => :red
 
     end

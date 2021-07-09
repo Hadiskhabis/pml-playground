@@ -21,6 +21,13 @@ module Rouge
       filenames '*.pml'
       mimetypes 'text/x-pml', 'application/x-pml'
 
+
+      ## Reusable Variables
+      #####################
+      custom_id = '[a-zA-Z][a-zA-Z0-9_]*' # Will change in the future!
+      pml_token = '[a-z][a-z_]*'          # PML tags & attributes.
+
+
       state :whitespace do
         rule %r/\s+/, Text::Whitespace
       end
@@ -29,13 +36,24 @@ module Rouge
         rule %r/(?<!\\)\[-/, Comment::Multiline, :block_comment
       end
 
+      ## Escape Sequences
+      ###################
+      state :escape do
+        rule %r/\\[\[\]=\\]/, Str::Escape
+      end
+
+      ## Constant Parameter
+      #####################
+      state :parameter do
+        rule %r/<<(?=#{custom_id}>>)/, Punctuation, :param_inside
+        rule %r/<<(?=.*?>>)/, Punctuation, :param_invalid
+      end
+
       state :root do
         mixin :whitespace
+        mixin :escape
         mixin :comment
-
-        ## Escape Sequences
-        ###################
-        rule %r/\\[\[\]=\\]/, Str::Escape
+        mixin :parameter
 
         ## Normal Text
         ##############
@@ -49,6 +67,15 @@ module Rouge
         rule %r/./, Comment::Multiline
       end
 
+      state :param_inside do
+        rule %r/>>/, Punctuation, :pop!
+        rule %r/#{custom_id}/, Name::Constant
+      end
+
+      state :param_invalid do
+        rule %r/>>/, Punctuation, :pop!
+        rule %r/[^>]/, Error
+      end
     end # class
   end
 end

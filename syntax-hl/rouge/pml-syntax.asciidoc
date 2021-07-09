@@ -80,4 +80,40 @@ Instead of writing \[, we have to write \\\[
 ---------------------------------------
 
 
+== Constant Parameter
+
+[horizontal]
+Lexer class :: `Name::Constant`
+CSS class   :: `no`
+
+link:{manURL}node_const[Constant parameters^,title="{manRef} Constant Parameter"]
+are a powerful substitution mechanism.
+
+.Parameters Example
+[source,pml]
+---------------------------------------
+[const examples_root = http://www.example.com/project/source_code/examples]
+
+Here are two examples:
+
+[link url=<<examples_root>>/ex1.html text=example 1]
+
+[link url=<<examples_root>>/ex2.html text=example 2].
+---------------------------------------
+
+Custom IDs definitions in PML are limited to the RegEx pattern ``[a-zA-Z][a-zA-Z0-9_]*``, and the Rouge lexer will mark as `Error` any references to invalid parameter IDs:
+
+.Invalid Parameter ID Example
+[source,pml]
+---------------------------------------
+[const invalid.param.id = something]
+
+Let me tell you <<invalid.param.id>>
+---------------------------------------
+
+[NOTE]
+===========
+In the future PML will allow custom IDs to be names as in the XML standard.
+===========
+
 // EOF //

@@ -40,6 +40,8 @@ $PML-Background:   $GOGH_BG !default;
 $PML-Normal-Text:  $GOGH_16 !default;
 $PML-Comments: adjust-color($GOGH_BG, $lightness: +30%) !default;
 $PML-Escapes:      $GOGH_14 !default;
+$PML-Punctuation:  $GOGH_10 !default;
+$PML-Parameter:    $GOGH_12 !default;
 
 // -----------------------------------------------------------------------------
 // Optional Language Settings
@@ -84,6 +86,16 @@ $ref_role: null;
         // Escape sequences -> Str::Escape
         // ----------------
         color: $PML-Escapes;
+      }
+      &.p {
+        // Punctuation -> Punctuation
+        // -----------
+        color: $PML-Punctuation;
+      }
+      &.no {
+        // Constant Parameter -> Name::Constant
+        // ------------------
+        color: $PML-Parameter;
       }
     }
   }

@@ -33,6 +33,10 @@ module Rouge
         mixin :whitespace
         mixin :comment
 
+        ## Escape Sequences
+        ###################
+        rule %r/\\[\[\]=\\]/, Str::Escape
+
         ## Normal Text
         ##############
         rule %r/./, Text # Anything else is just normal text...

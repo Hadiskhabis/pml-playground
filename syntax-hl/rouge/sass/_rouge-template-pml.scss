@@ -39,6 +39,7 @@ $PML-Border-Color: black !default;
 $PML-Background:   $GOGH_BG !default;
 $PML-Normal-Text:  $GOGH_16 !default;
 $PML-Comments: adjust-color($GOGH_BG, $lightness: +30%) !default;
+$PML-Escapes:      $GOGH_14 !default;
 
 // -----------------------------------------------------------------------------
 // Optional Language Settings
@@ -78,6 +79,11 @@ $ref_role: null;
         // --------------
         color: $PML-Comments;
         font-style: italic;
+      }
+      &.se {
+        // Escape sequences -> Str::Escape
+        // ----------------
+        color: $PML-Escapes;
       }
     }
   }

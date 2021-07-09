@@ -451,6 +451,9 @@ pre.rouge .cm {
   color: #c19a6b;
   font-style: italic;
 }
+pre.rouge .se {
+  color: #b180ed;
+}
 pre.rouge .err {
   color: #ffffff;
   background-color: #ff0000;
@@ -468,6 +471,7 @@ pre.rouge .err {
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
 <li><a href="#comments">Comments</a></li>
+<li><a href="#escapes">Escapes</a></li>
 </ul>
 </div>
 </div>
@@ -535,6 +539,45 @@ The node has no attributes, and any PML nodes (other than further comment blocks
 </span>normal<span class="w"> </span>text<span class="w"> </span><span class="cm">[-[--] comment</span>
 <span class="cm">still a comment</span>
 <span class="cm">because the outer comment was never closed!</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="escapes"><a class="anchor" href="#escapes"></a>Escapes</h2>
+<div class="sectionbody">
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Lexer class 
+</td>
+<td class="hdlist2">
+<p><code>Literal::String::Escape</code> (short: <code>Str::Escape</code>)</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+CSS class   
+</td>
+<td class="hdlist2">
+<p><code>se</code></p>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><a href="https://www.pml-lang.dev/docs/user_manual/index.html#ch__10" title="PML User Manual » Escaping Reserved Characters" target="_blank" rel="noopener">PML escape sequences</a>
+are achieved by preceding with a <code>\</code> the reserved characters <code>[</code>,  <code>]</code>,  <code>=</code> and  <code>\</code>, or a <code>&#34;</code> inside double-quoted strings.</p>
+</div>
+<div class="listingblock">
+<div class="title">Escapes Example</div>
+<div class="content">
+<pre class="rouge highlight" lang="pml"><code class="language-pml" data-lang="pml">File<span class="w"> </span>path<span class="w"> </span><span class="se">\=</span><span class="w"> </span>C:<span class="se">\\</span>tests<span class="se">\\</span>example.txt<span class="w">
+
+</span>Instead<span class="w"> </span>of<span class="w"> </span>writing<span class="w"> </span><span class="se">\\</span>,<span class="w"> </span>we<span class="w"> </span>have<span class="w"> </span>to<span class="w"> </span>write<span class="w"> </span><span class="se">\\\\</span><span class="w">
+
+</span>Instead<span class="w"> </span>of<span class="w"> </span>writing<span class="w"> </span><span class="se">\[</span>,<span class="w"> </span>we<span class="w"> </span>have<span class="w"> </span>to<span class="w"> </span>write<span class="w"> </span><span class="se">\\\[</span></code></pre>
 </div>
 </div>
 </div>

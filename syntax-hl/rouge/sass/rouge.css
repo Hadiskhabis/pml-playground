@@ -41,5 +41,8 @@ span.green {
   color: #547a9e;
   font-style: italic;
 }
+.listingblock pre[class~=rouge][lang=pml] > code > span.se {
+  color: #9B59B6;
+}
 
 /*# sourceMappingURL=rouge.css.map */

@@ -19,6 +19,9 @@ Custom PML lexer for [Rouge], plus [Asciidoctor] assets and [Sass]/CSS themes fo
 - [Acknowledgements](#acknowledgements)
 - [Credits](#credits)
     - [Gogh Flat](#gogh-flat)
+- [Links](#links)
+    - [Rouge](#rouge)
+    - [Asciidoctor](#asciidoctor)
 
 <!-- /MarkdownTOC -->
 
@@ -96,6 +99,31 @@ DEALINGS IN THE SOFTWARE.
 ```
 
 
+-------------------------------------------------------------------------------
+
+# Links
+
+## Rouge
+
+- [Rouge website][Rouge]
+- [Rouge repository]
+- [Rouge Tokens List]
+- [Rouge Wiki]
+- [Rouge documentation]
+- [Redcarpet]
+
+## Asciidoctor
+
+- [Asciidoctor website][Asciidoctor]
+- [Asciidoctor repository]:
+    + [`rouge.rb`][rouge.rb] — Asciidoctor's native API for Rouge.
+    + [asciidoctor#4080] — Rouge Highlighter: Add 'rouge-require' Option for Custom Lexers and Themes
+- [Asciidoctor Documentation]:
+    + [Syntax Highlighting][AsciiDr Syntax Highlighting]:
+        * [Rouge][AsciiDr Rouge]
+        * [Custom Syntax Highlighter Adapter]
+
+
 <!-----------------------------------------------------------------------------
                                REFERENCE LINKS
 ------------------------------------------------------------------------------>
@@ -116,14 +144,26 @@ DEALINGS IN THE SOFTWARE.
 [Rouge documentation]: https://rouge-ruby.github.io/docs/ "Rouge online documentation"
 [Rouge Wiki]: https://github.com/rouge-ruby/rouge/wiki "Rouge Wiki on GitHub"
 
-[List of tokens]: https://github.com/rouge-ruby/rouge/wiki/List-of-tokens "Rouge Wiki » List of tokens"
+[Rouge Tokens List]: https://htmlpreview.github.io/?https://github.com/alan-if/Alan-Testbed/blob/master/syntax-hl/Rouge/themes/Rouge-Tokens.html "List of Rouge tokens and their CSS classes"
 
 [cli.rb]: https://github.com/rouge-ruby/rouge/blob/master/lib/rouge/cli.rb#L235 "View source file at Rouge repository"
 
 <!-- Asciidoctor -->
 
 [Asciidoctor]: https://asciidoctor.org "Asciidoctor website"
+[Asciidoctor repository]: https://github.com/asciidoctor/asciidoctor "Asciidoctor repository on GitHub"
+[rouge.rb]: https://github.com/asciidoctor/asciidoctor/blob/master/lib/asciidoctor/syntax_highlighter/rouge.rb
+
+[Asciidoctor Documentation]: https://docs.asciidoctor.org/asciidoctor/latest/
 [docinfo file]: https://docs.asciidoctor.org/asciidoctor/latest/docinfo/ "Asciidoctor Manual » Docinfo Files"
+[AsciiDr Syntax Highlighting]: https://docs.asciidoctor.org/asciidoctor/latest/syntax-highlighting/
+[AsciiDr Rouge]: https://docs.asciidoctor.org/asciidoctor/latest/syntax-highlighting/rouge/
+[Custom Syntax Highlighter Adapter]: https://docs.asciidoctor.org/asciidoctor/latest/syntax-highlighting/custom/
+
+<!-- 3rd Party tools -->
+
+[asciidoctor-pdf]: https://github.com/asciidoctor/asciidoctor-pdf "asciidoctor-pdf repository on GitHub"
+[Redcarpet]: https://github.com/vmg/redcarpet "Redcarpet repository on GitHub"
 
 <!-- badges -->
 

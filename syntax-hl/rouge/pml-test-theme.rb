@@ -31,6 +31,7 @@ module Rouge
       style Text,                     :fg => :white, :bg => :black
       style Comment,
             Comment::Multiline,       :fg => :brown, :italic => true
+      style Str::Escape,              :fg => :purple
       style Error,                    :fg => :white, :bg => :red
 
     end

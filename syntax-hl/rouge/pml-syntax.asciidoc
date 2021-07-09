@@ -19,6 +19,8 @@ For better visual inspection, we'll be using a custom Rouge theme here, designed
 // CUSTOM ATTRIBUTES:
 :manURL: https://www.pml-lang.dev/docs/reference_manual/index.html#
 :manRef: PML Reference Manual »
+:guideURL: https://www.pml-lang.dev/docs/user_manual/index.html#
+:guideRef: PML User Manual »
 
 == Comments
 
@@ -54,5 +56,28 @@ normal text [-[--] comment
 still a comment
 because the outer comment was never closed!
 ---------------------------------------
+
+
+== Escapes
+
+[horizontal]
+Lexer class :: `Literal::String::Escape` (short: `Str::Escape`)
+CSS class   :: `se`
+
+
+link:{guideURL}ch__10[PML escape sequences^,title="{guideRef} Escaping Reserved Characters"]
+are achieved by preceding with a ``\`` the reserved characters ``[``,  ``]``,  ``=`` and  ``\``, or a ``{quot}`` inside double-quoted strings.
+
+
+.Escapes Example
+[source,pml]
+---------------------------------------
+File path \= C:\\tests\\example.txt
+
+Instead of writing \\, we have to write \\\\
+
+Instead of writing \[, we have to write \\\[
+---------------------------------------
+
 
 // EOF //

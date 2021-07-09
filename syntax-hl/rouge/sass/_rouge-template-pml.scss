@@ -1,0 +1,86 @@
+// "_rouge-template-pml.scss"           v0.0.1 | 2021/07/09 | by Tristano Ajmone
+// *****************************************************************************
+// *                                                                           *
+// *                 Rouge PML Theme Template for Asciidoctor                  *
+// *                                                                           *
+// *****************************************************************************
+// A reusable variables-based '@import' template to quickly define Rouge themes
+// for PML code in Asciidoctor. It can create both generic themes as well as
+// themes targetting a specific role/class, via the $PML-Role variable.
+
+// ---------------------
+// Default Colour Scheme
+// ---------------------
+// Only used if the template vars are not being over-ridden.
+
+@import 'gogh-flat'; // Gogh Flat Colour Scheme
+
+// =============================================================================
+// Default Values
+// =============================================================================
+// Let's define some defaults for the template variables, so users don't have to
+// define every single variable.
+
+
+// ------------------
+// Template Variables
+// ------------------
+
+// Code Block Vars:
+$PML-Border-radius: 4px !default;
+$PML-Border-width:  1px !default;
+$PML-Font-family: inherit !default;
+$PML-Font-size:   inherit !default;
+
+$PML-Hover: $GOGH_08 !default; // Lang name shown when hovering over code block
+$PML-Border-Color: black !default;
+
+// Syntax Theme:
+$PML-Background:   $GOGH_BG !default;
+$PML-Normal-Text:  $GOGH_16 !default;
+$PML-Comments: adjust-color($GOGH_BG, $lightness: +30%) !default;
+
+// -----------------------------------------------------------------------------
+// Optional Language Settings
+// -----------------------------------------------------------------------------
+// If $PML-Role is set, the output theme will target that language, otherwise it
+// will be a generic theme for Highlight.
+
+$PML-Role: null    !default;
+$ref_role: null;
+
+@if $PML-Role != null {
+  $ref_role:  ".#{$PML-Role}"   !global;
+}
+
+// =============================================================================
+// Theme Definition
+// =============================================================================
+
+// Language name shown when hovering:
+.listingblock#{$ref_role} code[data-lang=pml]::before{
+  color: $PML-Hover;
+}
+// Highlight Theme:
+.listingblock#{$ref_role} pre[class~=rouge][lang=pml] {
+  background-color: $PML-Background;
+  border-radius: $PML-Border-radius;
+  border: $PML-Border-width solid $PML-Border-Color;
+  &>code {
+    color: $PML-Normal-Text;
+    font-family: $PML-Font-family;
+    font-size: $PML-Font-size;
+    &>span {
+      font-style: normal;
+      font-weight: normal;
+      &.cm {
+        // Block comments -> Comment::Multiline
+        // --------------
+        color: $PML-Comments;
+        font-style: italic;
+      }
+    }
+  }
+}
+
+// EOF //

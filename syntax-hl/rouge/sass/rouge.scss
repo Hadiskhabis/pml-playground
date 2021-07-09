@@ -1,0 +1,24 @@
+// "rouge.scss"                                | 2021/07/09 | by Tristano Ajmone
+// *****************************************************************************
+// *                                                                           *
+// *                   Custom CSS for Alan-Docs using Rouge                    *
+// *                                                                           *
+// *****************************************************************************
+
+@import 'mixins';        // Custom helpers.
+@import 'color-scheme';  // Defines required colors.
+@import 'common';        // Styles common to all documents.
+
+// =============================================================================
+//                             Syntax Highlighting
+// =============================================================================
+
+// -----------------------------------------------------------------------------
+/* Rouge Theme for PML */
+// -----------------------------------------------------------------------------
+// The imported template will generate the default PML theme using the colour
+// scheme defined in "_gogh-flat.scss".
+
+@import 'rouge-template-pml'; // Reusable template for PML themes.
+
+// EOF //

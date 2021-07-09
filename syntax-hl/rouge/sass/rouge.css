@@ -1,0 +1,45 @@
+/* Shell/CMD */
+div.literalblock.shell pre {
+  background-color: #0C0C0C;
+  color: #F2F2F2;
+}
+div.literalblock.shell pre .conum {
+  background: #FFF945 !important;
+  color: #0C0C0C !important;
+}
+
+/* Commentary Blocks */
+div.openblock.commentary {
+  padding-left: 6em;
+}
+
+/* Inline Highlighting */
+span.green {
+  background-color: #A3FF8A;
+}
+
+/* Rouge Theme for PML */
+.listingblock code[data-lang=pml]::before {
+  color: #BDC3C7;
+}
+
+.listingblock pre[class~=rouge][lang=pml] {
+  background-color: #1F2D3A;
+  border-radius: 4px;
+  border: 1px solid black;
+}
+.listingblock pre[class~=rouge][lang=pml] > code {
+  color: #ECF0F1;
+  font-family: inherit;
+  font-size: inherit;
+}
+.listingblock pre[class~=rouge][lang=pml] > code > span {
+  font-style: normal;
+  font-weight: normal;
+}
+.listingblock pre[class~=rouge][lang=pml] > code > span.cm {
+  color: #547a9e;
+  font-style: italic;
+}
+
+/*# sourceMappingURL=rouge.css.map */

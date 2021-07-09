@@ -4,8 +4,9 @@
 [![PML Version][PML badge]][Get PML]&nbsp;
 [![Rouge Version][Rouge badge]][Rouge]&nbsp;
 [![Asciidoctor Version][Asciidoctor badge]][Asciidoctor]&nbsp;
+[![Sass Version][Sass badge]][Dart Sass]&nbsp;
 
-Custom PML lexer for [Rouge], plus [Asciidoctor] assets and Sass/CSS themes for the HTML backend.
+Custom PML lexer for [Rouge], plus [Asciidoctor] assets and [Sass]/CSS themes for the HTML backend.
 
 
 -----
@@ -16,6 +17,8 @@ Custom PML lexer for [Rouge], plus [Asciidoctor] assets and Sass/CSS themes for 
 
 - [Directory Contents](#directory-contents)
 - [Acknowledgements](#acknowledgements)
+- [Credits](#credits)
+    - [Gogh Flat](#gogh-flat)
 
 <!-- /MarkdownTOC -->
 
@@ -23,6 +26,7 @@ Custom PML lexer for [Rouge], plus [Asciidoctor] assets and Sass/CSS themes for 
 
 # Directory Contents
 
+- [`/sass/`][sass/] — Custom Sass/CSS PML themes for Asciidoctor HTML.
 - [`pml-sample.pml`][sample pml] — sample PML source.
 
 Custom Ruby scripts, lexers and themes for [Rouge]:
@@ -37,6 +41,7 @@ Sample documents:
 - [`asciidoctor-example.html`][example html] — converted HTML doc ([Live HTML Preview][example live])
 - [`pml-syntax.asciidoc`][syntax adoc] — Asciidoctor test document for the PML lexer.
 - [`pml-syntax.html`][syntax html] — converted HTML doc ([Live HTML Preview][syntax live])
+- [`docinfo.html`][docinfo.html] — Asciidoctor [docinfo file] with our custom CSS (generated via [`sass/build.sh`][sass/build.sh]).
 - [`build.sh`][build.sh] — converts all documents to HTML using our custom `pml.rb` lexer and assets.
 
 
@@ -46,9 +51,59 @@ I'd like to express my gratitude to [Dan Allen]  (@mojavelinux) from the [Asciid
 
 - [asciidoctor#4080]
 
+# Credits
+
+Third party components and assets used in this directory tree.
+
+## Gogh Flat
+
+Our custom syntax highlighter theme uses [Gogh]'s __Flat__ colour scheme:
+
+- https://github.com/Mayccoll/Gogh/blob/master/themes/flat.sh
+
+which was based on the __Flat UI Terminal Theme__ by [Ahmet Sülek]:
+
+- https://dribbble.com/shots/1021755-Flat-UI-Terminal-Theme
+- https://github.com/ahmetsulek/flat-terminal
+
+whose colours were based on the __Flat UI kit__ by [Designmodo], released under MIT License:
+
+- https://designmodo.github.io/Flat-UI
+- https://github.com/designmodo/Flat-UI
+
+```
+The MIT License
+
+Copyright (c) 2013-2018 Designmodo
+
+Permission is hereby granted, free of charge, to any person obtaining a
+copy of this software and associated documentation files (the "Software"),
+to deal in the Software without restriction, including without limitation
+the rights to use, copy, modify, merge, publish, distribute, sublicense,
+and/or sell copies of the Software, and to permit persons to whom the
+Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+DEALINGS IN THE SOFTWARE.
+```
+
+
 <!-----------------------------------------------------------------------------
                                REFERENCE LINKS
 ------------------------------------------------------------------------------>
+
+[Sass]: https://sass-lang.com/dart-sass "Learn more about Dart Sass (Syntactically Awesome Style Sheets)"
+[Dart Sass]: https://github.com/sass/dart-sass "Visit Dart Sass repository on GitHub"
+
+[Gogh]: https://mayccoll.github.io/Gogh/ "Visit Gogh website"
 
 <!-- PML -->
 
@@ -68,6 +123,7 @@ I'd like to express my gratitude to [Dan Allen]  (@mojavelinux) from the [Asciid
 <!-- Asciidoctor -->
 
 [Asciidoctor]: https://asciidoctor.org "Asciidoctor website"
+[docinfo file]: https://docs.asciidoctor.org/asciidoctor/latest/docinfo/ "Asciidoctor Manual » Docinfo Files"
 
 <!-- badges -->
 
@@ -75,24 +131,29 @@ I'd like to express my gratitude to [Dan Allen]  (@mojavelinux) from the [Asciid
 [PML badge]: https://img.shields.io/badge/PML-1.5.0-yellow "Supported PML version (click for PML download page)"
 [Rouge badge]: https://img.shields.io/badge/Rouge-3.26.0-yellow "Supported Rouge version (click to visit Rouge website)"
 [Asciidoctor badge]: https://img.shields.io/badge/Asciidoctor-2.0.15-yellow "Supported Asciidoctor version (click to visit Asciidoctor website)"
+[Sass badge]: https://img.shields.io/badge/Dart%20Sass-1.35.1-yellow "Supported Dart Sass version (click to visit Dart Sass repository)"
 
 <!-- project files and folders -->
 
-[sample pml]: ./pml-sample.pml
+[sass/]: ./sass/ "Navigate to Sass/SCSS folder"
+[sass/build.sh]: ./sass/build.sh "View Sass/CSS and docinfo builder script"
 
-[build.sh]: ./build.sh
+[sample pml]: ./pml-sample.pml "View PML sample source doc"
 
-[example adoc]: ./asciidoctor-example.asciidoc
-[example html]: ./asciidoctor-example.html
+[build.sh]: ./build.sh "View build script"
+
+[example adoc]: ./asciidoctor-example.asciidoc "Asciidoctor example (source doc)"
+[example html]: ./asciidoctor-example.html "Asciidoctor example (generated HTML doc)"
 [example live]: https://htmlpreview.github.io/?https://github.com/tajmone/pml-playground/blob/master/syntax-hl/rouge/asciidoctor-example.html "Live HTML Preview of 'asciidoctor-example.html'"
 
-[syntax adoc]: ./pml-syntax.asciidoc
-[syntax html]: ./pml-syntax.html
+[syntax adoc]: ./pml-syntax.asciidoc "'PML Syntax' Asciidoctor (source doc)"
+[syntax html]: ./pml-syntax.html "'PML Syntax' Asciidoctor (generated HTML doc)"
 [syntax live]: https://htmlpreview.github.io/?https://github.com/tajmone/pml-playground/blob/master/syntax-hl/rouge/pml-syntax.html "Live HTML Preview of 'pml-syntax.html'"
 
-[adapter]: ./custom-rouge-adapter.rb
-[pml.rb]: ./pml.rb
-[theme.rb]: ./pml-test-theme.rb
+[adapter]: ./custom-rouge-adapter.rb "Custom Rouge adapter for Asciidoctor"
+[pml.rb]: ./pml.rb "Rouge's PML Lexer source"
+[theme.rb]: ./pml-test-theme.rb "Rouge's test theme for PML Lexer"
+[docinfo.html]: ./docinfo.html "Asciidoctor docinfo file"
 
 <!-- Issues -->
 
@@ -100,8 +161,10 @@ I'd like to express my gratitude to [Dan Allen]  (@mojavelinux) from the [Asciid
 
 <!-- people and orgs -->
 
+[Ahmet Sülek]: https://github.com/ahmetsulek "View Ahmet Sülek's GitHub profile"
 [Dan Allen]: https://github.com/mojavelinux "View Dan Allen's GitHub profile"
 
 [Asciidoctor Project]: https://github.com/asciidoctor "View the Asciidoctor Project organization profile on GitHub"
+[Designmodo]: https://github.com/designmodo "View Designmodo's GitHub profile"
 
 <!-- EOF -->

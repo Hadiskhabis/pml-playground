@@ -1,0 +1,62 @@
+// "_gogh-flat.scss"                    v1.0.0 | 2021/07/09 | by Tristano Ajmone
+// *****************************************************************************
+// *                                                                           *
+// *                          Gogh Flat Colour Scheme                          *
+// *                                                                           *
+// *****************************************************************************
+// Based on the Gogh "Flat" colour scheme:
+//    https://github.com/Mayccoll/Gogh/blob/master/themes/flat.sh
+//
+// which was based on the "Flat UI Terminal Theme" by Ahmet Sülek:
+//    https://dribbble.com/shots/1021755-Flat-UI-Terminal-Theme
+//    https://github.com/ahmetsulek/flat-terminal
+//
+// whose colours were based on the "Flat UI kit" by Designmodo (MIT License):
+//    https://designmodo.github.io/Flat-UI
+//    https://github.com/designmodo/Flat-UI
+// -----------------------------------------------------------------------------
+// The MIT License
+//
+// Copyright (c) 2013-2018 Designmodo
+//
+// Permission is hereby granted, free of charge, to any person obtaining a
+// copy of this software and associated documentation files (the "Software"),
+// to deal in the Software without restriction, including without limitation
+// the rights to use, copy, modify, merge, publish, distribute, sublicense,
+// and/or sell copies of the Software, and to permit persons to whom the
+// Software is furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+// FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+// DEALINGS IN THE SOFTWARE.
+// =============================================================================
+
+$GOGH_BG: #1F2D3A;  // Background Colour  -> Big Stone (dark blue)
+$GOGH_FG: #1ABC9C;  // Normal Text Colour -> Puerto Rico (green)
+// Dark Hues
+$GOGH_01: #2C3E50;  // Pickled Bluewood (dark slate leaning toward blue)
+$GOGH_02: #C0392B;  // Red
+$GOGH_03: #27AE60;  // Emerald
+$GOGH_04: #F39C12;  // California Orange
+$GOGH_05: #2980B9;  // Blue
+$GOGH_06: #8E44AD;  // Purple
+$GOGH_07: #16A085;  // Persian Green
+$GOGH_08: #BDC3C7;  // Silver Sand (grey)
+// Bright Hues
+$GOGH_09: #34495E;  // Pickled Bluewood (dark slate leaning toward blue)
+$GOGH_10: #E74C3C;  // Red
+$GOGH_11: #2ECC71;  // Emerald
+$GOGH_12: #F1C40F;  // Corn Yellow
+$GOGH_13: #3498DB;  // Blue
+$GOGH_14: #9B59B6;  // Purple
+$GOGH_15: #2AA198;  // Persian Green
+$GOGH_16: #ECF0F1;  // Porcelain (white)
+
+// EOF //

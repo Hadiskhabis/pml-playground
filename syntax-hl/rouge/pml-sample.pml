@@ -16,7 +16,7 @@
       any level, which makes it very practical to temporarily exclude parts of
       text from the generated document.
 
-      Thanks to the PML lexer for Rouge, [- which if finally ready[- and
+      Thanks to the PML lexer for Rouge, [- which is finally ready[- and
       available on GitHub-], -] we can highlight PML code in Asciidoctor.
 
     ]

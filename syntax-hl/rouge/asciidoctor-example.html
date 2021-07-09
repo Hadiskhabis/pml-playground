@@ -614,6 +614,53 @@ pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
   font-weight: bold;
 }
 </style>
+<style>
+/* Shell/CMD */
+div.literalblock.shell pre {
+  background-color: #0C0C0C;
+  color: #F2F2F2;
+}
+div.literalblock.shell pre .conum {
+  background: #FFF945 !important;
+  color: #0C0C0C !important;
+}
+
+/* Commentary Blocks */
+div.openblock.commentary {
+  padding-left: 6em;
+}
+
+/* Inline Highlighting */
+span.green {
+  background-color: #A3FF8A;
+}
+
+/* Rouge Theme for PML */
+.listingblock code[data-lang=pml]::before {
+  color: #BDC3C7;
+}
+
+.listingblock pre[class~=rouge][lang=pml] {
+  background-color: #1F2D3A;
+  border-radius: 4px;
+  border: 1px solid black;
+}
+.listingblock pre[class~=rouge][lang=pml] > code {
+  color: #ECF0F1;
+  font-family: inherit;
+  font-size: inherit;
+}
+.listingblock pre[class~=rouge][lang=pml] > code > span {
+  font-style: normal;
+  font-weight: normal;
+}
+.listingblock pre[class~=rouge][lang=pml] > code > span.cm {
+  color: #547a9e;
+  font-style: italic;
+}
+
+/*# sourceMappingURL=rouge.css.map */
+</style>
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
@@ -675,7 +722,7 @@ pre.rouge .nv, pre.rouge .vc, pre.rouge .vg, pre.rouge .vi, pre.rouge .vm {
       </span>any<span class="w"> </span>level,<span class="w"> </span>which<span class="w"> </span>makes<span class="w"> </span>it<span class="w"> </span>very<span class="w"> </span>practical<span class="w"> </span>to<span class="w"> </span>temporarily<span class="w"> </span>exclude<span class="w"> </span>parts<span class="w"> </span>of<span class="w">
       </span>text<span class="w"> </span>from<span class="w"> </span>the<span class="w"> </span>generated<span class="w"> </span>document.<span class="w">
 
-      </span>Thanks<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>PML<span class="w"> </span>lexer<span class="w"> </span>for<span class="w"> </span>Rouge,<span class="w"> </span><span class="cm">[- which if finally ready[- and</span>
+      </span>Thanks<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>PML<span class="w"> </span>lexer<span class="w"> </span>for<span class="w"> </span>Rouge,<span class="w"> </span><span class="cm">[- which is finally ready[- and</span>
 <span class="cm">      available on GitHub-], -]</span><span class="w"> </span>we<span class="w"> </span>can<span class="w"> </span>highlight<span class="w"> </span>PML<span class="w"> </span>code<span class="w"> </span>in<span class="w"> </span>Asciidoctor.<span class="w">
 
     </span>]<span class="w">

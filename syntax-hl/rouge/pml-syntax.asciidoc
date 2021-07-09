@@ -1,0 +1,58 @@
+= PML Rouge Lexer
+Tristano Ajmone <tajmone@gmail.com>
+:source-highlighter: rouge
+:rouge-style: pml-test-theme
+:toclevels: 5
+:toc: left
+:idprefix:
+:experimental: true
+:icons: font
+:linkattrs: true
+:reproducible: true
+:sectanchors:
+
+In this document we'll focus on specific elements of the PML syntax, one element per section, in order to check that they are rendered properly by the lexer and theme.
+For each element, we'll also mention it's Rouge token name and its corresponding HTML/CSS class.
+
+For better visual inspection, we'll be using a custom Rouge theme here, designed to cover all the syntax elements of the PML lexer.
+
+// CUSTOM ATTRIBUTES:
+:manURL: https://www.pml-lang.dev/docs/reference_manual/index.html#
+:manRef: PML Reference Manual »
+
+== Comments
+
+[horizontal]
+Lexer class :: `Comment::Multiline`
+CSS class   :: `cm`
+
+link:{manURL}ch__12[PML comments^,title="{manRef} Comments"]
+are node blocks which can be nested to any level.
+The node has no attributes, and any PML nodes (other than further comment blocks) inside comments will be ignored by the PML Converter.
+
+.Comments Examples
+[source,pml]
+---------------------------------------
+Hello [- comment -] world.
+
+All comments are block comments [-
+  Comment block.
+  Spanning multiple lines
+  -] in PML.
+
+Comments are nestable [- outer comment [- nested comment -] -] in PML.
+---------------------------------------
+
+Let's test that comments nesting is working correctly:
+
+.Nested Comments Test
+[source,pml]
+---------------------------------------
+normal text [-[--] comment -] normal text
+
+normal text [-[--] comment
+still a comment
+because the outer comment was never closed!
+---------------------------------------
+
+// EOF //

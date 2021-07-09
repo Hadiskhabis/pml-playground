@@ -27,6 +27,7 @@ Created by [Tristano Ajmone] in April 2021; maintained by [Christian Neumanns], 
 
 - [`/pandoc/`][pandoc/] — PML &hArr; pandoc assets.
 - [`/pml-samples/`][pml-samples/] — shared PML sample documents and chunks.
+- [`/syntax-hl/`][syntax-hl/] — PML syntax highlighting.
 
 # About
 
@@ -92,7 +93,7 @@ Articles by [Christian Neumanns]:
 
 <!-- badges -->
 
-[PML badge]: https://img.shields.io/badge/PML-1.4.0-yellow "Supported PML version (click for PML download page)"
+[PML badge]: https://img.shields.io/badge/PML-1.5.0-yellow "Supported PML version (click for PML download page)"
 [Travis badge]: https://travis-ci.com/tajmone/Sublime-PML.svg?branch=main
 [Travis link]: https://travis-ci.com/tajmone/Sublime-PML "Travis CI: EditorConfig validation status"
 
@@ -100,6 +101,7 @@ Articles by [Christian Neumanns]:
 
 [pandoc/]: ./pandoc/ "Navigate to folder"
 [pml-samples/]: ./pml-samples/ "Navigate to folder"
+[syntax-hl/]: ./syntax-hl/ "Navigate to folder"
 
 <!-- people -->
 

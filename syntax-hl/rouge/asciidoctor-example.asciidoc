@@ -1,0 +1,67 @@
+= PML Rouge Lexer Examples
+Tristano Ajmone <tajmone@gmail.com>
+:source-highlighter: rouge
+:rouge-style: thankful_eyes
+:toclevels: 5
+:toc: left
+:docinfo: shared-head
+:idprefix:
+:experimental: true
+:icons: font
+:linkattrs: true
+:reproducible: true
+:sectanchors:
+
+Syntax highlighting examples of our custom PML lexer for Rouge.
+
+// CUSTOM ATTRIBUTES:
+:manURL: https://www.pml-lang.dev/docs/reference_manual/index.html#
+
+[WARNING]
+========================
+**WIP!** -- Both the PML lexer and the CSS themes are still incomplete.
+========================
+
+== PML Samples
+
+[source,pml]
+-------------------------
+include::pml-sample.pml[]
+-------------------------
+
+
+== Other Syntaxes
+
+Code blocks for languages not covered by our custom CSS will fallback to use the native Rouge theme defined via the `:rouge-style:` attribute.
+Example, using the `thankful_eyes` theme:
+
+[source,ruby]
+----------------------------------
+include::custom-rouge-adapter.rb[]
+----------------------------------
+
+NOTE: If no theme is specified via `:rouge-style:`, Asciidoctor will default to the `github` theme.
+
+Asciidoctor will convert the native Rouge theme to CSS and inject it in its default CSS stylesheet, which won't interfere with out custom styles and themes.
+
+This is quite convenient, for it ensures that code examples from other languages are also highlighted (i.e. if Rouge has a lexer for that language), and authors of a document are free to choose their fallback theme of choice.
+
+The names of the currently available native Rouge themes are:
+
+[horizontal]
+`base16` :: Default base16 theme.
+`bw` :: A port of Pygment's "`Black and White`" theme.
+`colorful` :: A port of Pygment's "`Colorful`" theme.
+`github` :: "`GitHub`" theme.
+`gruvbox` :: Based on the https://github.com/morhetz/gruvbox["`gruvbox`"^] theme.
+`igorpro` :: "`Igor Pro`".
+`magritte` :: "`Magritte`".
+`molokai` :: A "`Monokai`" variation.
+`monokai.sublime` :: "`Monokai Sublime`", a Monokai variation inspired by Sublime Text.
+`monokai` :: "`Monokai`" classic.
+`pastie` :: A port of Pygment's "`Pastie`" theme.
+`thankful_eyes` :: Thankful Eyes.
+`tulip` :: Tulip.
+
+
+// EOF //

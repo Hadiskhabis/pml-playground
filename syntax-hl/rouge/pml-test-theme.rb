@@ -34,6 +34,7 @@ module Rouge
       style Str::Escape,              :fg => :purple
       style Punctuation,              :fg => :orange
       style Name::Constant,           :fg => :yellow
+      style Name::Tag,                :fg => :red
       style Error,                    :fg => :white, :bg => :red
 
     end

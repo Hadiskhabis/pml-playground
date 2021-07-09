@@ -41,6 +41,9 @@ span.green {
   color: #547a9e;
   font-style: italic;
 }
+.listingblock pre[class~=rouge][lang=pml] > code > span.nt {
+  color: #E74C3C;
+}
 .listingblock pre[class~=rouge][lang=pml] > code > span.se {
   color: #9B59B6;
 }

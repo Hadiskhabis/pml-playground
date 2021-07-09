@@ -116,4 +116,43 @@ Let me tell you <<invalid.param.id>>
 In the future PML will allow custom IDs to be names as in the XML standard.
 ===========
 
+
+== Nodes
+
+[horizontal]
+Lexer class :: `Name::Tag`
+CSS class   :: `nt`
+
+Right now, the PML lexer captures all nodes in the same manner, as long as the node has a valid tag (i.e. a known one).
+In the future, the lexer will handle nodes differently, according to need.
+
+.Valid Node Example
+[source,pml]
+---------------------------------------
+Hello [b world ].
+---------------------------------------
+
+Invalid (i.e. unknown) nodes are marked as `Error`, including their closing `]` delimiter, which is tracked throughout nodes nesting, as the following example demonstrates:
+
+.Invalid Node Example
+[source,pml]
+---------------------------------------
+Hello [xyz world ].
+
+Hello [b brave [xyz new ] ] world.
+
+Hello [b brave
+        [xyz new
+          [i world ]
+        ]
+      ].
+---------------------------------------
+
+
+.Edge Cases Test
+[source,pml]
+---------------------------------------
+Hello [b brave \] new ] world.
+---------------------------------------
+
 // EOF //

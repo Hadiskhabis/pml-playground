@@ -1,4 +1,4 @@
-// "_rouge-template-pml.scss"           v0.0.1 | 2021/07/09 | by Tristano Ajmone
+// "_rouge-template-pml.scss"           v0.0.1 | 2021/07/10 | by Tristano Ajmone
 // *****************************************************************************
 // *                                                                           *
 // *                 Rouge PML Theme Template for Asciidoctor                  *
@@ -39,6 +39,7 @@ $PML-Border-Color: black !default;
 $PML-Background:   $GOGH_BG !default;
 $PML-Normal-Text:  $GOGH_16 !default;
 $PML-Comments: adjust-color($GOGH_BG, $lightness: +30%) !default;
+$PML-Nodes:        $GOGH_10 !default;
 $PML-Escapes:      $GOGH_14 !default;
 $PML-Punctuation:  $GOGH_10 !default;
 $PML-Parameter:    $GOGH_12 !default;
@@ -81,6 +82,11 @@ $ref_role: null;
         // --------------
         color: $PML-Comments;
         font-style: italic;
+      }
+      &.nt {
+        // Nodes -> Name::Tag
+        // -----
+        color: $PML-Nodes;
       }
       &.se {
         // Escape sequences -> Str::Escape

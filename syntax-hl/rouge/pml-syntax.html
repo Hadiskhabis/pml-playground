@@ -460,6 +460,9 @@ pre.rouge .p, pre.rouge .pi {
 pre.rouge .no {
   color: #ffff00;
 }
+pre.rouge .nt {
+  color: #ff0000;
+}
 pre.rouge .err {
   color: #ffffff;
   background-color: #ff0000;
@@ -479,6 +482,7 @@ pre.rouge .err {
 <li><a href="#comments">Comments</a></li>
 <li><a href="#escapes">Escapes</a></li>
 <li><a href="#constant_parameter">Constant Parameter</a></li>
+<li><a href="#nodes">Nodes</a></li>
 </ul>
 </div>
 </div>
@@ -619,13 +623,13 @@ are a powerful substitution mechanism.</p>
 <div class="listingblock">
 <div class="title">Parameters Example</div>
 <div class="content">
-<pre class="rouge highlight" lang="pml"><code class="language-pml" data-lang="pml">[const<span class="w"> </span>examples_root<span class="w"> </span>=<span class="w"> </span>http://www.example.com/project/source_code/examples]<span class="w">
+<pre class="rouge highlight" lang="pml"><code class="language-pml" data-lang="pml"><span class="nt">[const</span><span class="w"> </span>examples_root<span class="w"> </span>=<span class="w"> </span>http://www.example.com/project/source_code/examples<span class="nt">]</span><span class="w">
 
 </span>Here<span class="w"> </span>are<span class="w"> </span>two<span class="w"> </span>examples:<span class="w">
 
-</span>[link<span class="w"> </span>url=<span class="p">&lt;&lt;</span><span class="no">examples_root</span><span class="p">&gt;&gt;</span>/ex1.html<span class="w"> </span>text=example<span class="w"> </span>1]<span class="w">
+</span><span class="nt">[link</span><span class="w"> </span>url=<span class="p">&lt;&lt;</span><span class="no">examples_root</span><span class="p">&gt;&gt;</span>/ex1.html<span class="w"> </span>text=example<span class="w"> </span>1<span class="nt">]</span><span class="w">
 
-</span>[link<span class="w"> </span>url=<span class="p">&lt;&lt;</span><span class="no">examples_root</span><span class="p">&gt;&gt;</span>/ex2.html<span class="w"> </span>text=example<span class="w"> </span>2].</code></pre>
+</span><span class="nt">[link</span><span class="w"> </span>url=<span class="p">&lt;&lt;</span><span class="no">examples_root</span><span class="p">&gt;&gt;</span>/ex2.html<span class="w"> </span>text=example<span class="w"> </span>2<span class="nt">]</span>.</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -634,7 +638,7 @@ are a powerful substitution mechanism.</p>
 <div class="listingblock">
 <div class="title">Invalid Parameter ID Example</div>
 <div class="content">
-<pre class="rouge highlight" lang="pml"><code class="language-pml" data-lang="pml">[const<span class="w"> </span>invalid.param.id<span class="w"> </span>=<span class="w"> </span>something]<span class="w">
+<pre class="rouge highlight" lang="pml"><code class="language-pml" data-lang="pml"><span class="nt">[const</span><span class="w"> </span>invalid.param.id<span class="w"> </span>=<span class="w"> </span>something<span class="nt">]</span><span class="w">
 
 </span>Let<span class="w"> </span>me<span class="w"> </span>tell<span class="w"> </span>you<span class="w"> </span><span class="p">&lt;&lt;</span><span class="err">invalid.param.id</span><span class="p">&gt;&gt;</span></code></pre>
 </div>
@@ -652,6 +656,64 @@ are a powerful substitution mechanism.</p>
 </td>
 </tr>
 </table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="nodes"><a class="anchor" href="#nodes"></a>Nodes</h2>
+<div class="sectionbody">
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Lexer class 
+</td>
+<td class="hdlist2">
+<p><code>Name::Tag</code></p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+CSS class   
+</td>
+<td class="hdlist2">
+<p><code>nt</code></p>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Right now, the PML lexer captures all nodes in the same manner, as long as the node has a valid tag (i.e. a known one).
+In the future, the lexer will handle nodes differently, according to need.</p>
+</div>
+<div class="listingblock">
+<div class="title">Valid Node Example</div>
+<div class="content">
+<pre class="rouge highlight" lang="pml"><code class="language-pml" data-lang="pml">Hello<span class="w"> </span><span class="nt">[b</span><span class="w"> </span>world<span class="w"> </span><span class="nt">]</span>.</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Invalid (i.e. unknown) nodes are marked as <code>Error</code>, including their closing <code>]</code> delimiter, which is tracked throughout nodes nesting, as the following example demonstrates:</p>
+</div>
+<div class="listingblock">
+<div class="title">Invalid Node Example</div>
+<div class="content">
+<pre class="rouge highlight" lang="pml"><code class="language-pml" data-lang="pml">Hello<span class="w"> </span><span class="err">[xyz</span><span class="w"> </span>world<span class="w"> </span><span class="err">]</span>.<span class="w">
+
+</span>Hello<span class="w"> </span><span class="nt">[b</span><span class="w"> </span>brave<span class="w"> </span><span class="err">[xyz</span><span class="w"> </span>new<span class="w"> </span><span class="err">]</span><span class="w"> </span><span class="nt">]</span><span class="w"> </span>world.<span class="w">
+
+</span>Hello<span class="w"> </span><span class="nt">[b</span><span class="w"> </span>brave<span class="w">
+        </span><span class="err">[xyz</span><span class="w"> </span>new<span class="w">
+          </span><span class="nt">[i</span><span class="w"> </span>world<span class="w"> </span><span class="nt">]</span><span class="w">
+        </span><span class="err">]</span><span class="w">
+      </span><span class="nt">]</span>.</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Edge Cases Test</div>
+<div class="content">
+<pre class="rouge highlight" lang="pml"><code class="language-pml" data-lang="pml">Hello<span class="w"> </span><span class="nt">[b</span><span class="w"> </span>brave<span class="w"> </span><span class="se">\]</span><span class="w"> </span>new<span class="w"> </span><span class="nt">]</span><span class="w"> </span>world.</code></pre>
+</div>
 </div>
 </div>
 </div>

@@ -25,6 +25,7 @@ Created by [Tristano Ajmone] in April 2021; maintained by [Christian Neumanns], 
 
 # Repository Contents
 
+- [`/mustache/`][mustache/] — misc. mustache templates.
 - [`/pandoc/`][pandoc/] — PML &hArr; pandoc assets.
 - [`/pml-samples/`][pml-samples/] — shared PML sample documents and chunks.
 - [`/syntax-hl/`][syntax-hl/] — PML syntax highlighting.
@@ -99,9 +100,10 @@ Articles by [Christian Neumanns]:
 
 <!-- project files and folders -->
 
-[pandoc/]: ./pandoc/ "Navigate to folder"
-[pml-samples/]: ./pml-samples/ "Navigate to folder"
-[syntax-hl/]: ./syntax-hl/ "Navigate to folder"
+[mustache/]: ./mustache/ "Navigate to mustache templates folder"
+[pandoc/]: ./pandoc/ "Navigate to pandoc folder"
+[pml-samples/]: ./pml-samples/ "Navigate to PML samples folder"
+[syntax-hl/]: ./syntax-hl/ "Navigate to syntax highlighters folder"
 
 <!-- people -->
 

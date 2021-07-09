@@ -17,8 +17,8 @@ insert_final_newline = true
 trim_trailing_whitespace = true
 
 
-## Configurations
-#################
+## Repository Configurations
+############################
 [.{git*,editorconfig}]
 indent_style = space
 indent_size = unset
@@ -78,6 +78,17 @@ trim_trailing_whitespace = true
 insert_final_newline = true
 
 
+## AsciiDoc
+###########
+[*.{ad,adoc,asciidoc}]
+indent_size = 2
+indent_style = space
+end_of_line = unset
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+
 ## JSON
 #######
 [*.json]
@@ -94,6 +105,28 @@ insert_final_newline = true
 [*.lua]
 indent_style = space
 indent_size = 2
+end_of_line = unset
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+
+## Ruby
+#######
+[*.{rb,gemspec}]
+indent_size = 2
+indent_style = space
+end_of_line = unset
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+
+## Sass/SCSS
+############
+[*.{sass,scss}]
+indent_size = 2
+indent_style = space
 end_of_line = unset
 charset = utf-8
 trim_trailing_whitespace = true

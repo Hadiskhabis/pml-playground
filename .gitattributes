@@ -16,6 +16,9 @@
 
 ## Documentation Files
 ######################
+*.ad         text
+*.adoc       text
+*.asciidoc   text
 *.markdown   text
 *.md         text
 *.pml        text linguist-language=PML
@@ -24,9 +27,19 @@ LICENSE      text
 
 ## Scripts
 ##########
-*.sh    text eol=lf
 *.bat   text eol=crlf
 *.com   text eol=crlf
 *.lua   text
+*.rb    text
+*.sh    text eol=lf
+
+## Sass/CSS
+###########
+*.scss   text
+*.css    text eol=lf linguist-generated=true
+
+## HTML
+#######
+*.html   text linguist-generated=true
 
 # EOF #

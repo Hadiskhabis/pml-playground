@@ -53,5 +53,9 @@ span.green {
 .listingblock pre[class~=rouge][lang=pml] > code > span.no {
   color: #F1C40F;
 }
+.listingblock pre[class~=rouge][lang=pml] > code > span.err {
+  background-color: #E74C3C;
+  color: #ECF0F1;
+}
 
 /*# sourceMappingURL=rouge.css.map */

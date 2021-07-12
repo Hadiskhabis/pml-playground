@@ -22,12 +22,37 @@ Syntax highlighting examples of our custom PML lexer for Rouge.
 **WIP!** -- Both the PML lexer and the CSS themes are still incomplete.
 ========================
 
-== PML Samples
+== PML Lexer
+
+=== PML Samples
 
 [source,pml]
 -------------------------
 include::pml-sample.pml[]
 -------------------------
+
+
+=== Syntax Details
+
+A close-up look at some details of the PML syntax highlighter.
+
+
+==== Invalid Elements
+
+[horizontal]
+Lexer class :: `Error`
+CSS class   :: `err`
+
+
+Invalid elements are highlighted in a manner that makes their problematic nature obvious to the reader:
+
+.Invalid Elements Examples
+[source,pml]
+----------------------------------------------------------------
+Hello [xyz world ]. [- inexistent tag + its closing delimiter -]
+----------------------------------------------------------------
+
+Although it's not within the goals of the PML Lexer to validate source files, and the lexer is overall "`dumb`" and forgiving about contextual errors, any blatantly wrong element is marked as invalid — e.g. out of bounds dates, inexistent tags, etc.
 
 
 == Other Syntaxes
@@ -62,6 +87,5 @@ The names of the currently available native Rouge themes are:
 `pastie` :: A port of Pygment's "`Pastie`" theme.
 `thankful_eyes` :: Thankful Eyes.
 `tulip` :: Tulip.
-
 
 // EOF //

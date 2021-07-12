@@ -670,6 +670,10 @@ span.green {
 .listingblock pre[class~=rouge][lang=pml] > code > span.no {
   color: #F1C40F;
 }
+.listingblock pre[class~=rouge][lang=pml] > code > span.err {
+  background-color: #E74C3C;
+  color: #ECF0F1;
+}
 
 /*# sourceMappingURL=rouge.css.map */
 </style>
@@ -684,7 +688,16 @@ span.green {
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
+<li><a href="#pml_lexer">PML Lexer</a>
+<ul class="sectlevel2">
 <li><a href="#pml_samples">PML Samples</a></li>
+<li><a href="#syntax_details">Syntax Details</a>
+<ul class="sectlevel3">
+<li><a href="#invalid_elements">Invalid Elements</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a href="#other_syntaxes">Other Syntaxes</a></li>
 </ul>
 </div>
@@ -712,8 +725,10 @@ span.green {
 </div>
 </div>
 <div class="sect1">
-<h2 id="pml_samples"><a class="anchor" href="#pml_samples"></a>PML Samples</h2>
+<h2 id="pml_lexer"><a class="anchor" href="#pml_lexer"></a>PML Lexer</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="pml_samples"><a class="anchor" href="#pml_samples"></a>PML Samples</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="rouge highlight" lang="pml"><code class="language-pml" data-lang="pml"><span class="nt">[doc</span><span class="w"> </span>title<span class="w"> </span>=<span class="w"> </span>A<span class="w"> </span>Sample<span class="w"> </span>PML<span class="w"> </span>Document<span class="w"> </span>\<span class="w">
@@ -742,6 +757,48 @@ span.green {
     </span><span class="nt">]</span><span class="w">
   </span><span class="nt">]</span><span class="w">
 </span><span class="nt">]</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="syntax_details"><a class="anchor" href="#syntax_details"></a>Syntax Details</h3>
+<div class="paragraph">
+<p>A close-up look at some details of the PML syntax highlighter.</p>
+</div>
+<div class="sect3">
+<h4 id="invalid_elements"><a class="anchor" href="#invalid_elements"></a>Invalid Elements</h4>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Lexer class 
+</td>
+<td class="hdlist2">
+<p><code>Error</code></p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+CSS class   
+</td>
+<td class="hdlist2">
+<p><code>err</code></p>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Invalid elements are highlighted in a manner that makes their problematic nature obvious to the reader:</p>
+</div>
+<div class="listingblock">
+<div class="title">Invalid Elements Examples</div>
+<div class="content">
+<pre class="rouge highlight" lang="pml"><code class="language-pml" data-lang="pml">Hello<span class="w"> </span><span class="err">[xyz</span><span class="w"> </span>world<span class="w"> </span><span class="err">]</span>.<span class="w"> </span><span class="cm">[- inexistent tag + its closing delimiter -]</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Although it&#8217;s not within the goals of the PML Lexer to validate source files, and the lexer is overall &#8220;dumb&#8221; and forgiving about contextual errors, any blatantly wrong element is marked as invalid — e.g. out of bounds dates, inexistent tags, etc.</p>
+</div>
 </div>
 </div>
 </div>

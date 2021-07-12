@@ -43,6 +43,8 @@ $PML-Nodes:        $GOGH_10 !default;
 $PML-Escapes:      $GOGH_14 !default;
 $PML-Punctuation:  $GOGH_10 !default;
 $PML-Parameter:    $GOGH_12 !default;
+$PML-Invalid_BG:   $GOGH_10 !default;
+$PML-Invalid_FG:   $GOGH_16 !default;
 
 // -----------------------------------------------------------------------------
 // Optional Language Settings
@@ -67,11 +69,11 @@ $ref_role: null;
 }
 // Highlight Theme:
 .listingblock#{$ref_role} pre[class~=rouge][lang=pml] {
-  background-color: $PML-Background;
+  background-color: $PML-Background; // -> Text :bg
   border-radius: $PML-Border-radius;
   border: $PML-Border-width solid $PML-Border-Color;
   &>code {
-    color: $PML-Normal-Text;
+    color: $PML-Normal-Text; // -> Text :fg
     font-family: $PML-Font-family;
     font-size: $PML-Font-size;
     &>span {
@@ -99,9 +101,15 @@ $ref_role: null;
         color: $PML-Punctuation;
       }
       &.no {
-        // Constant Parameter -> Name::Constant
+        // Constant parameter -> Name::Constant
         // ------------------
         color: $PML-Parameter;
+      }
+      &.err {
+        // Invalid elements -> Error
+        // ----------------
+        background-color: $PML-Invalid_BG;
+        color: $PML-Invalid_FG;
       }
     }
   }

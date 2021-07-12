@@ -42,4 +42,10 @@ LICENSE      text
 #######
 *.html   text linguist-generated=true
 
+## Third Party Tools
+####################
+
+# ColorImpact 4 palette projects:
+*.cifc   binary
+
 # EOF #

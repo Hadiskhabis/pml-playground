@@ -1,0 +1,81 @@
+COLOR SPEC SHEET
+
+
+black: 
+    #000000
+    RGB: 0 0 0
+    HSB: 0 0 0
+    HSL: 0 0 0
+
+grey: 
+    #aaaaaa
+    RGB: 170 170 170
+    HSB: 0 0 67
+    HSL: 0 0 160
+
+white: 
+    #ffffff
+    RGB: 255 255 255
+    HSB: 0 0 100
+    HSL: 0 0 240
+
+yellow: 
+    #ffff00
+    RGB: 255 255 0
+    HSB: 60 100 100
+    HSL: 40 240 120
+
+orange: 
+    #ffae2b
+    RGB: 255 174 43
+    HSB: 37 83 100
+    HSL: 25 240 140
+
+pink: 
+    #ffbcd9
+    RGB: 255 188 217
+    HSB: 334 26 100
+    HSL: 223 240 208
+
+red: 
+    #ff0000
+    RGB: 255 0 0
+    HSB: 0 100 100
+    HSL: 0 240 120
+
+magenta: 
+    #ff00ff
+    RGB: 255 0 255
+    HSB: 300 100 100
+    HSL: 200 240 120
+
+purple: 
+    #b180ed
+    RGB: 177 128 237
+    HSB: 267 46 93
+    HSL: 178 180 172
+
+blue: 
+    #0b8dff
+    RGB: 11 141 255
+    HSB: 208 96 100
+    HSL: 139 240 125
+
+cyan: 
+    #5adaff
+    RGB: 90 218 255
+    HSB: 193 65 100
+    HSL: 129 240 162
+
+green: 
+    #2ecb55
+    RGB: 46 203 85
+    HSB: 135 77 80
+    HSL: 90 151 117
+
+brown: 
+    #c19a6b
+    RGB: 193 154 107
+    HSB: 33 45 76
+    HSL: 22 98 141
+

@@ -18,7 +18,6 @@ Custom PML lexer for [Rouge], plus [Asciidoctor] assets and [Sass]/CSS themes fo
 - [Directory Contents](#directory-contents)
 - [Acknowledgements](#acknowledgements)
 - [Credits](#credits)
-    - [Gogh Flat](#gogh-flat)
 - [Links](#links)
     - [Rouge](#rouge)
     - [Asciidoctor](#asciidoctor)
@@ -56,48 +55,9 @@ I'd like to express my gratitude to [Dan Allen]  (@mojavelinux) from the [Asciid
 
 # Credits
 
-Third party components and assets used in this directory tree.
+Third party components and assets used in this directory tree:
 
-## Gogh Flat
-
-Our custom syntax highlighter theme uses [Gogh]'s __Flat__ colour scheme:
-
-- https://github.com/Mayccoll/Gogh/blob/master/themes/flat.sh
-
-which was based on the __Flat UI Terminal Theme__ by [Ahmet Sülek]:
-
-- https://dribbble.com/shots/1021755-Flat-UI-Terminal-Theme
-- https://github.com/ahmetsulek/flat-terminal
-
-whose colours were based on the __Flat UI kit__ by [Designmodo], released under MIT License:
-
-- https://designmodo.github.io/Flat-UI
-- https://github.com/designmodo/Flat-UI
-
-```
-The MIT License
-
-Copyright (c) 2013-2018 Designmodo
-
-Permission is hereby granted, free of charge, to any person obtaining a
-copy of this software and associated documentation files (the "Software"),
-to deal in the Software without restriction, including without limitation
-the rights to use, copy, modify, merge, publish, distribute, sublicense,
-and/or sell copies of the Software, and to permit persons to whom the
-Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-DEALINGS IN THE SOFTWARE.
-```
-
+- __[Gogh Flat] colour scheme__ — Used in our syntax highlighter theme. See [`../schemes/README.md`][Gogh Flat Credits] for full credits and license info.
 
 -------------------------------------------------------------------------------
 
@@ -127,11 +87,6 @@ DEALINGS IN THE SOFTWARE.
 <!-----------------------------------------------------------------------------
                                REFERENCE LINKS
 ------------------------------------------------------------------------------>
-
-[Sass]: https://sass-lang.com/dart-sass "Learn more about Dart Sass (Syntactically Awesome Style Sheets)"
-[Dart Sass]: https://github.com/sass/dart-sass "Visit Dart Sass repository on GitHub"
-
-[Gogh]: https://mayccoll.github.io/Gogh/ "Visit Gogh website"
 
 <!-- PML -->
 
@@ -163,7 +118,13 @@ DEALINGS IN THE SOFTWARE.
 <!-- 3rd Party tools -->
 
 [asciidoctor-pdf]: https://github.com/asciidoctor/asciidoctor-pdf "asciidoctor-pdf repository on GitHub"
+[Dart Sass]: https://github.com/sass/dart-sass "Visit Dart Sass repository on GitHub"
 [Redcarpet]: https://github.com/vmg/redcarpet "Redcarpet repository on GitHub"
+[Sass]: https://sass-lang.com/dart-sass "Learn more about Dart Sass (Syntactically Awesome Style Sheets)"
+
+[Gogh]: https://mayccoll.github.io/Gogh/ "Visit Gogh website"
+[Gogh Flat]: https://github.com/Mayccoll/Gogh/blob/master/themes/flat.sh "View upstream source scheme at Gogh's repository on GitHub"
+[Gogh Flat Credits]: ../schemes/README.md#gogh-flat "View full credits and license details for the Gogh Flat scheme"
 
 <!-- badges -->
 
@@ -201,10 +162,8 @@ DEALINGS IN THE SOFTWARE.
 
 <!-- people and orgs -->
 
-[Ahmet Sülek]: https://github.com/ahmetsulek "View Ahmet Sülek's GitHub profile"
 [Dan Allen]: https://github.com/mojavelinux "View Dan Allen's GitHub profile"
 
 [Asciidoctor Project]: https://github.com/asciidoctor "View the Asciidoctor Project organization profile on GitHub"
-[Designmodo]: https://github.com/designmodo "View Designmodo's GitHub profile"
 
 <!-- EOF -->

@@ -30,8 +30,16 @@ LICENSE      text
 *.bat   text eol=crlf
 *.com   text eol=crlf
 *.lua   text
-*.rb    text
 *.sh    text eol=lf
+
+## Ruby Files
+#############
+[attr]Ruby text eol=lf
+*.rb        Ruby
+*.rake      Ruby
+*.gemspec   Ruby
+Rakefile    Ruby
+rakefile    Ruby
 
 ## Sass/CSS
 ###########

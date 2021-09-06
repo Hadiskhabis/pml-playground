@@ -8,6 +8,7 @@
 
 Custom PML lexer for [Rouge], plus [Asciidoctor] assets and [Sass]/CSS themes for the HTML backend.
 
+Build via: `rake rouge`
 
 -----
 
@@ -16,6 +17,10 @@ Custom PML lexer for [Rouge], plus [Asciidoctor] assets and [Sass]/CSS themes fo
 <!-- MarkdownTOC autolink="true" bracket="round" autoanchor="false" lowercase="only_ascii" uri_encoding="true" levels="1,2,3" -->
 
 - [Directory Contents](#directory-contents)
+- [Building and Updating](#building-and-updating)
+- [Lexer Usage Instructions](#lexer-usage-instructions)
+    - [Command Line and Scripts](#command-line-and-scripts)
+    - [Asciidoctor API](#asciidoctor-api)
 - [Acknowledgements](#acknowledgements)
 - [Credits](#credits)
 - [Links](#links)
@@ -44,7 +49,85 @@ Sample documents:
 - [`pml-syntax.asciidoc`][syntax adoc] — Asciidoctor test document for the PML lexer.
 - [`pml-syntax.html`][syntax html] — converted HTML doc ([Live HTML Preview][syntax live])
 - [`docinfo.html`][docinfo.html] — Asciidoctor [docinfo file] with our custom CSS (generated via [`sass/build.sh`][sass/build.sh]).
-- [`build.sh`][build.sh] — converts all documents to HTML using our custom `pml.rb` lexer and assets.
+
+
+# Building and Updating
+
+To build or update the contents of this directory, type in the terminal:
+
+    rake rouge
+
+
+# Lexer Usage Instructions
+
+In order to use our custom PML lexer for Rouge in your own AsciiDoc projects you'll need to add to your project the `custom-rouge-adapter.rb` and `pml.rb` files found in this folder; then edit [`custom-rouge-adapter.rb`][adapter] by deleting (or commenting out) the following line:
+
+```ruby
+    require './pml-test-theme.rb' # DELME IN PRODUCTION!
+```
+
+You'll also need to let Asciidoctor (Ruby) know about the `custom-rouge-adapter.rb` extension.
+Below are the instructions on how do to it via command line invocation and via the [Asciidoctor API].
+
+If you want to configure your source document(s) to use the Rouge highlighter and a specific theme, add to its header the following attributes:
+
+```asciidoc
+:source-highlighter: rouge
+:rouge-style: thankful_eyes
+```
+
+where `thankful_eyes` can be replaced with any valid Rouge theme.
+
+But it's preferable to set these these attributes via the CLI invocation or Asciidoctor API, rather then embedding them into the source documents, in order to keep toolchain settings separate from the documents.
+
+
+## Command Line and Scripts
+
+If you're converting your documents via shell or batch scripts, you'll need to invoke Asciidoctor with the `--require` (`-r`) option, pointing to the location of `custom-rouge-adapter.rb` (absolute or relative path).
+
+
+Example, to convert the `pml-syntax.asciidoc` in this folder from a Unix shell or script:
+
+```sh
+asciidoctor \
+    -r ./custom-rouge-adapter.rb \
+    pml-syntax.asciidoc
+```
+
+or, similarly, from the Windows CMD or a batch script:
+
+```batch
+asciidoctor ^
+    -r .\custom-rouge-adapter.rb ^
+    pml-syntax.asciidoc
+```
+
+To control Rogue settings attributes via command line invocation:
+
+```sh
+    -a source-highlighter=rouge \
+    -a rouge-style=thankful_eyes \
+```
+
+## Asciidoctor API
+
+If you're converting your documents via the [Asciidoctor API], you'll only need `require` the `custom-rouge-adapter.rb` at the beginning of your Ruby script, along with Asciidoctor:
+
+```ruby
+require 'asciidoctor'
+require "path/to/custom-rouge-adapter.rb"
+```
+
+then invoke Asciidoctor as usual (e.g. via `Asciidoctor.convert_fil`, `Asciidoctor.load`, and so on).
+
+To control Rogue settings attributes via the API:
+
+```ruby
+        attributes: {
+          'source-highlighter' => 'rouge',
+          'rouge-style' => 'thankful_eyes',
+        }
+```
 
 
 # Acknowledgements
@@ -52,6 +135,7 @@ Sample documents:
 I'd like to express my gratitude to [Dan Allen]  (@mojavelinux) from the [Asciidoctor Project] for helping me out on how to make Rouge require a custom lexer:
 
 - [asciidoctor#4080]
+
 
 # Credits
 
@@ -82,7 +166,8 @@ Third party components and assets used in this directory tree:
     + [Syntax Highlighting][AsciiDr Syntax Highlighting]:
         * [Rouge][AsciiDr Rouge]
         * [Custom Syntax Highlighter Adapter]
-
+    + [Process AsciiDoc Using the API][Asciidoctor API]:
+        * [API Options]
 
 <!-----------------------------------------------------------------------------
                                REFERENCE LINKS
@@ -110,10 +195,15 @@ Third party components and assets used in this directory tree:
 [rouge.rb]: https://github.com/asciidoctor/asciidoctor/blob/master/lib/asciidoctor/syntax_highlighter/rouge.rb
 
 [Asciidoctor Documentation]: https://docs.asciidoctor.org/asciidoctor/latest/
+
 [docinfo file]: https://docs.asciidoctor.org/asciidoctor/latest/docinfo/ "Asciidoctor Manual » Docinfo Files"
+
 [AsciiDr Syntax Highlighting]: https://docs.asciidoctor.org/asciidoctor/latest/syntax-highlighting/
 [AsciiDr Rouge]: https://docs.asciidoctor.org/asciidoctor/latest/syntax-highlighting/rouge/
 [Custom Syntax Highlighter Adapter]: https://docs.asciidoctor.org/asciidoctor/latest/syntax-highlighting/custom/
+
+[Asciidoctor API]: https://docs.asciidoctor.org/asciidoctor/latest/api/ "See Asciidoctor Documentation on using the API"
+[API Options]: https://docs.asciidoctor.org/asciidoctor/latest/api/options/
 
 <!-- 3rd Party tools -->
 
@@ -130,9 +220,9 @@ Third party components and assets used in this directory tree:
 
 [Status badge]: https://img.shields.io/badge/status-WIP-orange "Lexer status: WIP Alpha"
 [PML badge]: https://img.shields.io/badge/PML-1.5.0-yellow "Supported PML version (click for PML download page)"
-[Rouge badge]: https://img.shields.io/badge/Rouge-3.26.0-yellow "Supported Rouge version (click to visit Rouge website)"
-[Asciidoctor badge]: https://img.shields.io/badge/Asciidoctor-2.0.15-yellow "Supported Asciidoctor version (click to visit Asciidoctor website)"
-[Sass badge]: https://img.shields.io/badge/Dart%20Sass-1.35.1-yellow "Supported Dart Sass version (click to visit Dart Sass repository)"
+[Rouge badge]: https://img.shields.io/badge/Rouge-3.26.1-yellow "Supported Rouge version (click to visit Rouge website)"
+[Asciidoctor badge]: https://img.shields.io/badge/Asciidoctor-2.0.16-yellow "Supported Asciidoctor version (click to visit Asciidoctor website)"
+[Sass badge]: https://img.shields.io/badge/Dart_Sass-1.40.0-yellow "Supported Dart Sass version (click to visit Dart Sass repository)"
 
 <!-- project files and folders -->
 
@@ -140,8 +230,6 @@ Third party components and assets used in this directory tree:
 [sass/build.sh]: ./sass/build.sh "View Sass/CSS and docinfo builder script"
 
 [sample pml]: ./pml-sample.pml "View PML sample source doc"
-
-[build.sh]: ./build.sh "View build script"
 
 [example adoc]: ./asciidoctor-example.asciidoc "Asciidoctor example (source doc)"
 [example html]: ./asciidoctor-example.html "Asciidoctor example (generated HTML doc)"

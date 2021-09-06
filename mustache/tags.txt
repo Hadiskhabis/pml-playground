@@ -1,4 +1,4 @@
-# PML Version 1.5.0
+# PML Version 2.0.0
 
 # All PML Tags:
 
@@ -9,15 +9,14 @@ c
 caption
 ch
 code
-const
 div
 doc
 el
+header
 html
 i
 image
 input
-insert
 insert_code
 link
 list
@@ -31,6 +30,7 @@ sp
 span
 strike
 sub
+subtitle
 sup
 table
 table_data
@@ -38,6 +38,7 @@ tc
 text
 tfooter
 theader
+title
 tr
 verbatim
 video

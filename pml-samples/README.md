@@ -1,5 +1,7 @@
 # PML Sample Documents
 
+![PML Version][PML badge]
+
 A collection of shared PML example documents and chunks to be used in this project (and elsewhere) for the various tests and demonstrations, ranging from basic to complex features coverage.
 
 -----
@@ -172,5 +174,9 @@ Want some thematic random text?
 [standalone/]: ./standalone/ "Navigate to folder"
 
 [build.sh]: ./build.sh "View source script"
+
+<!-- badges -->
+
+[PML badge]: https://img.shields.io/badge/PML-2.0.0-yellow "Supported PML version"
 
 <!-- EOF -->

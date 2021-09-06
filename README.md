@@ -8,6 +8,9 @@ Created by [Tristano Ajmone] in April 2021; maintained by [Christian Neumanns], 
 
 - https://github.com/tajmone/pml-playground
 
+> **NOTE** — This repository contains various sub-projects, organized into different subfolders; some of them might be for older versions of PML because we haven't yet found the time to update them.
+> Always check the PML version badge at the beginning of README files, which indicates the latest PML version against which a folder was last tested.
+
 -----
 
 **Table of Contents**
@@ -94,7 +97,7 @@ Articles by [Christian Neumanns]:
 
 <!-- badges -->
 
-[PML badge]: https://img.shields.io/badge/PML-1.5.0-yellow "Supported PML version (click for PML download page)"
+[PML badge]: https://img.shields.io/badge/PML-2.0.0-yellow "Supported PML version (click for PML download page)"
 [Travis badge]: https://travis-ci.com/tajmone/Sublime-PML.svg?branch=main
 [Travis link]: https://travis-ci.com/tajmone/Sublime-PML "Travis CI: EditorConfig validation status"
 

@@ -1,6 +1,6 @@
 The days of the week in Hebrew:
 
-[list html_dir=rtl
+[list (html_dir=rtl)
     [el יום ראשון]
     [el יום שני]
     [el יום שלישי]

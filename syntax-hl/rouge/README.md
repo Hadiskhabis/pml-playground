@@ -48,6 +48,7 @@ Sample documents:
 - [`asciidoctor-example.html`][example html] — converted HTML doc ([Live HTML Preview][example live])
 - [`pml-syntax.asciidoc`][syntax adoc] — Asciidoctor test document for the PML lexer.
 - [`pml-syntax.html`][syntax html] — converted HTML doc ([Live HTML Preview][syntax live])
+- [`_attr-header.adoc`][_attr-header] — commonly shared header attributes.
 - [`docinfo.html`][docinfo.html] — Asciidoctor [docinfo file] with our custom CSS (generated via [`sass/build.sh`][sass/build.sh]).
 
 
@@ -219,7 +220,7 @@ Third party components and assets used in this directory tree:
 <!-- badges -->
 
 [Status badge]: https://img.shields.io/badge/status-WIP-orange "Lexer status: WIP Alpha"
-[PML badge]: https://img.shields.io/badge/PML-1.5.0-yellow "Supported PML version (click for PML download page)"
+[PML badge]: https://img.shields.io/badge/PML-2.0.0-yellow "Supported PML version (click for PML download page)"
 [Rouge badge]: https://img.shields.io/badge/Rouge-3.26.1-yellow "Supported Rouge version (click to visit Rouge website)"
 [Asciidoctor badge]: https://img.shields.io/badge/Asciidoctor-2.0.16-yellow "Supported Asciidoctor version (click to visit Asciidoctor website)"
 [Sass badge]: https://img.shields.io/badge/Dart_Sass-1.40.0-yellow "Supported Dart Sass version (click to visit Dart Sass repository)"
@@ -238,6 +239,8 @@ Third party components and assets used in this directory tree:
 [syntax adoc]: ./pml-syntax.asciidoc "'PML Syntax' Asciidoctor (source doc)"
 [syntax html]: ./pml-syntax.html "'PML Syntax' Asciidoctor (generated HTML doc)"
 [syntax live]: https://htmlpreview.github.io/?https://github.com/tajmone/pml-playground/blob/master/syntax-hl/rouge/pml-syntax.html "Live HTML Preview of 'pml-syntax.html'"
+
+[_attr-header]: ./_attr-header.adoc "Shared AsciiDoc header attributes"
 
 [adapter]: ./custom-rouge-adapter.rb "Custom Rouge adapter for Asciidoctor"
 [pml.rb]: ./pml.rb "Rouge's PML Lexer source"

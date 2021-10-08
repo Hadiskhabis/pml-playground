@@ -1,4 +1,4 @@
-// "_rouge-template-pml.scss"           v0.0.1 | 2021/07/10 | by Tristano Ajmone
+// "_rouge-template-pml.scss"           v0.0.2 | 2021/10/08 | by Tristano Ajmone
 // *****************************************************************************
 // *                                                                           *
 // *                 Rouge PML Theme Template for Asciidoctor                  *
@@ -40,8 +40,10 @@ $PML-Background:   $GOGH_BG !default;
 $PML-Normal-Text:  $GOGH_16 !default;
 $PML-Comments: adjust-color($GOGH_BG, $lightness: +30%) !default;
 $PML-Nodes:        $GOGH_10 !default;
+$PML-PPNodes:      $GOGH_14 !default;
 $PML-Escapes:      $GOGH_14 !default;
-$PML-Punctuation:  $GOGH_10 !default;
+$PML-Punctuation:  $GOGH_04 !default;
+$PML-Operator:     $GOGH_04 !default;
 $PML-Parameter:    $GOGH_12 !default;
 $PML-Invalid_BG:   $GOGH_10 !default;
 $PML-Invalid_FG:   $GOGH_16 !default;
@@ -77,8 +79,18 @@ $ref_role: null;
     font-family: $PML-Font-family;
     font-size: $PML-Font-size;
     &>span {
-      font-style: normal;
-      font-weight: normal;
+      // font-style: normal;
+      // font-weight: normal;
+      &.gb {
+        // Bold Text -> Generic::Strong
+        // ---------
+        font-weight: bold;
+      }
+      &.ge {
+        // Italic Text -> Generic::Emph
+        // -----------
+        font-style: italic;
+      }
       &.cm {
         // Block comments -> Comment::Multiline
         // --------------
@@ -90,6 +102,11 @@ $ref_role: null;
         // -----
         color: $PML-Nodes;
       }
+      &.kp {
+        // Preprocessor Nodes -> Keyword::Pseudo
+        // ------------------
+        color: $PML-PPNodes;
+      }
       &.se {
         // Escape sequences -> Str::Escape
         // ----------------
@@ -98,6 +115,11 @@ $ref_role: null;
       &.p {
         // Punctuation -> Punctuation
         // -----------
+        color: $PML-Punctuation;
+      }
+      &.o {
+        // Operator -> Operator
+        // --------
         color: $PML-Punctuation;
       }
       &.no {

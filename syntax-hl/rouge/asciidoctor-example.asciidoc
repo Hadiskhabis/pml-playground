@@ -1,16 +1,7 @@
 = PML Rouge Lexer Examples
-Tristano Ajmone <tajmone@gmail.com>
-:source-highlighter: rouge
+include::_attr-header.adoc[]
 :rouge-style: thankful_eyes
-:toclevels: 5
-:toc: left
 :docinfo: shared-head
-:idprefix:
-:experimental: true
-:icons: font
-:linkattrs: true
-:reproducible: true
-:sectanchors:
 
 Syntax highlighting examples of our custom PML lexer for Rouge.
 

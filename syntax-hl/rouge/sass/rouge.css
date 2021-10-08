@@ -33,9 +33,11 @@ span.green {
   font-family: inherit;
   font-size: inherit;
 }
-.listingblock pre[class~=rouge][lang=pml] > code > span {
-  font-style: normal;
-  font-weight: normal;
+.listingblock pre[class~=rouge][lang=pml] > code > span.gb {
+  font-weight: bold;
+}
+.listingblock pre[class~=rouge][lang=pml] > code > span.ge {
+  font-style: italic;
 }
 .listingblock pre[class~=rouge][lang=pml] > code > span.cm {
   color: #547a9e;
@@ -44,11 +46,17 @@ span.green {
 .listingblock pre[class~=rouge][lang=pml] > code > span.nt {
   color: #E74C3C;
 }
+.listingblock pre[class~=rouge][lang=pml] > code > span.kp {
+  color: #9B59B6;
+}
 .listingblock pre[class~=rouge][lang=pml] > code > span.se {
   color: #9B59B6;
 }
 .listingblock pre[class~=rouge][lang=pml] > code > span.p {
-  color: #E74C3C;
+  color: #F39C12;
+}
+.listingblock pre[class~=rouge][lang=pml] > code > span.o {
+  color: #F39C12;
 }
 .listingblock pre[class~=rouge][lang=pml] > code > span.no {
   color: #F1C40F;

@@ -445,6 +445,16 @@ pre.rouge, pre.rouge .w {
   color: #ffffff;
   background-color: #000000;
 }
+pre.rouge .ge {
+  color: #ffffff;
+  background-color: #000000;
+  font-style: italic;
+}
+pre.rouge .gs {
+  color: #ffffff;
+  background-color: #000000;
+  font-weight: bold;
+}
 pre.rouge .c, pre.rouge .ch, pre.rouge .cd, pre.rouge .cp, pre.rouge .cpf, pre.rouge .c1, pre.rouge .cs {
   color: #c19a6b;
   font-style: italic;
@@ -458,6 +468,12 @@ pre.rouge .se {
 }
 pre.rouge .p, pre.rouge .pi {
   color: #ffae2b;
+}
+pre.rouge .o, pre.rouge .ow {
+  color: #5adaff;
+}
+pre.rouge .kp {
+  color: #ffbcd9;
 }
 pre.rouge .no {
   color: #ffff00;
@@ -477,6 +493,9 @@ pre.rouge .err {
 <div class="details">
 <span id="author" class="author">Tristano Ajmone</span><br>
 <span id="email" class="email"><a href="mailto:tajmone@gmail.com">tajmone@gmail.com</a></span><br>
+<span id="revnumber">pml 2.1.0,</span>
+<span id="revdate">2021/10/08</span>
+<br><span id="revremark">WIP</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -485,6 +504,7 @@ pre.rouge .err {
 <li><a href="#escapes">Escapes</a></li>
 <li><a href="#constant_parameter">Constant Parameter</a></li>
 <li><a href="#nodes">Nodes</a></li>
+<li><a href="#italic_and_bold">Italic and Bold</a></li>
 </ul>
 </div>
 </div>
@@ -497,6 +517,33 @@ For each element, we&#8217;ll also mention it&#8217;s Rouge token name and its c
 </div>
 <div class="paragraph">
 <p>For better visual inspection, we&#8217;ll be using a custom Rouge theme here, designed to cover all the syntax elements of the PML lexer.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" lang="pml"><code class="language-pml" data-lang="pml"><span class="nt">[doc</span><span class="w"> </span><span class="nt">[title</span><span class="w"> </span>A<span class="w"> </span>Sample<span class="w"> </span>PML<span class="w"> </span>Document<span class="nt">]</span><span class="w">
+
+  </span><span class="kp">[!set</span><span class="w"> </span><span class="no">PML_Ver</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>"2.0.0"<span class="kp">]</span><span class="w">
+
+  </span><span class="nt">[ch</span><span class="w"> </span><span class="nt">[title</span><span class="w"> </span>Basic<span class="w"> </span>Formatting<span class="nt">]</span><span class="w">
+
+    </span>PML<span class="w"> </span><span class="kp">[!get</span><span class="w"> </span><span class="no">PML_Ver</span><span class="kp">]</span><span class="w"> </span>supports<span class="w"> </span>text<span class="w"> </span>formatting<span class="w"> </span>in<span class="w"> </span><span class="nt">[b</span><span class="w"> </span><span class="gs">bold</span><span class="w"> </span><span class="nt">]</span>,<span class="w"> </span><span class="nt">[i</span><span class="w"> </span><span class="ge">italic</span><span class="w"> </span><span class="nt">]</span>,<span class="w"> </span>etc.<span class="w">
+
+    </span>You<span class="w"> </span>also<span class="w"> </span>include<span class="w"> </span>comments<span class="w"> </span><span class="cm">[- like this one -]</span><span class="w"> </span>in<span class="w"> </span>your<span class="w"> </span>source<span class="w"> </span>documents,<span class="w">
+    </span>to<span class="w"> </span>annotate<span class="w"> </span>your<span class="w"> </span>pending<span class="w"> </span>tasks<span class="w"> </span>without<span class="w"> </span>affecting<span class="w"> </span>the<span class="w"> </span>final<span class="w"> </span>document.<span class="w">
+
+    </span><span class="nt">[ch</span><span class="w"> </span><span class="nt">[title</span><span class="w"> </span>(id<span class="w"> </span>=<span class="w"> </span>nested_comments)<span class="w"> </span>"Nested<span class="w"> </span>Comments"<span class="nt">]</span><span class="w">
+
+      </span>In<span class="w"> </span>PML,<span class="w"> </span>all<span class="w"> </span>comments<span class="w"> </span>are<span class="w"> </span><span class="nt">[i</span><span class="w"> </span><span class="ge">block</span><span class="w"> </span><span class="ge">comments</span><span class="w"> </span><span class="nt">]</span>,<span class="w"> </span>and<span class="w"> </span>they<span class="w"> </span>can<span class="w"> </span>be<span class="w"> </span>nested<span class="w"> </span>to<span class="w">
+      </span>any<span class="w"> </span>level,<span class="w"> </span>which<span class="w"> </span>makes<span class="w"> </span>it<span class="w"> </span>very<span class="w"> </span>practical<span class="w"> </span>to<span class="w"> </span>temporarily<span class="w"> </span>exclude<span class="w"> </span>parts<span class="w"> </span>of<span class="w">
+      </span>text<span class="w"> </span>from<span class="w"> </span>the<span class="w"> </span>generated<span class="w"> </span>document.<span class="w">
+
+      </span>Thanks<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>PML<span class="w"> </span>lexer<span class="w"> </span>for<span class="w"> </span>Rouge,<span class="w"> </span><span class="cm">[- which is finally ready[- and</span>
+<span class="cm">      available on GitHub-], -]</span><span class="w"> </span>we<span class="w"> </span>can<span class="w"> </span>highlight<span class="w"> </span>PML<span class="w"> </span>code<span class="w"> </span>in<span class="w"> </span>Asciidoctor.<span class="w">
+
+    </span><span class="nt">]</span><span class="w">
+  </span><span class="nt">]</span><span class="w">
+</span><span class="nt">]</span></code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -605,7 +652,7 @@ are achieved by preceding with a <code>\</code> the reserved characters <code>[<
 Lexer class 
 </td>
 <td class="hdlist2">
-<p><code>Name::Constant</code></p>
+<p><code>Keyword::Pseudo</code></p>
 </td>
 </tr>
 <tr>
@@ -613,7 +660,7 @@ Lexer class
 CSS class   
 </td>
 <td class="hdlist2">
-<p><code>no</code></p>
+<p><code>kp</code></p>
 </td>
 </tr>
 </table>
@@ -625,13 +672,13 @@ are a powerful substitution mechanism.</p>
 <div class="listingblock">
 <div class="title">Parameters Example</div>
 <div class="content">
-<pre class="rouge highlight" lang="pml"><code class="language-pml" data-lang="pml"><span class="nt">[const</span><span class="w"> </span>examples_root<span class="w"> </span>=<span class="w"> </span>http://www.example.com/project/source_code/examples<span class="nt">]</span><span class="w">
+<pre class="rouge highlight" lang="pml"><code class="language-pml" data-lang="pml"><span class="kp">[!set</span><span class="w"> </span><span class="no">examples_root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>http://www.example.com/project/source_code/examples<span class="kp">]</span><span class="w">
 
 </span>Here<span class="w"> </span>are<span class="w"> </span>two<span class="w"> </span>examples:<span class="w">
 
-</span><span class="nt">[link</span><span class="w"> </span>url=<span class="p">&lt;&lt;</span><span class="no">examples_root</span><span class="p">&gt;&gt;</span>/ex1.html<span class="w"> </span>text=example<span class="w"> </span>1<span class="nt">]</span><span class="w">
+</span><span class="nt">[link</span><span class="w"> </span>url=<span class="kp">[!get</span><span class="w"> </span><span class="no">examples_root</span><span class="kp">]</span>/ex1.html<span class="w"> </span>text=example<span class="w"> </span>1<span class="nt">]</span><span class="w">
 
-</span><span class="nt">[link</span><span class="w"> </span>url=<span class="p">&lt;&lt;</span><span class="no">examples_root</span><span class="p">&gt;&gt;</span>/ex2.html<span class="w"> </span>text=example<span class="w"> </span>2<span class="nt">]</span>.</code></pre>
+</span><span class="nt">[link</span><span class="w"> </span>url=<span class="kp">[!get</span><span class="w"> </span><span class="no">examples_root</span><span class="kp">]</span>/ex2.html<span class="w"> </span>text=example<span class="w"> </span>2<span class="nt">]</span>.</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -640,9 +687,9 @@ are a powerful substitution mechanism.</p>
 <div class="listingblock">
 <div class="title">Invalid Parameter ID Example</div>
 <div class="content">
-<pre class="rouge highlight" lang="pml"><code class="language-pml" data-lang="pml"><span class="nt">[const</span><span class="w"> </span>invalid.param.id<span class="w"> </span>=<span class="w"> </span>something<span class="nt">]</span><span class="w">
+<pre class="rouge highlight" lang="pml"><code class="language-pml" data-lang="pml"><span class="kp">[!set</span><span class="w"> </span><span class="err">invalid.param.id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>something<span class="kp">]</span><span class="w">
 
-</span>Let<span class="w"> </span>me<span class="w"> </span>tell<span class="w"> </span>you<span class="w"> </span><span class="p">&lt;&lt;</span><span class="err">invalid.param.id</span><span class="p">&gt;&gt;</span></code></pre>
+</span>Let<span class="w"> </span>me<span class="w"> </span>tell<span class="w"> </span>you<span class="w"> </span><span class="kp">[!get</span><span class="w"> </span><span class="err">invalid.param.id</span><span class="kp">]</span></code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -691,7 +738,7 @@ In the future, the lexer will handle nodes differently, according to need.</p>
 <div class="listingblock">
 <div class="title">Valid Node Example</div>
 <div class="content">
-<pre class="rouge highlight" lang="pml"><code class="language-pml" data-lang="pml">Hello<span class="w"> </span><span class="nt">[b</span><span class="w"> </span>world<span class="w"> </span><span class="nt">]</span>.</code></pre>
+<pre class="rouge highlight" lang="pml"><code class="language-pml" data-lang="pml">Hello<span class="w"> </span><span class="nt">[b</span><span class="w"> </span><span class="gs">world</span><span class="w"> </span><span class="nt">]</span>.</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -702,11 +749,11 @@ In the future, the lexer will handle nodes differently, according to need.</p>
 <div class="content">
 <pre class="rouge highlight" lang="pml"><code class="language-pml" data-lang="pml">Hello<span class="w"> </span><span class="err">[xyz</span><span class="w"> </span>world<span class="w"> </span><span class="err">]</span>.<span class="w">
 
-</span>Hello<span class="w"> </span><span class="nt">[b</span><span class="w"> </span>brave<span class="w"> </span><span class="err">[xyz</span><span class="w"> </span>new<span class="w"> </span><span class="err">]</span><span class="w"> </span><span class="nt">]</span><span class="w"> </span>world.<span class="w">
+</span>Hello<span class="w"> </span><span class="nt">[b</span><span class="w"> </span><span class="gs">brave</span><span class="w"> </span><span class="err">[xyz</span><span class="w"> </span><span class="gs">new</span><span class="w"> </span><span class="err">]</span><span class="w"> </span><span class="nt">]</span><span class="w"> </span>world.<span class="w">
 
-</span>Hello<span class="w"> </span><span class="nt">[b</span><span class="w"> </span>brave<span class="w">
-        </span><span class="err">[xyz</span><span class="w"> </span>new<span class="w">
-          </span><span class="nt">[i</span><span class="w"> </span>world<span class="w"> </span><span class="nt">]</span><span class="w">
+</span>Hello<span class="w"> </span><span class="nt">[b</span><span class="w"> </span><span class="gs">brave</span><span class="w">
+        </span><span class="err">[xyz</span><span class="w"> </span><span class="gs">new</span><span class="w">
+          </span><span class="nt">[i</span><span class="w"> </span><span class="ge">world</span><span class="w"> </span><span class="nt">]</span><span class="w">
         </span><span class="err">]</span><span class="w">
       </span><span class="nt">]</span>.</code></pre>
 </div>
@@ -714,7 +761,83 @@ In the future, the lexer will handle nodes differently, according to need.</p>
 <div class="listingblock">
 <div class="title">Edge Cases Test</div>
 <div class="content">
-<pre class="rouge highlight" lang="pml"><code class="language-pml" data-lang="pml">Hello<span class="w"> </span><span class="nt">[b</span><span class="w"> </span>brave<span class="w"> </span><span class="se">\]</span><span class="w"> </span>new<span class="w"> </span><span class="nt">]</span><span class="w"> </span>world.</code></pre>
+<pre class="rouge highlight" lang="pml"><code class="language-pml" data-lang="pml">Hello<span class="w"> </span><span class="nt">[b</span><span class="w"> </span><span class="gs">brave</span><span class="w"> </span><span class="se">\]</span><span class="w"> </span><span class="gs">new</span><span class="w"> </span><span class="nt">]</span><span class="w"> </span>world.</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="italic_and_bold"><a class="anchor" href="#italic_and_bold"></a>Italic and Bold</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Text inside <code>[i</code> and <code>[b</code> is rendered in <em>emphasis</em> and <em>strong</em> style, respectively.</p>
+</div>
+<div class="listingblock">
+<div class="title">Italic and Bold Examples</div>
+<div class="content">
+<pre class="rouge highlight" lang="pml"><code class="language-pml" data-lang="pml">Some<span class="w"> </span><span class="nt">[i</span><span class="w"> </span><span class="ge">italic</span><span class="w"> </span><span class="ge">text</span><span class="w"> </span><span class="nt">]</span>.<span class="w">
+
+</span>Some<span class="w"> </span><span class="nt">[b</span><span class="w"> </span><span class="gs">bold</span><span class="w"> </span><span class="gs">text</span><span class="w"> </span><span class="nt">]</span>.</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Since text can&#8217;t be styled as both <em>emphasis</em> and <em>strong</em>, italic is given precedence when both should apply.</p>
+</div>
+<div class="listingblock">
+<div class="title">Overlapping Italic and Bold Examples</div>
+<div class="content">
+<pre class="rouge highlight" lang="pml"><code class="language-pml" data-lang="pml">Overlapping<span class="w"> </span><span class="nt">[i</span><span class="w"> </span><span class="ge">italic</span><span class="w"> </span><span class="ge">and</span><span class="w"> </span><span class="nt">[b</span><span class="w"> </span><span class="ge">bold</span><span class="w"> </span><span class="ge">text</span><span class="w"> </span><span class="nt">]]</span>,<span class="w"> </span>and<span class="w"> </span>back<span class="w"> </span>to<span class="w"> </span>normal.<span class="w">
+
+</span>Overlapping<span class="w"> </span><span class="nt">[b</span><span class="w"> </span><span class="gs">bold</span><span class="w"> </span><span class="gs">and</span><span class="w"> </span><span class="nt">[i</span><span class="w"> </span><span class="ge">italic</span><span class="w"> </span><span class="ge">text</span><span class="w"> </span><span class="nt">]]</span>,<span class="w"> </span>and<span class="w"> </span>back<span class="w"> </span>to<span class="w"> </span>normal.</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The lexer is able to correctly track <code>[i</code> and <code>[b</code> nesting:</p>
+</div>
+<div class="listingblock">
+<div class="title">Nested Italic and Bold Test</div>
+<div class="content">
+<pre class="rouge highlight" lang="pml"><code class="language-pml" data-lang="pml">Nested<span class="w"> </span><span class="nt">[i</span><span class="w"> </span><span class="ge">italics</span><span class="w"> </span><span class="nt">[i</span><span class="w"> </span><span class="ge">example</span><span class="nt">]]</span>,<span class="w"> </span>normal.<span class="w">
+
+</span>Nested<span class="w"> </span><span class="nt">[b</span><span class="w"> </span><span class="gs">bold</span><span class="w"> </span><span class="nt">[b</span><span class="w"> </span><span class="gs">example</span><span class="nt">]]</span>,<span class="w"> </span>normal.<span class="w">
+
+</span>Nested<span class="w"> </span><span class="nt">[b</span><span class="w"> </span><span class="gs">bold</span><span class="w"> </span><span class="nt">[i</span><span class="w"> </span><span class="ge">bold+italic</span><span class="w"> </span><span class="nt">[b</span><span class="w"> </span><span class="ge">bold+italic+bold</span><span class="w"> </span><span class="nt">]]</span><span class="w"> </span><span class="gs">bold</span><span class="w"> </span><span class="gs">again</span><span class="nt">]</span>,<span class="w"> </span>normal.<span class="w">
+
+</span>Nested<span class="w"> </span><span class="nt">[i</span><span class="w"> </span><span class="ge">italic</span><span class="w"> </span><span class="nt">[b</span><span class="w"> </span><span class="ge">italic+bold</span><span class="w"> </span><span class="nt">[b</span><span class="w"> </span><span class="ge">italic+bold+bold</span><span class="w"> </span><span class="nt">]]</span><span class="w"> </span><span class="ge">italic</span><span class="w"> </span><span class="ge">again</span><span class="nt">]</span>,<span class="w"> </span>normal.</code></pre>
+</div>
+</div>
+<h3 id="leak_tests" class="discrete">Leak Tests</h3>
+<div class="paragraph">
+<p>Because nesting of <code>[i</code> and <code>[b</code> nodes is tracked via numeric variables, and because Rake is attached to Asciidoctor as an extension which is kept open for the whole session, an unclosed <code>[i</code> or <code>[b</code> node might leak into the next code block highlighting if their tracking variables aren&#8217;t reset at each Rake invocation via the <code>Rouge::RegexLexer.start</code> method.</p>
+</div>
+<div class="listingblock">
+<div class="title">Unclosed Italic Example</div>
+<div class="content">
+<pre class="rouge highlight" lang="pml"><code class="language-pml" data-lang="pml">Text<span class="w"> </span><span class="nt">[i</span><span class="w"> </span><span class="ge">italic</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The next block <em>must not</em> be in italic:</p>
+</div>
+<div class="listingblock">
+<div class="title">Unclosed Italic Leak Test</div>
+<div class="content">
+<pre class="rouge highlight" lang="pml"><code class="language-pml" data-lang="pml">Text<span class="w"> </span>must<span class="w"> </span>be<span class="w"> </span>normal.</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Unclosed Bold Example</div>
+<div class="content">
+<pre class="rouge highlight" lang="pml"><code class="language-pml" data-lang="pml">Text<span class="w"> </span><span class="nt">[b</span><span class="w"> </span><span class="gs">bold</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The next block <em>must not</em> be in bold:</p>
+</div>
+<div class="listingblock">
+<div class="title">Unclosed Bold Leak Test</div>
+<div class="content">
+<pre class="rouge highlight" lang="pml"><code class="language-pml" data-lang="pml">Text<span class="w"> </span>must<span class="w"> </span>be<span class="w"> </span>normal.</code></pre>
 </div>
 </div>
 </div>
@@ -722,6 +845,7 @@ In the future, the lexer will handle nodes differently, according to need.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
+PML 2.1.0<br>
 </div>
 </div>
 </body>

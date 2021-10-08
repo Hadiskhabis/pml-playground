@@ -29,10 +29,14 @@ module Rouge
 
 
       style Text,                     :fg => :white, :bg => :black
+      style Generic::Emph,            :fg => :white, :bg => :black, :italic => true
+      style Generic::Strong,          :fg => :white, :bg => :black, :bold => true
       style Comment,
             Comment::Multiline,       :fg => :brown, :italic => true
       style Str::Escape,              :fg => :purple
       style Punctuation,              :fg => :orange
+      style Operator,                 :fg => :cyan
+      style Keyword::Pseudo,          :fg => :pink
       style Name::Constant,           :fg => :yellow
       style Name::Tag,                :fg => :red
       style Error,                    :fg => :white, :bg => :red

@@ -652,9 +652,11 @@ span.green {
   font-family: inherit;
   font-size: inherit;
 }
-.listingblock pre[class~=rouge][lang=pml] > code > span {
-  font-style: normal;
-  font-weight: normal;
+.listingblock pre[class~=rouge][lang=pml] > code > span.gb {
+  font-weight: bold;
+}
+.listingblock pre[class~=rouge][lang=pml] > code > span.ge {
+  font-style: italic;
 }
 .listingblock pre[class~=rouge][lang=pml] > code > span.cm {
   color: #547a9e;
@@ -663,11 +665,17 @@ span.green {
 .listingblock pre[class~=rouge][lang=pml] > code > span.nt {
   color: #E74C3C;
 }
+.listingblock pre[class~=rouge][lang=pml] > code > span.kp {
+  color: #9B59B6;
+}
 .listingblock pre[class~=rouge][lang=pml] > code > span.se {
   color: #9B59B6;
 }
 .listingblock pre[class~=rouge][lang=pml] > code > span.p {
-  color: #E74C3C;
+  color: #F39C12;
+}
+.listingblock pre[class~=rouge][lang=pml] > code > span.o {
+  color: #F39C12;
 }
 .listingblock pre[class~=rouge][lang=pml] > code > span.no {
   color: #F1C40F;
@@ -686,6 +694,9 @@ span.green {
 <div class="details">
 <span id="author" class="author">Tristano Ajmone</span><br>
 <span id="email" class="email"><a href="mailto:tajmone@gmail.com">tajmone@gmail.com</a></span><br>
+<span id="revnumber">pml 2.1.0,</span>
+<span id="revdate">2021/10/08</span>
+<br><span id="revremark">WIP</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -733,23 +744,20 @@ span.green {
 <h3 id="pml_samples"><a class="anchor" href="#pml_samples"></a>PML Samples</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="rouge highlight" lang="pml"><code class="language-pml" data-lang="pml"><span class="nt">[doc</span><span class="w"> </span>title<span class="w"> </span>=<span class="w"> </span>A<span class="w"> </span>Sample<span class="w"> </span>PML<span class="w"> </span>Document<span class="w"> </span>\<span class="w">
-     </span>authors<span class="w"> </span>=<span class="w"> </span>Tristano<span class="w"> </span>Ajmone<span class="w"> </span>\<span class="w">
-     </span>date<span class="w"> </span>=<span class="w"> </span>2021-07-09<span class="w">
+<pre class="rouge highlight" lang="pml"><code class="language-pml" data-lang="pml"><span class="nt">[doc</span><span class="w"> </span><span class="nt">[title</span><span class="w"> </span>A<span class="w"> </span>Sample<span class="w"> </span>PML<span class="w"> </span>Document<span class="nt">]</span><span class="w">
 
-  </span><span class="nt">[const</span><span class="w"> </span>PML_Ver<span class="w"> </span>=<span class="w"> </span>"1.5.0"<span class="nt">]</span><span class="w">
+  </span><span class="kp">[!set</span><span class="w"> </span><span class="no">PML_Ver</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>"2.0.0"<span class="kp">]</span><span class="w">
 
-  </span><span class="nt">[ch</span><span class="w"> </span>title<span class="w"> </span>=<span class="w"> </span>Basic<span class="w"> </span>Formatting<span class="w">
+  </span><span class="nt">[ch</span><span class="w"> </span><span class="nt">[title</span><span class="w"> </span>Basic<span class="w"> </span>Formatting<span class="nt">]</span><span class="w">
 
-    </span>PML<span class="w"> </span><span class="p">&lt;&lt;</span><span class="no">PML_Ver</span><span class="p">&gt;&gt;</span><span class="w"> </span>supports<span class="w"> </span>text<span class="w"> </span>formatting<span class="w"> </span>in<span class="w"> </span><span class="nt">[b</span><span class="w"> </span>bold<span class="w"> </span><span class="nt">]</span>,<span class="w"> </span><span class="nt">[i</span><span class="w"> </span>italic<span class="w"> </span><span class="nt">]</span>,<span class="w"> </span>etc.<span class="w">
+    </span>PML<span class="w"> </span><span class="kp">[!get</span><span class="w"> </span><span class="no">PML_Ver</span><span class="kp">]</span><span class="w"> </span>supports<span class="w"> </span>text<span class="w"> </span>formatting<span class="w"> </span>in<span class="w"> </span><span class="nt">[b</span><span class="w"> </span><span class="gs">bold</span><span class="w"> </span><span class="nt">]</span>,<span class="w"> </span><span class="nt">[i</span><span class="w"> </span><span class="ge">italic</span><span class="w"> </span><span class="nt">]</span>,<span class="w"> </span>etc.<span class="w">
 
     </span>You<span class="w"> </span>also<span class="w"> </span>include<span class="w"> </span>comments<span class="w"> </span><span class="cm">[- like this one -]</span><span class="w"> </span>in<span class="w"> </span>your<span class="w"> </span>source<span class="w"> </span>documents,<span class="w">
     </span>to<span class="w"> </span>annotate<span class="w"> </span>your<span class="w"> </span>pending<span class="w"> </span>tasks<span class="w"> </span>without<span class="w"> </span>affecting<span class="w"> </span>the<span class="w"> </span>final<span class="w"> </span>document.<span class="w">
 
-    </span><span class="nt">[ch</span><span class="w"> </span>title<span class="w"> </span>=<span class="w"> </span>"Nested<span class="w"> </span>Comments"<span class="w"> </span>\<span class="w">
-      </span>id<span class="w"> </span>=<span class="w"> </span>nested_comments<span class="w">
+    </span><span class="nt">[ch</span><span class="w"> </span><span class="nt">[title</span><span class="w"> </span>(id<span class="w"> </span>=<span class="w"> </span>nested_comments)<span class="w"> </span>"Nested<span class="w"> </span>Comments"<span class="nt">]</span><span class="w">
 
-      </span>In<span class="w"> </span>PML,<span class="w"> </span>all<span class="w"> </span>comments<span class="w"> </span>are<span class="w"> </span><span class="nt">[i</span><span class="w"> </span>block<span class="w"> </span>comments<span class="w"> </span><span class="nt">]</span>,<span class="w"> </span>and<span class="w"> </span>they<span class="w"> </span>can<span class="w"> </span>be<span class="w"> </span>nested<span class="w"> </span>to<span class="w">
+      </span>In<span class="w"> </span>PML,<span class="w"> </span>all<span class="w"> </span>comments<span class="w"> </span>are<span class="w"> </span><span class="nt">[i</span><span class="w"> </span><span class="ge">block</span><span class="w"> </span><span class="ge">comments</span><span class="w"> </span><span class="nt">]</span>,<span class="w"> </span>and<span class="w"> </span>they<span class="w"> </span>can<span class="w"> </span>be<span class="w"> </span>nested<span class="w"> </span>to<span class="w">
       </span>any<span class="w"> </span>level,<span class="w"> </span>which<span class="w"> </span>makes<span class="w"> </span>it<span class="w"> </span>very<span class="w"> </span>practical<span class="w"> </span>to<span class="w"> </span>temporarily<span class="w"> </span>exclude<span class="w"> </span>parts<span class="w"> </span>of<span class="w">
       </span>text<span class="w"> </span>from<span class="w"> </span>the<span class="w"> </span>generated<span class="w"> </span>document.<span class="w">
 
@@ -973,6 +981,7 @@ If no theme is specified via <code>:rouge-style:</code>, Asciidoctor will defaul
 </div>
 <div id="footer">
 <div id="footer-text">
+PML 2.1.0<br>
 </div>
 </div>
 </body>

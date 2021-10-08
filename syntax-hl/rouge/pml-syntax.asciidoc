@@ -1,15 +1,6 @@
 = PML Rouge Lexer
-Tristano Ajmone <tajmone@gmail.com>
-:source-highlighter: rouge
+include::_attr-header.adoc[]
 :rouge-style: pml-test-theme
-:toclevels: 5
-:toc: left
-:idprefix:
-:experimental: true
-:icons: font
-:linkattrs: true
-:reproducible: true
-:sectanchors:
 
 In this document we'll focus on specific elements of the PML syntax, one element per section, in order to check that they are rendered properly by the lexer and theme.
 For each element, we'll also mention it's Rouge token name and its corresponding HTML/CSS class.
@@ -21,6 +12,12 @@ For better visual inspection, we'll be using a custom Rouge theme here, designed
 :manRef: PML Reference Manual »
 :guideURL: https://www.pml-lang.dev/docs/user_manual/index.html#
 :guideRef: PML User Manual »
+
+[source,pml]
+-------------------------
+include::pml-sample.pml[]
+-------------------------
+
 
 == Comments
 
@@ -83,8 +80,8 @@ Instead of writing \[, we have to write \\\[
 == Constant Parameter
 
 [horizontal]
-Lexer class :: `Name::Constant`
-CSS class   :: `no`
+Lexer class :: `Keyword::Pseudo`
+CSS class   :: `kp`
 
 link:{manURL}node_const[Constant parameters^,title="{manRef} Constant Parameter"]
 are a powerful substitution mechanism.
@@ -92,13 +89,13 @@ are a powerful substitution mechanism.
 .Parameters Example
 [source,pml]
 ---------------------------------------
-[const examples_root = http://www.example.com/project/source_code/examples]
+[!set examples_root = http://www.example.com/project/source_code/examples]
 
 Here are two examples:
 
-[link url=<<examples_root>>/ex1.html text=example 1]
+[link url=[!get examples_root]/ex1.html text=example 1]
 
-[link url=<<examples_root>>/ex2.html text=example 2].
+[link url=[!get examples_root]/ex2.html text=example 2].
 ---------------------------------------
 
 Custom IDs definitions in PML are limited to the RegEx pattern ``[a-zA-Z][a-zA-Z0-9_]*``, and the Rouge lexer will mark as `Error` any references to invalid parameter IDs:
@@ -106,9 +103,9 @@ Custom IDs definitions in PML are limited to the RegEx pattern ``[a-zA-Z][a-zA-Z
 .Invalid Parameter ID Example
 [source,pml]
 ---------------------------------------
-[const invalid.param.id = something]
+[!set invalid.param.id = something]
 
-Let me tell you <<invalid.param.id>>
+Let me tell you [!get invalid.param.id]
 ---------------------------------------
 
 [NOTE]
@@ -154,5 +151,80 @@ Hello [b brave
 ---------------------------------------
 Hello [b brave \] new ] world.
 ---------------------------------------
+
+
+== Italic and Bold
+
+Text inside `[i` and `[b` is rendered in _emphasis_ and _strong_ style, respectively.
+
+.Italic and Bold Examples
+[source,pml]
+---------------------------------------
+Some [i italic text ].
+
+Some [b bold text ].
+---------------------------------------
+
+Since text can't be styled as both _emphasis_ and _strong_, italic is given precedence when both should apply.
+
+
+.Overlapping Italic and Bold Examples
+[source,pml]
+---------------------------------------
+Overlapping [i italic and [b bold text ]], and back to normal.
+
+Overlapping [b bold and [i italic text ]], and back to normal.
+---------------------------------------
+
+
+The lexer is able to correctly track `[i` and `[b` nesting:
+
+.Nested Italic and Bold Test
+[source,pml]
+---------------------------------------
+Nested [i italics [i example]], normal.
+
+Nested [b bold [b example]], normal.
+
+Nested [b bold [i bold+italic [b bold+italic+bold ]] bold again], normal.
+
+Nested [i italic [b italic+bold [b italic+bold+bold ]] italic again], normal.
+---------------------------------------
+
+[discrete]
+=== Leak Tests
+
+Because nesting of `[i` and `[b` nodes is tracked via numeric variables, and because Rake is attached to Asciidoctor as an extension which is kept open for the whole session, an unclosed `[i` or `[b` node might leak into the next code block highlighting if their tracking variables aren't reset at each Rake invocation via the `Rouge::RegexLexer.start` method.
+
+.Unclosed Italic Example
+[source,pml]
+---------------------------------------
+Text [i italic
+---------------------------------------
+
+The next block _must not_ be in italic:
+
+.Unclosed Italic Leak Test
+[source,pml]
+---------------------------------------
+Text must be normal.
+---------------------------------------
+
+
+.Unclosed Bold Example
+[source,pml]
+---------------------------------------
+Text [b bold
+---------------------------------------
+
+The next block _must not_ be in bold:
+
+.Unclosed Bold Leak Test
+[source,pml]
+---------------------------------------
+Text must be normal.
+---------------------------------------
+
+
 
 // EOF //

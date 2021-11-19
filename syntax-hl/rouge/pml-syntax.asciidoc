@@ -2,16 +2,12 @@
 include::_attr-header.adoc[]
 :rouge-style: pml-test-theme
 
+include::_attr-custom.adoc[]
+
 In this document we'll focus on specific elements of the PML syntax, one element per section, in order to check that they are rendered properly by the lexer and theme.
-For each element, we'll also mention it's Rouge token name and its corresponding HTML/CSS class.
+For each element, we'll also mention its Rouge token name and its corresponding HTML/CSS class.
 
 For better visual inspection, we'll be using a custom Rouge theme here, designed to cover all the syntax elements of the PML lexer.
-
-// CUSTOM ATTRIBUTES:
-:manURL: https://www.pml-lang.dev/docs/reference_manual/index.html#
-:manRef: PML Reference Manual »
-:guideURL: https://www.pml-lang.dev/docs/user_manual/index.html#
-:guideRef: PML User Manual »
 
 [source,pml]
 -------------------------

@@ -39,7 +39,7 @@ task :rouge
 ROUGE_ADOC_DEPS = FileList[
   'syntax-hl/rouge/*.rb',
   'syntax-hl/rouge/docinfo.html',
-  'syntax-hl/rouge/_attr-header.adoc',
+  'syntax-hl/rouge/_attr-*.adoc',
   'syntax-hl/rouge/pml-sample.pml',
   '_assets/rake/*.rb'
 ]

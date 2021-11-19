@@ -1,0 +1,18 @@
+////
+********************************************************************************
+*                                                                              *
+*                      C U S T O M   A T T R I B U T E S                       *
+*                                                                              *
+********************************************************************************
+////
+
+// PML Documentation Links Helpers //
+:manURL: https://www.pml-lang.dev/docs/reference_manual/index.html#
+:manRef: PML Reference Manual »
+:guideURL: https://www.pml-lang.dev/docs/user_manual/index.html#
+:guideRef: PML User Manual »
+// Asciidoctor Documentation Links Helpers //
+:ADocManURL: https://docs.asciidoctor.org/asciidoc/latest/
+:ADocManRef: AsciiDoc Language Documentation »
+:ADrManURL: https://docs.asciidoctor.org/asciidoctor/latest/
+:ADrManRef: Asciidoctor Documentation »

@@ -3,6 +3,8 @@ include::_attr-header.adoc[]
 :rouge-style: thankful_eyes
 :docinfo: shared-head
 
+include::_attr-custom.adoc[]
+
 Syntax highlighting examples of our custom PML lexer for Rouge.
 
 // CUSTOM ATTRIBUTES:
@@ -46,7 +48,96 @@ Hello [xyz world ]. [- inexistent tag + its closing delimiter -]
 Although it's not within the goals of the PML Lexer to validate source files, and the lexer is overall "`dumb`" and forgiving about contextual errors, any blatantly wrong element is marked as invalid — e.g. out of bounds dates, inexistent tags, etc.
 
 
-== Other Syntaxes
+== Stylesheet Details
+
+In this folder we also provide a
+link:{ADrManURL}docinfo/[docinfo file^,title="{ADrManRef} Docinfo Files"]
+(`docinfo.html`) containing some extra CSS definitions to customize the look & feel of the final HTML documents.
+
+[TIP]
+===================
+Remember to copy the `docinfo.html` file into the folder of your source AsciiDoc project, and to enable it in your main source file(s) via the `docinfo` header attribute:
+
+[source,asciidoc]
+---------------------
+:docinfo: shared-head
+---------------------
+===================
+
+
+=== Commentary Blocks
+
+link:{ADocManURL}blocks/open-blocks/[Open blocks^,title="{ADocManRef} Open Blocks"]
+with role `commentary` will receive left indentation.
+
+This can be useful when alternating code blocks or shell verbatim blocks with their commentary.
+
+.Commentary Block Example (AsciiDoc source)
+[source,asciidoc]
+------------------------------------------------------
+    pmlc tag_info -tag [tag_name]
+
+[role=commentary]
+--
+Display detailed information about tag `[tag_name]`. +
+For example, to get help for tag `image`, type:
+
+    pmlc tag_info -tag image
+
+Or simply type:
+
+    pmlc ti -t image
+--
+------------------------------------------------------
+
+.Commentary Block Example (HTML result)
+    pmlc tag_info -tag [tag_name]
+
+[role=commentary]
+--
+Display detailed information about tag `[tag_name]`. +
+For example, to get help for tag `image`, type:
+
+    pmlc tag_info -tag image
+
+Or simply type:
+
+    pmlc ti -t image
+--
+
+=== CMD Mock-up Theme
+
+link:{ADocManURL}verbatim/literal-blocks/[Literal blocks^,title="{ADocManRef} Literal Blocks"]
+with role `shell` will be styled using Windows' command prompt native colour scheme.
+This is a "`mock-up`" theme, since no syntax highlighting is involved; the literal block is simply given specific background- and foreground-colours, plus some additional styles to cover callouts and other details.
+
+.CMD Mockup Example (AsciiDoc source)
+[source,asciidoc]
+---------------------------------------------
+[literal,role=shell]
+.............................................
+E:\pml-playground\syntax-hl\rouge>rake -T \<1>
+(in E:/pml-playground)
+rake clean    # Remove any temporary products
+rake clobber  # Remove any generated files
+rake rouge    # Rouge Syntax Highlighting
+.............................................
+---------------------------------------------
+
+.CMD Mockup Example (HTML result)
+[literal,role=shell]
+E:\pml-playground\syntax-hl\rouge>rake -T <1>
+(in E:/pml-playground)
+rake clean    # Remove any temporary products
+rake clobber  # Remove any generated files
+rake rouge    # Rouge Syntax Highlighting
+
+
+<1> Callouts are also custom styled.
+
+
+
+=== Other Syntaxes Fallback Theme
 
 Code blocks for languages not covered by our custom CSS will fallback to use the native Rouge theme defined via the `:rouge-style:` attribute.
 Example, using the `thankful_eyes` theme:

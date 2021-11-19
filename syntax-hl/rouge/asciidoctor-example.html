@@ -695,7 +695,7 @@ span.green {
 <span id="author" class="author">Tristano Ajmone</span><br>
 <span id="email" class="email"><a href="mailto:tajmone@gmail.com">tajmone@gmail.com</a></span><br>
 <span id="revnumber">pml 2.1.0,</span>
-<span id="revdate">2021/10/08</span>
+<span id="revdate">2021/11/18</span>
 <br><span id="revremark">WIP</span>
 </div>
 <div id="toc" class="toc2">
@@ -711,7 +711,13 @@ span.green {
 </li>
 </ul>
 </li>
-<li><a href="#other_syntaxes">Other Syntaxes</a></li>
+<li><a href="#stylesheet_details">Stylesheet Details</a>
+<ul class="sectlevel2">
+<li><a href="#commentary_blocks">Commentary Blocks</a></li>
+<li><a href="#cmd_mock_up_theme">CMD Mock-up Theme</a></li>
+<li><a href="#other_syntaxes_fallback_theme">Other Syntaxes Fallback Theme</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -814,8 +820,128 @@ CSS class
 </div>
 </div>
 <div class="sect1">
-<h2 id="other_syntaxes"><a class="anchor" href="#other_syntaxes"></a>Other Syntaxes</h2>
+<h2 id="stylesheet_details"><a class="anchor" href="#stylesheet_details"></a>Stylesheet Details</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>In this folder we also provide a
+<a href="https://docs.asciidoctor.org/asciidoctor/latest/docinfo/" title="Asciidoctor Documentation » Docinfo Files" target="_blank" rel="noopener">docinfo file</a>
+(<code>docinfo.html</code>) containing some extra CSS definitions to customize the look &amp; feel of the final HTML documents.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Remember to copy the <code>docinfo.html</code> file into the folder of your source AsciiDoc project, and to enable it in your main source file(s) via the <code>docinfo</code> header attribute:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="rouge highlight" lang="asciidoc"><code class="language-asciidoc" data-lang="asciidoc">:docinfo: shared-head</code></pre>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="commentary_blocks"><a class="anchor" href="#commentary_blocks"></a>Commentary Blocks</h3>
+<div class="paragraph">
+<p><a href="https://docs.asciidoctor.org/asciidoc/latest/blocks/open-blocks/" title="AsciiDoc Language Documentation » Open Blocks" target="_blank" rel="noopener">Open blocks</a>
+with role <code>commentary</code> will receive left indentation.</p>
+</div>
+<div class="paragraph">
+<p>This can be useful when alternating code blocks or shell verbatim blocks with their commentary.</p>
+</div>
+<div class="listingblock">
+<div class="title">Commentary Block Example (AsciiDoc source)</div>
+<div class="content">
+<pre class="rouge highlight" lang="asciidoc"><code class="language-asciidoc" data-lang="asciidoc">    pmlc tag_info -tag [tag_name]
+
+[role=commentary]
+--
+Display detailed information about tag `[tag_name]`. +
+For example, to get help for tag `image`, type:
+
+    pmlc tag_info -tag image
+
+Or simply type:
+
+    pmlc ti -t image
+--</code></pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="title">Commentary Block Example (HTML result)</div>
+<div class="content">
+<pre>pmlc tag_info -tag [tag_name]</pre>
+</div>
+</div>
+<div class="openblock commentary">
+<div class="content">
+<div class="paragraph">
+<p>Display detailed information about tag <code>[tag_name]</code>.<br>
+For example, to get help for tag <code>image</code>, type:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>pmlc tag_info -tag image</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Or simply type:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>pmlc ti -t image</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="cmd_mock_up_theme"><a class="anchor" href="#cmd_mock_up_theme"></a>CMD Mock-up Theme</h3>
+<div class="paragraph">
+<p><a href="https://docs.asciidoctor.org/asciidoc/latest/verbatim/literal-blocks/" title="AsciiDoc Language Documentation » Literal Blocks" target="_blank" rel="noopener">Literal blocks</a>
+with role <code>shell</code> will be styled using Windows' command prompt native colour scheme.
+This is a &#8220;mock-up&#8221; theme, since no syntax highlighting is involved; the literal block is simply given specific background- and foreground-colours, plus some additional styles to cover callouts and other details.</p>
+</div>
+<div class="listingblock">
+<div class="title">CMD Mockup Example (AsciiDoc source)</div>
+<div class="content">
+<pre class="rouge highlight" lang="asciidoc"><code class="language-asciidoc" data-lang="asciidoc">[literal,role=shell]
+.............................................
+E:\pml-playground\syntax-hl\rouge&gt;rake -T &lt;1&gt;
+(in E:/pml-playground)
+rake clean    # Remove any temporary products
+rake clobber  # Remove any generated files
+rake rouge    # Rouge Syntax Highlighting
+.............................................</code></pre>
+</div>
+</div>
+<div class="literalblock shell">
+<div class="title">CMD Mockup Example (HTML result)</div>
+<div class="content">
+<pre>E:\pml-playground\syntax-hl\rouge&gt;rake -T <i class="conum" data-value="1"></i><b>(1)</b>
+(in E:/pml-playground)
+rake clean    # Remove any temporary products
+rake clobber  # Remove any generated files
+rake rouge    # Rouge Syntax Highlighting</pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Callouts are also custom styled.</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="other_syntaxes_fallback_theme"><a class="anchor" href="#other_syntaxes_fallback_theme"></a>Other Syntaxes Fallback Theme</h3>
 <div class="paragraph">
 <p>Code blocks for languages not covered by our custom CSS will fallback to use the native Rouge theme defined via the <code>:rouge-style:</code> attribute.
 Example, using the <code>thankful_eyes</code> theme:</p>
@@ -975,6 +1101,7 @@ If no theme is specified via <code>:rouge-style:</code>, Asciidoctor will defaul
 </td>
 </tr>
 </table>
+</div>
 </div>
 </div>
 </div>

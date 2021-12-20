@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Tested with mustache.js:
-# 	https://www.npmjs.com/package/mustache
+# Tested with mustache Ruby gem:
+# 	https://github.com/mustache/mustache
 
 rm *.json *.txt 2> /dev/null
 pmlc export_tags

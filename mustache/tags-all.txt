@@ -1,7 +1,3 @@
-# PML Version 2.2.0
-
-# All PML Tags:
-
 admon
 audio
 b

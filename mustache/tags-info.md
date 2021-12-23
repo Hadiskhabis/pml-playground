@@ -6,6 +6,17 @@ This document was auto-generated via custom mustache templates at:
 
 - https://github.com/tajmone/pml-playground/tree/main/mustache
 
+-----
+
+**Table of Contents**
+
+- [All Tags](#all-tags)
+- [Nodes w/ Children](#nodes-w-children)
+- [Childless Nodes](#childless-nodes)
+- [Raw Text Block-Nodes](#raw-text-block-nodes)
+- [Default Attributes](#default-attributes)
+
+-----
 
 ## All Tags
 
@@ -109,7 +120,7 @@ PML nodes that _don't_ allow children nodes within themselves (useful info for L
 - `[youtube_video` &rarr; `]`
 
 
-## Raw Text Block-Nodes:
+## Raw Text Block-Nodes
 
 Raw PML nodes are not parsed any further, so they can't contain sub-nodes and their contents are treated as verbatim text.
 
@@ -118,3 +129,12 @@ Raw PML nodes are not parsed any further, so they can't contain sub-nodes and th
 - `[input` &rarr; `input]`
 - `[output` &rarr; `output]`
 - `[table_data` &rarr; `table_data]`
+
+
+## Default Attributes
+
+Tags with a default attribute (useful info for Lenient Parsing).
+
+
+- `[ch` &rarr; `title` &rarr; `]`
+- `[image` &rarr; `source` &rarr; `]`

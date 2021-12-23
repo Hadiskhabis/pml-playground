@@ -19,6 +19,7 @@ Each `<filename>__<ext>.mustache` source template is converted to `<filename>.<e
 | [`tags-info__md.mustache`][t-info.m]            | [`tags-info.md`][t-info.t]            | Markdown   | Reference doc with info on PML tags.        |
 | [`tags-no-children__txt.mustache`][t-nochild.m] | [`tags-no-children.txt`][t-nochild.t] | plain text | List of PML tags that don't allow children. |
 | [`tags-raw__txt.mustache`][t-raw.m]             | [`tags-raw.txt`][t-raw.t]             | plain text | List of PML raw text block tags.            |
+| [`tags-def-attr__txt.mustache`][t-defattr.m]    | [`tags-def-attr.txt`][t-defattr.t]    | plain text | List of PML tags with default attributes.   |
 
 # Links
 
@@ -40,20 +41,23 @@ Each `<filename>__<ext>.mustache` source template is converted to `<filename>.<e
 
 <!-- project files -->
 
-[t-info.m]: ./tags-info__md.mustache "View mustache template"
-[t-info.t]: ./tags-info.md "View generated markdown document"
-
 [t-all.m]: ./tags-all__txt.mustache "View mustache template"
 [t-all.t]: ./tags-all.txt "View generated plaintext file"
-
-[t-raw.m]: ./tags-raw__txt.mustache "View mustache template"
-[t-raw.t]: ./tags-raw.txt "View generated plaintext file"
 
 [t-child.m]: ./tags-children__txt.mustache "View mustache template"
 [t-child.t]: ./tags-children.txt "View generated plaintext file"
 
+[t-defattr.m]: ./tags-def-attr__txt.mustache "View mustache template"
+[t-defattr.t]: ./tags-def-attr.txt "View generated plaintext file"
+
+[t-info.m]: ./tags-info__md.mustache "View mustache template"
+[t-info.t]: ./tags-info.md "View generated markdown document"
+
 [t-nochild.m]: ./tags-no-children__txt.mustache "View mustache template"
 [t-nochild.t]: ./tags-no-children.txt "View generated plaintext file"
+
+[t-raw.m]: ./tags-raw__txt.mustache "View mustache template"
+[t-raw.t]: ./tags-raw.txt "View generated plaintext file"
 
 
 <!-- badges -->

@@ -1,4 +1,4 @@
-=begin "Rakefile" v0.0.1 | 2021/09/30 | by Tristano Ajmone
+=begin "Rakefile" v0.0.2 | 2021/12/23 | by Tristano Ajmone
 ================================================================================
 This is an initial Rakefile proposal for Alan-i18n.  It's fully working and uses
 namespaces to separate tasks according to locale, but it could do with some
@@ -19,17 +19,20 @@ further improvements.
 require './_assets/rake/globals.rb'
 require './_assets/rake/asciidoc.rb'
 
+require 'rake/phony'
 
 ## Tasks
 ########
 
-task :default => :rouge
+task :default => [:rouge, :mustache]
 
 
 ## Clean & Clobber
 ##################
 require 'rake/clean'
 CLOBBER.include('**/*.html').exclude('**/docinfo.html')
+CLOBBER.include('mustache/*.{txt,md,json}').exclude('**/README.md')
+# CLOBBER.include('mustache/*.txt', 'mustache/*.md').exclude('**/README.md')
 
 
 ## Syntax HL » Rouge
@@ -44,3 +47,30 @@ ROUGE_ADOC_DEPS = FileList[
   '_assets/rake/*.rb'
 ]
 CreateAsciiDocHTMLTasksFromFolder(:rouge,'syntax-hl/rouge', ROUGE_ADOC_DEPS)
+
+
+## Mustache
+###########
+desc "Build mustache templates"
+task :mustache => 'mustache/pml_tags.json'
+
+file 'mustache/pml_tags.json' => :phony do |t|
+  TaskHeader("PMLC: Exporting JSON Tags")
+  cd t.name.pathmap("%d")
+  sh "pmlc export_tags"
+  cd $repo_root, verbose: false
+end
+
+FileList['mustache/*.mustache'].each do |s|
+  t = s.sub(/^(.*)__(.*)\.mustache$/, "\\1.\\2")
+  task :mustache => t
+  file s => 'mustache/pml_tags.json'
+  file t => s do |t|
+    TaskHeader("Building Mustache Template: #{t.source}")
+    cd t.name.pathmap("%d")
+    template = t.source.pathmap("%f")
+    output = t.name.pathmap("%f")
+    sh "mustache pml_tags.json #{template} > #{output}"
+    cd $repo_root, verbose: false
+  end
+end

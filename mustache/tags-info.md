@@ -10,15 +10,19 @@ This document was auto-generated via custom mustache templates at:
 
 **Table of Contents**
 
-- [All Tags](#all-tags)
-- [Nodes w/ Children](#nodes-w-children)
-- [Childless Nodes](#childless-nodes)
-- [Raw Text Block-Nodes](#raw-text-block-nodes)
-- [Default Attributes](#default-attributes)
+- [Tags Lists](#tags-lists)
+    - [All Tags](#all-tags)
+    - [Nodes w/ Children](#nodes-w-children)
+    - [Childless Nodes](#childless-nodes)
+    - [Raw Text Block-Nodes](#raw-text-block-nodes)
+    - [Default Attributes](#default-attributes)
+- [Tags Table](#tags-table)
 
 -----
 
-## All Tags
+## Tags Lists
+
+### All Tags
 
 This is the full list of all PML nodes, with their opening and closing tags.
 
@@ -66,7 +70,7 @@ This is the full list of all PML nodes, with their opening and closing tags.
 - `[youtube_video` &rarr; `]`
 
 
-## Nodes w/ Children
+### Nodes w/ Children
 
 PML nodes that allow children nodes within themselves.
 
@@ -97,7 +101,7 @@ PML nodes that allow children nodes within themselves.
 - `[tr` &rarr; `]`
 
 
-## Childless Nodes
+### Childless Nodes
 
 PML nodes that _don't_ allow children nodes within themselves (useful info for Lenient Parsing).
 
@@ -120,7 +124,7 @@ PML nodes that _don't_ allow children nodes within themselves (useful info for L
 - `[youtube_video` &rarr; `]`
 
 
-## Raw Text Block-Nodes
+### Raw Text Block-Nodes
 
 Raw PML nodes are not parsed any further, so they can't contain sub-nodes and their contents are treated as verbatim text.
 
@@ -131,10 +135,69 @@ Raw PML nodes are not parsed any further, so they can't contain sub-nodes and th
 - `[table_data` &rarr; `table_data]`
 
 
-## Default Attributes
+### Default Attributes
 
 Tags with a default attribute (useful info for Lenient Parsing).
 
 
 - `[ch` &rarr; `title` &rarr; `]`
 - `[image` &rarr; `source` &rarr; `]`
+
+> **WARNING** — The reported default attribute `title` for the `[ch` node is an error, left over from PML<2.0
+(see [Issue #69](https://github.com/pml-lang/converter/issues/69)).
+It's been fixed and won't show up in the next PML release (`v2.3.0`).
+
+## Tags Table
+
+> **WARNING** — The reported default attribute `title` for the `[ch` node is an error, left over from PML<2.0
+(see [Issue #69](https://github.com/pml-lang/converter/issues/69)).
+It's been fixed and won't show up in the next PML release (`v2.3.0`).
+
+| node | tag | type | raw? | [child?] | [html?] | def. attr. |
+|------|-----|------| :--: | :------: | :-----: |------------|
+| [Admonition](https://www.pml-lang.dev/docs/reference_manual/index.html#node_admon) | `[admon` &rarr; `]` | block |  | &check; | &check; |  |
+| [Audio (Sound)](https://www.pml-lang.dev/docs/reference_manual/index.html#node_audio) | `[audio` &rarr; `]` | block |  | &cross; | &check; |  |
+| [Bold Text](https://www.pml-lang.dev/docs/reference_manual/index.html#node_b) | `[b` &rarr; `]` | inline |  | &check; |  |  |
+| [Inline Source Code](https://www.pml-lang.dev/docs/reference_manual/index.html#node_c) | `[c` &rarr; `]` | inline |  | &cross; |  |  |
+| [Caption](https://www.pml-lang.dev/docs/reference_manual/index.html#node_caption) | `[caption` &rarr; `]` | block |  | &check; | &check; |  |
+| [Chapter](https://www.pml-lang.dev/docs/reference_manual/index.html#node_ch) | `[ch` &rarr; `]` | block |  | &check; | &check; | `title` |
+| [Source Code](https://www.pml-lang.dev/docs/reference_manual/index.html#node_code) | `[code` &rarr; `code]` | block | &check; | &cross; | &check; |  |
+| [Division](https://www.pml-lang.dev/docs/reference_manual/index.html#node_div) | `[div` &rarr; `]` | block |  | &check; | &check; |  |
+| [Document](https://www.pml-lang.dev/docs/reference_manual/index.html#node_doc) | `[doc` &rarr; `]` | block |  | &check; | &check; |  |
+| [List Element](https://www.pml-lang.dev/docs/reference_manual/index.html#node_el) | `[el` &rarr; `]` | block |  | &check; | &check; |  |
+| [Header](https://www.pml-lang.dev/docs/reference_manual/index.html#node_header) | `[header` &rarr; `]` | block |  | &check; | &check; |  |
+| [HTML Code](https://www.pml-lang.dev/docs/reference_manual/index.html#node_html) | `[html` &rarr; `html]` | block | &check; | &cross; |  |  |
+| [Italic Text](https://www.pml-lang.dev/docs/reference_manual/index.html#node_i) | `[i` &rarr; `]` | inline |  | &check; |  |  |
+| [Image](https://www.pml-lang.dev/docs/reference_manual/index.html#node_image) | `[image` &rarr; `]` | block |  | &cross; | &check; | `source` |
+| [Input](https://www.pml-lang.dev/docs/reference_manual/index.html#node_input) | `[input` &rarr; `input]` | block | &check; | &cross; | &check; |  |
+| [Insert Source Code](https://www.pml-lang.dev/docs/reference_manual/index.html#node_insert_code) | `[insert_code` &rarr; `]` | block |  | &cross; | &check; |  |
+| [URL Link](https://www.pml-lang.dev/docs/reference_manual/index.html#node_link) | `[link` &rarr; `]` | inline |  | &cross; | &check; |  |
+| [List](https://www.pml-lang.dev/docs/reference_manual/index.html#node_list) | `[list` &rarr; `]` | block |  | &check; | &check; |  |
+| [Monospace](https://www.pml-lang.dev/docs/reference_manual/index.html#node_monospace) | `[monospace` &rarr; `]` | block |  | &check; | &check; |  |
+| [New Line](https://www.pml-lang.dev/docs/reference_manual/index.html#node_nl) | `[nl` &rarr; `]` | inline |  | &cross; |  |  |
+| [Note](https://www.pml-lang.dev/docs/reference_manual/index.html#node_note) | `[note` &rarr; `]` | block |  | &check; | &check; |  |
+| [Output](https://www.pml-lang.dev/docs/reference_manual/index.html#node_output) | `[output` &rarr; `output]` | block | &check; | &cross; | &check; |  |
+| [Paragraph](https://www.pml-lang.dev/docs/reference_manual/index.html#node_p) | `[p` &rarr; `]` | block |  | &check; | &check; |  |
+| [Quote](https://www.pml-lang.dev/docs/reference_manual/index.html#node_quote) | `[quote` &rarr; `]` | block |  | &check; | &check; |  |
+| [Space Character](https://www.pml-lang.dev/docs/reference_manual/index.html#node_sp) | `[sp` &rarr; `]` | inline |  | &cross; |  |  |
+| [Span](https://www.pml-lang.dev/docs/reference_manual/index.html#node_span) | `[span` &rarr; `]` | inline |  | &check; | &check; |  |
+| [Strikethrough Text](https://www.pml-lang.dev/docs/reference_manual/index.html#node_strike) | `[strike` &rarr; `]` | inline |  | &check; |  |  |
+| [Subscript Text](https://www.pml-lang.dev/docs/reference_manual/index.html#node_sub) | `[sub` &rarr; `]` | inline |  | &check; |  |  |
+| [Chapter Subtitle](https://www.pml-lang.dev/docs/reference_manual/index.html#node_subtitle) | `[subtitle` &rarr; `]` | block |  | &check; | &check; |  |
+| [Superscript Text](https://www.pml-lang.dev/docs/reference_manual/index.html#node_sup) | `[sup` &rarr; `]` | inline |  | &check; |  |  |
+| [Table](https://www.pml-lang.dev/docs/reference_manual/index.html#node_table) | `[table` &rarr; `]` | block |  | &check; | &check; |  |
+| [Table Data](https://www.pml-lang.dev/docs/reference_manual/index.html#node_table_data) | `[table_data` &rarr; `table_data]` | block | &check; | &cross; | &check; |  |
+| [Table Cell](https://www.pml-lang.dev/docs/reference_manual/index.html#node_tc) | `[tc` &rarr; `]` | block |  | &check; | &check; |  |
+| [Text](https://www.pml-lang.dev/docs/reference_manual/index.html#node_text) | `[text` &rarr; `]` | inline |  | &cross; |  |  |
+| [Table Footer](https://www.pml-lang.dev/docs/reference_manual/index.html#node_tfooter) | `[tfooter` &rarr; `]` | block |  | &check; | &check; |  |
+| [Table Header](https://www.pml-lang.dev/docs/reference_manual/index.html#node_theader) | `[theader` &rarr; `]` | block |  | &check; | &check; |  |
+| [Chapter Title](https://www.pml-lang.dev/docs/reference_manual/index.html#node_title) | `[title` &rarr; `]` | block |  | &check; | &check; |  |
+| [Table Row](https://www.pml-lang.dev/docs/reference_manual/index.html#node_tr) | `[tr` &rarr; `]` | block |  | &check; | &check; |  |
+| [Verbatim Text](https://www.pml-lang.dev/docs/reference_manual/index.html#node_verbatim) | `[verbatim` &rarr; `]` | inline |  | &cross; |  |  |
+| [Video](https://www.pml-lang.dev/docs/reference_manual/index.html#node_video) | `[video` &rarr; `]` | block |  | &cross; | &check; |  |
+| [Cross-Reference](https://www.pml-lang.dev/docs/reference_manual/index.html#node_xref) | `[xref` &rarr; `]` | inline |  | &cross; | &check; |  |
+| [Embedded Youtube Video](https://www.pml-lang.dev/docs/reference_manual/index.html#node_youtube_video) | `[youtube_video` &rarr; `]` | block |  | &cross; | &check; |  |
+
+
+[child?]: https://www.pml-lang.dev/docs/user_manual/index.html#ch__4 "Child nodes allowed?"
+[html?]: https://www.pml-lang.dev/docs/user_manual/index.html#HTML_attributes "HTML Attributes allowed?"

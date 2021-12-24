@@ -10,15 +10,19 @@ This document was auto-generated via custom mustache templates at:
 
 **Table of Contents**
 
-- [All Tags](#all-tags)
-- [Nodes w/ Children](#nodes-w-children)
-- [Childless Nodes](#childless-nodes)
-- [Raw Text Block-Nodes](#raw-text-block-nodes)
-- [Default Attributes](#default-attributes)
+- [Tags Lists](#tags-lists)
+    - [All Tags](#all-tags)
+    - [Nodes w/ Children](#nodes-w-children)
+    - [Childless Nodes](#childless-nodes)
+    - [Raw Text Block-Nodes](#raw-text-block-nodes)
+    - [Default Attributes](#default-attributes)
+- [Tags Table](#tags-table)
 
 -----
 
-## All Tags
+## Tags Lists
+
+### All Tags
 
 This is the full list of all PML nodes, with their opening and closing tags.
 
@@ -27,7 +31,7 @@ This is the full list of all PML nodes, with their opening and closing tags.
 {{/pml_tags.tags}}
 
 
-## Nodes w/ Children
+### Nodes w/ Children
 
 PML nodes that allow children nodes within themselves.
 
@@ -38,7 +42,7 @@ PML nodes that allow children nodes within themselves.
 {{/pml_tags.tags}}
 
 
-## Childless Nodes
+### Childless Nodes
 
 PML nodes that _don't_ allow children nodes within themselves (useful info for Lenient Parsing).
 
@@ -49,7 +53,7 @@ PML nodes that _don't_ allow children nodes within themselves (useful info for L
 {{/pml_tags.tags}}
 
 
-## Raw Text Block-Nodes
+### Raw Text Block-Nodes
 
 Raw PML nodes are not parsed any further, so they can't contain sub-nodes and their contents are treated as verbatim text.
 
@@ -60,7 +64,7 @@ Raw PML nodes are not parsed any further, so they can't contain sub-nodes and th
 {{/pml_tags.tags}}
 
 
-## Default Attributes
+### Default Attributes
 
 Tags with a default attribute (useful info for Lenient Parsing).
 
@@ -70,3 +74,23 @@ Tags with a default attribute (useful info for Lenient Parsing).
 - `{{{ opening_tag }}}` &rarr; `{{{ default_attribute_id }}}` &rarr; `{{{ closing_tag }}}`
 {{/default_attribute_id}}
 {{/pml_tags.tags}}
+
+> **WARNING** — The reported default attribute `title` for the `[ch` node is an error, left over from PML<2.0
+(see [Issue #69](https://github.com/pml-lang/converter/issues/69)).
+It's been fixed and won't show up in the next PML release (`v2.3.0`).
+
+## Tags Table
+
+> **WARNING** — The reported default attribute `title` for the `[ch` node is an error, left over from PML<2.0
+(see [Issue #69](https://github.com/pml-lang/converter/issues/69)).
+It's been fixed and won't show up in the next PML release (`v2.3.0`).
+
+| node | tag | type | raw? | [child?] | [html?] | def. attr. |
+|------|-----|------| :--: | :------: | :-----: |------------|
+{{#pml_tags.tags}}
+| [{{ title }}]({{{ latest_doc_url }}}) | `{{{ opening_tag }}}` &rarr; `{{{ closing_tag }}}` | {{{type}}} | {{#is_raw_text_block}}&check;{{/is_raw_text_block}} | {{#child_nodes_allowed}}&check;{{/child_nodes_allowed}}{{^child_nodes_allowed}}&cross;{{/child_nodes_allowed}} | {{#HTML_attributes_allowed}}&check;{{/HTML_attributes_allowed}} | {{#default_attribute_id}}`{{{ default_attribute_id }}}`{{/default_attribute_id}} |
+{{/pml_tags.tags}}
+
+
+[child?]: https://www.pml-lang.dev/docs/user_manual/index.html#ch__4 "Child nodes allowed?"
+[html?]: https://www.pml-lang.dev/docs/user_manual/index.html#HTML_attributes "HTML Attributes allowed?"

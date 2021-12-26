@@ -1,6 +1,7 @@
 = PML Rouge Lexer
-include::_attr-header.adoc[]
 :rouge-style: pml-test-theme
+:docinfo!:
+include::_attr-header.adoc[]
 
 include::_attr-custom.adoc[]
 

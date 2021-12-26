@@ -1,7 +1,9 @@
-=begin "globals.rb"            | 2021/09/30 | by Tristano Ajmone | MIT License
+=begin "globals.rb" v0.2.1 | 2021/10/25 | by Tristano Ajmone | MIT License
 ================================================================================
-Some custom Rake helpers required by our custom Ruby modules.
-Adapted from  the "globals.rb" v0.2.0 module from the ALAN i18n project:
+Some custom Rake helpers required by our custom Ruby modules and which are used
+in most of our Rakefiles.
+
+Copied from the "globals.rb" module from the ALAN i18n project:
 
   https://github.com/alan-if/alan-i18n/blob/main/_assets/rake/globals.rb
 ================================================================================
@@ -21,4 +23,27 @@ def TaskHeader(text)
   hstr = "## #{text}"
   puts "\n#{hstr}"
   puts '#' * hstr.length
+end
+
+def PrintTaskFailureMessage(our_msg, app_msg)
+    err_head = "\n*** TASK FAILED! "
+    STDERR.puts err_head << '*' * (73 - err_head.length) << "\n\n"
+    if our_msg != ''
+      STDERR.puts our_msg
+      STDERR.puts '-' * 72
+    end
+    STDERR.puts app_msg
+    STDERR.puts '*' * 72
+end
+
+def SetFileTimeToZero(file)
+  # ----------------------------------------------------------------------------
+  # Set the last accessed and modified dates of 'file' to Epoch 00:00:00.
+  # Sometimes we need to trick Rake into seeing a generated file as outdated,
+  # e.g. because we're aborting the build when a tool raises warnings which
+  # didn't prevent generating the target file, but we'd rather keep the file
+  # for manual inspection -- since we're not sure whether it's malformed or not.
+  # ----------------------------------------------------------------------------
+  ts = Time.at 0
+  File.utime(ts, ts, file)
 end

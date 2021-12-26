@@ -1,4 +1,4 @@
-=begin "Rakefile" v0.0.2 | 2021/12/23 | by Tristano Ajmone
+=begin "Rakefile" v0.1.0 | 2021/12/26 | by Tristano Ajmone
 ================================================================================
 This is an initial Rakefile proposal for Alan-i18n.  It's fully working and uses
 namespaces to separate tasks according to locale, but it could do with some
@@ -20,6 +20,29 @@ require './_assets/rake/globals.rb'
 require './_assets/rake/asciidoc.rb'
 
 require 'rake/phony'
+
+# ==============================================================================
+# --------------------{  P R O J E C T   S E T T I N G S  }---------------------
+# ==============================================================================
+
+$rouge_dir = "#{$repo_root}/syntax-hl/rouge"
+require "#{$rouge_dir}/custom-rouge-adapter.rb"
+
+ADOC_OPTS_SHARED = <<~HEREDOC
+  --failure-level WARN \
+  --verbose \
+  --timings \
+  --safe-mode unsafe \
+  --require #{$rouge_dir}/custom-rouge-adapter.rb \
+  -a source-highlighter=rouge \
+  -a rouge-style@=thankful_eyes \
+  -a docinfodir=#{$rouge_dir} \
+  -a docinfo@=shared-head
+HEREDOC
+
+# ==============================================================================
+# -------------------------------{  T A S K S  }--------------------------------
+# ==============================================================================
 
 ## Tasks
 ########
@@ -46,7 +69,12 @@ ROUGE_ADOC_DEPS = FileList[
   'syntax-hl/rouge/pml-sample.pml',
   '_assets/rake/*.rb'
 ]
-CreateAsciiDocHTMLTasksFromFolder(:rouge,'syntax-hl/rouge', ROUGE_ADOC_DEPS)
+CreateAsciiDocHTMLTasksFromFolder(
+  :rouge,
+  'syntax-hl/rouge',
+  ROUGE_ADOC_DEPS,
+  ADOC_OPTS_SHARED
+)
 
 
 ## Mustache

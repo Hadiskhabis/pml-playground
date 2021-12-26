@@ -1,7 +1,5 @@
 = PML Rouge Lexer Examples
 include::_attr-header.adoc[]
-:rouge-style: thankful_eyes
-:docinfo: shared-head
 
 include::_attr-custom.adoc[]
 

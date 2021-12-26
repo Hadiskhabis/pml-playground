@@ -19,6 +19,7 @@ Created by [Tristano Ajmone] in April 2021; maintained by [Christian Neumanns], 
 
 - [Repository Contents](#repository-contents)
 - [About](#about)
+- [Building](#building)
 - [License](#license)
 - [Links](#links)
 
@@ -31,6 +32,7 @@ Created by [Tristano Ajmone] in April 2021; maintained by [Christian Neumanns], 
 - [`/mustache/`][mustache/] — misc. mustache templates.
 - [`/pandoc/`][pandoc/] — PML &hArr; pandoc assets.
 - [`/pml-samples/`][pml-samples/] — shared PML sample documents and chunks.
+- [`/syntax-guide/`][syntax-guide/] — _PML Syntax Guide_ doc + sources.
 - [`/syntax-hl/`][syntax-hl/] — PML syntax highlighting.
 
 # About
@@ -38,6 +40,20 @@ Created by [Tristano Ajmone] in April 2021; maintained by [Christian Neumanns], 
 This repository is playground and testbed for experimenting with [PML]  (Practical Markup Language), a new [lightweight markup language] created by [Christian Neumanns].
 
 The project is open to all PML pioneers who are willing to experiment with this wonderful newborn language and documentation system — the lucky few who will have the chance to shape PML's future, by exploring its potential and proposing new features while the language is still growing.
+
+
+# Building
+
+This repository is powered by [Rake].
+
+To build/update the project, open a terminal (CMD, Bash, etc.) anywhere within the repository directory tree and type:
+
+    rake
+
+To forcefully build/update, even if dependencies didn't change, type:
+
+    rake -B
+
 
 # License
 
@@ -71,6 +87,7 @@ Articles by [Christian Neumanns]:
 
 [lightweight markup language]: https://en.wikipedia.org/wiki/Lightweight_markup_language "Wikipedia page 'Lightweight markup language'"
 
+[Rake]: https://ruby.github.io/rake/ "Visit Rake website"
 
 <!-- PML -->
 
@@ -106,6 +123,7 @@ Articles by [Christian Neumanns]:
 [mustache/]: ./mustache/ "Navigate to mustache templates folder"
 [pandoc/]: ./pandoc/ "Navigate to pandoc folder"
 [pml-samples/]: ./pml-samples/ "Navigate to PML samples folder"
+[syntax-guide/]: ./syntax-guide/ "Navigate to PML Syntax Guide folder"
 [syntax-hl/]: ./syntax-hl/ "Navigate to syntax highlighters folder"
 
 <!-- people -->

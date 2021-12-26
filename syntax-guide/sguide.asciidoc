@@ -1,0 +1,54 @@
+= PML Syntax Guide
+Tristano Ajmone <tajmone@gmail.com>
+0.1, 2021-12-26: WIP
+:author: Tristano Ajmone
+:email: <tajmone@gmail.com>
+:revdate: 2022-12-26
+:revnumber: 0.1
+:revremark: WIP
+:version-label: Ed.
+:lang: en
+:doctype: book
+// TOC Settings:
+:toclevels: 5
+:toc: left
+// Sections Numbering:
+:sectnums:
+:sectnumlevels: 2
+// Cross References:
+:idprefix:
+:xrefstyle: full
+:chapter-refsig: Ch.
+:section-refsig: Sec.
+:appendix-refsig: App.
+// Misc Settings:
+:experimental: true
+:icons: font
+:linkattrs: true
+:reproducible: true
+:sectanchors:
+// Paths:
+:imagesdir: images
+
+
+// Document Preamble
+// *****************
+
+This document provides guidelines for developers of PML syntaxe definitions for code highlighters and editor/IDE plug-ins.
+
+WARNING: This document is still a work-in-progress draft!
+
+include::sguide-00-Intro.adoc[]
+
+////
+:leveloffset: +1
+
+include::XXXXXXXXXX.adoc[]
+
+include::XXXXXXXXXX.adoc[]
+
+:leveloffset: 0
+////
+
+
+// EOF //

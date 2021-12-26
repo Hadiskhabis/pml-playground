@@ -1,4 +1,4 @@
-=begin "Rakefile" v0.1.0 | 2021/12/26 | by Tristano Ajmone
+=begin "Rakefile" v0.1.2 | 2021/12/26 | by Tristano Ajmone
 ================================================================================
 This is an initial Rakefile proposal for Alan-i18n.  It's fully working and uses
 namespaces to separate tasks according to locale, but it could do with some
@@ -47,7 +47,7 @@ HEREDOC
 ## Tasks
 ########
 
-task :default => [:rouge, :mustache]
+task :default => [:rouge, :sguide, :mustache]
 
 
 ## Clean & Clobber
@@ -75,6 +75,34 @@ CreateAsciiDocHTMLTasksFromFolder(
   ROUGE_ADOC_DEPS,
   ADOC_OPTS_SHARED
 )
+
+
+## Syntax Guide
+###############
+desc "Build PML Syntax Guide"
+task :sguide
+
+SGUIDE_ADOC = 'syntax-guide/sguide.asciidoc'
+SGUIDE_HTML = 'syntax-guide/PML-Syntax-Guide.html'
+
+SGUIDE_ADOC_DEPS = FileList[
+  SGUIDE_ADOC,
+  'syntax-guide/*.adoc',
+  'syntax-hl/rouge/*.rb',
+  'syntax-hl/rouge/docinfo.html',
+  '_assets/rake/*.rb'
+]
+
+SGUIDE_ADOC_OPTS = ADOC_OPTS_SHARED.chomp + " " + <<~HEREDOC
+    --out-file=#{SGUIDE_HTML.pathmap("%f")} \
+    #{SGUIDE_ADOC.pathmap("%f")}
+HEREDOC
+
+task :sguide => SGUIDE_HTML
+
+file SGUIDE_HTML => SGUIDE_ADOC_DEPS do
+  AsciidoctorConvert(SGUIDE_ADOC, SGUIDE_ADOC_OPTS)
+end
 
 
 ## Mustache

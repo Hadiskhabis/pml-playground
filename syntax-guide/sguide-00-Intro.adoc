@@ -1,0 +1,12 @@
+[preface]
+= Introduction
+
+PML (Practical Markup Language) is a
+https://en.wikipedia.org/wiki/Lightweight_markup_language[lightweight markup language (LML)^, title="Wikipedia page 'Lightweight markup language'"]
+designed to simplify the creation of complex documents using a simple markup notation and plain-text source files, enabling collaborative editing of documents via version controlled projects.
+
+While the PML notation is simple and easy to learn, it's also very powerful and extensible via the declaration of custom nodes.
+
+This document explores the PML syntax in depth, with the goal of providing guidelines for developers who are planning to write a PML syntax definition for code highlighters or editors and IDEs plug-ins.
+
+// EOF //

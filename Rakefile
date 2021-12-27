@@ -1,4 +1,4 @@
-=begin "Rakefile" v0.1.2 | 2021/12/26 | by Tristano Ajmone
+=begin "Rakefile" v0.1.3 | 2021/12/27 | by Tristano Ajmone
 ================================================================================
 This is an initial Rakefile proposal for Alan-i18n.  It's fully working and uses
 namespaces to separate tasks according to locale, but it could do with some
@@ -130,3 +130,21 @@ FileList['mustache/*.mustache'].each do |s|
     cd $repo_root, verbose: false
   end
 end
+
+MUSTACHE_ADOC_DEPS = FileList[
+  'mustache/*__asciidoc.mustache'
+]
+
+MUSTACHE_ADOC_OPTS = <<~HEREDOC
+  --failure-level WARN \
+  --verbose \
+  --timings \
+  --safe-mode unsafe
+HEREDOC
+
+CreateAsciiDocHTMLTasksFromFolder(
+  :mustache,
+  'mustache',
+  MUSTACHE_ADOC_DEPS,
+  ADOC_OPTS_SHARED
+)

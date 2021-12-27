@@ -8,6 +8,7 @@ Custom [mustache] templates to generate useful snippets by extracting PML info v
 >
 > Future versions of the template might not work with [mustache] implementations other than Ruby.
 
+
 # Templates List
 
 Each `<filename>__<ext>.mustache` source template is converted to `<filename>.<ext>`, allowing to generate files with any extension from `*.mustache` templates.
@@ -16,10 +17,18 @@ Each `<filename>__<ext>.mustache` source template is converted to `<filename>.<e
 |-------------------------------------------------|---------------------------------------|------------|---------------------------------------------|
 | [`tags-all__txt.mustache`][t-all.m]             | [`tags-all.txt`][t-all.t]             | plain text | List of all PML tags.                       |
 | [`tags-children__txt.mustache`][t-child.m]      | [`tags-children.txt`][t-child.t]      | plain text | List of PML tags that allow children.       |
+| [`tags-def-attr__txt.mustache`][t-defattr.m]    | [`tags-def-attr.txt`][t-defattr.t]    | plain text | List of PML tags with default attributes.   |
 | [`tags-info__md.mustache`][t-info.m]            | [`tags-info.md`][t-info.t]            | Markdown   | PML Tags Reference document.                |
 | [`tags-no-children__txt.mustache`][t-nochild.m] | [`tags-no-children.txt`][t-nochild.t] | plain text | List of PML tags that don't allow children. |
 | [`tags-raw__txt.mustache`][t-raw.m]             | [`tags-raw.txt`][t-raw.t]             | plain text | List of PML raw text block tags.            |
-| [`tags-def-attr__txt.mustache`][t-defattr.m]    | [`tags-def-attr.txt`][t-defattr.t]    | plain text | List of PML tags with default attributes.   |
+| [`tags-ref__asciidoc.mustache`][t-ref.m]        | [`tags-ref.asciidoc`][t-ref.t]        | AsciiDoc   | PML Tags Reference document.                |
+
+
+# Auto-generated Documents
+
+- [`tags-info.md`][t-info.t]
+- [`tags-ref.html`][t-ref.html] ([Live HTML Preview][t-ref.live])
+
 
 # Links
 
@@ -51,7 +60,12 @@ Each `<filename>__<ext>.mustache` source template is converted to `<filename>.<e
 [t-defattr.t]: ./tags-def-attr.txt "View generated plaintext file"
 
 [t-info.m]: ./tags-info__md.mustache "View mustache template"
-[t-info.t]: ./tags-info.md "View generated markdown document"
+[t-info.t]: ./tags-info.md "View generated Markdown document"
+
+[t-ref.m]: ./tags-ref__asciidoc.mustache "View mustache template"
+[t-ref.t]: ./tags-ref.asciidoc "View generated AsciiDoc document"
+[t-ref.html]: ./tags-ref.html "View generated HTML document (local link)"
+[t-ref.live]: https://htmlpreview.github.io/?https://github.com/tajmone/pml-playground/blob/master/mustache/tags-ref.html "Live HTML Preview"
 
 [t-nochild.m]: ./tags-no-children__txt.mustache "View mustache template"
 [t-nochild.t]: ./tags-no-children.txt "View generated plaintext file"

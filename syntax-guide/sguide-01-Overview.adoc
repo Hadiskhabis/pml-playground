@@ -1,0 +1,25 @@
+= Syntax Overview
+
+[partintro]
+In this first part we'll examine the PML syntax by itself -- it's characteristics, etc. -- without focusing on the problems of creating syntax definitions for highlighters.
+
+
+== Case Sensitivity
+
+PML's native tags, attributes and attributes' preset values are all case sensitive.
+In the following example, the `[doc` tag, `TOC_position` attribute and its preset value `top` need to be written as they are:
+
+[source,pml]
+-----------------------
+[doc (TOC_position=top)
+-----------------------
+
+Altering the case of a single letter would lead to PMLC failing to parse them and raising an error.
+
+Hexadecimal values in Unicode escape sequences (i.e. the `hhhh`/`hhhhhhhh` part) are case insensitive, but not their trailing `\u` and `\U` prefixes, since the former (lowercase '`u`') indicates a 4-digit Unicode escape (`\uhhhh`) whereas the latter (uppercase '`u`') an 8-digit escape (`\Uhhhhhhhh`):
+
+* The 4-digit escapes `\u272a` and `\u272A` both represent the &#x272a; symbol.
+* The 8-digit escapes `\U0001f52f` and `\U0001F52F` both represent the &#x1f52f; symbol.
+
+
+// EOF //

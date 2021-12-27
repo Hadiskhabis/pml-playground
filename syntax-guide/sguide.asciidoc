@@ -3,8 +3,8 @@ Tristano Ajmone <tajmone@gmail.com>
 0.1, 2021-12-26: WIP
 :author: Tristano Ajmone
 :email: <tajmone@gmail.com>
-:revdate: 2022-12-26
-:revnumber: 0.1
+:revdate: 2022-12-27
+:revnumber: 0.1.1
 :revremark: WIP
 :version-label: Ed.
 :lang: en
@@ -13,6 +13,7 @@ Tristano Ajmone <tajmone@gmail.com>
 :toclevels: 5
 :toc: left
 // Sections Numbering:
+:partnums:
 :sectnums:
 :sectnumlevels: 2
 // Cross References:
@@ -36,19 +37,15 @@ Tristano Ajmone <tajmone@gmail.com>
 
 This document provides guidelines for developers of PML syntaxe definitions for code highlighters and editor/IDE plug-ins.
 
-WARNING: This document is still a work-in-progress draft!
+[WARNING]
+================================================
+This document is still a work-in-progress draft!
+
+Furthermore, the PML syntax highlighter is not yet completed, therefore PML code examples might not be properly coloured.
+================================================
 
 include::sguide-00-Intro.adoc[]
 
-////
-:leveloffset: +1
-
-include::XXXXXXXXXX.adoc[]
-
-include::XXXXXXXXXX.adoc[]
-
-:leveloffset: 0
-////
-
+include::sguide-01-Overview.adoc[]
 
 // EOF //

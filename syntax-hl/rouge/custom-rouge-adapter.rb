@@ -4,8 +4,10 @@ class CustomRougeAdapter < (Asciidoctor::SyntaxHighlighter.for 'rouge')
   # Defer loading Rouge until the `load_library` method is called:
   def load_library
     require 'rouge'
-    require './pml.rb'
-    require './pml-test-theme.rb' # DELME IN PRODUCTION!
+    # The "pml.rb" lexer & custom themes must be in same folder as this script!
+    herepath=File.expand_path(File.dirname(__FILE__))
+    require "#{herepath}/pml.rb"
+    require "#{herepath}/pml-test-theme.rb" # DELME IN PRODUCTION!
     :loaded
   end
 

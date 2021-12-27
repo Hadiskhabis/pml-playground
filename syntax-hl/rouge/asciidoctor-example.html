@@ -954,8 +954,10 @@ Example, using the <code>thankful_eyes</code> theme:</p>
   <span class="c1"># Defer loading Rouge until the `load_library` method is called:</span>
   <span class="k">def</span> <span class="nf">load_library</span>
     <span class="nb">require</span> <span class="s1">'rouge'</span>
-    <span class="nb">require</span> <span class="s1">'./pml.rb'</span>
-    <span class="nb">require</span> <span class="s1">'./pml-test-theme.rb'</span> <span class="c1"># DELME IN PRODUCTION!</span>
+    <span class="c1"># The "pml.rb" lexer &amp; custom themes must be in same folder as this script!</span>
+    <span class="n">herepath</span><span class="o">=</span><span class="no">File</span><span class="p">.</span><span class="nf">expand_path</span><span class="p">(</span><span class="no">File</span><span class="p">.</span><span class="nf">dirname</span><span class="p">(</span><span class="kp">__FILE__</span><span class="p">))</span>
+    <span class="nb">require</span> <span class="s2">"</span><span class="si">#{</span><span class="n">herepath</span><span class="si">}</span><span class="s2">/pml.rb"</span>
+    <span class="nb">require</span> <span class="s2">"</span><span class="si">#{</span><span class="n">herepath</span><span class="si">}</span><span class="s2">/pml-test-theme.rb"</span> <span class="c1"># DELME IN PRODUCTION!</span>
     <span class="ss">:loaded</span>
   <span class="k">end</span>
 

@@ -29,12 +29,12 @@ An attempt to implement a PML [custom pandoc writer] via Lua filters.
 - [`default.pml.lua`][default.pml.lua] — custom PML template.
 - [`build.sh`][build.sh] — converts sample docs to JSON AST and PML.
 - [`pandoc.markdown`][pandoc.markdown] — sample doc in pandoc markdown:
-    + [`pandoc.json`][pandoc.json] — converted to JSON AST.
+    + `pandoc.json` — converted to JSON AST (_ignored by Git_).
     + [`pandoc.pml`][pandoc.pml] — converted to PML via custom writer.
 
 After building locally, you'll also find the HTML version of the sample, generated via PMLC from the converted PML document:
 
-- [`output/pandoc.html`](./output/pandoc.html) (ignored by Git)
+- [`output/pandoc.html`](./output/pandoc.html) (_ignored by Git_)
 
 
 # Project Status
@@ -57,9 +57,9 @@ Currently, we have only a single sample document:
 
 - [`pandoc.markdown`][pandoc.markdown]
 
-and it's JSON AST and PML conversions (also tracked by the repository):
+and it's JSON AST and PML conversions:
 
-- [`pandoc.json`][pandoc.json]
+- `pandoc.json` (_ignored by Git_)
 - [`pandoc.pml`][pandoc.pml]
 
 The JSON representation is generated via `pandoc -t json`.

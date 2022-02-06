@@ -101,4 +101,32 @@ Currently the PML writer discards links attributes and title, which will need to
 - Automatic link: <https://www.pml-lang.dev>
 - Inline link: [PML Reference Manual](https://www.pml-lang.dev/docs/reference_manual/index.html)
 
+
+## Images
+
+- See: [Pandoc User's Guide] » [Images](https://pandoc.org/MANUAL.html#images)
+
+> **WARNING** --- PML doesn't support external images via HTTP! so we'll be testing only with local images.
+
+### Inline Images
+
+Images are considered by pandoc to be inline if they are not the only element in a paragraph.
+
+An inline image: ![The PML cool image](./pml-cool.png)
+
+An inline image with alt-text: ![The PML cool image](./pml-cool.png "Alt-text is cool too!")
+
+### Captioned Images
+
+![The PML cool image](./pml-cool.png)
+
+Captioned image without caption:
+
+![](./pml-cool.png)
+
+<!----------------------------- REFERENCE LINKS ------------------------------>
+
 [Pandoc User's Guide]: https://pandoc.org/MANUAL.htm
+
+
+<!-- EOF -->

@@ -10,6 +10,8 @@ pml_tags.json
 
 # Ignore all PML converted contents:
 **/output/**
+# and pandoc JSON AST:
+/pandoc/filters-lua/pml-writer/*.json
 
 ## TMP Work Files
 #################

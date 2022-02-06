@@ -1,4 +1,4 @@
--- "pml-writer.lua" v0.0.3 | 2022/02/06            | PML 2.2.0 | pandoc 2.17.1.1
+-- "pml-writer.lua" v0.0.4 | 2022/02/06            | PML 2.2.0 | pandoc 2.17.1.1
 -- =============================================================================
 -- ** WARNING ** This PML writer is being built on top of the sample writer that
 --               ships with pandoc; generated via:
@@ -107,13 +107,15 @@ function Doc(body, metadata, variables)
   end
   add(body)
   -- @TBD: Inject Footnotes
-  -- if #notes > 0 then
-  --   add('<ol class="footnotes">')
-  --   for _,note in pairs(notes) do
-  --     add(note)
-  --   end
-  --   add('</ol>')
-  -- end
+--[[
+  if #notes > 0 then
+    add('<ol class="footnotes">')
+    for _,note in pairs(notes) do
+      add(note)
+    end
+    add('</ol>')
+  end
+--]]
 
   -- Close [ch Nodes
   -- ---------------
@@ -155,7 +157,6 @@ function Emph(s)
 end
 
 function Strong(s)
-  -- return '<strong>' .. s .. '</strong>'
   return '[b ' .. s .. ']'
 end
 
@@ -176,20 +177,34 @@ function Strikeout(s)
 end
 
 function Link(s, tgt, tit, attr)
-  -- return '<a href="' .. escape(tgt,true) .. '" title="' ..
-  --        escape(tit,true) .. '"' .. attributes(attr) .. '>' .. s .. '</a>'
   -- @TODO: Handle title + attributes
   return '[link url=' .. escape(tgt,true) .. ' text="' .. s .. '"]'
+--[[
+  return '<a href="' .. escape(tgt,true) .. '" title="' ..
+         escape(tit,true) .. '"' .. attributes(attr) .. '>' .. s .. '</a>'
+--]]
 end
 
 function Image(s, src, tit, attr)
+  -- @FIXME: If src is a web URL, emit Raw HTML instead!
+  local outstr
+  outstr = '[image source="' .. escape(src,true) .. '"'
+  if #tit ~= 0 then
+    outstr = outstr .. ' html_title="' .. escape(tit,true) .. '"'
+  end
+  return outstr .. ']'
+--[[
   return '<img src="' .. escape(src,true) .. '" title="' ..
          escape(tit,true) .. '"/>'
+--]]
 end
 
 function Code(s, attr)
-  -- return "<code" .. attributes(attr) .. ">" .. escape(s) .. "</code>"
+  -- @TODO: Handle inline-code attributes!
   return '[c ' .. s .. ']'
+--[[
+  return "<code" .. attributes(attr) .. ">" .. escape(s) .. "</code>"
+--]]
 end
 
 function InlineMath(s)
@@ -246,8 +261,10 @@ function Plain(s)
 end
 
 function Para(s)
-  -- return '<p>' .. s .. '</p>'
   return s
+--[[
+  return '<p>' .. s .. '</p>'
+--]]
 end
 
 currChLev = 0
@@ -276,7 +293,6 @@ function Header(lev, s, attr)
 end
 
 function BlockQuote(s)
-  -- return '<blockquote>\n' .. s .. '\n</blockquote>'
   return '[quote\n' .. s .. '\n]'
 end
 
@@ -298,8 +314,8 @@ function CodeBlock(s, attr)
   -- otherwise treat as code (one could pipe through a highlighter)
   else
 --[[
-  return '<pre><code' .. attributes(attr) .. '>' .. escape(s) ..
-        '</code></pre>'
+    return '<pre><code' .. attributes(attr) .. '>' .. escape(s) ..
+           '</code></pre>'
 --]]
     return '[code' .. attributes(attr) .. '\n' .. escape(s) ..
            '\ncode]\n'
@@ -347,14 +363,28 @@ local function html_align(align)
 end
 
 function CaptionedImage(src, tit, caption, attr)
+  -- @FIXME: If src is a web URL, emit Raw HTML instead!
+  if attr.id then
+    local img_id = " id=" .. attr.id
+  end
   if #caption == 0 then
-    return '<p><img src="' .. escape(src,true) .. '" id="' .. attr.id ..
+    return  '[image source="' .. escape(src,true) ..
+            '"' .. attr.id .. ']'
+--[[
+    return '<p><img src="' .. escape(src,true) .. '"' .. attr.id ..
       '"/></p>'
+--]]
   else
     local ecaption = escape(caption)
+    return '[image source="' .. escape(src,true) .. '"' ..
+           attr.id ..
+           ' caption="' .. ecaption ..
+           '" html_alt="' .. ecaption .. '"]'
+--[[
     return '<figure>\n<img src="' .. escape(src,true) ..
         '" id="' .. attr.id .. '" alt="' .. ecaption  .. '"/>' ..
         '<figcaption>' .. ecaption .. '</figcaption>\n</figure>'
+--]]
   end
 end
 
@@ -404,9 +434,11 @@ end
 
 function RawBlock(format, str)
   if format == 'html' then
-    -- return str
     -- @TODO: Intercept HTML comments and convert them to PML comments!
     return '[html\n' .. str .. '\nhtml]'
+--[[
+    return str
+--]]
   else
     return ''
   end

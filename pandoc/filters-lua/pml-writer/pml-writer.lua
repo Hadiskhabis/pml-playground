@@ -1,4 +1,4 @@
--- "pml-writer.lua" v0.0.2 | 2022/02/06            | PML 2.2.0 | pandoc 2.17.1.1
+-- "pml-writer.lua" v0.0.3 | 2022/02/06            | PML 2.2.0 | pandoc 2.17.1.1
 -- =============================================================================
 -- ** WARNING ** This PML writer is being built on top of the sample writer that
 --               ships with pandoc; generated via:
@@ -160,11 +160,11 @@ function Strong(s)
 end
 
 function Subscript(s)
-  return '<sub>' .. s .. '</sub>'
+  return '[sub ' .. s .. ']'
 end
 
 function Superscript(s)
-  return '<sup>' .. s .. '</sup>'
+  return '[sup ' .. s .. ']'
 end
 
 function SmallCaps(s)
@@ -172,12 +172,14 @@ function SmallCaps(s)
 end
 
 function Strikeout(s)
-  return '<del>' .. s .. '</del>'
+  return '[strike ' .. s .. ']'
 end
 
 function Link(s, tgt, tit, attr)
-  return '<a href="' .. escape(tgt,true) .. '" title="' ..
-         escape(tit,true) .. '"' .. attributes(attr) .. '>' .. s .. '</a>'
+  -- return '<a href="' .. escape(tgt,true) .. '" title="' ..
+  --        escape(tit,true) .. '"' .. attributes(attr) .. '>' .. s .. '</a>'
+  -- @TODO: Handle title + attributes
+  return '[link url=' .. escape(tgt,true) .. ' text="' .. s .. '"]'
 end
 
 function Image(s, src, tit, attr)
@@ -279,7 +281,7 @@ function BlockQuote(s)
 end
 
 function HorizontalRule()
-  return "<hr/>"
+  return '[html\n<hr/>\nhtml]'
 end
 
 function LineBlock(ls)
@@ -295,8 +297,12 @@ function CodeBlock(s, attr)
     return '<img src="data:' .. image_mime_type .. ';base64,' .. img .. '"/>'
   -- otherwise treat as code (one could pipe through a highlighter)
   else
-    return '<pre><code' .. attributes(attr) .. '>' .. escape(s) ..
-           '</code></pre>'
+--[[
+  return '<pre><code' .. attributes(attr) .. '>' .. escape(s) ..
+        '</code></pre>'
+--]]
+    return '[code' .. attributes(attr) .. '\n' .. escape(s) ..
+           '\ncode]\n'
   end
 end
 
@@ -398,7 +404,9 @@ end
 
 function RawBlock(format, str)
   if format == 'html' then
-    return str
+    -- return str
+    -- @TODO: Intercept HTML comments and convert them to PML comments!
+    return '[html\n' .. str .. '\nhtml]'
   else
     return ''
   end

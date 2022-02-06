@@ -9,14 +9,14 @@
           "c": [
             {
               "t": "Str",
-              "c": "Author"
+              "c": "Tristano"
             },
             {
               "t": "Space"
             },
             {
               "t": "Str",
-              "c": "One"
+              "c": "Ajmone"
             }
           ]
         },
@@ -52,36 +52,6 @@
       "c": [
         {
           "t": "Str",
-          "c": "This"
-        },
-        {
-          "t": "Space"
-        },
-        {
-          "t": "Str",
-          "c": "is"
-        },
-        {
-          "t": "Space"
-        },
-        {
-          "t": "Str",
-          "c": "the"
-        },
-        {
-          "t": "Space"
-        },
-        {
-          "t": "Str",
-          "c": "subtitle"
-        }
-      ]
-    },
-    "title": {
-      "t": "MetaInlines",
-      "c": [
-        {
-          "t": "Str",
           "c": "Sample"
         },
         {
@@ -89,11 +59,13 @@
         },
         {
           "t": "Str",
-          "c": "Document:"
-        },
-        {
-          "t": "Space"
-        },
+          "c": "document"
+        }
+      ]
+    },
+    "title": {
+      "t": "MetaInlines",
+      "c": [
         {
           "t": "Str",
           "c": "Pandoc"
@@ -103,63 +75,46 @@
         },
         {
           "t": "Str",
-          "c": "markdown"
+          "c": "Markdown"
         }
       ]
     }
   },
   "blocks": [
     {
-      "t": "Header",
-      "c": [
-        1,
-        [
-          "ch.-1-block-nodes",
-          [],
-          []
-        ],
-        [
-          {
-            "t": "Str",
-            "c": "Ch."
-          },
-          {
-            "t": "Space"
-          },
-          {
-            "t": "Str",
-            "c": "1"
-          },
-          {
-            "t": "Space"
-          },
-          {
-            "t": "Str",
-            "c": "–"
-          },
-          {
-            "t": "Space"
-          },
-          {
-            "t": "Str",
-            "c": "Block"
-          },
-          {
-            "t": "Space"
-          },
-          {
-            "t": "Str",
-            "c": "Nodes"
-          }
-        ]
-      ]
-    },
-    {
       "t": "Para",
       "c": [
         {
           "t": "Str",
-          "c": "Knights"
+          "c": "This"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "WIP"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "document"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "provides"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "examples"
         },
         {
           "t": "Space"
@@ -173,334 +128,21 @@
         },
         {
           "t": "Str",
-          "c": "Ni,"
+          "c": "how"
         },
         {
           "t": "Space"
         },
         {
           "t": "Str",
-          "c": "we"
+          "c": "pandoc-markdown"
         },
         {
           "t": "Space"
         },
         {
           "t": "Str",
-          "c": "are"
-        },
-        {
-          "t": "Space"
-        },
-        {
-          "t": "Str",
-          "c": "but"
-        },
-        {
-          "t": "Space"
-        },
-        {
-          "t": "Str",
-          "c": "simple"
-        },
-        {
-          "t": "Space"
-        },
-        {
-          "t": "Str",
-          "c": "travelers"
-        },
-        {
-          "t": "Space"
-        },
-        {
-          "t": "Str",
-          "c": "who"
-        },
-        {
-          "t": "Space"
-        },
-        {
-          "t": "Str",
-          "c": "seek"
-        },
-        {
-          "t": "Space"
-        },
-        {
-          "t": "Str",
-          "c": "the"
-        },
-        {
-          "t": "Space"
-        },
-        {
-          "t": "Str",
-          "c": "enchanter"
-        },
-        {
-          "t": "Space"
-        },
-        {
-          "t": "Str",
-          "c": "who"
-        },
-        {
-          "t": "Space"
-        },
-        {
-          "t": "Str",
-          "c": "lives"
-        },
-        {
-          "t": "Space"
-        },
-        {
-          "t": "Str",
-          "c": "beyond"
-        },
-        {
-          "t": "Space"
-        },
-        {
-          "t": "Str",
-          "c": "these"
-        },
-        {
-          "t": "Space"
-        },
-        {
-          "t": "Str",
-          "c": "woods."
-        }
-      ]
-    },
-    {
-      "t": "Header",
-      "c": [
-        2,
-        [
-          "section",
-          [],
-          []
-        ],
-        [
-          {
-            "t": "Str",
-            "c": "§1.2"
-          }
-        ]
-      ]
-    },
-    {
-      "t": "Para",
-      "c": [
-        {
-          "t": "Str",
-          "c": "Found"
-        },
-        {
-          "t": "Space"
-        },
-        {
-          "t": "Str",
-          "c": "them?"
-        },
-        {
-          "t": "Space"
-        },
-        {
-          "t": "Str",
-          "c": "In"
-        },
-        {
-          "t": "Space"
-        },
-        {
-          "t": "Str",
-          "c": "Mercia?!"
-        },
-        {
-          "t": "Space"
-        },
-        {
-          "t": "Str",
-          "c": "The"
-        },
-        {
-          "t": "Space"
-        },
-        {
-          "t": "Str",
-          "c": "coconut’s"
-        },
-        {
-          "t": "Space"
-        },
-        {
-          "t": "Str",
-          "c": "tropical!"
-        },
-        {
-          "t": "SoftBreak"
-        },
-        {
-          "t": "Str",
-          "c": "The"
-        },
-        {
-          "t": "Space"
-        },
-        {
-          "t": "Str",
-          "c": "swallow"
-        },
-        {
-          "t": "Space"
-        },
-        {
-          "t": "Str",
-          "c": "may"
-        },
-        {
-          "t": "Space"
-        },
-        {
-          "t": "Str",
-          "c": "fly"
-        },
-        {
-          "t": "Space"
-        },
-        {
-          "t": "Str",
-          "c": "south"
-        },
-        {
-          "t": "Space"
-        },
-        {
-          "t": "Str",
-          "c": "with"
-        },
-        {
-          "t": "Space"
-        },
-        {
-          "t": "Str",
-          "c": "the"
-        },
-        {
-          "t": "Space"
-        },
-        {
-          "t": "Str",
-          "c": "sun,"
-        },
-        {
-          "t": "Space"
-        },
-        {
-          "t": "Str",
-          "c": "and"
-        },
-        {
-          "t": "Space"
-        },
-        {
-          "t": "Str",
-          "c": "the"
-        },
-        {
-          "t": "Space"
-        },
-        {
-          "t": "Str",
-          "c": "house"
-        },
-        {
-          "t": "Space"
-        },
-        {
-          "t": "Str",
-          "c": "martin"
-        },
-        {
-          "t": "Space"
-        },
-        {
-          "t": "Str",
-          "c": "or"
-        },
-        {
-          "t": "Space"
-        },
-        {
-          "t": "Str",
-          "c": "the"
-        },
-        {
-          "t": "Space"
-        },
-        {
-          "t": "Str",
-          "c": "plover"
-        },
-        {
-          "t": "Space"
-        },
-        {
-          "t": "Str",
-          "c": "may"
-        },
-        {
-          "t": "Space"
-        },
-        {
-          "t": "Str",
-          "c": "seek"
-        },
-        {
-          "t": "Space"
-        },
-        {
-          "t": "Str",
-          "c": "warmer"
-        },
-        {
-          "t": "Space"
-        },
-        {
-          "t": "Str",
-          "c": "climes"
-        },
-        {
-          "t": "Space"
-        },
-        {
-          "t": "Str",
-          "c": "in"
-        },
-        {
-          "t": "Space"
-        },
-        {
-          "t": "Str",
-          "c": "winter,"
-        },
-        {
-          "t": "Space"
-        },
-        {
-          "t": "Str",
-          "c": "yet"
-        },
-        {
-          "t": "Space"
-        },
-        {
-          "t": "Str",
-          "c": "these"
+          "c": "features"
         },
         {
           "t": "Space"
@@ -514,14 +156,7 @@
         },
         {
           "t": "Str",
-          "c": "not"
-        },
-        {
-          "t": "Space"
-        },
-        {
-          "t": "Str",
-          "c": "strangers"
+          "c": "converted"
         },
         {
           "t": "Space"
@@ -535,64 +170,265 @@
         },
         {
           "t": "Str",
-          "c": "our"
+          "c": "PML"
         },
         {
           "t": "Space"
         },
         {
           "t": "Str",
-          "c": "land."
+          "c": "via"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "the"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Code",
+          "c": [
+            [
+              "",
+              [],
+              []
+            ],
+            "pml-writer"
+          ]
+        },
+        {
+          "t": "Str",
+          "c": "."
         },
         {
           "t": "SoftBreak"
         },
         {
           "t": "Str",
-          "c": "Did"
+          "c": "As"
         },
         {
           "t": "Space"
         },
         {
           "t": "Str",
-          "c": "you"
+          "c": "new"
         },
         {
           "t": "Space"
         },
         {
           "t": "Str",
-          "c": "dress"
+          "c": "PML"
         },
         {
           "t": "Space"
         },
         {
           "t": "Str",
-          "c": "her"
+          "c": "elements"
         },
         {
           "t": "Space"
         },
         {
           "t": "Str",
-          "c": "up"
+          "c": "are"
         },
         {
           "t": "Space"
         },
         {
           "t": "Str",
-          "c": "like"
+          "c": "implemented"
         },
         {
           "t": "Space"
         },
         {
           "t": "Str",
-          "c": "this?"
+          "c": "in"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "the"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "writer,"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "their"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "examples"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "will"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "be"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "added"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "to"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "the"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "document."
         }
+      ]
+    },
+    {
+      "t": "Para",
+      "c": [
+        {
+          "t": "Str",
+          "c": "For"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "more"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "info,"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "refer"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "to"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "the"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Link",
+          "c": [
+            [
+              "",
+              [],
+              []
+            ],
+            [
+              {
+                "t": "Str",
+                "c": "Pandoc"
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Str",
+                "c": "User’s"
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Str",
+                "c": "Guide"
+              }
+            ],
+            ["https://pandoc.org/MANUAL.htm", ""]
+          ]
+        },
+        {
+          "t": "Str",
+          "c": "."
+        }
+      ]
+    },
+    {
+      "t": "Header",
+      "c": [
+        1,
+        [
+          "block-elements",
+          [],
+          []
+        ],
+        [
+          {
+            "t": "Str",
+            "c": "Block"
+          },
+          {
+            "t": "Space"
+          },
+          {
+            "t": "Str",
+            "c": "Elements"
+          }
+        ]
       ]
     },
     {
@@ -600,31 +436,112 @@
       "c": [
         2,
         [
-          "quotes",
+          "block-quotations",
           [],
           []
         ],
         [
           {
             "t": "Str",
-            "c": "§1.3"
+            "c": "Block"
           },
           {
             "t": "Space"
           },
           {
             "t": "Str",
-            "c": "—"
-          },
-          {
-            "t": "Space"
-          },
-          {
-            "t": "Str",
-            "c": "Quotes"
+            "c": "Quotations"
           }
         ]
       ]
+    },
+    {
+      "t": "BulletList",
+      "c": [
+        [
+          {
+            "t": "Plain",
+            "c": [
+              {
+                "t": "Str",
+                "c": "See:"
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Link",
+                "c": [
+                  [
+                    "",
+                    [],
+                    []
+                  ],
+                  [
+                    {
+                      "t": "Str",
+                      "c": "Pandoc"
+                    },
+                    {
+                      "t": "Space"
+                    },
+                    {
+                      "t": "Str",
+                      "c": "User’s"
+                    },
+                    {
+                      "t": "Space"
+                    },
+                    {
+                      "t": "Str",
+                      "c": "Guide"
+                    }
+                  ],
+                  ["https://pandoc.org/MANUAL.htm", ""]
+                ]
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Str",
+                "c": "»"
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Link",
+                "c": [
+                  [
+                    "",
+                    [],
+                    []
+                  ],
+                  [
+                    {
+                      "t": "Str",
+                      "c": "Block"
+                    },
+                    {
+                      "t": "Space"
+                    },
+                    {
+                      "t": "Str",
+                      "c": "quotations"
+                    }
+                  ],
+                  ["https://pandoc.org/MANUAL.html#block-quotations", ""]
+                ]
+              }
+            ]
+          }
+        ]
+      ]
+    },
+    {
+      "t": "RawBlock",
+      "c": ["html", "<!-- end of list -->"]
     },
     {
       "t": "BlockQuote",
@@ -857,6 +774,256 @@
       "c": [
         2,
         [
+          "code-blocks",
+          [],
+          []
+        ],
+        [
+          {
+            "t": "Str",
+            "c": "Code"
+          },
+          {
+            "t": "Space"
+          },
+          {
+            "t": "Str",
+            "c": "blocks"
+          }
+        ]
+      ]
+    },
+    {
+      "t": "BulletList",
+      "c": [
+        [
+          {
+            "t": "Plain",
+            "c": [
+              {
+                "t": "Str",
+                "c": "See:"
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Link",
+                "c": [
+                  [
+                    "",
+                    [],
+                    []
+                  ],
+                  [
+                    {
+                      "t": "Str",
+                      "c": "Pandoc"
+                    },
+                    {
+                      "t": "Space"
+                    },
+                    {
+                      "t": "Str",
+                      "c": "User’s"
+                    },
+                    {
+                      "t": "Space"
+                    },
+                    {
+                      "t": "Str",
+                      "c": "Guide"
+                    }
+                  ],
+                  ["https://pandoc.org/MANUAL.htm", ""]
+                ]
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Str",
+                "c": "»"
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Link",
+                "c": [
+                  [
+                    "",
+                    [],
+                    []
+                  ],
+                  [
+                    {
+                      "t": "Str",
+                      "c": "Verbatim"
+                    },
+                    {
+                      "t": "Space"
+                    },
+                    {
+                      "t": "Str",
+                      "c": "(code)"
+                    },
+                    {
+                      "t": "Space"
+                    },
+                    {
+                      "t": "Str",
+                      "c": "blocks"
+                    }
+                  ],
+                  ["https://pandoc.org/MANUAL.html#verbatim-code-blocks", ""]
+                ]
+              }
+            ]
+          }
+        ]
+      ]
+    },
+    {
+      "t": "Header",
+      "c": [
+        3,
+        [
+          "fenced-code-blocks",
+          [],
+          []
+        ],
+        [
+          {
+            "t": "Str",
+            "c": "Fenced"
+          },
+          {
+            "t": "Space"
+          },
+          {
+            "t": "Str",
+            "c": "code"
+          },
+          {
+            "t": "Space"
+          },
+          {
+            "t": "Str",
+            "c": "blocks"
+          }
+        ]
+      ]
+    },
+    {
+      "t": "BulletList",
+      "c": [
+        [
+          {
+            "t": "Plain",
+            "c": [
+              {
+                "t": "Str",
+                "c": "See:"
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Link",
+                "c": [
+                  [
+                    "",
+                    [],
+                    []
+                  ],
+                  [
+                    {
+                      "t": "Str",
+                      "c": "Pandoc"
+                    },
+                    {
+                      "t": "Space"
+                    },
+                    {
+                      "t": "Str",
+                      "c": "User’s"
+                    },
+                    {
+                      "t": "Space"
+                    },
+                    {
+                      "t": "Str",
+                      "c": "Guide"
+                    }
+                  ],
+                  ["https://pandoc.org/MANUAL.htm", ""]
+                ]
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Str",
+                "c": "»"
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Link",
+                "c": [
+                  [
+                    "",
+                    [],
+                    []
+                  ],
+                  [
+                    {
+                      "t": "Str",
+                      "c": "Fenced"
+                    },
+                    {
+                      "t": "Space"
+                    },
+                    {
+                      "t": "Str",
+                      "c": "code"
+                    },
+                    {
+                      "t": "Space"
+                    },
+                    {
+                      "t": "Str",
+                      "c": "blocks"
+                    }
+                  ],
+                  ["https://pandoc.org/MANUAL.html#fenced-code-blocks", ""]
+                ]
+              }
+            ]
+          }
+        ]
+      ]
+    },
+    {
+      "t": "CodeBlock",
+      "c": [
+        [
+          "",
+          [],
+          []
+        ],
+        "function HorizontalRule()
+  return '[html\n<hr/>\nhtml]'
+end"
+      ]
+    },
+    {
+      "t": "Header",
+      "c": [
+        2,
+        [
           "lists",
           [],
           []
@@ -870,18 +1037,95 @@
       ]
     },
     {
+      "t": "BulletList",
+      "c": [
+        [
+          {
+            "t": "Plain",
+            "c": [
+              {
+                "t": "Str",
+                "c": "See:"
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Link",
+                "c": [
+                  [
+                    "",
+                    [],
+                    []
+                  ],
+                  [
+                    {
+                      "t": "Str",
+                      "c": "Pandoc"
+                    },
+                    {
+                      "t": "Space"
+                    },
+                    {
+                      "t": "Str",
+                      "c": "User’s"
+                    },
+                    {
+                      "t": "Space"
+                    },
+                    {
+                      "t": "Str",
+                      "c": "Guide"
+                    }
+                  ],
+                  ["https://pandoc.org/MANUAL.htm", ""]
+                ]
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Str",
+                "c": "»"
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Link",
+                "c": [
+                  [
+                    "",
+                    [],
+                    []
+                  ],
+                  [
+                    {
+                      "t": "Str",
+                      "c": "Lists"
+                    }
+                  ],
+                  ["https://pandoc.org/MANUAL.html#lists", ""]
+                ]
+              }
+            ]
+          }
+        ]
+      ]
+    },
+    {
       "t": "Header",
       "c": [
         3,
         [
-          "ordered-lists",
+          "bullet-lists",
           [],
           []
         ],
         [
           {
             "t": "Str",
-            "c": "Ordered"
+            "c": "Bullet"
           },
           {
             "t": "Space"
@@ -1000,14 +1244,14 @@
       "c": [
         3,
         [
-          "numbered-lists",
+          "ordered-lists",
           [],
           []
         ],
         [
           {
             "t": "Str",
-            "c": "Numbered"
+            "c": "Ordered"
           },
           {
             "t": "Space"
@@ -1161,34 +1405,217 @@
     {
       "t": "Header",
       "c": [
-        1,
+        2,
         [
-          "ch.-2-inline-nodes",
+          "horizontal-rules",
           [],
           []
         ],
         [
           {
             "t": "Str",
-            "c": "Ch."
+            "c": "Horizontal"
           },
           {
             "t": "Space"
           },
           {
             "t": "Str",
-            "c": "2"
-          },
+            "c": "Rules"
+          }
+        ]
+      ]
+    },
+    {
+      "t": "BulletList",
+      "c": [
+        [
           {
-            "t": "Space"
-          },
-          {
-            "t": "Str",
-            "c": "—"
-          },
-          {
-            "t": "Space"
-          },
+            "t": "Plain",
+            "c": [
+              {
+                "t": "Str",
+                "c": "See:"
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Link",
+                "c": [
+                  [
+                    "",
+                    [],
+                    []
+                  ],
+                  [
+                    {
+                      "t": "Str",
+                      "c": "Pandoc"
+                    },
+                    {
+                      "t": "Space"
+                    },
+                    {
+                      "t": "Str",
+                      "c": "User’s"
+                    },
+                    {
+                      "t": "Space"
+                    },
+                    {
+                      "t": "Str",
+                      "c": "Guide"
+                    }
+                  ],
+                  ["https://pandoc.org/MANUAL.htm", ""]
+                ]
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Str",
+                "c": "»"
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Link",
+                "c": [
+                  [
+                    "",
+                    [],
+                    []
+                  ],
+                  [
+                    {
+                      "t": "Str",
+                      "c": "Horizontal"
+                    },
+                    {
+                      "t": "Space"
+                    },
+                    {
+                      "t": "Str",
+                      "c": "rules"
+                    }
+                  ],
+                  ["https://pandoc.org/MANUAL.html#horizontal-rules", ""]
+                ]
+              }
+            ]
+          }
+        ]
+      ]
+    },
+    {
+      "t": "Para",
+      "c": [
+        {
+          "t": "Str",
+          "c": "PML"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "doesn’t"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "support"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "horizontal"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "rules,"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "so"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "the"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "element"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "is"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "rendered"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "via"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "raw"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "HTML."
+        }
+      ]
+    },
+    {
+      "t": "HorizontalRule"
+    },
+    {
+      "t": "Header",
+      "c": [
+        1,
+        [
+          "inline-elements",
+          [],
+          []
+        ],
+        [
           {
             "t": "Str",
             "c": "Inline"
@@ -1198,7 +1625,7 @@
           },
           {
             "t": "Str",
-            "c": "Nodes"
+            "c": "Elements"
           }
         ]
       ]
@@ -1215,20 +1642,6 @@
         [
           {
             "t": "Str",
-            "c": "§2.1"
-          },
-          {
-            "t": "Space"
-          },
-          {
-            "t": "Str",
-            "c": "—"
-          },
-          {
-            "t": "Space"
-          },
-          {
-            "t": "Str",
             "c": "Font"
           },
           {
@@ -1242,70 +1655,382 @@
       ]
     },
     {
+      "t": "BulletList",
+      "c": [
+        [
+          {
+            "t": "Plain",
+            "c": [
+              {
+                "t": "Str",
+                "c": "See:"
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Link",
+                "c": [
+                  [
+                    "",
+                    [],
+                    []
+                  ],
+                  [
+                    {
+                      "t": "Str",
+                      "c": "Pandoc"
+                    },
+                    {
+                      "t": "Space"
+                    },
+                    {
+                      "t": "Str",
+                      "c": "User’s"
+                    },
+                    {
+                      "t": "Space"
+                    },
+                    {
+                      "t": "Str",
+                      "c": "Guide"
+                    }
+                  ],
+                  ["https://pandoc.org/MANUAL.htm", ""]
+                ]
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Str",
+                "c": "»"
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Link",
+                "c": [
+                  [
+                    "",
+                    [],
+                    []
+                  ],
+                  [
+                    {
+                      "t": "Str",
+                      "c": "Inline"
+                    },
+                    {
+                      "t": "Space"
+                    },
+                    {
+                      "t": "Str",
+                      "c": "formatting"
+                    }
+                  ],
+                  ["https://pandoc.org/MANUAL.html#inline-formatting", ""]
+                ]
+              }
+            ]
+          }
+        ]
+      ]
+    },
+    {
       "t": "Para",
       "c": [
         {
           "t": "Str",
-          "c": "Inline"
+          "c": "These"
         },
         {
           "t": "Space"
         },
         {
           "t": "Str",
-          "c": "Nodes"
+          "c": "text"
         },
         {
           "t": "Space"
         },
         {
           "t": "Str",
-          "c": "»"
+          "c": "formatting"
         },
         {
           "t": "Space"
         },
         {
           "t": "Str",
-          "c": "Font:"
-        },
-        {
-          "t": "Space"
-        },
-        {
-          "t": "Strong",
-          "c": [
-            {
-              "t": "Str",
-              "c": "Bold"
-            }
-          ]
+          "c": "styles"
         },
         {
           "t": "Space"
         },
         {
           "t": "Str",
-          "c": "…"
-        },
-        {
-          "t": "Space"
-        },
-        {
-          "t": "Emph",
-          "c": [
-            {
-              "t": "Str",
-              "c": "Italic"
-            }
-          ]
+          "c": "are"
         },
         {
           "t": "Space"
         },
         {
           "t": "Str",
-          "c": "…"
+          "c": "natively"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "supported"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "by"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "pandoc"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Markdown"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "syntax:"
+        }
+      ]
+    },
+    {
+      "t": "BulletList",
+      "c": [
+        [
+          {
+            "t": "Plain",
+            "c": [
+              {
+                "t": "Str",
+                "c": "Some"
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Strong",
+                "c": [
+                  {
+                    "t": "Str",
+                    "c": "bold"
+                  }
+                ]
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Str",
+                "c": "text."
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "t": "Plain",
+            "c": [
+              {
+                "t": "Str",
+                "c": "Some"
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Emph",
+                "c": [
+                  {
+                    "t": "Str",
+                    "c": "italic"
+                  }
+                ]
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Str",
+                "c": "text."
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "t": "Plain",
+            "c": [
+              {
+                "t": "Str",
+                "c": "Some"
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Code",
+                "c": [
+                  [
+                    "",
+                    [],
+                    []
+                  ],
+                  "inline code"
+                ]
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Str",
+                "c": "text."
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "t": "Plain",
+            "c": [
+              {
+                "t": "Str",
+                "c": "Some"
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Superscript",
+                "c": [
+                  {
+                    "t": "Str",
+                    "c": "superscript"
+                  }
+                ]
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Str",
+                "c": "text."
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "t": "Plain",
+            "c": [
+              {
+                "t": "Str",
+                "c": "Some"
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Subscript",
+                "c": [
+                  {
+                    "t": "Str",
+                    "c": "subscript"
+                  }
+                ]
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Str",
+                "c": "text."
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "t": "Plain",
+            "c": [
+              {
+                "t": "Str",
+                "c": "Some"
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Strikeout",
+                "c": [
+                  {
+                    "t": "Str",
+                    "c": "strikeout"
+                  }
+                ]
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Str",
+                "c": "text."
+              }
+            ]
+          }
+        ]
+      ]
+    },
+    {
+      "t": "Para",
+      "c": [
+        {
+          "t": "Str",
+          "c": "Pandoc"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "also"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "supports"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "underline"
         },
         {
           "t": "Space"
@@ -1318,20 +2043,380 @@
           "t": "Space"
         },
         {
-          "t": "Code",
-          "c": [
-            [
-              "",
-              [],
-              []
-            ],
-            "Code"
-          ]
+          "t": "Str",
+          "c": "small"
+        },
+        {
+          "t": "Space"
         },
         {
           "t": "Str",
-          "c": "."
+          "c": "caps"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "via"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "custom"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "classes"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "and"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "CSS:"
         }
+      ]
+    },
+    {
+      "t": "CodeBlock",
+      "c": [
+        [
+          "",
+          [],
+          []
+        ],
+        "[Underline]{.underline}
+[Small caps]{.smallcaps}"
+      ]
+    },
+    {
+      "t": "Header",
+      "c": [
+        2,
+        [
+          "links",
+          [],
+          []
+        ],
+        [
+          {
+            "t": "Str",
+            "c": "Links"
+          }
+        ]
+      ]
+    },
+    {
+      "t": "BulletList",
+      "c": [
+        [
+          {
+            "t": "Plain",
+            "c": [
+              {
+                "t": "Str",
+                "c": "See:"
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Link",
+                "c": [
+                  [
+                    "",
+                    [],
+                    []
+                  ],
+                  [
+                    {
+                      "t": "Str",
+                      "c": "Pandoc"
+                    },
+                    {
+                      "t": "Space"
+                    },
+                    {
+                      "t": "Str",
+                      "c": "User’s"
+                    },
+                    {
+                      "t": "Space"
+                    },
+                    {
+                      "t": "Str",
+                      "c": "Guide"
+                    }
+                  ],
+                  ["https://pandoc.org/MANUAL.htm", ""]
+                ]
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Str",
+                "c": "»"
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Link",
+                "c": [
+                  [
+                    "",
+                    [],
+                    []
+                  ],
+                  [
+                    {
+                      "t": "Str",
+                      "c": "Links"
+                    }
+                  ],
+                  ["https://pandoc.org/MANUAL.html#links-1", ""]
+                ]
+              }
+            ]
+          }
+        ]
+      ]
+    },
+    {
+      "t": "Para",
+      "c": [
+        {
+          "t": "Str",
+          "c": "Currently"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "the"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "PML"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "writer"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "discards"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "links"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "attributes"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "and"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "title,"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "which"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "will"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "need"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "to"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "be"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "handled"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "in"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "the"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "future."
+        }
+      ]
+    },
+    {
+      "t": "BulletList",
+      "c": [
+        [
+          {
+            "t": "Plain",
+            "c": [
+              {
+                "t": "Str",
+                "c": "Automatic"
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Str",
+                "c": "link:"
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Link",
+                "c": [
+                  [
+                    "",
+                    ["uri"],
+                    []
+                  ],
+                  [
+                    {
+                      "t": "Str",
+                      "c": "https://www.pml-lang.dev"
+                    }
+                  ],
+                  ["https://www.pml-lang.dev", ""]
+                ]
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "t": "Plain",
+            "c": [
+              {
+                "t": "Str",
+                "c": "Inline"
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Str",
+                "c": "link:"
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Link",
+                "c": [
+                  [
+                    "",
+                    [],
+                    []
+                  ],
+                  [
+                    {
+                      "t": "Str",
+                      "c": "PML"
+                    },
+                    {
+                      "t": "Space"
+                    },
+                    {
+                      "t": "Str",
+                      "c": "Reference"
+                    },
+                    {
+                      "t": "Space"
+                    },
+                    {
+                      "t": "Str",
+                      "c": "Manual"
+                    }
+                  ],
+                  ["https://www.pml-lang.dev/docs/reference_manual/index.html", ""]
+                ]
+              }
+            ]
+          }
+        ]
       ]
     }
   ]

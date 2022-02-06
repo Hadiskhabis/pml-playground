@@ -1,21 +1,26 @@
-[doc [title Sample Document: Pandoc markdown]
-     [subtitle This is the subtitle]
+[doc [title Pandoc Markdown]
+     [subtitle Sample document]
 
-Author One, Author Two |
+Tristano Ajmone, Author Two |
 2022-02-06
 
 
-[ch [title Ch. 1 – Block Nodes]
+This WIP document provides examples of how pandoc-markdown features are converted to PML via the [c pml-writer].
+As new PML elements are implemented in the writer, their examples will be added to the document.
 
-Knights of Ni, we are but simple travelers who seek the enchanter who lives beyond these woods.
+For more info, refer to the [link url=https://pandoc.org/MANUAL.htm text="Pandoc User’s Guide"].
 
-[ch [title §1.2]
+[ch [title Block Elements]
 
-Found them? In Mercia?! The coconut’s tropical!
-The swallow may fly south with the sun, and the house martin or the plover may seek warmer climes in winter, yet these are not strangers to our land.
-Did you dress her up like this?
+[ch [title Block Quotations]
 
-][ch [title §1.3 — Quotes]
+[list
+[el See: [link url=https://pandoc.org/MANUAL.htm text="Pandoc User’s Guide"] » [link url=https://pandoc.org/MANUAL.html#block-quotations text="Block quotations"]]
+]
+
+[html
+<!-- end of list -->
+html]
 
 [quote
 Strange women lying in ponds distributing swords is no basis for a system of government.
@@ -23,9 +28,32 @@ Strange women lying in ponds distributing swords is no basis for a system of gov
 Supreme executive power derives from a mandate from the masses, not from some farcical aquatic ceremony.
 ]
 
-][ch [title Lists]
+][ch [title Code blocks]
 
-[ch [title Ordered Lists]
+[list
+[el See: [link url=https://pandoc.org/MANUAL.htm text="Pandoc User’s Guide"] » [link url=https://pandoc.org/MANUAL.html#verbatim-code-blocks text="Verbatim (code) blocks"]]
+]
+
+[ch [title Fenced code blocks]
+
+[list
+[el See: [link url=https://pandoc.org/MANUAL.htm text="Pandoc User’s Guide"] » [link url=https://pandoc.org/MANUAL.html#fenced-code-blocks text="Fenced code blocks"]]
+]
+
+[code
+function HorizontalRule()
+  return '[html\n&lt;hr/&gt;\nhtml]'
+end
+code]
+
+
+]][ch [title Lists]
+
+[list
+[el See: [link url=https://pandoc.org/MANUAL.htm text="Pandoc User’s Guide"] » [link url=https://pandoc.org/MANUAL.html#lists text="Lists"]]
+]
+
+[ch [title Bullet Lists]
 
 [list
 [el Bold: [b Lorem ipsum].]
@@ -33,7 +61,7 @@ Supreme executive power derives from a mandate from the masses, not from some fa
 [el Code: [c Lorem ipsum].]
 ]
 
-][ch [title Numbered Lists]
+][ch [title Ordered Lists]
 
 [list (html_style="list-style-type:decimal")
 [el AAA
@@ -51,11 +79,57 @@ Supreme executive power derives from a mandate from the masses, not from some fa
 [el DDD]
 ]
 
-]]][ch [title Ch. 2 — Inline Nodes]
+]][ch [title Horizontal Rules]
 
-[ch [title §2.1 — Font Styles]
+[list
+[el See: [link url=https://pandoc.org/MANUAL.htm text="Pandoc User’s Guide"] » [link url=https://pandoc.org/MANUAL.html#horizontal-rules text="Horizontal rules"]]
+]
 
-Inline Nodes » Font: [b Bold] … [i Italic] … and [c Code].
+PML doesn’t support horizontal rules, so the element is rendered via raw HTML.
+
+[html
+<hr/>
+html]
+
+]][ch [title Inline Elements]
+
+[ch [title Font Styles]
+
+[list
+[el See: [link url=https://pandoc.org/MANUAL.htm text="Pandoc User’s Guide"] » [link url=https://pandoc.org/MANUAL.html#inline-formatting text="Inline formatting"]]
+]
+
+These text formatting styles are natively supported by pandoc Markdown syntax:
+
+[list
+[el Some [b bold] text.]
+[el Some [i italic] text.]
+[el Some [c inline code] text.]
+[el Some [sup superscript] text.]
+[el Some [sub subscript] text.]
+[el Some [strike strikeout] text.]
+]
+
+Pandoc also supports underline and small caps via custom classes and CSS:
+
+[code
+[Underline]{.underline}
+[Small caps]{.smallcaps}
+code]
+
+
+][ch [title Links]
+
+[list
+[el See: [link url=https://pandoc.org/MANUAL.htm text="Pandoc User’s Guide"] » [link url=https://pandoc.org/MANUAL.html#links-1 text="Links"]]
+]
+
+Currently the PML writer discards links attributes and title, which will need to be handled in the future.
+
+[list
+[el Automatic link: [link url=https://www.pml-lang.dev text="https://www.pml-lang.dev"]]
+[el Inline link: [link url=https://www.pml-lang.dev/docs/reference_manual/index.html text="PML Reference Manual"]]
+]
 
 
 ]

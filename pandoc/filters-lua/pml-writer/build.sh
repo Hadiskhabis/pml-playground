@@ -30,3 +30,5 @@ function pandoc2pml() {
 
 pandoc2json pandoc.markdown
 pandoc2pml  pandoc.markdown
+pmlc pandoc.pml
+# pmlc convert -od ./ --input_file pandoc.pml

@@ -1,9 +1,16 @@
 $--=============================================================================
-$-- PML Pandoc Template v0.0.1 | 2021/05/03            | PML 1.4.0 | pandoc 2.13
+$-- PML Pandoc Template v0.1.0 | 2022/02/06        | PML 2.2.0 | pandoc 2.17.1.1
 $-------------------------------------------------------------------------------
-[doc title=$if(title)$${title}$else$Untitled$endif$$if(subtitle)$: ${subtitle}$endif$$if(author)$ \
-    authors=$for(author)$$author$$sep$, $endfor$$endif$$if(date)$ \
-    date=${date}$endif$
+[doc [title $if(title)$${title}$else$Untitled$endif$]
+$if(subtitle)$     [subtitle ${subtitle}]$endif$
+
+$if(author)$
+$for(author)$$author$$sep$, $endfor$$if(date)$ |$endif$
+$endif$
+$if(date)$
+${date}
+$endif$
+
 $-------------------------------------------------------------------------------
 
 $body$

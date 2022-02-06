@@ -1,5 +1,6 @@
 # Pandoc PML Lua Writer
 
+![Writer status][status badge]&nbsp;
 ![PML Version][pml badge]&nbsp;
 ![Pandoc Version][pandoc badge]
 
@@ -30,6 +31,11 @@ An attempt to implement a PML [custom pandoc writer] via Lua filters.
 - [`pandoc.markdown`][pandoc.markdown] — sample doc in pandoc markdown:
     + [`pandoc.json`][pandoc.json] — converted to JSON AST.
     + [`pandoc.pml`][pandoc.pml] — converted to PML via custom writer.
+
+After building locally, you'll also find the HTML version of the sample, generated via PMLC from the converted PML document:
+
+- [`output/pandoc.html`](./output/pandoc.html) (ignored by Git)
+
 
 # Project Status
 
@@ -123,8 +129,9 @@ Windows users will also need a Bash environment (with common tools) to run the s
 
 <!-- badges -->
 
-[pml badge]: https://img.shields.io/badge/PML-1.4.0-yellow "Last tested with PML 1.4.0"
-[pandoc badge]: https://img.shields.io/badge/pandoc-2.13-yellow "Last tested with pandoc 2.13"
+[status badge]: https://img.shields.io/badge/status-Alpha-orange "The writer is still in WIP Alpha stage"
+[pml badge]: https://img.shields.io/badge/PML-2.2.0-yellow "Last tested with PML 2.2.0"
+[pandoc badge]: https://img.shields.io/badge/pandoc-2.17.1.1-yellow "Last tested with pandoc 2.17.1.1"
 
 <!-- project files -->
 

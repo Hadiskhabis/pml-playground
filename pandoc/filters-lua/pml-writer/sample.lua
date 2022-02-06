@@ -1,9 +1,7 @@
 -- =============================================================================
--- The sample writer that ships with pandoc 2.13; generated via:
+-- The sample writer that ships with pandoc 2.17.1.1; generated via:
 --
 --    pandoc --print-default-data-file sample.lua > sample.lua
---
--- Minor indentation tweaks to pass our repository EditorConfig validation.
 -- =============================================================================
 -- This is a sample custom writer for pandoc.  It produces output
 -- that is very similar to that of pandoc's HTML writer.
@@ -21,30 +19,30 @@
 -- syntax errors.
 
 local pipe = pandoc.pipe
-local stringify = (require "pandoc.utils").stringify
+local stringify = (require 'pandoc.utils').stringify
 
 -- The global variable PANDOC_DOCUMENT contains the full AST of
 -- the document which is going to be written. It can be used to
 -- configure the writer.
 local meta = PANDOC_DOCUMENT.meta
 
--- Chose the image format based on the value of the
+-- Choose the image format based on the value of the
 -- `image_format` meta value.
 local image_format = meta.image_format
   and stringify(meta.image_format)
-  or "png"
+  or 'png'
 local image_mime_type = ({
-    jpeg = "image/jpeg",
-    jpg = "image/jpeg",
-    gif = "image/gif",
-    png = "image/png",
-    svg = "image/svg+xml",
+    jpeg = 'image/jpeg',
+    jpg = 'image/jpeg',
+    gif = 'image/gif',
+    png = 'image/png',
+    svg = 'image/svg+xml',
   })[image_format]
-  or error("unsupported image format `" .. image_format .. "`")
+  or error('unsupported image format `' .. image_format .. '`')
 
 -- Character escaping
 local function escape(s, in_attribute)
-  return s:gsub("[<>&\"']",
+  return s:gsub('[<>&"\']',
     function(x)
       if x == '<' then
         return '&lt;'
@@ -52,9 +50,9 @@ local function escape(s, in_attribute)
         return '&gt;'
       elseif x == '&' then
         return '&amp;'
-      elseif x == '"' then
+      elseif in_attribute and x == '"' then
         return '&quot;'
-      elseif x == "'" then
+      elseif in_attribute and x == "'" then
         return '&#39;'
       else
         return x
@@ -67,7 +65,7 @@ end
 local function attributes(attr)
   local attr_table = {}
   for x,y in pairs(attr) do
-    if y and y ~= "" then
+    if y and y ~= '' then
       table.insert(attr_table, ' ' .. x .. '="' .. escape(y,true) .. '"')
     end
   end
@@ -79,7 +77,7 @@ local notes = {}
 
 -- Blocksep is used to separate block elements.
 function Blocksep()
-  return "\n\n"
+  return '\n\n'
 end
 
 -- This function is called once for the whole document. Parameters:
@@ -113,31 +111,31 @@ function Str(s)
 end
 
 function Space()
-  return " "
+  return ' '
 end
 
 function SoftBreak()
-  return "\n"
+  return '\n'
 end
 
 function LineBreak()
-  return "<br/>"
+  return '<br/>'
 end
 
 function Emph(s)
-  return "<em>" .. s .. "</em>"
+  return '<em>' .. s .. '</em>'
 end
 
 function Strong(s)
-  return "<strong>" .. s .. "</strong>"
+  return '<strong>' .. s .. '</strong>'
 end
 
 function Subscript(s)
-  return "<sub>" .. s .. "</sub>"
+  return '<sub>' .. s .. '</sub>'
 end
 
 function Superscript(s)
-  return "<sup>" .. s .. "</sup>"
+  return '<sup>' .. s .. '</sup>'
 end
 
 function SmallCaps(s)
@@ -148,34 +146,34 @@ function Strikeout(s)
   return '<del>' .. s .. '</del>'
 end
 
-function Link(s, src, tit, attr)
-  return "<a href='" .. escape(src,true) .. "' title='" ..
-        escape(tit,true) .. "'>" .. s .. "</a>"
+function Link(s, tgt, tit, attr)
+  return '<a href="' .. escape(tgt,true) .. '" title="' ..
+         escape(tit,true) .. '"' .. attributes(attr) .. '>' .. s .. '</a>'
 end
 
 function Image(s, src, tit, attr)
-  return "<img src='" .. escape(src,true) .. "' title='" ..
-        escape(tit,true) .. "'/>"
+  return '<img src="' .. escape(src,true) .. '" title="' ..
+         escape(tit,true) .. '"/>'
 end
 
 function Code(s, attr)
-  return "<code" .. attributes(attr) .. ">" .. escape(s) .. "</code>"
+  return '<code' .. attributes(attr) .. '>' .. escape(s) .. '</code>'
 end
 
 function InlineMath(s)
-  return "\\(" .. escape(s) .. "\\)"
+  return '\\(' .. escape(s) .. '\\)'
 end
 
 function DisplayMath(s)
-  return "\\[" .. escape(s) .. "\\]"
+  return '\\[' .. escape(s) .. '\\]'
 end
 
 function SingleQuoted(s)
-  return "&lsquo;" .. s .. "&rsquo;"
+  return '&lsquo;' .. s .. '&rsquo;'
 end
 
 function DoubleQuoted(s)
-  return "&ldquo;" .. s .. "&rdquo;"
+  return '&ldquo;' .. s .. '&rdquo;'
 end
 
 function Note(s)
@@ -191,11 +189,11 @@ function Note(s)
 end
 
 function Span(s, attr)
-  return "<span" .. attributes(attr) .. ">" .. s .. "</span>"
+  return '<span' .. attributes(attr) .. '>' .. s .. '</span>'
 end
 
 function RawInline(format, str)
-  if format == "html" then
+  if format == 'html' then
     return str
   else
     return ''
@@ -207,8 +205,8 @@ function Cite(s, cs)
   for _,cit in ipairs(cs) do
     table.insert(ids, cit.citationId)
   end
-  return "<span class=\"cite\" data-citation-ids=\"" .. table.concat(ids, ",") ..
-    "\">" .. s .. "</span>"
+  return '<span class="cite" data-citation-ids="' .. table.concat(ids, ',') ..
+    '">' .. s .. '</span>'
 end
 
 function Plain(s)
@@ -216,16 +214,16 @@ function Plain(s)
 end
 
 function Para(s)
-  return "<p>" .. s .. "</p>"
+  return '<p>' .. s .. '</p>'
 end
 
 -- lev is an integer, the header level.
 function Header(lev, s, attr)
-  return "<h" .. lev .. attributes(attr) ..  ">" .. s .. "</h" .. lev .. ">"
+  return '<h' .. lev .. attributes(attr) ..  '>' .. s .. '</h' .. lev .. '>'
 end
 
 function BlockQuote(s)
-  return "<blockquote>\n" .. s .. "\n</blockquote>"
+  return '<blockquote>\n' .. s .. '\n</blockquote>'
 end
 
 function HorizontalRule()
@@ -233,52 +231,52 @@ function HorizontalRule()
 end
 
 function LineBlock(ls)
-  return  '<div style="white-space: pre-line;">' .. table.concat(ls, '\n') ..
-          '</div>'
+  return '<div style="white-space: pre-line;">' .. table.concat(ls, '\n') ..
+         '</div>'
 end
 
 function CodeBlock(s, attr)
   -- If code block has class 'dot', pipe the contents through dot
   -- and base64, and include the base64-encoded png as a data: URL.
   if attr.class and string.match(' ' .. attr.class .. ' ',' dot ') then
-    local img = pipe("base64", {}, pipe("dot", {"-T" .. image_format}, s))
+    local img = pipe('base64', {}, pipe('dot', {'-T' .. image_format}, s))
     return '<img src="data:' .. image_mime_type .. ';base64,' .. img .. '"/>'
   -- otherwise treat as code (one could pipe through a highlighter)
   else
-    return  "<pre><code" .. attributes(attr) .. ">" .. escape(s) ..
-            "</code></pre>"
+    return '<pre><code' .. attributes(attr) .. '>' .. escape(s) ..
+           '</code></pre>'
   end
 end
 
 function BulletList(items)
   local buffer = {}
   for _, item in pairs(items) do
-    table.insert(buffer, "<li>" .. item .. "</li>")
+    table.insert(buffer, '<li>' .. item .. '</li>')
   end
-  return "<ul>\n" .. table.concat(buffer, "\n") .. "\n</ul>"
+  return '<ul>\n' .. table.concat(buffer, '\n') .. '\n</ul>'
 end
 
 function OrderedList(items)
   local buffer = {}
   for _, item in pairs(items) do
-    table.insert(buffer, "<li>" .. item .. "</li>")
+    table.insert(buffer, '<li>' .. item .. '</li>')
   end
-  return "<ol>\n" .. table.concat(buffer, "\n") .. "\n</ol>"
+  return '<ol>\n' .. table.concat(buffer, '\n') .. '\n</ol>'
 end
 
 function DefinitionList(items)
   local buffer = {}
   for _,item in pairs(items) do
     local k, v = next(item)
-    table.insert(buffer, "<dt>" .. k .. "</dt>\n<dd>" ..
-                  table.concat(v, "</dd>\n<dd>") .. "</dd>")
+    table.insert(buffer, '<dt>' .. k .. '</dt>\n<dd>' ..
+                   table.concat(v, '</dd>\n<dd>') .. '</dd>')
   end
-  return "<dl>\n" .. table.concat(buffer, "\n") .. "\n</dl>"
+  return '<dl>\n' .. table.concat(buffer, '\n') .. '\n</dl>'
 end
 
 -- Convert pandoc alignment to something HTML can use.
 -- align is AlignLeft, AlignRight, AlignCenter, or AlignDefault.
-function html_align(align)
+local function html_align(align)
   if align == 'AlignLeft' then
     return 'left'
   elseif align == 'AlignRight' then
@@ -291,9 +289,15 @@ function html_align(align)
 end
 
 function CaptionedImage(src, tit, caption, attr)
-  return '<div class="figure">\n<img src="' .. escape(src,true) ..
-      '" title="' .. escape(tit,true) .. '"/>\n' ..
-      '<p class="caption">' .. caption .. '</p>\n</div>'
+  if #caption == 0 then
+    return '<p><img src="' .. escape(src,true) .. '" id="' .. attr.id ..
+      '"/></p>'
+  else
+    local ecaption = escape(caption)
+    return '<figure>\n<img src="' .. escape(src,true) ..
+        '" id="' .. attr.id .. '" alt="' .. ecaption  .. '"/>' ..
+        '<figcaption>' .. ecaption .. '</figcaption>\n</figure>'
+  end
 end
 
 -- Caption is a string, aligns is an array of strings,
@@ -304,13 +308,13 @@ function Table(caption, aligns, widths, headers, rows)
   local function add(s)
     table.insert(buffer, s)
   end
-  add("<table>")
-  if caption ~= "" then
-    add("<caption>" .. caption .. "</caption>")
+  add('<table>')
+  if caption ~= '' then
+    add('<caption>' .. escape(caption) .. '</caption>')
   end
   if widths and widths[1] ~= 0 then
     for _, w in pairs(widths) do
-      add('<col width="' .. string.format("%.0f%%", w * 100) .. '" />')
+      add('<col width="' .. string.format('%.0f%%', w * 100) .. '" />')
     end
   end
   local header_row = {}
@@ -318,20 +322,18 @@ function Table(caption, aligns, widths, headers, rows)
   for i, h in pairs(headers) do
     local align = html_align(aligns[i])
     table.insert(header_row,'<th align="' .. align .. '">' .. h .. '</th>')
-    empty_header = empty_header and h == ""
+    empty_header = empty_header and h == ''
   end
-  if empty_header then
-    head = ""
-  else
+  if not empty_header then
     add('<tr class="header">')
     for _,h in pairs(header_row) do
       add(h)
     end
     add('</tr>')
   end
-  local class = "even"
+  local class = 'even'
   for _, row in pairs(rows) do
-    class = (class == "even" and "odd") or "even"
+    class = (class == 'even' and 'odd') or 'even'
     add('<tr class="' .. class .. '">')
     for i,c in pairs(row) do
       add('<td align="' .. html_align(aligns[i]) .. '">' .. c .. '</td>')
@@ -343,7 +345,7 @@ function Table(caption, aligns, widths, headers, rows)
 end
 
 function RawBlock(format, str)
-  if format == "html" then
+  if format == 'html' then
     return str
   else
     return ''
@@ -351,7 +353,7 @@ function RawBlock(format, str)
 end
 
 function Div(s, attr)
-  return "<div" .. attributes(attr) .. ">\n" .. s .. "</div>"
+  return '<div' .. attributes(attr) .. '>\n' .. s .. '</div>'
 end
 
 -- The following code will produce runtime warnings when you haven't defined
@@ -361,6 +363,6 @@ local meta = {}
 meta.__index =
   function(_, key)
     io.stderr:write(string.format("WARNING: Undefined function '%s'\n",key))
-    return function() return "" end
+    return function() return '' end
   end
 setmetatable(_G, meta)

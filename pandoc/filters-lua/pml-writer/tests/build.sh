@@ -22,7 +22,7 @@ function pandoc2pml() {
 	# --------------------------------------------------------------------------
 	pmlF="${1%.*}.pml"
 	echo "\"$1\" -> \"$pmlF\""
-	pandoc -t pml-writer.lua --template=default.pml.lua $1 -o $pmlF || exit 1
+	pandoc -t ../pml-writer.lua --template=../default.pml.lua $1 -o $pmlF || exit 1
 	if [[ $(uname -s) == MINGW* ]];then
 		unix2dos $pmlF > /dev/null 2>&1
 	fi

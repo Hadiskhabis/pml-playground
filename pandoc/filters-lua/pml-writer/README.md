@@ -15,7 +15,7 @@ An attempt to implement a PML [custom pandoc writer] via Lua filters.
 - [Folder Contents](#folder-contents)
 - [Project Status](#project-status)
 - [Sample Docs and Workflow](#sample-docs-and-workflow)
-- [About Custom writers](#about-custom-writers)
+- [About Custom Writers](#about-custom-writers)
 - [Dependencies](#dependencies)
 
 <!-- /MarkdownTOC -->
@@ -24,17 +24,18 @@ An attempt to implement a PML [custom pandoc writer] via Lua filters.
 
 # Folder Contents
 
-- [`sample.lua`][sample.lua] — reference sample custom HTML writer.
-- [`pml-writer.lua`][pml-writer.lua] — custom PML writer (Lua).
+- [`/tests/`][tests/] — examples and test files.
+    + [`build.sh`][build.sh] — converts samples docs to JSON AST and PML.
+    + [`pandoc.markdown`][pandoc.markdown] — sample doc in pandoc markdown:
+        * `pandoc.json` — converted to JSON AST (_ignored by Git_).
+        * [`pandoc.pml`][pandoc.pml] — converted to PML via custom writer.
 - [`default.pml.lua`][default.pml.lua] — custom PML template.
-- [`build.sh`][build.sh] — converts sample docs to JSON AST and PML.
-- [`pandoc.markdown`][pandoc.markdown] — sample doc in pandoc markdown:
-    + `pandoc.json` — converted to JSON AST (_ignored by Git_).
-    + [`pandoc.pml`][pandoc.pml] — converted to PML via custom writer.
+- [`pml-writer.lua`][pml-writer.lua] — custom PML writer (Lua).
+- [`sample.lua`][sample.lua] — official example of a custom HTML writer.
 
 After building locally, you'll also find the HTML version of the sample, generated via PMLC from the converted PML document:
 
-- [`output/pandoc.html`](./output/pandoc.html) (_ignored by Git_)
+- [`/tests/output/pandoc.html`](./tests/output/pandoc.html) (_ignored by Git_)
 
 
 # Project Status
@@ -66,7 +67,7 @@ The JSON representation is generated via `pandoc -t json`.
 Because pandoc generates the JSON AST as a single line, we pipe it through the `jsome` tool (Node.js) to prettify it and make it more human readable.
 
 
-# About Custom writers
+# About Custom Writers
 
 > ### [Custom writers]
 >
@@ -133,14 +134,16 @@ Windows users will also need a Bash environment (with common tools) to run the s
 [pml badge]: https://img.shields.io/badge/PML-2.2.0-yellow "Last tested with PML 2.2.0"
 [pandoc badge]: https://img.shields.io/badge/pandoc-2.17.1.1-yellow "Last tested with pandoc 2.17.1.1"
 
-<!-- project files -->
+<!-- project files & folders -->
 
-[build.sh]: ./build.sh "View builder script"
 [default.pml.lua]: ./default.pml.lua "pandoc template for custom PML writer"
-[pandoc.json]: ./pandoc.json "ample pandoc markdown doc converted to JSON AST"
-[pandoc.markdown]: ./pandoc.markdown "Sample doc in pandoc markdown"
-[pandoc.pml]: ./pandoc.pml "Sample pandoc markdown doc converted to PML"
 [pml-writer.lua]: ./pml-writer.lua "Custom PML writer"
 [sample.lua]: ./sample.lua "Sample HTML writer"
+
+[tests/]: ./tests/ "Navigate to samples and tests directory"
+
+[build.sh]: ./tests/build.sh "View builder script"
+[pandoc.markdown]: ./tests/pandoc.markdown "Sample doc in pandoc markdown"
+[pandoc.pml]: ./tests/pandoc.pml "Sample pandoc markdown doc converted to PML"
 
 <!-- EOF -->

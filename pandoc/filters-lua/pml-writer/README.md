@@ -6,6 +6,8 @@
 
 An attempt to implement a PML [custom pandoc writer] via Lua filters.
 
+Builds via `rake pandoc`.
+
 -----
 
 **Table of Contents**
@@ -25,7 +27,6 @@ An attempt to implement a PML [custom pandoc writer] via Lua filters.
 # Folder Contents
 
 - [`/tests/`][tests/] — examples and test files.
-    + [`build.sh`][build.sh] — converts samples docs to JSON AST and PML.
     + [`pandoc.markdown`][pandoc.markdown] — sample doc in pandoc markdown:
         * `pandoc.json` — converted to JSON AST (_ignored by Git_).
         * [`pandoc.pml`][pandoc.pml] — converted to PML via custom writer.
@@ -33,7 +34,7 @@ An attempt to implement a PML [custom pandoc writer] via Lua filters.
 - [`pml-writer.lua`][pml-writer.lua] — custom PML writer (Lua).
 - [`sample.lua`][sample.lua] — official example of a custom HTML writer.
 
-After building locally, you'll also find the HTML version of the sample, generated via PMLC from the converted PML document:
+After building locally (via Rake), you'll also find the HTML version of the sample, generated via PMLC from the converted PML document:
 
 - [`/tests/output/pandoc.html`](./tests/output/pandoc.html) (_ignored by Git_)
 
@@ -64,7 +65,7 @@ and it's JSON AST and PML conversions:
 - [`pandoc.pml`][pandoc.pml]
 
 The JSON representation is generated via `pandoc -t json`.
-Because pandoc generates the JSON AST as a single line, we pipe it through the `jsome` tool (Node.js) to prettify it and make it more human readable.
+Because pandoc generates the JSON AST as a single line, we prettify it using Ruby to make it more human readable.
 
 
 # About Custom Writers
@@ -105,15 +106,12 @@ In order to use the assets in this folder, you'll need the following tools:
 
 - [pmlc] — PML converter.
 - [pandoc][pandoc install] — use latest release.
-- [jsome] — NPM package to prettify JSON.
-
-Windows users will also need a Bash environment (with common tools) to run the shell scripts (if you've installed Git for Windows you already have it).
+- Ruby 3.
 
 <!-----------------------------------------------------------------------------
                                REFERENCE LINKS
 ------------------------------------------------------------------------------>
 
-[jsome]: https://www.npmjs.com/package/jsome "jsome package at NPM"
 [pmlc]: https://www.pml-lang.dev/downloads/install.html "PML Converter download page"
 
 <!-- pandoc -->
@@ -142,7 +140,6 @@ Windows users will also need a Bash environment (with common tools) to run the s
 
 [tests/]: ./tests/ "Navigate to samples and tests directory"
 
-[build.sh]: ./tests/build.sh "View builder script"
 [pandoc.markdown]: ./tests/pandoc.markdown "Sample doc in pandoc markdown"
 [pandoc.pml]: ./tests/pandoc.pml "Sample pandoc markdown doc converted to PML"
 

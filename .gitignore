@@ -8,10 +8,12 @@ pml_tags.json
 ## Project Output
 #################
 
-# Ignore all PML converted contents:
+# PML converted contents:
 **/output/**
-# and pandoc JSON AST:
+# pandoc JSON AST files:
 /pandoc/filters-lua/pml-writer/*.json
+# pandoc error logs:
+/pandoc/**/errors.log
 
 ## TMP Work Files
 #################

@@ -1,5 +1,9 @@
 {
-  "pandoc-api-version": [1, 22, 1],
+  "pandoc-api-version": [
+    1,
+    22,
+    1
+  ],
   "meta": {
     "author": {
       "t": "MetaList",
@@ -194,8 +198,12 @@
           "c": [
             [
               "",
-              [],
-              []
+              [
+
+              ],
+              [
+
+              ]
             ],
             "pml-writer"
           ]
@@ -375,8 +383,12 @@
           "c": [
             [
               "",
-              [],
-              []
+              [
+
+              ],
+              [
+
+              ]
             ],
             [
               {
@@ -398,7 +410,10 @@
                 "c": "Guide"
               }
             ],
-            ["https://pandoc.org/MANUAL.htm", ""]
+            [
+              "https://pandoc.org/MANUAL.htm",
+              ""
+            ]
           ]
         },
         {
@@ -413,8 +428,12 @@
         1,
         [
           "block-elements",
-          [],
-          []
+          [
+
+          ],
+          [
+
+          ]
         ],
         [
           {
@@ -437,8 +456,12 @@
         2,
         [
           "block-quotations",
-          [],
-          []
+          [
+
+          ],
+          [
+
+          ]
         ],
         [
           {
@@ -474,8 +497,12 @@
                 "c": [
                   [
                     "",
-                    [],
-                    []
+                    [
+
+                    ],
+                    [
+
+                    ]
                   ],
                   [
                     {
@@ -497,7 +524,10 @@
                       "c": "Guide"
                     }
                   ],
-                  ["https://pandoc.org/MANUAL.htm", ""]
+                  [
+                    "https://pandoc.org/MANUAL.htm",
+                    ""
+                  ]
                 ]
               },
               {
@@ -515,8 +545,12 @@
                 "c": [
                   [
                     "",
-                    [],
-                    []
+                    [
+
+                    ],
+                    [
+
+                    ]
                   ],
                   [
                     {
@@ -531,7 +565,10 @@
                       "c": "quotations"
                     }
                   ],
-                  ["https://pandoc.org/MANUAL.html#block-quotations", ""]
+                  [
+                    "https://pandoc.org/MANUAL.html#block-quotations",
+                    ""
+                  ]
                 ]
               }
             ]
@@ -541,7 +578,10 @@
     },
     {
       "t": "RawBlock",
-      "c": ["html", "<!-- end of list -->"]
+      "c": [
+        "html",
+        "<!-- end of list -->"
+      ]
     },
     {
       "t": "BlockQuote",
@@ -775,8 +815,12 @@
         2,
         [
           "code-blocks",
-          [],
-          []
+          [
+
+          ],
+          [
+
+          ]
         ],
         [
           {
@@ -812,8 +856,12 @@
                 "c": [
                   [
                     "",
-                    [],
-                    []
+                    [
+
+                    ],
+                    [
+
+                    ]
                   ],
                   [
                     {
@@ -835,7 +883,10 @@
                       "c": "Guide"
                     }
                   ],
-                  ["https://pandoc.org/MANUAL.htm", ""]
+                  [
+                    "https://pandoc.org/MANUAL.htm",
+                    ""
+                  ]
                 ]
               },
               {
@@ -853,8 +904,12 @@
                 "c": [
                   [
                     "",
-                    [],
-                    []
+                    [
+
+                    ],
+                    [
+
+                    ]
                   ],
                   [
                     {
@@ -876,7 +931,10 @@
                       "c": "blocks"
                     }
                   ],
-                  ["https://pandoc.org/MANUAL.html#verbatim-code-blocks", ""]
+                  [
+                    "https://pandoc.org/MANUAL.html#verbatim-code-blocks",
+                    ""
+                  ]
                 ]
               }
             ]
@@ -890,8 +948,12 @@
         3,
         [
           "fenced-code-blocks",
-          [],
-          []
+          [
+
+          ],
+          [
+
+          ]
         ],
         [
           {
@@ -934,8 +996,12 @@
                 "c": [
                   [
                     "",
-                    [],
-                    []
+                    [
+
+                    ],
+                    [
+
+                    ]
                   ],
                   [
                     {
@@ -957,7 +1023,10 @@
                       "c": "Guide"
                     }
                   ],
-                  ["https://pandoc.org/MANUAL.htm", ""]
+                  [
+                    "https://pandoc.org/MANUAL.htm",
+                    ""
+                  ]
                 ]
               },
               {
@@ -975,8 +1044,12 @@
                 "c": [
                   [
                     "",
-                    [],
-                    []
+                    [
+
+                    ],
+                    [
+
+                    ]
                   ],
                   [
                     {
@@ -998,7 +1071,10 @@
                       "c": "blocks"
                     }
                   ],
-                  ["https://pandoc.org/MANUAL.html#fenced-code-blocks", ""]
+                  [
+                    "https://pandoc.org/MANUAL.html#fenced-code-blocks",
+                    ""
+                  ]
                 ]
               }
             ]
@@ -1011,12 +1087,14 @@
       "c": [
         [
           "",
-          [],
-          []
+          [
+
+          ],
+          [
+
+          ]
         ],
-        "function HorizontalRule()
-  return '[html\n<hr/>\nhtml]'
-end"
+        "function HorizontalRule()\n  return '[html\\n<hr/>\\nhtml]'\nend"
       ]
     },
     {
@@ -1025,8 +1103,12 @@ end"
         2,
         [
           "lists",
-          [],
-          []
+          [
+
+          ],
+          [
+
+          ]
         ],
         [
           {
@@ -1055,8 +1137,12 @@ end"
                 "c": [
                   [
                     "",
-                    [],
-                    []
+                    [
+
+                    ],
+                    [
+
+                    ]
                   ],
                   [
                     {
@@ -1078,7 +1164,10 @@ end"
                       "c": "Guide"
                     }
                   ],
-                  ["https://pandoc.org/MANUAL.htm", ""]
+                  [
+                    "https://pandoc.org/MANUAL.htm",
+                    ""
+                  ]
                 ]
               },
               {
@@ -1096,8 +1185,12 @@ end"
                 "c": [
                   [
                     "",
-                    [],
-                    []
+                    [
+
+                    ],
+                    [
+
+                    ]
                   ],
                   [
                     {
@@ -1105,7 +1198,10 @@ end"
                       "c": "Lists"
                     }
                   ],
-                  ["https://pandoc.org/MANUAL.html#lists", ""]
+                  [
+                    "https://pandoc.org/MANUAL.html#lists",
+                    ""
+                  ]
                 ]
               }
             ]
@@ -1119,8 +1215,12 @@ end"
         3,
         [
           "bullet-lists",
-          [],
-          []
+          [
+
+          ],
+          [
+
+          ]
         ],
         [
           {
@@ -1224,8 +1324,12 @@ end"
                 "c": [
                   [
                     "",
-                    [],
-                    []
+                    [
+
+                    ],
+                    [
+
+                    ]
                   ],
                   "Lorem ipsum"
                 ]
@@ -1245,8 +1349,12 @@ end"
         3,
         [
           "ordered-lists",
-          [],
-          []
+          [
+
+          ],
+          [
+
+          ]
         ],
         [
           {
@@ -1408,8 +1516,12 @@ end"
         2,
         [
           "horizontal-rules",
-          [],
-          []
+          [
+
+          ],
+          [
+
+          ]
         ],
         [
           {
@@ -1445,8 +1557,12 @@ end"
                 "c": [
                   [
                     "",
-                    [],
-                    []
+                    [
+
+                    ],
+                    [
+
+                    ]
                   ],
                   [
                     {
@@ -1468,7 +1584,10 @@ end"
                       "c": "Guide"
                     }
                   ],
-                  ["https://pandoc.org/MANUAL.htm", ""]
+                  [
+                    "https://pandoc.org/MANUAL.htm",
+                    ""
+                  ]
                 ]
               },
               {
@@ -1486,8 +1605,12 @@ end"
                 "c": [
                   [
                     "",
-                    [],
-                    []
+                    [
+
+                    ],
+                    [
+
+                    ]
                   ],
                   [
                     {
@@ -1502,7 +1625,10 @@ end"
                       "c": "rules"
                     }
                   ],
-                  ["https://pandoc.org/MANUAL.html#horizontal-rules", ""]
+                  [
+                    "https://pandoc.org/MANUAL.html#horizontal-rules",
+                    ""
+                  ]
                 ]
               }
             ]
@@ -1612,8 +1738,12 @@ end"
         1,
         [
           "inline-elements",
-          [],
-          []
+          [
+
+          ],
+          [
+
+          ]
         ],
         [
           {
@@ -1636,8 +1766,12 @@ end"
         2,
         [
           "font-styles",
-          [],
-          []
+          [
+
+          ],
+          [
+
+          ]
         ],
         [
           {
@@ -1673,8 +1807,12 @@ end"
                 "c": [
                   [
                     "",
-                    [],
-                    []
+                    [
+
+                    ],
+                    [
+
+                    ]
                   ],
                   [
                     {
@@ -1696,7 +1834,10 @@ end"
                       "c": "Guide"
                     }
                   ],
-                  ["https://pandoc.org/MANUAL.htm", ""]
+                  [
+                    "https://pandoc.org/MANUAL.htm",
+                    ""
+                  ]
                 ]
               },
               {
@@ -1714,8 +1855,12 @@ end"
                 "c": [
                   [
                     "",
-                    [],
-                    []
+                    [
+
+                    ],
+                    [
+
+                    ]
                   ],
                   [
                     {
@@ -1730,7 +1875,10 @@ end"
                       "c": "formatting"
                     }
                   ],
-                  ["https://pandoc.org/MANUAL.html#inline-formatting", ""]
+                  [
+                    "https://pandoc.org/MANUAL.html#inline-formatting",
+                    ""
+                  ]
                 ]
               }
             ]
@@ -1896,8 +2044,12 @@ end"
                 "c": [
                   [
                     "",
-                    [],
-                    []
+                    [
+
+                    ],
+                    [
+
+                    ]
                   ],
                   "inline code"
                 ]
@@ -2095,11 +2247,14 @@ end"
       "c": [
         [
           "",
-          [],
-          []
+          [
+
+          ],
+          [
+
+          ]
         ],
-        "[Underline]{.underline}
-[Small caps]{.smallcaps}"
+        "[Underline]{.underline}\n[Small caps]{.smallcaps}"
       ]
     },
     {
@@ -2108,8 +2263,12 @@ end"
         2,
         [
           "links",
-          [],
-          []
+          [
+
+          ],
+          [
+
+          ]
         ],
         [
           {
@@ -2138,8 +2297,12 @@ end"
                 "c": [
                   [
                     "",
-                    [],
-                    []
+                    [
+
+                    ],
+                    [
+
+                    ]
                   ],
                   [
                     {
@@ -2161,7 +2324,10 @@ end"
                       "c": "Guide"
                     }
                   ],
-                  ["https://pandoc.org/MANUAL.htm", ""]
+                  [
+                    "https://pandoc.org/MANUAL.htm",
+                    ""
+                  ]
                 ]
               },
               {
@@ -2179,8 +2345,12 @@ end"
                 "c": [
                   [
                     "",
-                    [],
-                    []
+                    [
+
+                    ],
+                    [
+
+                    ]
                   ],
                   [
                     {
@@ -2188,7 +2358,10 @@ end"
                       "c": "Links"
                     }
                   ],
-                  ["https://pandoc.org/MANUAL.html#links-1", ""]
+                  [
+                    "https://pandoc.org/MANUAL.html#links-1",
+                    ""
+                  ]
                 ]
               }
             ]
@@ -2350,8 +2523,12 @@ end"
                 "c": [
                   [
                     "",
-                    ["uri"],
-                    []
+                    [
+                      "uri"
+                    ],
+                    [
+
+                    ]
                   ],
                   [
                     {
@@ -2359,7 +2536,10 @@ end"
                       "c": "https://www.pml-lang.dev"
                     }
                   ],
-                  ["https://www.pml-lang.dev", ""]
+                  [
+                    "https://www.pml-lang.dev",
+                    ""
+                  ]
                 ]
               }
             ]
@@ -2388,8 +2568,12 @@ end"
                 "c": [
                   [
                     "",
-                    [],
-                    []
+                    [
+
+                    ],
+                    [
+
+                    ]
                   ],
                   [
                     {
@@ -2411,7 +2595,10 @@ end"
                       "c": "Manual"
                     }
                   ],
-                  ["https://www.pml-lang.dev/docs/reference_manual/index.html", ""]
+                  [
+                    "https://www.pml-lang.dev/docs/reference_manual/index.html",
+                    ""
+                  ]
                 ]
               }
             ]
@@ -2425,8 +2612,12 @@ end"
         2,
         [
           "images",
-          [],
-          []
+          [
+
+          ],
+          [
+
+          ]
         ],
         [
           {
@@ -2455,8 +2646,12 @@ end"
                 "c": [
                   [
                     "",
-                    [],
-                    []
+                    [
+
+                    ],
+                    [
+
+                    ]
                   ],
                   [
                     {
@@ -2478,7 +2673,10 @@ end"
                       "c": "Guide"
                     }
                   ],
-                  ["https://pandoc.org/MANUAL.htm", ""]
+                  [
+                    "https://pandoc.org/MANUAL.htm",
+                    ""
+                  ]
                 ]
               },
               {
@@ -2496,8 +2694,12 @@ end"
                 "c": [
                   [
                     "",
-                    [],
-                    []
+                    [
+
+                    ],
+                    [
+
+                    ]
                   ],
                   [
                     {
@@ -2505,7 +2707,10 @@ end"
                       "c": "Images"
                     }
                   ],
-                  ["https://pandoc.org/MANUAL.html#images", ""]
+                  [
+                    "https://pandoc.org/MANUAL.html#images",
+                    ""
+                  ]
                 ]
               }
             ]
@@ -2650,8 +2855,12 @@ end"
         3,
         [
           "inline-images",
-          [],
-          []
+          [
+
+          ],
+          [
+
+          ]
         ],
         [
           {
@@ -2825,8 +3034,12 @@ end"
           "c": [
             [
               "",
-              [],
-              []
+              [
+
+              ],
+              [
+
+              ]
             ],
             [
               {
@@ -2855,7 +3068,10 @@ end"
                 "c": "image"
               }
             ],
-            ["./pml-cool.png", ""]
+            [
+              "./pml-cool.png",
+              ""
+            ]
           ]
         }
       ]
@@ -2903,8 +3119,12 @@ end"
           "c": [
             [
               "",
-              [],
-              []
+              [
+
+              ],
+              [
+
+              ]
             ],
             [
               {
@@ -2933,7 +3153,10 @@ end"
                 "c": "image"
               }
             ],
-            ["./pml-cool.png", "Alt-text is cool too!"]
+            [
+              "./pml-cool.png",
+              "Alt-text is cool too!"
+            ]
           ]
         }
       ]
@@ -2944,8 +3167,12 @@ end"
         3,
         [
           "captioned-images",
-          [],
-          []
+          [
+
+          ],
+          [
+
+          ]
         ],
         [
           {
@@ -2970,8 +3197,12 @@ end"
           "c": [
             [
               "",
-              [],
-              []
+              [
+
+              ],
+              [
+
+              ]
             ],
             [
               {
@@ -3000,7 +3231,10 @@ end"
                 "c": "image"
               }
             ],
-            ["./pml-cool.png", "fig:"]
+            [
+              "./pml-cool.png",
+              "fig:"
+            ]
           ]
         }
       ]
@@ -3043,22 +3277,37 @@ end"
           "c": [
             [
               "",
-              [],
-              []
+              [
+
+              ],
+              [
+
+              ]
             ],
-            [],
-            ["./pml-cool.png", ""]
+            [
+
+            ],
+            [
+              "./pml-cool.png",
+              ""
+            ]
           ]
         }
       ]
     },
     {
       "t": "RawBlock",
-      "c": ["html", "<!----------------------------- REFERENCE LINKS ------------------------------>"]
+      "c": [
+        "html",
+        "<!----------------------------- REFERENCE LINKS ------------------------------>"
+      ]
     },
     {
       "t": "RawBlock",
-      "c": ["html", "<!-- EOF -->"]
+      "c": [
+        "html",
+        "<!-- EOF -->"
+      ]
     }
   ]
 }

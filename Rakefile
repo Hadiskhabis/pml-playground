@@ -1,4 +1,4 @@
-=begin "Rakefile" v0.1.3 | 2021/12/27 | by Tristano Ajmone
+=begin "Rakefile" v0.1.4 | 2022/02/07 | by Tristano Ajmone
 ================================================================================
 This is an initial Rakefile proposal for Alan-i18n.  It's fully working and uses
 namespaces to separate tasks according to locale, but it could do with some
@@ -13,13 +13,13 @@ further improvements.
 ================================================================================
 =end
 
+require 'rake/phony'
+require 'open3'
+require 'json'
 
-# Custom helpers shared among ALAN repos ...
-
+# Helpers borrowed from ALAN-IF repos:
 require './_assets/rake/globals.rb'
 require './_assets/rake/asciidoc.rb'
-
-require 'rake/phony'
 
 # ==============================================================================
 # --------------------{  P R O J E C T   S E T T I N G S  }---------------------
@@ -41,13 +41,61 @@ ADOC_OPTS_SHARED = <<~HEREDOC
 HEREDOC
 
 # ==============================================================================
+# -----------------------------{  H E L P E R S  }------------------------------
+# ==============================================================================
+
+def pandoc(source_file, pandoc_opts = "")
+  src_dir = source_file.pathmap("%d")
+  src_file = source_file.pathmap("%f")
+  pandoc_opts = pandoc_opts.chomp + " #{src_file}"
+  cd "#{$repo_root}/#{src_dir}"
+  begin
+    stdout, stderr, status = Open3.capture3("pandoc #{pandoc_opts}")
+    puts stderr if status.success? # Even success is logged to STDERR!
+    raise unless status.success?
+  rescue
+    rake_msg = "Pandoc conversion failed: #{source_file}"
+    our_msg = "Pandoc reported some problems during conversion."
+    PrintTaskFailureMessage(our_msg, stderr)
+    # Abort Rake execution with error description:
+    raise rake_msg
+  ensure
+    cd $repo_root, verbose: false
+  end
+end
+
+def pandoc2json(source_file)
+  TaskHeader("Pandoc to JSON: #{source_file}")
+  src_dir = source_file.pathmap("%d")
+  src_file = source_file.pathmap("%f")
+  cd "#{$repo_root}/#{src_dir}"
+  begin
+    # Pandoc to JSON (capture STDOUT):
+    stdout, stderr, status = Open3.capture3("pandoc --verbose -t json #{src_file}")
+    puts stderr if status.success? # Even success is logged to STDERR!
+    raise unless status.success?
+    # Prettify JSON to file:
+    File.open(src_file.ext('.json'), "w") do |f|
+      f.puts JSON.pretty_generate(JSON.parse(stdout))
+    end
+  rescue
+    rake_msg = "Pandoc to JSON conversion failed:\n#{source_file}"
+    PrintTaskFailureMessage(rake_msg, stderr)
+    # Abort Rake execution with error description:
+    raise rake_msg
+  ensure
+    cd $repo_root, verbose: false
+  end
+end
+
+# ==============================================================================
 # -------------------------------{  T A S K S  }--------------------------------
 # ==============================================================================
 
 ## Tasks
 ########
 
-task :default => [:rouge, :sguide, :mustache]
+task :default => [:rouge, :sguide, :mustache, :pandoc]
 
 
 ## Clean & Clobber
@@ -55,7 +103,7 @@ task :default => [:rouge, :sguide, :mustache]
 require 'rake/clean'
 CLOBBER.include('**/*.html').exclude('**/docinfo.html')
 CLOBBER.include('mustache/*.{txt,md,json}').exclude('**/README.md')
-# CLOBBER.include('mustache/*.txt', 'mustache/*.md').exclude('**/README.md')
+CLOBBER.include('pandoc/filters-lua/pml-writer/tests/*.{json,pml}')
 
 
 ## Syntax HL » Rouge
@@ -148,3 +196,49 @@ CreateAsciiDocHTMLTasksFromFolder(
   MUSTACHE_ADOC_DEPS,
   ADOC_OPTS_SHARED
 )
+
+## Pandoc Writer
+################
+desc "Pandoc PML Writer"
+task :pandoc
+
+$writer_dir = "pandoc/filters-lua/pml-writer"
+
+WRITER_SRCS = FileList[
+  "#{$writer_dir}/tests/pandoc.markdown"
+]
+
+WRITER_SRCS.each do |s|
+  # Pandoc to PML:
+  pml_out_path = s.ext('.pml')
+  pml_out_file = pml_out_path.pathmap("%f")
+  task :pandoc => pml_out_path
+  file pml_out_path => [
+    s,
+    "#{$writer_dir}/pml-writer.lua",
+    "#{$writer_dir}/default.pml.lua"
+  ]
+  file pml_out_path do |t|
+    TaskHeader("Pandoc to PML: #{t.source}")
+    pandoc(
+      t.source,
+      "--verbose -t ../pml-writer.lua --template=../default.pml.lua -o #{pml_out_file}"
+    )
+  end
+  # Pandoc to JSON:
+  json_out_path = s.ext('.json')
+  task :pandoc => json_out_path
+  file json_out_path => s do |t|
+    pandoc2json(t.source)
+  end
+  # PML to HTML vis PMLC:
+  html_out_file = s.pathmap("%f").ext('.html')
+  html_out_path = "#{$writer_dir}/tests/output/#{html_out_file}"
+  task :pandoc => html_out_path
+  file html_out_path => pml_out_path do |t|
+    TaskHeader("PMLC Converting: #{t.source}")
+    cd t.source.pathmap("%d")
+    sh "pmlc #{t.source.pathmap("%f")}"
+    cd $repo_root, verbose: false
+  end
+end

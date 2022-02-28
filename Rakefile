@@ -1,4 +1,4 @@
-=begin "Rakefile" v0.1.4 | 2022/02/07 | by Tristano Ajmone
+=begin "Rakefile" v0.1.5 | 2022/02/28 | by Tristano Ajmone
 ================================================================================
 This is an initial Rakefile proposal for Alan-i18n.  It's fully working and uses
 namespaces to separate tasks according to locale, but it could do with some
@@ -205,7 +205,7 @@ task :pandoc
 $writer_dir = "pandoc/filters-lua/pml-writer"
 
 WRITER_SRCS = FileList[
-  "#{$writer_dir}/tests/pandoc.markdown"
+  "#{$writer_dir}/tests/*.markdown"
 ]
 
 WRITER_SRCS.each do |s|

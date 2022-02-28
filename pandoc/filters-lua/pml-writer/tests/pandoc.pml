@@ -42,7 +42,7 @@ Supreme executive power derives from a mandate from the masses, not from some fa
 
 [code
 function HorizontalRule()
-  return '[html\n&lt;hr/&gt;\nhtml]'
+  return '[html\n<hr/>\nhtml]'
 end
 code]
 

@@ -79,6 +79,9 @@ Pandoc v2.x includes a Lua 5.3 interpreter and library built into the pandoc exe
 
 - [www.lua.org] — Lua website:
     + [Lua 5.3 Reference Manual]
+        * [§6.4 – String Manipulation]
+            - [string.gsub]
+        * [§6.4.1 – Patterns]
 - [LuaBinaries] — Pre-compiled Lua libraries and executables.
 - [ZeroBrane Studio] — Lightweight Lua IDE with native support for [debugging Lua filters] via the [MobDebug] package:
     + [Remote Debugging][ZeroBrane remote-debugging]
@@ -121,6 +124,9 @@ Pandoc v2.x includes a Lua 5.3 interpreter and library built into the pandoc exe
 [www.lua.org]: https://www.lua.org "Lua website"
 
 [Lua 5.3 Reference Manual]: https://www.lua.org/manual/5.3/
+[§6.4 – String Manipulation]: https://www.lua.org/manual/5.3/manual.html#6.4
+[string.gsub]: https://www.lua.org/manual/5.3/manual.html#pdf-string.gsub
+[§6.4.1 – Patterns]: https://www.lua.org/manual/5.3/manual.html#6.4.1
 
 [ZeroBrane]: https://studio.zerobrane.com "ZeroBrane Studio website"
 [ZeroBrane Studio]: https://studio.zerobrane.com "ZeroBrane Studio website"

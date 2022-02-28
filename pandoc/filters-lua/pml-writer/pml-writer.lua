@@ -1,4 +1,4 @@
--- "pml-writer.lua" v0.0.4 | 2022/02/06            | PML 2.2.0 | pandoc 2.17.1.1
+-- "pml-writer.lua" v0.0.5 | 2022/02/28            | PML 2.3.0 | pandoc 2.17.1.1
 -- =============================================================================
 -- ** WARNING ** This PML writer is being built on top of the sample writer that
 --               ships with pandoc; generated via:
@@ -55,20 +55,18 @@ local image_mime_type = ({
   or error('unsupported image format `' .. image_format .. '`')
 
 -- Character escaping
--- @TODO: Adapt to PML escaping rules!
+-- @TODO: Adapt to PML escaping rules (WIP)
 local function escape(s, in_attribute)
-  return s:gsub('[<>&"\']',
+  return s:gsub('[\\%[%]"]',
     function(x)
-      if x == '<' then
-        return '&lt;'
-      elseif x == '>' then
-        return '&gt;'
-      elseif x == '&' then
-        return '&amp;'
+      if x == '\\' then
+        return '\\\\'
+      elseif x == '[' then
+        return '\\['
+      elseif x == ']' then
+        return '\\]'
       elseif in_attribute and x == '"' then
-        return '&quot;'
-      elseif in_attribute and x == "'" then
-        return '&#39;'
+        return '\\"'
       else
         return x
       end
@@ -201,7 +199,7 @@ end
 
 function Code(s, attr)
   -- @TODO: Handle inline-code attributes!
-  return '[c ' .. s .. ']'
+  return '[c ' .. escape(s) .. ']'
 --[[
   return "<code" .. attributes(attr) .. ">" .. escape(s) .. "</code>"
 --]]
@@ -317,8 +315,7 @@ function CodeBlock(s, attr)
     return '<pre><code' .. attributes(attr) .. '>' .. escape(s) ..
            '</code></pre>'
 --]]
-    return '[code' .. attributes(attr) .. '\n' .. escape(s) ..
-           '\ncode]\n'
+    return '[code' .. attributes(attr) .. '\n' .. s .. '\ncode]\n'
   end
 end
 

@@ -27,6 +27,9 @@ Builds via `rake pandoc`.
 # Folder Contents
 
 - [`/tests/`][tests/] — examples and test files.
+    + [`escapes.markdown`][escapes.markdown] — sample doc in pandoc markdown:
+        * `escapes.json` — converted to JSON AST (_ignored by Git_).
+        * [`escapes.pml`][escapes.pml] — converted to PML via custom writer.
     + [`pandoc.markdown`][pandoc.markdown] — sample doc in pandoc markdown:
         * `pandoc.json` — converted to JSON AST (_ignored by Git_).
         * [`pandoc.pml`][pandoc.pml] — converted to PML via custom writer.
@@ -129,7 +132,7 @@ In order to use the assets in this folder, you'll need the following tools:
 <!-- badges -->
 
 [status badge]: https://img.shields.io/badge/status-Alpha-orange "The writer is still in WIP Alpha stage"
-[pml badge]: https://img.shields.io/badge/PML-2.2.0-yellow "Last tested with PML 2.2.0"
+[pml badge]: https://img.shields.io/badge/PML-2.3.0-yellow "Last tested with PML 2.3.0"
 [pandoc badge]: https://img.shields.io/badge/pandoc-2.17.1.1-yellow "Last tested with pandoc 2.17.1.1"
 
 <!-- project files & folders -->
@@ -142,5 +145,8 @@ In order to use the assets in this folder, you'll need the following tools:
 
 [pandoc.markdown]: ./tests/pandoc.markdown "Sample doc in pandoc markdown"
 [pandoc.pml]: ./tests/pandoc.pml "Sample pandoc markdown doc converted to PML"
+
+[escapes.markdown]: ./tests/escapes.markdown "Escapes testing doc in pandoc markdown"
+[escapes.pml]: ./tests/escapes.pml "Escapes testing doc converted to PML"
 
 <!-- EOF -->

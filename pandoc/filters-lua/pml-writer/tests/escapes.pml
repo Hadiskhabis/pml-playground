@@ -35,11 +35,41 @@ Path C:\\Windows\\ | node \[b bold\]
 
 Path [c C:\\Windows\\] | node [c \[b bold\]]
 
+Path [b C:\\Windows\\] | node [i \[b bold\]]
+
+Path [strike C:\\Windows\\] | node \[b bold\]
+
+Path [sup C:\\Windows\\] | node [span (html_style="font-variant: small-caps;") \[b bold\]]
+
+Path [sub C:\\Windows\\] | node [span (html_style="text-decoration: underline;") \[b bold\]]
+
+[ch [title \[H3\] Heading]
+
+[list
+[el Path C:\\Windows\\ | node [c \[b bold\]] | node [b \[b bold\]]]
+]
+
+[ch [title \[H4\] Heading]
+
+[quote
+Path C:\\Windows\\ | node [c \[b bold\]]
+
+[quote
+Path C:\\Windows\\ | node [c \[b bold\]]
+]
+
+[list
+[el Path C:\\Windows\\ | node [c \[b bold\]] | node [b \[b bold\]]]
+]
+]
+
 [html
 <!---------------------------- REFERENCE LINKS ------------------------------->
 html]
 
 
+]
+]
 ]
 ]
 

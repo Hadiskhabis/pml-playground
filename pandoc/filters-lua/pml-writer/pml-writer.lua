@@ -158,6 +158,10 @@ function Strong(s)
   return '[b ' .. s .. ']'
 end
 
+function Underline(s)
+  return '[span (html_style="text-decoration: underline;") ' .. s .. ']'
+end
+
 function Subscript(s)
   return '[sub ' .. s .. ']'
 end
@@ -167,7 +171,7 @@ function Superscript(s)
 end
 
 function SmallCaps(s)
-  return '<span style="font-variant: small-caps;">' .. s .. '</span>'
+  return '[span (html_style="font-variant: small-caps;") ' .. s .. ']'
 end
 
 function Strikeout(s)

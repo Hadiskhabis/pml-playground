@@ -23,6 +23,26 @@ Path C:\\Windows\\ | node \[b bold\]
 
 Path `C:\Windows\` | node `[b bold]`
 
+Path **C:\\Windows\\** | node _\[b bold\]_
+
+Path ~~C:\\Windows\\~~ | node \[b bold\]
+
+Path ^C:\\Windows\\^ | node [\[b bold\]]{.smallcaps}
+
+Path ~C:\\Windows\\~ | node [\[b bold\]]{.underline}
+
+### \[H3\] Heading {.unlisted}
+
+* Path C:\\Windows\\ | node `[b bold]` | node **\[b bold\]**
+
+#### \[H4\] Heading {.unlisted}
+
+> Path C:\\Windows\\ | node `[b bold]`
+>
+> > Path C:\\Windows\\ | node `[b bold]`
+>
+> * Path C:\\Windows\\ | node `[b bold]` | node **\[b bold\]**
+
 
 <!---------------------------- REFERENCE LINKS ------------------------------->
 

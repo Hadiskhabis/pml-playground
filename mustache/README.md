@@ -76,6 +76,6 @@ Each `<filename>__<ext>.mustache` source template is converted to `<filename>.<e
 
 <!-- badges -->
 
-[PML badge]: https://img.shields.io/badge/PML-2.2.0-yellow "Supported PML version"
+[PML badge]: https://img.shields.io/badge/PML-2.3.0-yellow "Supported PML version"
 
 <!-- EOF -->

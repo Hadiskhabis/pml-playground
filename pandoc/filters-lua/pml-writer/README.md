@@ -16,7 +16,6 @@ Builds via `rake pandoc`.
 
 - [Folder Contents](#folder-contents)
 - [Project Status](#project-status)
-- [Sample Docs and Workflow](#sample-docs-and-workflow)
 - [About Custom Writers](#about-custom-writers)
 - [Dependencies](#dependencies)
 
@@ -27,12 +26,6 @@ Builds via `rake pandoc`.
 # Folder Contents
 
 - [`/tests/`][tests/] — examples and test files.
-    + [`escapes.markdown`][escapes.markdown] — sample doc in pandoc markdown:
-        * `escapes.json` — converted to JSON AST (_ignored by Git_).
-        * [`escapes.pml`][escapes.pml] — converted to PML via custom writer.
-    + [`pandoc.markdown`][pandoc.markdown] — sample doc in pandoc markdown:
-        * `pandoc.json` — converted to JSON AST (_ignored by Git_).
-        * [`pandoc.pml`][pandoc.pml] — converted to PML via custom writer.
 - [`default.pml.lua`][default.pml.lua] — custom PML template.
 - [`pml-writer.lua`][pml-writer.lua] — custom PML writer (Lua).
 - [`sample.lua`][sample.lua] — official example of a custom HTML writer.
@@ -50,25 +43,6 @@ After building locally (via Rake), you'll also find the HTML version of the samp
 Since PML is structurally similar to an HTML document, we'll be using the sample HTML writer that ships with pandoc as the foundation for our custom PML writer.
 In many cases, it should be sufficient to simply replace the HTML tags in output string with PML notes, so we could start working on these.
 Other AST nodes will require _ad hoc_ adaptation to PML needs, and we'll address them according to each node's priority.
-
-
-# Sample Docs and Workflow
-
-In order to test the PML writer, we'll need multiple sample documents in various formats natively supported by pandoc, since each different format might support some document features not supported by other formats.
-
-Each sample document will be converted both to PML and to its representation in pandoc JSON AST, because the latter offers detailed insights into what the custom writer is handling.
-
-Currently, we have only a single sample document:
-
-- [`pandoc.markdown`][pandoc.markdown]
-
-and it's JSON AST and PML conversions:
-
-- `pandoc.json` (_ignored by Git_)
-- [`pandoc.pml`][pandoc.pml]
-
-The JSON representation is generated via `pandoc -t json`.
-Because pandoc generates the JSON AST as a single line, we prettify it using Ruby to make it more human readable.
 
 
 # About Custom Writers
@@ -142,11 +116,5 @@ In order to use the assets in this folder, you'll need the following tools:
 [sample.lua]: ./sample.lua "Sample HTML writer"
 
 [tests/]: ./tests/ "Navigate to samples and tests directory"
-
-[pandoc.markdown]: ./tests/pandoc.markdown "Sample doc in pandoc markdown"
-[pandoc.pml]: ./tests/pandoc.pml "Sample pandoc markdown doc converted to PML"
-
-[escapes.markdown]: ./tests/escapes.markdown "Escapes testing doc in pandoc markdown"
-[escapes.pml]: ./tests/escapes.pml "Escapes testing doc converted to PML"
 
 <!-- EOF -->

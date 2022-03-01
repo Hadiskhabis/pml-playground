@@ -20,6 +20,7 @@
 *.adoc       text
 *.asciidoc   text
 *.markdown   text
+*.native     text eol=lf
 *.md         text
 *.pml        text linguist-language=PML
 *.txt        text

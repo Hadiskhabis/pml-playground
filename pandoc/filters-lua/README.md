@@ -60,17 +60,19 @@ Windows users can also install ZeroBrane Studio via [Chocolatey] or [Chocolatey 
 ## Pandoc
 
 - [pandoc.org] — pandoc website:
-    + [Pandoc User's Guide]:
+    + [Pandoc User's Guide]\:
         * [Custom writers]
     + [Pandoc Filters]
-    + [Pandoc Lua Filters]:
+    + [Pandoc Lua Filters]\:
         * [Debugging Lua filters]
         * [Lua type reference]
 - [jgm/pandoc] — official pandoc repository.
+    + [`test/`][pandoc/test/] — test folder with examples.
 - [github.com/pandoc] — pandoc org on GitHub:
     + [pandoc/ast-migrator] — Migrate documents from one pandoc AST schema to another.
     + [pandoc/lua-filters] — A collection of Lua filters for pandoc:
         * [lua-debug-example] — Example of [debugging Lua filters] with the [ZeroBrane Studio] IDE.
+- [Pandoc AST format] — in [pandoc-types] package (Haskell).
 
 <!-- MarkdownTOC:excluded -->
 ## Lua
@@ -108,10 +110,16 @@ Pandoc v2.x includes a Lua 5.3 interpreter and library built into the pandoc exe
 [Lua type reference]: https://pandoc.org/lua-filters.html#lua-type-reference
 [Debugging Lua filters]: https://pandoc.org/lua-filters.html#debugging-lua-filters
 
+<!-- pandoc Haskell -->
+
+[pandoc-types]: https://hackage.haskell.org/package/pandoc-types/ "The 'pandoc-types' package at Hackage"
+[Pandoc AST format]: https://hackage.haskell.org/package/pandoc-types/docs/Text-Pandoc-Definition.html "View AST definition at 'pandoc-types' package"
+
 <!-- pandoc GitHub -->
 
-[jgm/pandoc]: https://github.com/jgm/pandoc
 [github.com/pandoc]: https://github.com/pandoc
+[jgm/pandoc]: https://github.com/jgm/pandoc
+[pandoc/test/]: https://github.com/jgm/pandoc/tree/master/test
 
 [pandoc/lua-filters]: https://github.com/pandoc/lua-filters "A collection of Lua filters for pandoc"
 [lua-debug-example]: https://github.com/pandoc/lua-filters/tree/master/lua-debug-example

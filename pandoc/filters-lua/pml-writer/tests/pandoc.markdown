@@ -101,6 +101,12 @@ Currently the PML writer discards links attributes and title, which will need to
 - Automatic link: <https://www.pml-lang.dev>
 - Inline link: [PML Reference Manual](https://www.pml-lang.dev/docs/reference_manual/index.html)
 
+### Empty Links
+
+The PML Writer corrects empty links by rendering the link text only:
+
+- [an empty link]()
+
 
 ## Images
 

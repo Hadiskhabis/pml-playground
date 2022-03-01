@@ -131,7 +131,15 @@ Currently the PML writer discards links attributes and title, which will need to
 [el Inline link: [link url=https://www.pml-lang.dev/docs/reference_manual/index.html text="PML Reference Manual"]]
 ]
 
-][ch [title Images]
+[ch [title Empty Links]
+
+The PML Writer corrects empty links by rendering the link text only:
+
+[list
+[el an empty link]
+]
+
+]][ch [title Images]
 
 [list
 [el See: [link url=https://pandoc.org/MANUAL.htm text="Pandoc User’s Guide"] » [link url=https://pandoc.org/MANUAL.html#images text="Images"]]

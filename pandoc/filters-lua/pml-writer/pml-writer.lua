@@ -1,4 +1,4 @@
--- "pml-writer.lua" v0.0.5 | 2022/02/28            | PML 2.3.0 | pandoc 2.17.1.1
+-- "pml-writer.lua" v0.0.6 | 2022/03/01            | PML 2.3.0 | pandoc 2.17.1.1
 -- =============================================================================
 -- ** WARNING ** This PML writer is being built on top of the sample writer that
 --               ships with pandoc; generated via:
@@ -180,7 +180,12 @@ end
 
 function Link(s, tgt, tit, attr)
   -- @TODO: Handle title + attributes
-  return '[link url=' .. escape(tgt,true) .. ' text="' .. s .. '"]'
+  if #tgt == 0 then
+    -- Render empty link as normal text
+    return escape(s)
+  end
+  -- @TODO: Add a dedicated URL escape function:
+  return '[link url=' .. tgt .. ' text="' .. escape(s) .. '"]'
 --[[
   return '<a href="' .. escape(tgt,true) .. '" title="' ..
          escape(tit,true) .. '"' .. attributes(attr) .. '>' .. s .. '</a>'

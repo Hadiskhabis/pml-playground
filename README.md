@@ -32,6 +32,7 @@ Created by [Tristano Ajmone] in April 2021; maintained by [Christian Neumanns], 
 - [`/mustache/`][mustache/] — misc. mustache templates.
 - [`/pandoc/`][pandoc/] — PML &hArr; pandoc assets.
 - [`/pml-samples/`][pml-samples/] — shared PML sample documents and chunks.
+- [`/stylesheets/`][stylesheets/] — PML CSS stylesheets playground.
 - [`/syntax-guide/`][syntax-guide/] — _PML Syntax Guide_ doc + sources.
 - [`/syntax-hl/`][syntax-hl/] — PML syntax highlighting.
 
@@ -114,7 +115,7 @@ Articles by [Christian Neumanns]:
 
 <!-- badges -->
 
-[PML badge]: https://img.shields.io/badge/PML-2.2.0-yellow "Supported PML version (click for PML download page)"
+[PML badge]: https://img.shields.io/badge/PML-2.3.0-yellow "Supported PML version (click for PML download page)"
 [Travis badge]: https://travis-ci.com/tajmone/Sublime-PML.svg?branch=main
 [Travis link]: https://travis-ci.com/tajmone/Sublime-PML "Travis CI: EditorConfig validation status"
 
@@ -123,6 +124,7 @@ Articles by [Christian Neumanns]:
 [mustache/]: ./mustache/ "Navigate to mustache templates folder"
 [pandoc/]: ./pandoc/ "Navigate to pandoc folder"
 [pml-samples/]: ./pml-samples/ "Navigate to PML samples folder"
+[stylesheets/]: ./stylesheets/ "Navigate to CSS stylesheets folder"
 [syntax-guide/]: ./syntax-guide/ "Navigate to PML Syntax Guide folder"
 [syntax-hl/]: ./syntax-hl/ "Navigate to syntax highlighters folder"
 

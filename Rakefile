@@ -1,4 +1,4 @@
-=begin "Rakefile" v0.1.5 | 2022/03/09 | by Tristano Ajmone
+=begin "Rakefile" v0.1.6 | 2022/03/12 | by Tristano Ajmone
 ================================================================================
 This is an initial Rakefile proposal for Alan-i18n.  It's fully working and uses
 namespaces to separate tasks according to locale, but it could do with some
@@ -95,7 +95,7 @@ end
 ## Tasks
 ########
 
-task :default => [:rouge, :sguide, :mustache, :pandoc, :samples]
+task :default => [:rouge, :sguide, :mustache, :pandoc, :samples, :css]
 
 
 ## Clean & Clobber
@@ -104,6 +104,7 @@ require 'rake/clean'
 CLOBBER.include('**/*.html').exclude('**/docinfo.html')
 CLOBBER.include('mustache/*.{txt,md,json}').exclude('**/README.md')
 CLOBBER.include('pandoc/filters-lua/pml-writer/tests/*.{json,pml}')
+CLOBBER.include('stylesheets/css__*/css/')
 
 
 ## Syntax HL » Rouge
@@ -259,4 +260,69 @@ FileList['pml-samples/*pml'].each do |sample_pml|
     sh "pmlc #{t.source.pathmap("%f")}"
     cd $repo_root, verbose: false
   end
+end
+
+## Stylesheets
+##############
+desc "Build CSS tests"
+task :css
+
+CSS_FOLDERS = FileList['stylesheets/css__*/'].each do |dir|
+  directory "#{dir}css"
+  css1 = "#{dir}css/pml-default.css"
+  css2 = "#{dir}css/pml-print-default.css"
+  scss1 = "#{dir}pml-default.scss"
+  scss2 = "#{dir}pml-print-default.scss"
+  task :css => [css1, css2]
+  file css1 => FileList[scss1, "#{dir}_*.scss"] do |t|
+    TaskHeader("Converting Sass to CSS: #{t.source}")
+    cd "#{t.source.pathmap("%d")}"
+    sh "sass #{t.source.pathmap("%f")} css/#{t.name.pathmap("%f")}"
+    cd $repo_root, verbose: false
+  end
+  file css2 => FileList[scss2, "#{dir}_*.scss"] do |t|
+    TaskHeader("Converting Sass to CSS: #{t.source}")
+    cd "#{t.source.pathmap("%d")}"
+    sh "sass #{t.source.pathmap("%f")} css/#{t.name.pathmap("%f")}"
+    cd $repo_root, verbose: false
+  end
+end
+
+# Special additional rules for 'css_default/':
+file 'stylesheets/css__default/css/pml-default.css' => 'stylesheets/pml-default.css'
+file 'stylesheets/css__default/css/pml-print-default.css' => 'stylesheets/pml-print-default.css'
+
+CSS_DOCS_PML = FileList['stylesheets/src-docs/*.pml']
+CSS_DOCS_DEPS = FileList['stylesheets/_shared/*.*'].exclude('**/*.md')
+
+CSS_DOCS_PML.each do |pml_doc|
+  html_doc = pml_doc.ext('.html')
+  # task :css => html_doc
+  file html_doc => [pml_doc, *CSS_DOCS_DEPS] do |t|
+    TaskHeader("Converting CSS Test Docs: #{t.source}")
+    cd "#{t.source.pathmap("%d")}"
+    sh "pmlc convert --input_file #{t.source.pathmap("%f")} --output_directory ./"
+    cd $repo_root, verbose: false
+  end
+  CSS_FOLDERS.each do |css_dir|
+    html_copy = css_dir + html_doc.pathmap("%f")
+    task :css => html_copy
+    file html_copy => html_doc do |t|
+      TaskHeader("Copying CSS Test Doc: #{t.name}")
+      FileUtils.cp t.source, t.name.pathmap("%d")
+    end
+  end
+end
+
+# ==============================================================================
+# -------------------------------{  R U L E S  }--------------------------------
+# ==============================================================================
+
+## Default Sass Conversion [ currently unused ]
+##########################
+rule '.css' => '.scss' do |t|
+  TaskHeader("Converting Sass to CSS: #{t.source}")
+  cd "#{t.source.pathmap("%d")}"
+  sh "sass #{t.source.pathmap("%f")} #{t.name.pathmap("%f")}"
+  cd $repo_root, verbose: false
 end

@@ -14,6 +14,10 @@ Experimenting with PML CSS files via [Sass].
 <!-- MarkdownTOC autolink="true" bracket="round" autoanchor="false" lowercase="only_ascii" uri_encoding="true" levels="1,2,3" -->
 
 - [Directory Contents](#directory-contents)
+- [Building](#building)
+- [How Tests Work](#how-tests-work)
+    - [Stylesheet Folders](#stylesheet-folders)
+    - [Test Documents](#test-documents)
 - [Dependencies](#dependencies)
 - [Reference Links](#reference-links)
 
@@ -23,9 +27,62 @@ Experimenting with PML CSS files via [Sass].
 
 # Directory Contents
 
+- [`/_shared/`][_shared/] — assets shared by all test docs.
+- [`/css__default/`][css__default/] — PML default CSS tests.
+- [`/src-docs/`][src-docs/] — test docs sources (PML).
 - [`fetch.bat`][fetch.bat] — fetch latest [default PML stylesheets] from [converter] repository using cURL:
     + [`pml-default.css`][pml-default.css]
     + [`pml-print-default.css`][pml-print-default.css]
+
+> **WARNING!** — The generated CSS files and HTML documents are not tracked by Git, so in order to view the test documents you'll have to build them locally via Rake.
+
+
+# Building
+
+The tests in this folder are controlled via the `css` Rake task (included in default task).
+
+To build just the samples:
+
+    rake css
+
+or, to force-rebuild them:
+
+    rake css -B
+
+
+# How Tests Work
+
+The tests system in this directory is designed to allow contributors to add new stylesheets or test documents without having to tweak the main `Rakefile`.
+
+The `Rakefile` is driven rules based on pattern-matching naming conventions, so as long as you abide to the following descriptions you can add new assets to this directory and they will be immediately automated.
+
+## Stylesheet Folders
+
+Every folder with a name starting in `css__` contains a different stylesheet to be testes.
+The stylesheets are build from Sass, and each folder must contain two Sass main sources named:
+
+- `pml-default.scss`
+- `pml-print-default.scss`
+
+You can add as many Sass modules (`_*.scss`) as needed within each folder (but not in subfolders).
+
+When rake detects changes to the Sass sources or their modules, it will automatically (re)compiler them to CSS (in the `css/` subfolder, which is where the HTML docs will be looking for them).
+
+The [`/css__default/`][css__default/] folder is a special case, since its Sass sources simply import the default PML stylesheets found in the root folder of the stylesheets project:
+
+- [`pml-default.css`][pml-default.css]
+- [`pml-print-default.css`][pml-print-default.css]
+
+It's intended for comparison with other custom CSS files.
+
+## Test Documents
+
+Any `*.pml` document inside the [`/src-docs/`][src-docs/] folder will be converted to HTML and copied to each and every `css__` stylesheet folder (the HTML file only, without the CSS files), so that each stylesheet can be tested using the same documents.
+
+Rake will track any changes to the test documents sources, along with their assets (in [`/_shared/`][_shared/]) and update any files as required.
+
+Test documents should be created as a single `.pml` source file, and any required dependencies should be added to the [`/_shared/`][_shared/] folder instead, so that Rake can track their changes — assets include reusable PML file snippets, images, JavaScript, etc., except for Sass sources (which are only tracked and built inside the individual stylesheet folders).
+
 
 # Dependencies
 
@@ -191,7 +248,11 @@ Online Tools:
 [SASS badge]: https://img.shields.io/badge/Dart_Sass-1.49.5-yellow "Supported Dart Sass version (click for download page)"
 [Status badge]: https://img.shields.io/badge/status-WIP-red "Project Status: Work in Progress"
 
-<!-- project files -->
+<!-- project files and folders -->
+
+[_shared/]: ./_shared/ "Navigate to shared assets folder"
+[css__default/]: ./css__default/ "Navigate to PML Default CSS test folder"
+[src-docs/]: ./src-docs/ "Navigate to test docs sources folder"
 
 [fetch.bat]: ./fetch.bat
 [pml-default.css]: ./pml-default.css

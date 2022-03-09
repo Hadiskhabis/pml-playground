@@ -15,6 +15,13 @@ pml_tags.json
 # pandoc/PML error logs:
 **/errors.log
 
+## Stylesheets Folder
+#####################
+/stylesheets/css__*/*.html
+/stylesheets/css__*/css/
+/stylesheets/src-docs/*.html
+/stylesheets/src-docs/css/
+
 ## TMP Work Files
 #################
 ___*.*

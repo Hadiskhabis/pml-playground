@@ -134,9 +134,24 @@ insert_final_newline = true
 [*.{sass,scss}]
 indent_size = 2
 indent_style = space
-end_of_line = unset
+end_of_line = lf
 charset = utf-8
 trim_trailing_whitespace = true
 insert_final_newline = true
+
+
+## JavaScript
+#############
+[*.js]
+indent_size = 2
+indent_style = space
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+; C-style doc comments:
+block_comment_start = /*
+block_comment = *
+block_comment_end = */
 
 # EOF #

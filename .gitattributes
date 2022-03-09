@@ -30,6 +30,7 @@ LICENSE      text
 ##########
 *.bat   text eol=crlf
 *.com   text eol=crlf
+*.js    text eol=lf
 *.lua   text
 *.sh    text eol=lf
 
@@ -44,7 +45,7 @@ rakefile    Ruby
 
 ## Sass/CSS
 ###########
-*.scss   text
+*.scss   text eol=lf
 *.css    text eol=lf linguist-generated=true
 
 ## HTML

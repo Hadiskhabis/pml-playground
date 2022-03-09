@@ -11,6 +11,7 @@ A collection of shared PML example documents and chunks to be used in this proje
 <!-- MarkdownTOC autolink="true" bracket="round" autoanchor="false" lowercase="only_ascii" uri_encoding="true" levels="1,2,3" -->
 
 - [Directory Contents](#directory-contents)
+- [Building](#building)
 - [About The Samples](#about-the-samples)
     - [Samples Maintenance](#samples-maintenance)
     - [Samples Types](#samples-types)
@@ -26,9 +27,21 @@ A collection of shared PML example documents and chunks to be used in this proje
 # Directory Contents
 
 - [`/chunks/`][chunks/] — PML snippets.
-- [`/standalone/`][standalone/] — PML documents without `[insert` nodes.
-- [`build.sh`][build.sh] — builds all sample docs.
+- [`/standalone/`][standalone/] — PML documents without `[insert` nodes (_currently unused_).
 - `*.pml` — Chunked PML sample documents.
+
+
+# Building
+
+The samples in this folder are controlled via the `samples` Rake task (included in default task).
+
+To build just the samples:
+
+    rake samples
+
+or, to force-rebuild them:
+
+    rake samples -B
 
 
 # About The Samples
@@ -173,10 +186,8 @@ Want some thematic random text?
 [chunks/]: ./chunks/ "Navigate to folder"
 [standalone/]: ./standalone/ "Navigate to folder"
 
-[build.sh]: ./build.sh "View source script"
-
 <!-- badges -->
 
-[PML badge]: https://img.shields.io/badge/PML-2.0.0-yellow "Supported PML version"
+[PML badge]: https://img.shields.io/badge/PML-2.3.0-yellow "Supported PML version"
 
 <!-- EOF -->

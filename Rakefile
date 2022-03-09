@@ -1,4 +1,4 @@
-=begin "Rakefile" v0.1.4 | 2022/03/01 | by Tristano Ajmone
+=begin "Rakefile" v0.1.5 | 2022/03/09 | by Tristano Ajmone
 ================================================================================
 This is an initial Rakefile proposal for Alan-i18n.  It's fully working and uses
 namespaces to separate tasks according to locale, but it could do with some
@@ -95,7 +95,7 @@ end
 ## Tasks
 ########
 
-task :default => [:rouge, :sguide, :mustache, :pandoc]
+task :default => [:rouge, :sguide, :mustache, :pandoc, :samples]
 
 
 ## Clean & Clobber
@@ -238,6 +238,24 @@ WRITER_SRCS.each do |s|
   file html_out_path => pml_out_path do |t|
     TaskHeader("PMLC Converting: #{t.source}")
     cd t.source.pathmap("%d")
+    sh "pmlc #{t.source.pathmap("%f")}"
+    cd $repo_root, verbose: false
+  end
+end
+
+## PML Samples
+##############
+desc "Build PML samples"
+task :samples
+
+SAMPLES_DEPS = FileList['pml-samples/chunks/*pml']
+
+FileList['pml-samples/*pml'].each do |sample_pml|
+  sample_html = 'pml-samples/output/' + sample_pml.pathmap("%f").ext('html')
+  task :samples => sample_html
+  file sample_html => [sample_pml, *SAMPLES_DEPS] do |t|
+    TaskHeader("Converting PML Sample: #{sample_pml}")
+    cd 'pml-samples/'
     sh "pmlc #{t.source.pathmap("%f")}"
     cd $repo_root, verbose: false
   end

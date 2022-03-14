@@ -59,12 +59,12 @@ The `Rakefile` is driven rules based on pattern-matching naming conventions, so 
 ## Stylesheet Folders
 
 Every folder with a name starting in `css__` contains a different stylesheet to be testes.
-The stylesheets are build from Sass, and each folder must contain two Sass main sources named:
+The stylesheets are build from Sass, and each folder _**must**_ contain two Sass main sources named:
 
 - `pml-default.scss`
 - `pml-print-default.scss`
 
-You can add as many Sass modules (`_*.scss`) as needed within each folder (but not in subfolders).
+You can add as many Sass modules (`_*.scss`) as needed within each stylesheet folder, and you may organize your Sass modules into subfolders too (`**/_*.scss`).
 
 When rake detects changes to the Sass sources or their modules, it will automatically (re)compiler them to CSS (in the `css/` subfolder, which is where the HTML docs will be looking for them).
 
@@ -77,11 +77,12 @@ It's intended for comparison with other custom CSS files.
 
 ## Test Documents
 
-Any `*.pml` document inside the [`/src-docs/`][src-docs/] folder will be converted to HTML and copied to each and every `css__` stylesheet folder (the HTML file only, without the CSS files), so that each stylesheet can be tested using the same documents.
+Any `*.pml` document inside the [`/src-docs/`][src-docs/] folder will be converted to HTML and copied to each and every `css__*/` stylesheet folder (the HTML file only, without the default generated CSS files), so that each stylesheet can be tested using the same documents.
 
 Rake will track any changes to the test documents sources, along with their assets (in [`/_shared/`][_shared/]) and update any files as required.
 
-Test documents should be created as a single `.pml` source file, and any required dependencies should be added to the [`/_shared/`][_shared/] folder instead, so that Rake can track their changes — assets include reusable PML file snippets, images, JavaScript, etc., except for Sass sources (which are only tracked and built inside the individual stylesheet folders).
+Test documents should be created as a single `.pml` source file, and any required dependencies should be added to the [`/_shared/`][_shared/] directory instead, so that Rake can track their changes — assets include reusable PML file snippets, images, JavaScript, etc.
+Any files within the [`/_shared/`][_shared/] directory tree (i.e. sub-folders included) will be considered by Rake as requirements (dependencies) of the PML test documents, with the exception of Markdown files (`.md`) which will be ignored.
 
 
 # Dependencies

@@ -246,7 +246,7 @@ Online Tools:
 
 [PML badge]: https://img.shields.io/badge/PML-2.2.0-yellow "Supported PML version (click for PML download page)"
 [PML link]: https://www.pml-lang.dev/downloads/install.html "Go to the PML download page"
-[SASS badge]: https://img.shields.io/badge/Dart_Sass-1.49.5-yellow "Supported Dart Sass version (click for download page)"
+[SASS badge]: https://img.shields.io/badge/Dart_Sass-1.49.9-yellow "Supported Dart Sass version (click for download page)"
 [Status badge]: https://img.shields.io/badge/status-WIP-red "Project Status: Work in Progress"
 
 <!-- project files and folders -->

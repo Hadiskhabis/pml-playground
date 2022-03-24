@@ -122,6 +122,7 @@ The various CSS design schools of thought (methodologies).
 - [A List Apart]
 - [CSS-Tricks.com]
 - [W3Schools CSS Tutorial]
+- [CSS Guidelines] — by Harry Roberts
 
 <!-- MarkdownTOC:excluded -->
 ## CSS Processors
@@ -140,6 +141,38 @@ The various[CSS preprocessors] (and post-processors).
 - [H5BP] — HTML5 Boilerplate.
 - [Modernizr] — browser-features detection library.
 - [Normalize.css] — a modern, HTML5-ready alternative to CSS resets.
+
+<!-- MarkdownTOC:excluded -->
+## CSS Topics
+
+<!-- MarkdownTOC:excluded -->
+### Specificity
+
+- [W3School » CSS Specificity]
+- [CSS Guidelines » Specificity]
+- [CSS-Tricks » Specifics on CSS Specificity] — by Chris Coyier (2021).
+    + [Calculating CSS Specificity Value]
+- [CSS Specificity: Things You Should Know] — by Vitaly Friedman (2007), Smashing Magazine.
+- [W3C » Selectors Level 3 » Calculating a selector's specificity]
+
+| points   | category             | example                     |
+| -------: | :------------------  | :-------------------------- |
+| highest  | [!important rule]    | `!important`                |
+| 1,0,0,0  | Inline styles        | `<h1 style="color: pink;">` |
+| 0,1,0,0  | IDs                  | `#navbar`                   |
+| 0,0,1,0  | Classes              | `.test`                     |
+| 0,0,1,0  | Pseudo-classes       | `:hover`                    |
+| 0,0,1,0  | Attribute selectors  | `[href]`                    |
+| 0,0,0,1  | Elements             | `h1`                        |
+| 0,0,0,1  | Pseudo-elements      | `:before`                   |
+| 0,0,0,0  | _universal selector_ | `*`                         |
+
+For an explanation of the preceding table, see Chris Coyier's _[Calculating CSS Specificity Value]_.
+
+For more articles and tutorials:
+
+- [CSS-Tricks.com » Search results: "specificity"]
+
 
 <!-- MarkdownTOC:excluded -->
 ## Good Design Practices
@@ -182,6 +215,7 @@ Online Tools:
 
 [A List Apart]: https://alistapart.com/
 [CSS-Tricks.com]: https://css-tricks.com
+[CSS Guidelines]: https://cssguidelin.es "CSS Guidelines by Harry Roberts"
 
 <!-- W3Schools -->
 
@@ -227,6 +261,18 @@ Online Tools:
 <!-- Sass libs/frameworks -->
 
 [Bourbon]: https://www.bourbon.io "Bourbon is a lightweight Sass tool set"
+
+<!-- CSS Topics: Specificity -->
+
+[!important Rule]: https://www.w3schools.com/csS/css_important.asp "W3School » The !important Rule"
+
+[Calculating CSS Specificity Value]: https://css-tricks.com/specifics-on-css-specificity/#aa-calculating-css-specificity-value "CSS Guidelines » Specificity » Calculating CSS Specificity Value"
+[CSS Guidelines » Specificity]: https://cssguidelin.es/#specificity "CSS Guidelines » Specificity"
+[CSS Specificity: Things You Should Know]: https://www.smashingmagazine.com/2007/07/css-specificity-things-you-should-know/ ""
+[CSS-Tricks » Specifics on CSS Specificity]: https://css-tricks.com/specifics-on-css-specificity "CSS-Tricks » Specifics on CSS Specificity"
+[CSS-Tricks.com » Search results: "specificity"]: https://css-tricks.com/?s=specificity "CSS-Tricks.com  » Search results for 'specificity'"
+[W3C » Selectors Level 3 » Calculating a selector's specificity]: https://www.w3.org/TR/selectors-3/#specificity
+[W3School » CSS Specificity]: https://www.w3schools.com/csS/css_specificity.asp
 
 <!-- vertical rhythm articles -->
 

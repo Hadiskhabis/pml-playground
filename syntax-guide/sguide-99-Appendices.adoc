@@ -1,0 +1,72 @@
+= Appendices
+
+[partintro]
+Various appendices with topic-specific references, for consultation.
+
+[appendix]
+== PML Breaking Changes
+
+A brief summary of PML changes that broke backward compatibility, and deprecated syntax elements or notations.
+For detailed info refer to the
+https://www.pml-lang.dev/docs/changelog/index.html[PML Changelog^, title="View PML Changelog"].
+
+[WARNING]
+==================================
+Although PML adopts
+https://semver.org[Semantic Versioning 2.0.0^, title="Visit Semantic Versioning website"]
+as its versioning scheme, there have backward compatibility breaking changes within a same PML MAJOR version (1.3.0, 1.4.0).
+==================================
+
+
+=== PML 2.3.0
+
+* All pre-processor nodes `[!` nodes are deprecated in favour of the new
+https://pdml-lang.github.io/docs/extensions/reference_manual/index.html#utility_nodes[PDML Utility Nodes^, title="See PDML Extensions Reference Manual » Utility Nodes"]
+notation:
+** Node `[!ins-file` is deprecated in favour of `[u:ins_file`.
+** Parameter constants:
+*** `[!get` is deprecated in favour of `[u:get`.
+*** `[!set` is deprecated in favour of `[u:set`.
+
+[NOTE]
+==================================
+Deprecated syntaxes are still supported, along with their new notation.
+The PML 2.3.0 Changelog mentions that "`The old syntax will no more be supported in a future version.`" but doesn't specify how the deprecation policy works.
+
+It would be reasonable to expect that deprecated syntaxes will be supported for the entire current MAJOR version cycle, in compliance to SemVer 2.0.0, and be dropped with the next MAJOR version of PML.
+==================================
+
+=== PML 2.0.0
+
+* The `title` attribute is dropped from all nodes.
+** For the `[doc` and `[ch` nodes, titles are replaced the new `[title` node.
+** For all other nodes, the new `[header` node is introduced as a replacement.
+* Attributes `authors` and `date` for the `[doc` node are also dropped.
+* Parameter constants syntax has changed:
+** The parameter definition node `[const` is replaced by `[!set`.
+** Parameter embedding delimiters `<<`..`>>` are replaced by the `[!get` node.
+* The `[insert` node is replaced by `[!ins-file`, and its previous `file` attribute is replaced with `path`.
+* Custom tag delimiters via the command line `tag_start_stop_symbols` parameter are no longer supported.
+* Lenient parsing introduces breaking changes on how attributes are handled:
+** Attributes must be enclosed in parentheses, except for childless-nodes that support only attributes.
+** The attribute continuation character `\` at the end of a line is no longer supported.
+** Attribute values that contain spaces or the special characters `[ ] ( ) " '` must be enclosed in quotes.
+** The attribute name of a node's default attribute can be omitted (i.e. provide directly its value) if it's the first entry in the list of attribute assignments.
+** Absence of attributes only needs to be specified via an empty list `()` if the node's text contents starts with a literal `(` character.
+
+NOTE: The Changelog for PML 2.0.0 states that "`Lenient parsing is now supported differently`", which seems to indicate that lenient parsing was already supported in some form before, although it's not clear to which extent.
+
+
+=== PML 1.4.0
+
+* Alternative tag and attributes identifiers are dropped.
+
+// @TODO: Which were these?
+
+
+=== PML 1.3.0
+
+* Tag delimiters are changed from `{`..`}` to `[`..`]`.
+* Parameter constants embedding delimiters are changed from `[[`..`]]` to `<<`..`>>`.
+
+// EOF //

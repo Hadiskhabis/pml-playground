@@ -3,10 +3,31 @@
 
 PML (Practical Markup Language) is a
 https://en.wikipedia.org/wiki/Lightweight_markup_language[lightweight markup language (LML)^, title="Wikipedia page 'Lightweight markup language'"]
-designed to simplify the creation of complex documents using a simple markup notation and plain-text source files, enabling collaborative editing of documents via version controlled projects.
+designed to simplify the creation of complex documents using a simple markup notation and plain-text source files, enabling collaborative editing on documentation projects via version control tools like Git, SVN, Fossil, etc.
 
 While the PML notation is simple and easy to learn, it's also very powerful and extensible via the declaration of custom nodes.
 
 This document explores the PML syntax in depth, with the goal of providing guidelines for developers who are planning to write a PML syntax definition for code highlighters or editors and IDEs plug-ins.
+
+Although the official PML documentation (the
+https://www.pml-lang.dev/docs/user_manual/index.html[_PML User Manual_^]
+and the
+https://www.pml-lang.dev/docs/reference_manual/index.html[_PML Reference Manual_^])
+is exhaustive from an end-user point of view, when it comes to implementing a PML syntax for highlighters, editors and IDEs it fails to provide the minute details required by the task -- especially for RegEx-based syntax definitions, which are limited by the "`one line at the time`" operational context, which requires careful planning and workarounds to handle syntax constructs that can span multiple lines.
+
+Unlike real parsers (such as found in
+https://microsoft.github.io/language-server-protocol/[LSP^, title="Language Server Protocol website"]
+language servers or
+https://tree-sitter.github.io/tree-sitter/[Tree-sitter^]
+grammars) most editors either adopt a custom format for custom grammars (usually based on token lists and RegExs definitions) or adopt a notation inspired by
+https://macromates.com/manual/en/language_grammars[TextMate grammars^, title="TextMate 1.5.1 Manual: §12. Language Grammars"]
+(e.g. VSCode, Atom, Sublime Text, and others).
+
+The TextMate grammars format has gained traction because it introduced an extensible scopes naming convention on top of a RegEx-based definitions system which is fairly easy to use for syntax implementers and simplifies the process of porting grammars across editors that adopt this format (whether via XML, JSON, YAML or any other representation).
+
+Even though TextMate grammars operate via stack driven contexts, which allow handling individual syntax constructs in isolation, they still suffer from the limitation of the "`one line at the time`" operational context, and lack variables support for tracking states -- i.e. they are fairly "`dumb`" and logic-less grammars.
+Sublime Text 4 somehow improved on these limitation by introducing
+https://www.sublimetext.com/docs/syntax.html#match_patterns[context branching^]
+which allows backtracking to the last branching point when certain criteria are unmet, thus mitigating the limitations of the "`one line at the time`" operational context.
 
 // EOF //

@@ -6,8 +6,15 @@ In this first part we'll examine the PML syntax by itself -- it's characteristic
 
 == Case Sensitivity
 
+Case sensitivity plays an important role in PML since some elements are treated by the PMLC parser as case-sensitive, others as case-insensitive, and some constructs are partly case-sensitive and partly case-insensitive.
+
+Developers of PML syntaxes need to be aware how to handle case sensitivity, especially when working with RegEx-based definitions.
+
+
+=== Tags, Attributes and Preset Values
+
 PML's native tags, attributes and attributes' preset values are all case sensitive.
-In the following example, the `[doc` tag, `TOC_position` attribute and its preset value `top` need to be written as they are:
+In the following example, the `[doc` tag, `TOC_position` attribute and its preset value `top` need to be written with correct letter casing:
 
 [source,pml]
 -----------------------
@@ -16,10 +23,145 @@ In the following example, the `[doc` tag, `TOC_position` attribute and its prese
 
 Altering the case of a single letter would lead to PMLC failing to parse them and raising an error.
 
+=== Hexadecimal Unicode Escapes
+
 Hexadecimal values in Unicode escape sequences (i.e. the `hhhh`/`hhhhhhhh` part) are case insensitive, but not their trailing `\u` and `\U` prefixes, since the former (lowercase '`u`') indicates a 4-digit Unicode escape (`\uhhhh`) whereas the latter (uppercase '`u`') an 8-digit escape (`\Uhhhhhhhh`):
 
 * The 4-digit escapes `\u272a` and `\u272A` both represent the &#x272a; symbol.
 * The 8-digit escapes `\U0001f52f` and `\U0001F52F` both represent the &#x1f52f; symbol.
 
+
+== Lenient Parsing
+
+PML v2.0.0 introduced advanced
+https://www.pml-lang.dev/docs/user_manual/index.html#lenient_parsing[lenient parsing^, title="PML User Manual » Lenient Parsing"]
+features for nodes attributes.
+
+In order to document lenient parsing we'll need to assign arbitrary names to these features in order to reference and distinguish them, since the official documentation doesn't provide us any terminology to this end.
+
+[horizontal]
+<<lenient-uncontrained, Unconstrained Attributes>> ::
+No parenthesis around attributes of childless nodes.
+
+<<lenient-implicit, Implicit{nbsp}Default{nbsp}Attribute>> ::
+If an attributes list begins with a value, it's implicitly assigned to the node's default attribute.
+
+<<lenient-uncontrained-implicit, Unconstrained{nbsp}Implicit{nbsp}Default>> ::
+Childless-nodes with a default attribute can benefit from both of the above lenient parsing rules.
+
+
+[[lenient-uncontrained]]
+=== Unconstrained Attributes
+
+Parenthesis around attributes can be omitted in childless nodes since the parser is not expecting any further contents.
+We'll name this type of lenient parsing "`unconstrained`" since it frees the attributes list from being enclosed in the mandatory parenthesis.
+
+This applies to all childless nodes that support attributes (12 nodes):
+
+* `[audio`
+* `[code`
+* `[html`
+* `[image`
+* `[input`
+* `[insert_code`
+* `[link`
+* `[output`
+* `[table_data`
+* `[video`
+* `[xref`
+* `[youtube_video`
+
+
+Example:
+
+[source,pml]
+------------------------------------
+[image (source=apple.png width=400)]
+------------------------------------
+
+may be shortened to
+
+[source,pml]
+----------------------------------
+[image source=apple.png width=400]
+----------------------------------
+
+
+[[lenient-implicit]]
+=== Implicit Default Attribute
+
+When the first attribute in the list is the default attribute of that node, both the attribute and the `=` sign can be omitted since the value will be implicitly assigned.
+
+This applies to all nodes that have a default attributes (currently, just one node):
+
+* `[image` -> `source` attribute.
+
+
+Example:
+
+[source,pml]
+------------------------------------
+[image (source=apple.png width=400)]
+------------------------------------
+
+may be shortened to
+
+[source,pml]
+-----------------------------
+[image (apple.png width=400)]
+-----------------------------
+
+
+[[lenient-uncontrained-implicit]]
+=== Unconstrained Implicit Default Attribute
+
+Childless-nodes that have a default attributes can apply both the previous lenient parsing rules -- i.e. their attributes unconstrained by parentheses and omitting the default attribute ID an the `=` sign for the default attribute at the start of the lists.
+
+This applies to all childless-nodes that have a default attributes (currently, just one node):
+
+* `[image` -> `source` attribute.
+
+Example:
+
+[source,pml]
+------------------------------------
+[image (source=apple.png width=400)]
+------------------------------------
+
+may be shortened to
+
+[source,pml]
+---------------------------
+[image apple.png width=400]
+---------------------------
+
+
+=== Empty Attributes List
+
+Absence of attributes in a node only requires to be indicated via `()` (an empty list) if the node text contents begin with a literal `(` character.
+In all other cases adding `()` is optional since the parser will infer an empty list by the absence of attributes preceding the node's contents.
+
+Example:
+
+[source,pml]
+-------------
+[div () text]
+-------------
+
+may be shortened to
+
+[source,pml]
+----------
+[div text]
+----------
+
+But the `()` can't be omitted in:
+
+[source,pml]
+--------------------
+[i () (C) Copyright]
+--------------------
+
+because without the `()` the parser would try to interpret `(C)` as an attributes list instead of literal text contents.
 
 // EOF //

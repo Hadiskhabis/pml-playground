@@ -9,6 +9,23 @@
 // It doesn't include any class or ID selectors. It is defining the default
 // styling for how that element should look in all occurrences on the page.
 
+
+/* www.typesettings.io */
+
+$font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-serif: Georgia, 'Times New Roman', serif;
+$font-mono: 'Lucida Console', Monaco, monospace;
+$text-color: #000;
+$base-vertical-unit: 6px;
+$base-line-multi: 4;
+$base-font-size: 16px;
+$ms-ratio: 1.414;
+
+$global-init: true;
+$load-typesetted: false;
+
+@import "typesettings";
+
 /* basics */
 
 html {

@@ -184,52 +184,411 @@ Tags with a default attribute (useful info for Lenient Parsing).
 
 [[table-nodes-info]]
 .PML Nodes Info
-[cols="3*<d,3*^d,<m",options=autowidth]
-|===============================================================================
-| node | tag | type | raw? | {child} | {html} | def. attr.
+[cols="3*<d,3*^d,2*<m",options=autowidth]
+|=============================================================================
+| node | tag | type | raw? | {child} | {html} | attributes | def.{nbsp}attr.
 
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_admon[Admonition^] | `[admon` -> `]` | block |  | &check; | &check; |
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_audio[Audio (Sound)^] | `[audio` -> `]` | block |  | &cross; | &check; |
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_b[Bold Text^] | `[b` -> `]` | inline |  | &check; |  |
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_c[Inline Source Code^] | `[c` -> `]` | inline |  | &cross; |  |
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_caption[Caption^] | `[caption` -> `]` | block |  | &check; | &check; |
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_ch[Chapter^] | `[ch` -> `]` | block |  | &check; | &check; |
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_code[Source Code^] | `[code` -> `code]` | block | &check; | &cross; | &check; |
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_div[Division^] | `[div` -> `]` | block |  | &check; | &check; |
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_doc[Document^] | `[doc` -> `]` | block |  | &check; | &check; |
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_el[List Element^] | `[el` -> `]` | block |  | &check; | &check; |
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_header[Header^] | `[header` -> `]` | block |  | &check; | &check; |
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_html[HTML Code^] | `[html` -> `html]` | block | &check; | &cross; |  |
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_i[Italic Text^] | `[i` -> `]` | inline |  | &check; |  |
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_image[Image^] | `[image` -> `]` | block |  | &cross; | &check; |source
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_input[Input^] | `[input` -> `input]` | block | &check; | &cross; | &check; |
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_insert_code[Insert Source Code^] | `[insert_code` -> `]` | block |  | &cross; | &check; |
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_link[URL Link^] | `[link` -> `]` | inline |  | &cross; | &check; |
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_list[List^] | `[list` -> `]` | block |  | &check; | &check; |
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_monospace[Monospace^] | `[monospace` -> `]` | block |  | &check; | &check; |
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_nl[New Line^] | `[nl` -> `]` | inline |  | &cross; |  |
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_note[Note^] | `[note` -> `]` | block |  | &check; | &check; |
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_output[Output^] | `[output` -> `output]` | block | &check; | &cross; | &check; |
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_p[Paragraph^] | `[p` -> `]` | block |  | &check; | &check; |
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_quote[Quote^] | `[quote` -> `]` | block |  | &check; | &check; |
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_sp[Space Character^] | `[sp` -> `]` | inline |  | &cross; |  |
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_span[Span^] | `[span` -> `]` | inline |  | &check; | &check; |
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_strike[Strikethrough Text^] | `[strike` -> `]` | inline |  | &check; |  |
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_sub[Subscript Text^] | `[sub` -> `]` | inline |  | &check; |  |
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_subtitle[Chapter Subtitle^] | `[subtitle` -> `]` | block |  | &check; | &check; |
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_sup[Superscript Text^] | `[sup` -> `]` | inline |  | &check; |  |
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_table[Table^] | `[table` -> `]` | block |  | &check; | &check; |
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_table_data[Table Data^] | `[table_data` -> `table_data]` | block | &check; | &cross; | &check; |
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_tc[Table Cell^] | `[tc` -> `]` | block |  | &check; | &check; |
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_text[Text^] | `[text` -> `]` | inline |  | &cross; |  |
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_tfooter[Table Footer^] | `[tfooter` -> `]` | block |  | &check; | &check; |
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_theader[Table Header^] | `[theader` -> `]` | block |  | &check; | &check; |
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_title[Chapter Title^] | `[title` -> `]` | block |  | &check; | &check; |
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_tr[Table Row^] | `[tr` -> `]` | block |  | &check; | &check; |
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_verbatim[Verbatim Text^] | `[verbatim` -> `]` | inline |  | &cross; |  |
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_video[Video^] | `[video` -> `]` | block |  | &cross; | &check; |
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_xref[Cross-Reference^] | `[xref` -> `]` | inline |  | &cross; | &check; |
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_youtube_video[Embedded Youtube Video^] | `[youtube_video` -> `]` | block |  | &cross; | &check; |
-|===============================================================================
+
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_admon[Admonition^] | `[admon` -> `]`
+| block
+| &cross;
+| &check;
+| &check;
+|
+ id +
+ label +
+| &cross;
+
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_audio[Audio (Sound)^] | `[audio` -> `]`
+| block
+| &cross;
+| &cross;
+| &check;
+|
+ caption +
+ id +
+ source +
+| &cross;
+
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_b[Bold Text^] | `[b` -> `]`
+| inline
+| &cross;
+| &check;
+| &cross;
+|&cross;
+| &cross;
+
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_c[Inline Source Code^] | `[c` -> `]`
+| inline
+| &cross;
+| &cross;
+| &cross;
+|&cross;
+| &cross;
+
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_caption[Caption^] | `[caption` -> `]`
+| block
+| &cross;
+| &check;
+| &check;
+|
+ id +
+| &cross;
+
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_ch[Chapter^] | `[ch` -> `]`
+| block
+| &cross;
+| &check;
+| &check;
+|
+ id +
+| &cross;
+
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_code[Source Code^] | `[code` -> `code]`
+| block
+| &check;
+| &cross;
+| &check;
+|
+ highlight +
+ id +
+ lang +
+| &cross;
+
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_div[Division^] | `[div` -> `]`
+| block
+| &cross;
+| &check;
+| &check;
+|
+ id +
+| &cross;
+
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_doc[Document^] | `[doc` -> `]`
+| block
+| &cross;
+| &check;
+| &check;
+|
+ highlighter +
+ TOC_position +
+ TOC_title +
+| &cross;
+
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_el[List Element^] | `[el` -> `]`
+| block
+| &cross;
+| &check;
+| &check;
+|
+ id +
+| &cross;
+
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_header[Header^] | `[header` -> `]`
+| block
+| &cross;
+| &check;
+| &check;
+|
+ id +
+| &cross;
+
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_html[HTML Code^] | `[html` -> `html]`
+| block
+| &check;
+| &cross;
+| &cross;
+|
+ id +
+| &cross;
+
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_i[Italic Text^] | `[i` -> `]`
+| inline
+| &cross;
+| &check;
+| &cross;
+|&cross;
+| &cross;
+
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_image[Image^] | `[image` -> `]`
+| block
+| &cross;
+| &cross;
+| &check;
+|
+ align +
+ border +
+ caption +
+ height +
+ id +
+ link +
+ source +
+ width +
+| source
+
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_input[Input^] | `[input` -> `input]`
+| block
+| &check;
+| &cross;
+| &check;
+|
+ id +
+| &cross;
+
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_insert_code[Insert Source Code^] | `[insert_code` -> `]`
+| block
+| &cross;
+| &cross;
+| &check;
+|
+ file +
+ from_regex +
+ highlight +
+ id +
+ include_from_regex +
+ include_to_regex +
+ lang +
+ to_regex +
+| &cross;
+
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_link[URL Link^] | `[link` -> `]`
+| inline
+| &cross;
+| &cross;
+| &check;
+|
+ text +
+ url +
+| &cross;
+
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_list[List^] | `[list` -> `]`
+| block
+| &cross;
+| &check;
+| &check;
+|
+ id +
+| &cross;
+
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_monospace[Monospace^] | `[monospace` -> `]`
+| block
+| &cross;
+| &check;
+| &check;
+|
+ id +
+| &cross;
+
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_nl[New Line^] | `[nl` -> `]`
+| inline
+| &cross;
+| &cross;
+| &cross;
+|&cross;
+| &cross;
+
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_note[Note^] | `[note` -> `]`
+| block
+| &cross;
+| &check;
+| &check;
+|
+ id +
+| &cross;
+
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_output[Output^] | `[output` -> `output]`
+| block
+| &check;
+| &cross;
+| &check;
+|
+ id +
+| &cross;
+
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_p[Paragraph^] | `[p` -> `]`
+| block
+| &cross;
+| &check;
+| &check;
+|
+ id +
+| &cross;
+
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_quote[Quote^] | `[quote` -> `]`
+| block
+| &cross;
+| &check;
+| &check;
+|
+ id +
+ source +
+| &cross;
+
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_sp[Space Character^] | `[sp` -> `]`
+| inline
+| &cross;
+| &cross;
+| &cross;
+|&cross;
+| &cross;
+
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_span[Span^] | `[span` -> `]`
+| inline
+| &cross;
+| &check;
+| &check;
+|&cross;
+| &cross;
+
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_strike[Strikethrough Text^] | `[strike` -> `]`
+| inline
+| &cross;
+| &check;
+| &cross;
+|&cross;
+| &cross;
+
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_sub[Subscript Text^] | `[sub` -> `]`
+| inline
+| &cross;
+| &check;
+| &cross;
+|&cross;
+| &cross;
+
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_subtitle[Chapter Subtitle^] | `[subtitle` -> `]`
+| block
+| &cross;
+| &check;
+| &check;
+|
+ id +
+| &cross;
+
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_sup[Superscript Text^] | `[sup` -> `]`
+| inline
+| &cross;
+| &check;
+| &cross;
+|&cross;
+| &cross;
+
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_table[Table^] | `[table` -> `]`
+| block
+| &cross;
+| &check;
+| &check;
+|
+ caption +
+ id +
+| &cross;
+
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_table_data[Table Data^] | `[table_data` -> `table_data]`
+| block
+| &check;
+| &cross;
+| &check;
+|
+ halign +
+ id +
+| &cross;
+
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_tc[Table Cell^] | `[tc` -> `]`
+| block
+| &cross;
+| &check;
+| &check;
+|
+ id +
+| &cross;
+
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_text[Text^] | `[text` -> `]`
+| inline
+| &cross;
+| &cross;
+| &cross;
+|&cross;
+| &cross;
+
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_tfooter[Table Footer^] | `[tfooter` -> `]`
+| block
+| &cross;
+| &check;
+| &check;
+|
+ id +
+| &cross;
+
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_theader[Table Header^] | `[theader` -> `]`
+| block
+| &cross;
+| &check;
+| &check;
+|
+ id +
+| &cross;
+
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_title[Chapter Title^] | `[title` -> `]`
+| block
+| &cross;
+| &check;
+| &check;
+|
+ id +
+| &cross;
+
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_tr[Table Row^] | `[tr` -> `]`
+| block
+| &cross;
+| &check;
+| &check;
+|
+ id +
+| &cross;
+
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_verbatim[Verbatim Text^] | `[verbatim` -> `]`
+| inline
+| &cross;
+| &cross;
+| &cross;
+|&cross;
+| &cross;
+
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_video[Video^] | `[video` -> `]`
+| block
+| &cross;
+| &cross;
+| &check;
+|
+ caption +
+ height +
+ id +
+ source +
+ width +
+| &cross;
+
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_xref[Cross-Reference^] | `[xref` -> `]`
+| inline
+| &cross;
+| &cross;
+| &check;
+|
+ node_id +
+ text +
+| &cross;
+
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_youtube_video[Embedded Youtube Video^] | `[youtube_video` -> `]`
+| block
+| &cross;
+| &cross;
+| &check;
+|
+ caption +
+ height +
+ id +
+ width +
+ yid +
+| &cross;
+|=============================================================================
 
 // end::table-nodes-info[]

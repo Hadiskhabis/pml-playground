@@ -6,6 +6,12 @@
 
 Experimenting with PML CSS files via [Sass].
 
+> **WARNING** — Due to breaking changes in PMLC 3.0.0 command line interface and options, this sub-project no longer works and its associated `css` Rake task has been temporarily removed from the default build.
+>
+> PMLC 3 introduces [new CSS related options] that render obsolete the current project structure and method, allowing a much cleaner (and hacks-free) approach to testing custom CSS files in PML documents.
+> Therefore, this sub-project will soon be revised from the ground up in order to exploit the new features of PMLC 3.
+
+[new CSS related options]: https://www.pml-lang.dev/docs/commands_manual/index.html#command_PML_to_HTML "See the PMLC Commands Reference Manual"
 
 -----
 
@@ -293,7 +299,7 @@ Online Tools:
 [PML badge]: https://img.shields.io/badge/PML-2.2.0-yellow "Supported PML version (click for PML download page)"
 [PML link]: https://www.pml-lang.dev/downloads/install.html "Go to the PML download page"
 [SASS badge]: https://img.shields.io/badge/Dart_Sass-1.49.9-yellow "Supported Dart Sass version (click for download page)"
-[Status badge]: https://img.shields.io/badge/status-WIP-red "Project Status: Work in Progress"
+[Status badge]: https://img.shields.io/badge/status-BROKEN-red "Project Status: Pending migration to PMLC 3.0.0"
 
 <!-- project files and folders -->
 

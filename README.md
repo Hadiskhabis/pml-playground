@@ -8,6 +8,12 @@ Created by [Tristano Ajmone] in April 2021; maintained by [Christian Neumanns], 
 
 - https://github.com/tajmone/pml-playground
 
+
+> **WARNING** — Due to breaking changes in PMLC 3.0.0 command line options, the following Rake tasks no longer work and were temporarily removed from the default build: `:mustache`, `:pandoc`, `:samples` and `:css`.
+> They will be amended and reintroduced as soon as possible.
+
+<!-- separator -->
+
 > **NOTE** — This repository contains various sub-projects, organized into different subfolders; some of them might be for older versions of PML because we haven't yet found the time to update them.
 > Always check the PML version badge at the beginning of README files, which indicates the latest PML version against which a folder was last tested.
 
@@ -64,8 +70,10 @@ Each individual asset is governed by its own license, as indicated in the source
 # Links
 
 - [www.pml-lang.dev] — PML website:
-    + [PML Reference Manual]
+    + [PML Changelog]
+    + [PML Nodes Reference Manual]
     + [PML User Manual]
+    + [PMLC Commands Reference Manual]
 
 <!-- MarkdownTOC:excluded -->
 ## Articles
@@ -79,8 +87,9 @@ Articles by [Christian Neumanns]:
 ## PML on GitHub
 
 - [@pml-lang] — __PML Lang__ organization:
-    + [pml-lang/converter] — source code repository of the PML to HTML Converter tool.
-    + [pml-lang/user-manual] — [PML Reference Manual] source repository.
+    + [pml-lang/pml-companion] — source code (Java) repository of the PML Companion tool.
+    + [pml-lang/pml-nodes-refman] — [PML Nodes Reference Manual] source repository.
+    + [pml-lang/pml-userman] — [PML User Manual] source repository.
 
 <!-----------------------------------------------------------------------------
                                REFERENCE LINKS
@@ -99,23 +108,24 @@ Articles by [Christian Neumanns]:
 
 <!-- PML Docs & Articles -->
 
-[PML Reference Manual]: https://www.pml-lang.dev/docs/reference_manual/index.html "Read the online PML Reference Manual"
+[PML Changelog]: https://www.pml-lang.dev/docs/changelog/index.html "View the PML Changelog"
+[PML Nodes Reference Manual]: https://www.pml-lang.dev/docs/reference_manual/index.html "Read the online PML Nodes Reference Manual"
 [PML User Manual]: https://www.pml-lang.dev/docs/user_manual/index.html "Read the online PML User Manual"
+[PMLC Commands Reference Manual]: https://www.pml-lang.dev/docs/commands_manual/index.html "Read the online PMLC Commands Reference Manual"
 
 [2019article]: https://www.freecodecamp.org/news/we-need-a-new-document-markup-language-c22e0ec44e15/ "Read full article at freeCodeCamp"
 [The advantages of Document Markup Languages vs WYSIWYG editors]: https://www.pml-lang.dev/docs/articles/advantages-markup-language-vs-word-processor/index.html "Read full article at PMl website"
 
 <!-- PML GitHub -->
 
-[@practical-markup-language]: https://github.com/practical-markup-language "View GitHub profile of the Practical Markup Language organization"
-
 [@pml-lang]: https://github.com/pml-lang "View GitHub profile of the Practical Markup Language organization"
-[pml-lang/converter]: https://github.com/pml-lang/converter "Visit repository on GitHub"
-[pml-lang/user-manual]: https://github.com/pml-lang/user-manual "Visit repository on GitHub"
+[pml-lang/pml-companion]: https://github.com/pml-lang/pml-companion "Visit repository on GitHub"
+[pml-lang/pml-nodes-refman]: https://github.com/pml-lang/pml-nodes-refman "Visit repository on GitHub"
+[pml-lang/pml-userman]: https://github.com/pml-lang/pml-userman "Visit repository on GitHub"
 
 <!-- badges -->
 
-[PML badge]: https://img.shields.io/badge/PML-2.3.0-yellow "Supported PML version (click for PML download page)"
+[PML badge]: https://img.shields.io/badge/PML-3.0.0-yellow "Supported PML version (click for PML Companion download page)"
 [Travis badge]: https://travis-ci.com/tajmone/Sublime-PML.svg?branch=main
 [Travis link]: https://travis-ci.com/tajmone/Sublime-PML "Travis CI: EditorConfig validation status"
 

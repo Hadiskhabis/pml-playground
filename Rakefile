@@ -1,5 +1,10 @@
-=begin "Rakefile" v0.1.7 | 2022/03/14 | by Tristano Ajmone
+=begin "Rakefile" v0.1.8 | 2022/08/28 | by Tristano Ajmone
 ================================================================================
+* * *  W A R N I N G  * * *  Due to breaking changes in PMLC 3.0.0 CLI options,
+the following tasks no longer work and were temporarily removed from the default
+task build:   :mustache   :pandoc   :samples   :css
+They will be amended and reintroduced as soon as possible.
+--------------------------------------------------------------------------------
 This is an initial Rakefile proposal for Alan-i18n.  It's fully working and uses
 namespaces to separate tasks according to locale, but it could do with some
 further improvements.
@@ -95,7 +100,8 @@ end
 ## Tasks
 ########
 
-task :default => [:rouge, :sguide, :mustache, :pandoc, :samples, :css]
+# task :default => [:rouge, :sguide, :mustache, :pandoc, :samples, :css]
+task :default => [:rouge, :sguide]
 
 
 ## Clean & Clobber
@@ -156,13 +162,13 @@ end
 
 ## Mustache
 ###########
-desc "Build mustache templates"
+desc "[ BROKEN ] Build mustache templates"
 task :mustache => 'mustache/pml_tags.json'
 
 file 'mustache/pml_tags.json' => :phony do |t|
   TaskHeader("PMLC: Exporting JSON Tags")
   cd t.name.pathmap("%d")
-  sh "pmlc export_tags"
+  sh "pmlc export_tags" # @FIXME: New PMLC 3.0.0 CLI interface!
   cd $repo_root, verbose: false
 end
 
@@ -200,7 +206,7 @@ CreateAsciiDocHTMLTasksFromFolder(
 
 ## Pandoc Writer
 ################
-desc "Pandoc PML Writer"
+desc "[ BROKEN ] Pandoc PML Writer"
 task :pandoc
 
 $writer_dir = "pandoc/filters-lua/pml-writer"
@@ -239,14 +245,14 @@ WRITER_SRCS.each do |s|
   file html_out_path => pml_out_path do |t|
     TaskHeader("PMLC Converting: #{t.source}")
     cd t.source.pathmap("%d")
-    sh "pmlc #{t.source.pathmap("%f")}"
+    sh "pmlc #{t.source.pathmap("%f")}" # @FIXME: New PMLC 3.0.0 CLI interface!
     cd $repo_root, verbose: false
   end
 end
 
 ## PML Samples
 ##############
-desc "Build PML samples"
+desc "[ BROKEN ] Build PML samples"
 task :samples
 
 SAMPLES_DEPS = FileList['pml-samples/chunks/*pml']
@@ -257,14 +263,14 @@ FileList['pml-samples/*pml'].each do |sample_pml|
   file sample_html => [sample_pml, *SAMPLES_DEPS] do |t|
     TaskHeader("Converting PML Sample: #{sample_pml}")
     cd 'pml-samples/'
-    sh "pmlc #{t.source.pathmap("%f")}"
+    sh "pmlc #{t.source.pathmap("%f")}" # @FIXME: New PMLC 3.0.0 CLI interface!
     cd $repo_root, verbose: false
   end
 end
 
 ## Stylesheets
 ##############
-desc "Build CSS tests"
+desc "[ BROKEN ] Build CSS tests"
 task :css
 
 CSS_FOLDERS = FileList['stylesheets/css__*'].each do |dir|
@@ -301,6 +307,7 @@ CSS_DOCS_PML.each do |pml_doc|
   file html_doc => [pml_doc, *CSS_DOCS_DEPS] do |t|
     TaskHeader("Converting CSS Test Docs: #{t.source}")
     cd "#{t.source.pathmap("%d")}"
+    # @FIXME: New PMLC 3.0.0 CLI interface!
     sh "pmlc convert --input_file #{t.source.pathmap("%f")} --output_directory ./"
     cd $repo_root, verbose: false
   end

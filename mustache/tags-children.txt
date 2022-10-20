@@ -5,6 +5,8 @@ ch
 div
 doc
 el
+fnote
+fnote_def
 header
 i
 list

@@ -1,12 +1,15 @@
 audio
 c
 code
+fnote_ref
+fnotes
 html
 image
 input
 insert_code
 link
 nl
+options
 output
 sp
 table_data

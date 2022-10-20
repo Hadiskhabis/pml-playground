@@ -1,8 +1,8 @@
-= PML v2.3.0 Tags Reference
+= PML v3.1.0 Tags Reference
 :author: Tristano Ajmone
 :email: <tajmone@gmail.com>
-:revdate: 2022-02-11
-:revnumber: 2.3.0
+:revdate: 2022-10-03
+:revnumber: 3.1.0
 :version-label: PML
 :lang: en
 :doctype: article
@@ -40,52 +40,57 @@ This document was auto-generated via custom mustache templates at:
 
 === All Tags
 
-This is the full list of all PML nodes, with their opening and closing tags.
+This is the full list of all PML nodes, alphabetically sorted.
 
 // tag::list-tags-all[]
 
-* `[admon` -> `]`
-* `[audio` -> `]`
-* `[b` -> `]`
-* `[c` -> `]`
-* `[caption` -> `]`
-* `[ch` -> `]`
-* `[code` -> `code]`
-* `[div` -> `]`
-* `[doc` -> `]`
-* `[el` -> `]`
-* `[header` -> `]`
-* `[html` -> `html]`
-* `[i` -> `]`
-* `[image` -> `]`
-* `[input` -> `input]`
-* `[insert_code` -> `]`
-* `[link` -> `]`
-* `[list` -> `]`
-* `[monospace` -> `]`
-* `[nl` -> `]`
-* `[note` -> `]`
-* `[output` -> `output]`
-* `[p` -> `]`
-* `[quote` -> `]`
-* `[sp` -> `]`
-* `[span` -> `]`
-* `[strike` -> `]`
-* `[sub` -> `]`
-* `[subtitle` -> `]`
-* `[sup` -> `]`
-* `[table` -> `]`
-* `[table_data` -> `table_data]`
-* `[tc` -> `]`
-* `[text` -> `]`
-* `[tfooter` -> `]`
-* `[theader` -> `]`
-* `[title` -> `]`
-* `[tr` -> `]`
-* `[verbatim` -> `]`
-* `[video` -> `]`
-* `[xref` -> `]`
-* `[youtube_video` -> `]`
+* `admon`
+* `audio`
+* `b`
+* `c`
+* `caption`
+* `ch`
+* `code`
+* `div`
+* `doc`
+* `el`
+* `fnote`
+* `fnote_def`
+* `fnote_ref`
+* `fnotes`
+* `header`
+* `html`
+* `i`
+* `image`
+* `input`
+* `insert_code`
+* `link`
+* `list`
+* `monospace`
+* `nl`
+* `note`
+* `options`
+* `output`
+* `p`
+* `quote`
+* `sp`
+* `span`
+* `strike`
+* `sub`
+* `subtitle`
+* `sup`
+* `table`
+* `table_data`
+* `tc`
+* `text`
+* `tfooter`
+* `theader`
+* `title`
+* `tr`
+* `verbatim`
+* `video`
+* `xref`
+* `youtube_video`
 
 // end::list-tags-all[]
 
@@ -96,31 +101,33 @@ PML nodes that allow children nodes within themselves.
 
 // tag::list-nodes-with-children[]
 
-* `[admon` -> `]`
-* `[b` -> `]`
-* `[caption` -> `]`
-* `[ch` -> `]`
-* `[div` -> `]`
-* `[doc` -> `]`
-* `[el` -> `]`
-* `[header` -> `]`
-* `[i` -> `]`
-* `[list` -> `]`
-* `[monospace` -> `]`
-* `[note` -> `]`
-* `[p` -> `]`
-* `[quote` -> `]`
-* `[span` -> `]`
-* `[strike` -> `]`
-* `[sub` -> `]`
-* `[subtitle` -> `]`
-* `[sup` -> `]`
-* `[table` -> `]`
-* `[tc` -> `]`
-* `[tfooter` -> `]`
-* `[theader` -> `]`
-* `[title` -> `]`
-* `[tr` -> `]`
+* `admon`
+* `b`
+* `caption`
+* `ch`
+* `div`
+* `doc`
+* `el`
+* `fnote`
+* `fnote_def`
+* `header`
+* `i`
+* `list`
+* `monospace`
+* `note`
+* `p`
+* `quote`
+* `span`
+* `strike`
+* `sub`
+* `subtitle`
+* `sup`
+* `table`
+* `tc`
+* `tfooter`
+* `theader`
+* `title`
+* `tr`
 
 // end::list-nodes-with-children[]
 
@@ -131,23 +138,26 @@ PML nodes that _don't_ allow children nodes within themselves (useful info for L
 
 // tag::list-nodes-childless[]
 
-* `[audio` -> `]`
-* `[c` -> `]`
-* `[code` -> `code]`
-* `[html` -> `html]`
-* `[image` -> `]`
-* `[input` -> `input]`
-* `[insert_code` -> `]`
-* `[link` -> `]`
-* `[nl` -> `]`
-* `[output` -> `output]`
-* `[sp` -> `]`
-* `[table_data` -> `table_data]`
-* `[text` -> `]`
-* `[verbatim` -> `]`
-* `[video` -> `]`
-* `[xref` -> `]`
-* `[youtube_video` -> `]`
+* `audio`
+* `c`
+* `code`
+* `fnote_ref`
+* `fnotes`
+* `html`
+* `image`
+* `input`
+* `insert_code`
+* `link`
+* `nl`
+* `options`
+* `output`
+* `sp`
+* `table_data`
+* `text`
+* `verbatim`
+* `video`
+* `xref`
+* `youtube_video`
 
 // end::list-nodes-childless[]
 
@@ -158,21 +168,16 @@ Raw PML nodes are not parsed any further, so they can't contain sub-nodes and th
 
 // tag::list-nodes-raw-text-block[]
 
-* `[code` -> `code]`
-* `[html` -> `html]`
-* `[input` -> `input]`
-* `[output` -> `output]`
-* `[table_data` -> `table_data]`
+* `c`
+* `code`
+* `html`
+* `input`
+* `output`
+* `table_data`
+* `text`
+* `verbatim`
 
 // end::list-nodes-raw-text-block[]
-
-
-=== Default Attributes
-
-Tags with a default attribute (useful info for Lenient Parsing).
-
-
-* `[image` -> `source` -> `]`
 
 
 == Tags Table
@@ -184,12 +189,12 @@ Tags with a default attribute (useful info for Lenient Parsing).
 
 [[table-nodes-info]]
 .PML Nodes Info
-[cols="3*<d,3*^d,2*<m",options=autowidth]
+[cols="3*<d,3*^d,<m",options=autowidth]
 |=============================================================================
-| node | tag | type | raw? | {child} | {html} | attributes | def.{nbsp}attr.
+| node | tag | type | raw? | {child} | {html} | attributes
 
 
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_admon[Admonition^] | `[admon` -> `]`
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_admon[Admonition^] | `admon`
 | block
 | &cross;
 | &check;
@@ -197,54 +202,49 @@ Tags with a default attribute (useful info for Lenient Parsing).
 |
  id +
  label +
-| &cross;
 
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_audio[Audio (Sound)^] | `[audio` -> `]`
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_audio[Audio (Sound)^] | `audio`
 | block
 | &cross;
 | &cross;
 | &check;
 |
- caption +
+ align +
+ border +
  id +
  source +
-| &cross;
 
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_b[Bold Text^] | `[b` -> `]`
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_b[Bold Text^] | `b`
 | inline
 | &cross;
 | &check;
-| &cross;
+| &check;
 |&cross;
-| &cross;
 
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_c[Inline Source Code^] | `[c` -> `]`
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_c[Inline Source Code^] | `c`
 | inline
+| &check;
 | &cross;
-| &cross;
-| &cross;
+| &check;
 |&cross;
-| &cross;
 
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_caption[Caption^] | `[caption` -> `]`
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_caption[Caption^] | `caption`
 | block
 | &cross;
 | &check;
 | &check;
 |
  id +
-| &cross;
 
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_ch[Chapter^] | `[ch` -> `]`
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_ch[Chapter^] | `ch`
 | block
 | &cross;
 | &check;
 | &check;
 |
  id +
-| &cross;
 
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_code[Source Code^] | `[code` -> `code]`
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_code[Source Code^] | `code`
 | block
 | &check;
 | &cross;
@@ -253,64 +253,87 @@ Tags with a default attribute (useful info for Lenient Parsing).
  highlight +
  id +
  lang +
-| &cross;
 
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_div[Division^] | `[div` -> `]`
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_div[Division^] | `div`
 | block
 | &cross;
 | &check;
 | &check;
 |
  id +
-| &cross;
 
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_doc[Document^] | `[doc` -> `]`
-| block
-| &cross;
-| &check;
-| &check;
-|
- highlighter +
- TOC_position +
- TOC_title +
-| &cross;
-
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_el[List Element^] | `[el` -> `]`
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_doc[Document^] | `doc`
 | block
 | &cross;
 | &check;
 | &check;
 |
  id +
-| &cross;
 
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_header[Header^] | `[header` -> `]`
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_el[List Element^] | `el`
 | block
 | &cross;
 | &check;
 | &check;
 |
  id +
-| &cross;
 
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_html[HTML Code^] | `[html` -> `html]`
-| block
-| &check;
-| &cross;
-| &cross;
-|
- id +
-| &cross;
-
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_i[Italic Text^] | `[i` -> `]`
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_fnote[Inline Footnote^] | `fnote`
 | inline
 | &cross;
 | &check;
-| &cross;
+| &check;
 |&cross;
-| &cross;
 
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_image[Image^] | `[image` -> `]`
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_fnote_def[Footnote Definition^] | `fnote_def`
+| block
+| &cross;
+| &check;
+| &check;
+|
+ id +
+
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_fnote_ref[Footnote Reference^] | `fnote_ref`
+| inline
+| &cross;
+| &cross;
+| &check;
+|
+ did +
+ text +
+
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_fnotes[Footnotes Placeholder^] | `fnotes`
+| block
+| &cross;
+| &cross;
+| &check;
+|
+ id +
+
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_header[Header^] | `header`
+| block
+| &cross;
+| &check;
+| &check;
+|
+ id +
+
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_html[HTML Code^] | `html`
+| block
+| &check;
+| &cross;
+| &check;
+|
+ id +
+
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_i[Italic Text^] | `i`
+| inline
+| &cross;
+| &check;
+| &check;
+|&cross;
+
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_image[Image^] | `image`
 | block
 | &cross;
 | &cross;
@@ -318,24 +341,21 @@ Tags with a default attribute (useful info for Lenient Parsing).
 |
  align +
  border +
- caption +
  height +
  id +
  link +
  source +
  width +
-| source
 
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_input[Input^] | `[input` -> `input]`
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_input[Input^] | `input`
 | block
 | &check;
 | &cross;
 | &check;
 |
  id +
-| &cross;
 
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_insert_code[Insert Source Code^] | `[insert_code` -> `]`
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_insert_code[Insert Source Code^] | `insert_code`
 | block
 | &cross;
 | &cross;
@@ -349,9 +369,8 @@ Tags with a default attribute (useful info for Lenient Parsing).
  include_to_regex +
  lang +
  to_regex +
-| &cross;
 
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_link[URL Link^] | `[link` -> `]`
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_link[URL Link^] | `link`
 | inline
 | &cross;
 | &cross;
@@ -359,62 +378,62 @@ Tags with a default attribute (useful info for Lenient Parsing).
 |
  text +
  url +
-| &cross;
 
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_list[List^] | `[list` -> `]`
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_list[List^] | `list`
 | block
 | &cross;
 | &check;
 | &check;
 |
  id +
-| &cross;
 
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_monospace[Monospace^] | `[monospace` -> `]`
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_monospace[Monospace^] | `monospace`
 | block
 | &cross;
 | &check;
 | &check;
 |
  id +
-| &cross;
 
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_nl[New Line^] | `[nl` -> `]`
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_nl[New Line^] | `nl`
 | inline
 | &cross;
 | &cross;
 | &cross;
 |&cross;
-| &cross;
 
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_note[Note^] | `[note` -> `]`
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_note[Note^] | `note`
 | block
 | &cross;
 | &check;
 | &check;
 |
  id +
-| &cross;
 
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_output[Output^] | `[output` -> `output]`
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_options[Options^] | `options`
+| block
+| &cross;
+| &cross;
+| &cross;
+|&cross;
+
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_output[Output^] | `output`
 | block
 | &check;
 | &cross;
 | &check;
 |
  id +
-| &cross;
 
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_p[Paragraph^] | `[p` -> `]`
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_p[Paragraph^] | `p`
 | block
 | &cross;
 | &check;
 | &check;
 |
  id +
-| &cross;
 
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_quote[Quote^] | `[quote` -> `]`
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_quote[Quote^] | `quote`
 | block
 | &cross;
 | &check;
@@ -422,68 +441,60 @@ Tags with a default attribute (useful info for Lenient Parsing).
 |
  id +
  source +
-| &cross;
 
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_sp[Space Character^] | `[sp` -> `]`
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_sp[Space Character^] | `sp`
 | inline
 | &cross;
 | &cross;
 | &cross;
 |&cross;
-| &cross;
 
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_span[Span^] | `[span` -> `]`
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_span[Span^] | `span`
 | inline
 | &cross;
 | &check;
 | &check;
 |&cross;
-| &cross;
 
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_strike[Strikethrough Text^] | `[strike` -> `]`
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_strike[Strikethrough Text^] | `strike`
 | inline
 | &cross;
 | &check;
-| &cross;
+| &check;
 |&cross;
-| &cross;
 
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_sub[Subscript Text^] | `[sub` -> `]`
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_sub[Subscript Text^] | `sub`
 | inline
 | &cross;
 | &check;
-| &cross;
+| &check;
 |&cross;
-| &cross;
 
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_subtitle[Chapter Subtitle^] | `[subtitle` -> `]`
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_subtitle[Chapter Subtitle^] | `subtitle`
 | block
 | &cross;
 | &check;
 | &check;
 |
  id +
-| &cross;
 
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_sup[Superscript Text^] | `[sup` -> `]`
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_sup[Superscript Text^] | `sup`
 | inline
 | &cross;
 | &check;
-| &cross;
+| &check;
 |&cross;
-| &cross;
 
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_table[Table^] | `[table` -> `]`
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_table[Table^] | `table`
 | block
 | &cross;
 | &check;
 | &check;
 |
- caption +
+ halign +
  id +
-| &cross;
 
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_table_data[Table Data^] | `[table_data` -> `table_data]`
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_table_data[Table Data^] | `table_data`
 | block
 | &check;
 | &cross;
@@ -491,83 +502,75 @@ Tags with a default attribute (useful info for Lenient Parsing).
 |
  halign +
  id +
-| &cross;
 
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_tc[Table Cell^] | `[tc` -> `]`
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_tc[Table Cell^] | `tc`
 | block
 | &cross;
 | &check;
 | &check;
 |
  id +
-| &cross;
 
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_text[Text^] | `[text` -> `]`
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_text[Text^] | `text`
 | inline
+| &check;
 | &cross;
-| &cross;
-| &cross;
+| &check;
 |&cross;
-| &cross;
 
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_tfooter[Table Footer^] | `[tfooter` -> `]`
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_tfooter[Table Footer^] | `tfooter`
 | block
 | &cross;
 | &check;
 | &check;
 |
  id +
-| &cross;
 
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_theader[Table Header^] | `[theader` -> `]`
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_theader[Table Header^] | `theader`
 | block
 | &cross;
 | &check;
 | &check;
 |
  id +
-| &cross;
 
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_title[Chapter Title^] | `[title` -> `]`
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_title[Chapter Title^] | `title`
 | block
 | &cross;
 | &check;
 | &check;
 |
  id +
-| &cross;
 
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_tr[Table Row^] | `[tr` -> `]`
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_tr[Table Row^] | `tr`
 | block
 | &cross;
 | &check;
 | &check;
 |
  id +
-| &cross;
 
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_verbatim[Verbatim Text^] | `[verbatim` -> `]`
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_verbatim[Verbatim Text^] | `verbatim`
 | inline
+| &check;
 | &cross;
-| &cross;
-| &cross;
+| &check;
 |&cross;
-| &cross;
 
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_video[Video^] | `[video` -> `]`
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_video[Video^] | `video`
 | block
 | &cross;
 | &cross;
 | &check;
 |
- caption +
+ align +
+ border +
  height +
  id +
  source +
  width +
-| &cross;
 
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_xref[Cross-Reference^] | `[xref` -> `]`
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_xref[Cross-Reference^] | `xref`
 | inline
 | &cross;
 | &cross;
@@ -575,20 +578,19 @@ Tags with a default attribute (useful info for Lenient Parsing).
 |
  node_id +
  text +
-| &cross;
 
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_youtube_video[Embedded Youtube Video^] | `[youtube_video` -> `]`
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_youtube_video[Embedded Youtube Video^] | `youtube_video`
 | block
 | &cross;
 | &cross;
 | &check;
 |
- caption +
+ align +
+ border +
  height +
  id +
  width +
  yid +
-| &cross;
 |=============================================================================
 
 // end::table-nodes-info[]

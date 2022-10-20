@@ -22,7 +22,6 @@ Each `<filename>__<ext>.mustache` source template is converted to `<filename>.<e
 |-------------------------------------------------|---------------------------------------|------------|---------------------------------------------|
 | [`tags-all__txt.mustache`][t-all.m]             | [`tags-all.txt`][t-all.t]             | plain text | List of all PML tags.                       |
 | [`tags-children__txt.mustache`][t-child.m]      | [`tags-children.txt`][t-child.t]      | plain text | List of PML tags that allow children.       |
-| [`tags-def-attr__txt.mustache`][t-defattr.m]    | [`tags-def-attr.txt`][t-defattr.t]    | plain text | List of PML tags with default attributes.   |
 | [`tags-info__md.mustache`][t-info.m]            | [`tags-info.md`][t-info.t]            | Markdown   | PML Tags Reference document.                |
 | [`tags-no-children__txt.mustache`][t-nochild.m] | [`tags-no-children.txt`][t-nochild.t] | plain text | List of PML tags that don't allow children. |
 | [`tags-raw__txt.mustache`][t-raw.m]             | [`tags-raw.txt`][t-raw.t]             | plain text | List of PML raw text block tags.            |
@@ -61,9 +60,6 @@ Each `<filename>__<ext>.mustache` source template is converted to `<filename>.<e
 [t-child.m]: ./tags-children__txt.mustache "View mustache template"
 [t-child.t]: ./tags-children.txt "View generated plaintext file"
 
-[t-defattr.m]: ./tags-def-attr__txt.mustache "View mustache template"
-[t-defattr.t]: ./tags-def-attr.txt "View generated plaintext file"
-
 [t-info.m]: ./tags-info__md.mustache "View mustache template"
 [t-info.t]: ./tags-info.md "View generated Markdown document"
 
@@ -81,6 +77,6 @@ Each `<filename>__<ext>.mustache` source template is converted to `<filename>.<e
 
 <!-- badges -->
 
-[PML badge]: https://img.shields.io/badge/PML-2.3.0-yellow "Supported PML version"
+[PML badge]: https://img.shields.io/badge/PML-3.1.0-yellow "Supported PML version"
 
 <!-- EOF -->

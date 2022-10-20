@@ -15,7 +15,6 @@ This document was auto-generated via custom mustache templates at:
     - [Nodes w/ Children](#nodes-w-children)
     - [Childless Nodes](#childless-nodes)
     - [Raw Text Block-Nodes](#raw-text-block-nodes)
-    - [Default Attributes](#default-attributes)
 - [Tags Table](#tags-table)
 
 -----
@@ -24,10 +23,10 @@ This document was auto-generated via custom mustache templates at:
 
 ### All Tags
 
-This is the full list of all PML nodes, with their opening and closing tags.
+This is the full list of all PML nodes, alphabetically sorted.
 
 {{#pml_tags.tags}}
-- `{{{ opening_tag }}}` &rarr; `{{{ closing_tag }}}`
+- `{{{ id }}}`
 {{/pml_tags.tags}}
 
 
@@ -37,7 +36,7 @@ PML nodes that allow children nodes within themselves.
 
 {{#pml_tags.tags}}
 {{#child_nodes_allowed}}
-- `{{{ opening_tag }}}` &rarr; `{{{ closing_tag }}}`
+- `{{{ id }}}`
 {{/child_nodes_allowed}}
 {{/pml_tags.tags}}
 
@@ -48,7 +47,7 @@ PML nodes that _don't_ allow children nodes within themselves (useful info for L
 
 {{#pml_tags.tags}}
 {{^child_nodes_allowed}}
-- `{{{ opening_tag }}}` &rarr; `{{{ closing_tag }}}`
+- `{{{ id }}}`
 {{/child_nodes_allowed}}
 {{/pml_tags.tags}}
 
@@ -59,29 +58,17 @@ Raw PML nodes are not parsed any further, so they can't contain sub-nodes and th
 
 {{#pml_tags.tags}}
 {{#is_raw_text_block}}
-- `{{{ opening_tag }}}` &rarr; `{{{ closing_tag }}}`
+- `{{{ id }}}`
 {{/is_raw_text_block}}
-{{/pml_tags.tags}}
-
-
-### Default Attributes
-
-Tags with a default attribute (useful info for Lenient Parsing).
-
-
-{{#pml_tags.tags}}
-{{#default_attribute_id}}
-- `{{{ opening_tag }}}` &rarr; `{{{ default_attribute_id }}}` &rarr; `{{{ closing_tag }}}`
-{{/default_attribute_id}}
 {{/pml_tags.tags}}
 
 
 ## Tags Table
 
-| node | tag | type | raw? | [child?] | [html?] | def. attr. |
-|------|-----|------| :--: | :------: | :-----: |------------|
+| node | tag | type | raw? | [child?] | [html?] |
+|------|-----|------| :--: | :------: | :-----: |
 {{#pml_tags.tags}}
-| [{{ title }}]({{{ latest_doc_url }}}) | `{{{ opening_tag }}}` &rarr; `{{{ closing_tag }}}` | {{{type}}} | {{#is_raw_text_block}}&check;{{/is_raw_text_block}} | {{#child_nodes_allowed}}&check;{{/child_nodes_allowed}}{{^child_nodes_allowed}}&cross;{{/child_nodes_allowed}} | {{#HTML_attributes_allowed}}&check;{{/HTML_attributes_allowed}} | {{#default_attribute_id}}`{{{ default_attribute_id }}}`{{/default_attribute_id}} |
+| [{{ title }}]({{{ latest_doc_url }}}) | `{{{ id }}}` | {{{type}}} | {{#is_raw_text_block}}&check;{{/is_raw_text_block}} | {{#child_nodes_allowed}}&check;{{/child_nodes_allowed}}{{^child_nodes_allowed}}&cross;{{/child_nodes_allowed}} | {{#HTML_attributes_allowed}}&check;{{/HTML_attributes_allowed}} |
 {{/pml_tags.tags}}
 
 

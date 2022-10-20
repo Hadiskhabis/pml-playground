@@ -1,5 +1,8 @@
+c
 code
 html
 input
 output
 table_data
+text
+verbatim

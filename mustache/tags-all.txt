@@ -8,6 +8,10 @@ code
 div
 doc
 el
+fnote
+fnote_def
+fnote_ref
+fnotes
 header
 html
 i
@@ -19,6 +23,7 @@ list
 monospace
 nl
 note
+options
 output
 p
 quote

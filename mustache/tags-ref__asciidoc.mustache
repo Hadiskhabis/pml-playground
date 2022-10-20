@@ -40,12 +40,12 @@ This document was auto-generated via custom mustache templates at:
 
 === All Tags
 
-This is the full list of all PML nodes, with their opening and closing tags.
+This is the full list of all PML nodes, alphabetically sorted.
 
 // tag::list-tags-all[]
 
 {{#pml_tags.tags}}
-* `{{{ opening_tag }}}` -> `{{{ closing_tag }}}`
+* `{{{ id }}}`
 {{/pml_tags.tags}}
 
 // end::list-tags-all[]
@@ -59,7 +59,7 @@ PML nodes that allow children nodes within themselves.
 
 {{#pml_tags.tags}}
 {{#child_nodes_allowed}}
-* `{{{ opening_tag }}}` -> `{{{ closing_tag }}}`
+* `{{{ id }}}`
 {{/child_nodes_allowed}}
 {{/pml_tags.tags}}
 
@@ -74,7 +74,7 @@ PML nodes that _don't_ allow children nodes within themselves (useful info for L
 
 {{#pml_tags.tags}}
 {{^child_nodes_allowed}}
-* `{{{ opening_tag }}}` -> `{{{ closing_tag }}}`
+* `{{{ id }}}`
 {{/child_nodes_allowed}}
 {{/pml_tags.tags}}
 
@@ -89,23 +89,11 @@ Raw PML nodes are not parsed any further, so they can't contain sub-nodes and th
 
 {{#pml_tags.tags}}
 {{#is_raw_text_block}}
-* `{{{ opening_tag }}}` -> `{{{ closing_tag }}}`
+* `{{{ id }}}`
 {{/is_raw_text_block}}
 {{/pml_tags.tags}}
 
 // end::list-nodes-raw-text-block[]
-
-
-=== Default Attributes
-
-Tags with a default attribute (useful info for Lenient Parsing).
-
-
-{{#pml_tags.tags}}
-{{#default_attribute_id}}
-* `{{{ opening_tag }}}` -> `{{{ default_attribute_id }}}` -> `{{{ closing_tag }}}`
-{{/default_attribute_id}}
-{{/pml_tags.tags}}
 
 
 == Tags Table
@@ -117,13 +105,13 @@ Tags with a default attribute (useful info for Lenient Parsing).
 
 [[table-nodes-info]]
 .PML Nodes Info
-[cols="3*<d,3*^d,2*<m",options=autowidth]
+[cols="3*<d,3*^d,<m",options=autowidth]
 |=============================================================================
-| node | tag | type | raw? | {child} | {html} | attributes | def.{nbsp}attr.
+| node | tag | type | raw? | {child} | {html} | attributes
 
 {{#pml_tags.tags}}
 
-| {{{ latest_doc_url }}}[{{ title }}^] | `{{{ opening_tag }}}` -> `{{{ closing_tag }}}`
+| {{{ latest_doc_url }}}[{{ title }}^] | `{{{ id }}}`
 | {{{type}}}
 | {{#is_raw_text_block}}&check;{{/is_raw_text_block}}{{^is_raw_text_block}}&cross;{{/is_raw_text_block}}
 | {{#child_nodes_allowed}}&check;{{/child_nodes_allowed}}{{^child_nodes_allowed}}&cross;{{/child_nodes_allowed}}
@@ -131,7 +119,6 @@ Tags with a default attribute (useful info for Lenient Parsing).
 |{{^attributes}}&cross;{{/attributes}}
 {{#attributes}} {{{ id }}} +
 {{/attributes}}
-| {{#default_attribute_id}}{{{ default_attribute_id }}}{{/default_attribute_id}}{{^default_attribute_id}}&cross;{{/default_attribute_id}}
 {{/pml_tags.tags}}
 |=============================================================================
 

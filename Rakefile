@@ -1,8 +1,8 @@
-=begin "Rakefile" v0.1.8 | 2022/08/28 | by Tristano Ajmone
+=begin "Rakefile" v0.1.9 | 2022/10/20 | by Tristano Ajmone
 ================================================================================
 * * *  W A R N I N G  * * *  Due to breaking changes in PMLC 3.0.0 CLI options,
 the following tasks no longer work and were temporarily removed from the default
-task build:   :mustache   :pandoc   :samples   :css
+task build:   :pandoc   :samples   :css
 They will be amended and reintroduced as soon as possible.
 --------------------------------------------------------------------------------
 This is an initial Rakefile proposal for Alan-i18n.  It's fully working and uses
@@ -101,7 +101,7 @@ end
 ########
 
 # task :default => [:rouge, :sguide, :mustache, :pandoc, :samples, :css]
-task :default => [:rouge, :sguide]
+task :default => [:rouge, :sguide, :mustache]
 
 
 ## Clean & Clobber
@@ -162,13 +162,13 @@ end
 
 ## Mustache
 ###########
-desc "[ BROKEN ] Build mustache templates"
+desc "Build mustache templates"
 task :mustache => 'mustache/pml_tags.json'
 
 file 'mustache/pml_tags.json' => :phony do |t|
   TaskHeader("PMLC: Exporting JSON Tags")
   cd t.name.pathmap("%d")
-  sh "pmlc export_tags" # @FIXME: New PMLC 3.0.0 CLI interface!
+  sh "pmlc export_tags"
   cd $repo_root, verbose: false
 end
 

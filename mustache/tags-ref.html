@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.17">
 <meta name="author" content="Tristano Ajmone">
-<title>PML v2.3.0 Tags Reference</title>
+<title>PML v3.1.0 Tags Reference</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -511,12 +511,12 @@ span.green {
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
-<h1>PML v2.3.0 Tags Reference</h1>
+<h1>PML v3.1.0 Tags Reference</h1>
 <div class="details">
 <span id="author" class="author">Tristano Ajmone</span><br>
 <span id="email" class="email">&lt;<a href="mailto:tajmone@gmail.com">tajmone@gmail.com</a>&gt;</span><br>
-<span id="revnumber">pml 2.3.0,</span>
-<span id="revdate">2022-02-11</span>
+<span id="revnumber">pml 3.1.0,</span>
+<span id="revdate">2022-10-03</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
@@ -527,7 +527,6 @@ span.green {
 <li><a href="#nodes_w_children">1.2. Nodes w/ Children</a></li>
 <li><a href="#childless_nodes">1.3. Childless Nodes</a></li>
 <li><a href="#raw_text_block_nodes">1.4. Raw Text Block-Nodes</a></li>
-<li><a href="#default_attributes">1.5. Default Attributes</a></li>
 </ul>
 </li>
 <li><a href="#tags_table">2. Tags Table</a></li>
@@ -558,135 +557,150 @@ span.green {
 <div class="sect2">
 <h3 id="all_tags"><a class="anchor" href="#all_tags"></a>1.1. All Tags</h3>
 <div class="paragraph">
-<p>This is the full list of all PML nodes, with their opening and closing tags.</p>
+<p>This is the full list of all PML nodes, alphabetically sorted.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>[admon</code> &#8594; <code>]</code></p>
+<p><code>admon</code></p>
 </li>
 <li>
-<p><code>[audio</code> &#8594; <code>]</code></p>
+<p><code>audio</code></p>
 </li>
 <li>
-<p><code>[b</code> &#8594; <code>]</code></p>
+<p><code>b</code></p>
 </li>
 <li>
-<p><code>[c</code> &#8594; <code>]</code></p>
+<p><code>c</code></p>
 </li>
 <li>
-<p><code>[caption</code> &#8594; <code>]</code></p>
+<p><code>caption</code></p>
 </li>
 <li>
-<p><code>[ch</code> &#8594; <code>]</code></p>
+<p><code>ch</code></p>
 </li>
 <li>
-<p><code>[code</code> &#8594; <code>code]</code></p>
+<p><code>code</code></p>
 </li>
 <li>
-<p><code>[div</code> &#8594; <code>]</code></p>
+<p><code>div</code></p>
 </li>
 <li>
-<p><code>[doc</code> &#8594; <code>]</code></p>
+<p><code>doc</code></p>
 </li>
 <li>
-<p><code>[el</code> &#8594; <code>]</code></p>
+<p><code>el</code></p>
 </li>
 <li>
-<p><code>[header</code> &#8594; <code>]</code></p>
+<p><code>fnote</code></p>
 </li>
 <li>
-<p><code>[html</code> &#8594; <code>html]</code></p>
+<p><code>fnote_def</code></p>
 </li>
 <li>
-<p><code>[i</code> &#8594; <code>]</code></p>
+<p><code>fnote_ref</code></p>
 </li>
 <li>
-<p><code>[image</code> &#8594; <code>]</code></p>
+<p><code>fnotes</code></p>
 </li>
 <li>
-<p><code>[input</code> &#8594; <code>input]</code></p>
+<p><code>header</code></p>
 </li>
 <li>
-<p><code>[insert_code</code> &#8594; <code>]</code></p>
+<p><code>html</code></p>
 </li>
 <li>
-<p><code>[link</code> &#8594; <code>]</code></p>
+<p><code>i</code></p>
 </li>
 <li>
-<p><code>[list</code> &#8594; <code>]</code></p>
+<p><code>image</code></p>
 </li>
 <li>
-<p><code>[monospace</code> &#8594; <code>]</code></p>
+<p><code>input</code></p>
 </li>
 <li>
-<p><code>[nl</code> &#8594; <code>]</code></p>
+<p><code>insert_code</code></p>
 </li>
 <li>
-<p><code>[note</code> &#8594; <code>]</code></p>
+<p><code>link</code></p>
 </li>
 <li>
-<p><code>[output</code> &#8594; <code>output]</code></p>
+<p><code>list</code></p>
 </li>
 <li>
-<p><code>[p</code> &#8594; <code>]</code></p>
+<p><code>monospace</code></p>
 </li>
 <li>
-<p><code>[quote</code> &#8594; <code>]</code></p>
+<p><code>nl</code></p>
 </li>
 <li>
-<p><code>[sp</code> &#8594; <code>]</code></p>
+<p><code>note</code></p>
 </li>
 <li>
-<p><code>[span</code> &#8594; <code>]</code></p>
+<p><code>options</code></p>
 </li>
 <li>
-<p><code>[strike</code> &#8594; <code>]</code></p>
+<p><code>output</code></p>
 </li>
 <li>
-<p><code>[sub</code> &#8594; <code>]</code></p>
+<p><code>p</code></p>
 </li>
 <li>
-<p><code>[subtitle</code> &#8594; <code>]</code></p>
+<p><code>quote</code></p>
 </li>
 <li>
-<p><code>[sup</code> &#8594; <code>]</code></p>
+<p><code>sp</code></p>
 </li>
 <li>
-<p><code>[table</code> &#8594; <code>]</code></p>
+<p><code>span</code></p>
 </li>
 <li>
-<p><code>[table_data</code> &#8594; <code>table_data]</code></p>
+<p><code>strike</code></p>
 </li>
 <li>
-<p><code>[tc</code> &#8594; <code>]</code></p>
+<p><code>sub</code></p>
 </li>
 <li>
-<p><code>[text</code> &#8594; <code>]</code></p>
+<p><code>subtitle</code></p>
 </li>
 <li>
-<p><code>[tfooter</code> &#8594; <code>]</code></p>
+<p><code>sup</code></p>
 </li>
 <li>
-<p><code>[theader</code> &#8594; <code>]</code></p>
+<p><code>table</code></p>
 </li>
 <li>
-<p><code>[title</code> &#8594; <code>]</code></p>
+<p><code>table_data</code></p>
 </li>
 <li>
-<p><code>[tr</code> &#8594; <code>]</code></p>
+<p><code>tc</code></p>
 </li>
 <li>
-<p><code>[verbatim</code> &#8594; <code>]</code></p>
+<p><code>text</code></p>
 </li>
 <li>
-<p><code>[video</code> &#8594; <code>]</code></p>
+<p><code>tfooter</code></p>
 </li>
 <li>
-<p><code>[xref</code> &#8594; <code>]</code></p>
+<p><code>theader</code></p>
 </li>
 <li>
-<p><code>[youtube_video</code> &#8594; <code>]</code></p>
+<p><code>title</code></p>
+</li>
+<li>
+<p><code>tr</code></p>
+</li>
+<li>
+<p><code>verbatim</code></p>
+</li>
+<li>
+<p><code>video</code></p>
+</li>
+<li>
+<p><code>xref</code></p>
+</li>
+<li>
+<p><code>youtube_video</code></p>
 </li>
 </ul>
 </div>
@@ -699,79 +713,85 @@ span.green {
 <div class="ulist">
 <ul>
 <li>
-<p><code>[admon</code> &#8594; <code>]</code></p>
+<p><code>admon</code></p>
 </li>
 <li>
-<p><code>[b</code> &#8594; <code>]</code></p>
+<p><code>b</code></p>
 </li>
 <li>
-<p><code>[caption</code> &#8594; <code>]</code></p>
+<p><code>caption</code></p>
 </li>
 <li>
-<p><code>[ch</code> &#8594; <code>]</code></p>
+<p><code>ch</code></p>
 </li>
 <li>
-<p><code>[div</code> &#8594; <code>]</code></p>
+<p><code>div</code></p>
 </li>
 <li>
-<p><code>[doc</code> &#8594; <code>]</code></p>
+<p><code>doc</code></p>
 </li>
 <li>
-<p><code>[el</code> &#8594; <code>]</code></p>
+<p><code>el</code></p>
 </li>
 <li>
-<p><code>[header</code> &#8594; <code>]</code></p>
+<p><code>fnote</code></p>
 </li>
 <li>
-<p><code>[i</code> &#8594; <code>]</code></p>
+<p><code>fnote_def</code></p>
 </li>
 <li>
-<p><code>[list</code> &#8594; <code>]</code></p>
+<p><code>header</code></p>
 </li>
 <li>
-<p><code>[monospace</code> &#8594; <code>]</code></p>
+<p><code>i</code></p>
 </li>
 <li>
-<p><code>[note</code> &#8594; <code>]</code></p>
+<p><code>list</code></p>
 </li>
 <li>
-<p><code>[p</code> &#8594; <code>]</code></p>
+<p><code>monospace</code></p>
 </li>
 <li>
-<p><code>[quote</code> &#8594; <code>]</code></p>
+<p><code>note</code></p>
 </li>
 <li>
-<p><code>[span</code> &#8594; <code>]</code></p>
+<p><code>p</code></p>
 </li>
 <li>
-<p><code>[strike</code> &#8594; <code>]</code></p>
+<p><code>quote</code></p>
 </li>
 <li>
-<p><code>[sub</code> &#8594; <code>]</code></p>
+<p><code>span</code></p>
 </li>
 <li>
-<p><code>[subtitle</code> &#8594; <code>]</code></p>
+<p><code>strike</code></p>
 </li>
 <li>
-<p><code>[sup</code> &#8594; <code>]</code></p>
+<p><code>sub</code></p>
 </li>
 <li>
-<p><code>[table</code> &#8594; <code>]</code></p>
+<p><code>subtitle</code></p>
 </li>
 <li>
-<p><code>[tc</code> &#8594; <code>]</code></p>
+<p><code>sup</code></p>
 </li>
 <li>
-<p><code>[tfooter</code> &#8594; <code>]</code></p>
+<p><code>table</code></p>
 </li>
 <li>
-<p><code>[theader</code> &#8594; <code>]</code></p>
+<p><code>tc</code></p>
 </li>
 <li>
-<p><code>[title</code> &#8594; <code>]</code></p>
+<p><code>tfooter</code></p>
 </li>
 <li>
-<p><code>[tr</code> &#8594; <code>]</code></p>
+<p><code>theader</code></p>
+</li>
+<li>
+<p><code>title</code></p>
+</li>
+<li>
+<p><code>tr</code></p>
 </li>
 </ul>
 </div>
@@ -784,55 +804,64 @@ span.green {
 <div class="ulist">
 <ul>
 <li>
-<p><code>[audio</code> &#8594; <code>]</code></p>
+<p><code>audio</code></p>
 </li>
 <li>
-<p><code>[c</code> &#8594; <code>]</code></p>
+<p><code>c</code></p>
 </li>
 <li>
-<p><code>[code</code> &#8594; <code>code]</code></p>
+<p><code>code</code></p>
 </li>
 <li>
-<p><code>[html</code> &#8594; <code>html]</code></p>
+<p><code>fnote_ref</code></p>
 </li>
 <li>
-<p><code>[image</code> &#8594; <code>]</code></p>
+<p><code>fnotes</code></p>
 </li>
 <li>
-<p><code>[input</code> &#8594; <code>input]</code></p>
+<p><code>html</code></p>
 </li>
 <li>
-<p><code>[insert_code</code> &#8594; <code>]</code></p>
+<p><code>image</code></p>
 </li>
 <li>
-<p><code>[link</code> &#8594; <code>]</code></p>
+<p><code>input</code></p>
 </li>
 <li>
-<p><code>[nl</code> &#8594; <code>]</code></p>
+<p><code>insert_code</code></p>
 </li>
 <li>
-<p><code>[output</code> &#8594; <code>output]</code></p>
+<p><code>link</code></p>
 </li>
 <li>
-<p><code>[sp</code> &#8594; <code>]</code></p>
+<p><code>nl</code></p>
 </li>
 <li>
-<p><code>[table_data</code> &#8594; <code>table_data]</code></p>
+<p><code>options</code></p>
 </li>
 <li>
-<p><code>[text</code> &#8594; <code>]</code></p>
+<p><code>output</code></p>
 </li>
 <li>
-<p><code>[verbatim</code> &#8594; <code>]</code></p>
+<p><code>sp</code></p>
 </li>
 <li>
-<p><code>[video</code> &#8594; <code>]</code></p>
+<p><code>table_data</code></p>
 </li>
 <li>
-<p><code>[xref</code> &#8594; <code>]</code></p>
+<p><code>text</code></p>
 </li>
 <li>
-<p><code>[youtube_video</code> &#8594; <code>]</code></p>
+<p><code>verbatim</code></p>
+</li>
+<li>
+<p><code>video</code></p>
+</li>
+<li>
+<p><code>xref</code></p>
+</li>
+<li>
+<p><code>youtube_video</code></p>
 </li>
 </ul>
 </div>
@@ -845,32 +874,28 @@ span.green {
 <div class="ulist">
 <ul>
 <li>
-<p><code>[code</code> &#8594; <code>code]</code></p>
+<p><code>c</code></p>
 </li>
 <li>
-<p><code>[html</code> &#8594; <code>html]</code></p>
+<p><code>code</code></p>
 </li>
 <li>
-<p><code>[input</code> &#8594; <code>input]</code></p>
+<p><code>html</code></p>
 </li>
 <li>
-<p><code>[output</code> &#8594; <code>output]</code></p>
+<p><code>input</code></p>
 </li>
 <li>
-<p><code>[table_data</code> &#8594; <code>table_data]</code></p>
+<p><code>output</code></p>
 </li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="default_attributes"><a class="anchor" href="#default_attributes"></a>1.5. Default Attributes</h3>
-<div class="paragraph">
-<p>Tags with a default attribute (useful info for Lenient Parsing).</p>
-</div>
-<div class="ulist">
-<ul>
 <li>
-<p><code>[image</code> &#8594; <code>source</code> &#8594; <code>]</code></p>
+<p><code>table_data</code></p>
+</li>
+<li>
+<p><code>text</code></p>
+</li>
+<li>
+<p><code>verbatim</code></p>
 </li>
 </ul>
 </div>
@@ -890,7 +915,6 @@ span.green {
 <col>
 <col>
 <col>
-<col>
 </colgroup>
 <thead>
 <tr>
@@ -901,76 +925,70 @@ span.green {
 <th class="tableblock halign-center valign-top"><a href="https://www.pml-lang.dev/docs/user_manual/index.html#ch__4" title="Child nodes allowed?" target="_blank" rel="noopener">child?</a></th>
 <th class="tableblock halign-center valign-top"><a href="https://www.pml-lang.dev/docs/user_manual/index.html#HTML_attributes" title="HTML Attributes allowed?" target="_blank" rel="noopener">html?</a></th>
 <th class="tableblock halign-left valign-top">attributes</th>
-<th class="tableblock halign-left valign-top">def.&#160;attr.</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.pml-lang.dev/docs/reference_manual/index.html#node_admon" target="_blank" rel="noopener">Admonition</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[admon</code> &#8594; <code>]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>admon</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">block</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>id<br>
  label<br></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&cross;</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.pml-lang.dev/docs/reference_manual/index.html#node_audio" target="_blank" rel="noopener">Audio (Sound)</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[audio</code> &#8594; <code>]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>audio</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">block</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>caption<br>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>align<br>
+ border<br>
  id<br>
  source<br></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&cross;</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.pml-lang.dev/docs/reference_manual/index.html#node_b" target="_blank" rel="noopener">Bold Text</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[b</code> &#8594; <code>]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>b</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">inline</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&cross;</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>&cross;</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.pml-lang.dev/docs/reference_manual/index.html#node_c" target="_blank" rel="noopener">Inline Source Code</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[c</code> &#8594; <code>]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>c</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">inline</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&cross;</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>&cross;</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.pml-lang.dev/docs/reference_manual/index.html#node_caption" target="_blank" rel="noopener">Caption</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[caption</code> &#8594; <code>]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>caption</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">block</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>id<br></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&cross;</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.pml-lang.dev/docs/reference_manual/index.html#node_ch" target="_blank" rel="noopener">Chapter</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[ch</code> &#8594; <code>]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ch</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">block</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>id<br></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&cross;</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.pml-lang.dev/docs/reference_manual/index.html#node_code" target="_blank" rel="noopener">Source Code</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[code</code> &#8594; <code>code]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>code</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">block</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
@@ -978,100 +996,125 @@ span.green {
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>highlight<br>
  id<br>
  lang<br></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&cross;</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.pml-lang.dev/docs/reference_manual/index.html#node_div" target="_blank" rel="noopener">Division</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[div</code> &#8594; <code>]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>div</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">block</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>id<br></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&cross;</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.pml-lang.dev/docs/reference_manual/index.html#node_doc" target="_blank" rel="noopener">Document</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[doc</code> &#8594; <code>]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>doc</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">block</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>highlighter<br>
- TOC_position<br>
- TOC_title<br></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&cross;</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>id<br></code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.pml-lang.dev/docs/reference_manual/index.html#node_el" target="_blank" rel="noopener">List Element</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[el</code> &#8594; <code>]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>el</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">block</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>id<br></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&cross;</code></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.pml-lang.dev/docs/reference_manual/index.html#node_header" target="_blank" rel="noopener">Header</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[header</code> &#8594; <code>]</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">block</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>id<br></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&cross;</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.pml-lang.dev/docs/reference_manual/index.html#node_html" target="_blank" rel="noopener">HTML Code</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[html</code> &#8594; <code>html]</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">block</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>id<br></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&cross;</code></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.pml-lang.dev/docs/reference_manual/index.html#node_i" target="_blank" rel="noopener">Italic Text</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[i</code> &#8594; <code>]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.pml-lang.dev/docs/reference_manual/index.html#node_fnote" target="_blank" rel="noopener">Inline Footnote</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>fnote</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">inline</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>&cross;</code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.pml-lang.dev/docs/reference_manual/index.html#node_fnote_def" target="_blank" rel="noopener">Footnote Definition</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>fnote_def</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">block</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>id<br></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.pml-lang.dev/docs/reference_manual/index.html#node_fnote_ref" target="_blank" rel="noopener">Footnote Reference</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>fnote_ref</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inline</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>did<br>
+ text<br></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.pml-lang.dev/docs/reference_manual/index.html#node_fnotes" target="_blank" rel="noopener">Footnotes Placeholder</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>fnotes</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">block</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>id<br></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.pml-lang.dev/docs/reference_manual/index.html#node_header" target="_blank" rel="noopener">Header</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>header</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">block</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>id<br></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.pml-lang.dev/docs/reference_manual/index.html#node_html" target="_blank" rel="noopener">HTML Code</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>html</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">block</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>id<br></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.pml-lang.dev/docs/reference_manual/index.html#node_i" target="_blank" rel="noopener">Italic Text</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>i</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">inline</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>&cross;</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.pml-lang.dev/docs/reference_manual/index.html#node_image" target="_blank" rel="noopener">Image</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[image</code> &#8594; <code>]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>image</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">block</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>align<br>
  border<br>
- caption<br>
  height<br>
  id<br>
  link<br>
  source<br>
  width<br></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>source</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.pml-lang.dev/docs/reference_manual/index.html#node_input" target="_blank" rel="noopener">Input</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[input</code> &#8594; <code>input]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>input</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">block</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>id<br></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&cross;</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.pml-lang.dev/docs/reference_manual/index.html#node_insert_code" target="_blank" rel="noopener">Insert Source Code</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[insert_code</code> &#8594; <code>]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>insert_code</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">block</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
@@ -1084,280 +1127,264 @@ span.green {
  include_to_regex<br>
  lang<br>
  to_regex<br></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&cross;</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.pml-lang.dev/docs/reference_manual/index.html#node_link" target="_blank" rel="noopener">URL Link</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[link</code> &#8594; <code>]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>link</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">inline</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>text<br>
  url<br></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&cross;</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.pml-lang.dev/docs/reference_manual/index.html#node_list" target="_blank" rel="noopener">List</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[list</code> &#8594; <code>]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>list</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">block</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>id<br></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&cross;</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.pml-lang.dev/docs/reference_manual/index.html#node_monospace" target="_blank" rel="noopener">Monospace</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[monospace</code> &#8594; <code>]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>monospace</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">block</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>id<br></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&cross;</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.pml-lang.dev/docs/reference_manual/index.html#node_nl" target="_blank" rel="noopener">New Line</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[nl</code> &#8594; <code>]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>nl</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">inline</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>&cross;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&cross;</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.pml-lang.dev/docs/reference_manual/index.html#node_note" target="_blank" rel="noopener">Note</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[note</code> &#8594; <code>]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>note</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">block</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>id<br></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.pml-lang.dev/docs/reference_manual/index.html#node_options" target="_blank" rel="noopener">Options</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>options</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">block</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>&cross;</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.pml-lang.dev/docs/reference_manual/index.html#node_output" target="_blank" rel="noopener">Output</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[output</code> &#8594; <code>output]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>output</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">block</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>id<br></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&cross;</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.pml-lang.dev/docs/reference_manual/index.html#node_p" target="_blank" rel="noopener">Paragraph</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[p</code> &#8594; <code>]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>p</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">block</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>id<br></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&cross;</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.pml-lang.dev/docs/reference_manual/index.html#node_quote" target="_blank" rel="noopener">Quote</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[quote</code> &#8594; <code>]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>quote</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">block</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>id<br>
  source<br></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&cross;</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.pml-lang.dev/docs/reference_manual/index.html#node_sp" target="_blank" rel="noopener">Space Character</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[sp</code> &#8594; <code>]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sp</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">inline</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&cross;</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>&cross;</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.pml-lang.dev/docs/reference_manual/index.html#node_span" target="_blank" rel="noopener">Span</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[span</code> &#8594; <code>]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>span</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">inline</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&cross;</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>&cross;</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.pml-lang.dev/docs/reference_manual/index.html#node_strike" target="_blank" rel="noopener">Strikethrough Text</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[strike</code> &#8594; <code>]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>strike</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">inline</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&cross;</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>&cross;</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.pml-lang.dev/docs/reference_manual/index.html#node_sub" target="_blank" rel="noopener">Subscript Text</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[sub</code> &#8594; <code>]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sub</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">inline</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&cross;</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>&cross;</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.pml-lang.dev/docs/reference_manual/index.html#node_subtitle" target="_blank" rel="noopener">Chapter Subtitle</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[subtitle</code> &#8594; <code>]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>subtitle</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">block</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>id<br></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&cross;</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.pml-lang.dev/docs/reference_manual/index.html#node_sup" target="_blank" rel="noopener">Superscript Text</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[sup</code> &#8594; <code>]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sup</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">inline</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&cross;</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>&cross;</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.pml-lang.dev/docs/reference_manual/index.html#node_table" target="_blank" rel="noopener">Table</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[table</code> &#8594; <code>]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>table</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">block</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>caption<br>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>halign<br>
  id<br></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&cross;</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.pml-lang.dev/docs/reference_manual/index.html#node_table_data" target="_blank" rel="noopener">Table Data</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[table_data</code> &#8594; <code>table_data]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>table_data</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">block</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>halign<br>
  id<br></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&cross;</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.pml-lang.dev/docs/reference_manual/index.html#node_tc" target="_blank" rel="noopener">Table Cell</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[tc</code> &#8594; <code>]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>tc</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">block</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>id<br></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&cross;</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.pml-lang.dev/docs/reference_manual/index.html#node_text" target="_blank" rel="noopener">Text</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[text</code> &#8594; <code>]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>text</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">inline</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&cross;</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>&cross;</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.pml-lang.dev/docs/reference_manual/index.html#node_tfooter" target="_blank" rel="noopener">Table Footer</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[tfooter</code> &#8594; <code>]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>tfooter</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">block</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>id<br></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&cross;</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.pml-lang.dev/docs/reference_manual/index.html#node_theader" target="_blank" rel="noopener">Table Header</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[theader</code> &#8594; <code>]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>theader</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">block</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>id<br></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&cross;</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.pml-lang.dev/docs/reference_manual/index.html#node_title" target="_blank" rel="noopener">Chapter Title</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[title</code> &#8594; <code>]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>title</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">block</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>id<br></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&cross;</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.pml-lang.dev/docs/reference_manual/index.html#node_tr" target="_blank" rel="noopener">Table Row</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[tr</code> &#8594; <code>]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>tr</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">block</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>id<br></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&cross;</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.pml-lang.dev/docs/reference_manual/index.html#node_verbatim" target="_blank" rel="noopener">Verbatim Text</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[verbatim</code> &#8594; <code>]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>verbatim</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">inline</p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
-<td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&cross;</code></p></td>
+<td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>&cross;</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.pml-lang.dev/docs/reference_manual/index.html#node_video" target="_blank" rel="noopener">Video</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[video</code> &#8594; <code>]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>video</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">block</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>caption<br>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>align<br>
+ border<br>
  height<br>
  id<br>
  source<br>
  width<br></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&cross;</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.pml-lang.dev/docs/reference_manual/index.html#node_xref" target="_blank" rel="noopener">Cross-Reference</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[xref</code> &#8594; <code>]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>xref</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">inline</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>node_id<br>
  text<br></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&cross;</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://www.pml-lang.dev/docs/reference_manual/index.html#node_youtube_video" target="_blank" rel="noopener">Embedded Youtube Video</a></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>[youtube_video</code> &#8594; <code>]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>youtube_video</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">block</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&cross;</p></td>
 <td class="tableblock halign-center valign-top"><p class="tableblock">&check;</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>caption<br>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>align<br>
+ border<br>
  height<br>
  id<br>
  width<br>
  yid<br></code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&cross;</code></p></td>
 </tr>
 </tbody>
 </table>
@@ -1366,7 +1393,7 @@ span.green {
 </div>
 <div id="footer">
 <div id="footer-text">
-PML 2.3.0<br>
+PML 3.1.0<br>
 </div>
 </div>
 </body>

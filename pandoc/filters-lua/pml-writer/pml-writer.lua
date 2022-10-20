@@ -384,8 +384,8 @@ function CaptionedImage(src, tit, caption, attr)
     local ecaption = escape(caption)
     return '[image source="' .. escape(src,true) .. '"' ..
            attr.id ..
-           ' caption="' .. ecaption ..
-           '" html_alt="' .. ecaption .. '"]'
+           ' html_alt="' .. ecaption .. '"]' ..
+           '[caption ' .. ecaption .. ']'
 --[[
     return '<figure>\n<img src="' .. escape(src,true) ..
         '" id="' .. attr.id .. '" alt="' .. ecaption  .. '"/>' ..

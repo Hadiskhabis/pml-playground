@@ -159,7 +159,7 @@ An inline image with alt-text: [image source="./pml-cool.png" html_title="Alt-te
 
 ][ch [title Captioned Images]
 
-[image source="./pml-cool.png" caption="The PML cool image" html_alt="The PML cool image"]
+[image source="./pml-cool.png" html_alt="The PML cool image"][caption The PML cool image]
 
 Captioned image without caption:
 

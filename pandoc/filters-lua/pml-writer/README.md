@@ -8,6 +8,9 @@ An attempt to implement a PML [custom pandoc writer] via Lua filters.
 
 Builds via `rake pandoc`.
 
+> **NOTE** — Except for a patch fixing the `caption` attribute to the new `[caption` node, the Lua filter hasn't been updated since PML 2.3.0.
+> Many source comments about PML limitations no longer apply, we only need to update the filter to make use of the new PML 3.x features.
+
 -----
 
 **Table of Contents**
@@ -79,11 +82,13 @@ We've included in this folder the PML template, following the naming convention 
 
 # Dependencies
 
-In order to use the assets in this folder, you'll need the following tools:
+In order to build the assets in this folder, you'll need the following tools:
 
-- [pmlc] — PML converter.
+- [pmlc] — PML Companion.
 - [pandoc][pandoc install] — use latest release.
-- Ruby 3.
+- Ruby 3 — only required for the Rake toolchain of this project.
+
+To use this pandoc filter in your own projects, you'll only need PMLC, pandoc and the `pml-writer.lua` file.
 
 <!-----------------------------------------------------------------------------
                                REFERENCE LINKS
@@ -106,8 +111,8 @@ In order to use the assets in this folder, you'll need the following tools:
 <!-- badges -->
 
 [status badge]: https://img.shields.io/badge/status-Alpha-orange "The writer is still in WIP Alpha stage"
-[pml badge]: https://img.shields.io/badge/PML-2.3.0-yellow "Last tested with PML 2.3.0"
-[pandoc badge]: https://img.shields.io/badge/pandoc-2.17.1.1-yellow "Last tested with pandoc 2.17.1.1"
+[pml badge]: https://img.shields.io/badge/PML-3.1.0-yellow "Last tested with PML 3.1.0"
+[pandoc badge]: https://img.shields.io/badge/pandoc-2.19.2-yellow "Last tested with pandoc 2.17.1.1"
 
 <!-- project files & folders -->
 

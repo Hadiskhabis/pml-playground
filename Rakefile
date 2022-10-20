@@ -1,8 +1,8 @@
-=begin "Rakefile" v0.1.9 | 2022/10/20 | by Tristano Ajmone
+=begin "Rakefile" v0.1.10 | 2022/10/20 | by Tristano Ajmone
 ================================================================================
 * * *  W A R N I N G  * * *  Due to breaking changes in PMLC 3.0.0 CLI options,
 the following tasks no longer work and were temporarily removed from the default
-task build:   :pandoc   :samples   :css
+task build:   samples   :css
 They will be amended and reintroduced as soon as possible.
 --------------------------------------------------------------------------------
 This is an initial Rakefile proposal for Alan-i18n.  It's fully working and uses
@@ -101,7 +101,7 @@ end
 ########
 
 # task :default => [:rouge, :sguide, :mustache, :pandoc, :samples, :css]
-task :default => [:rouge, :sguide, :mustache]
+task :default => [:rouge, :sguide, :mustache, :pandoc]
 
 
 ## Clean & Clobber
@@ -206,7 +206,7 @@ CreateAsciiDocHTMLTasksFromFolder(
 
 ## Pandoc Writer
 ################
-desc "[ BROKEN ] Pandoc PML Writer"
+desc "Pandoc PML Writer"
 task :pandoc
 
 $writer_dir = "pandoc/filters-lua/pml-writer"
@@ -238,14 +238,14 @@ WRITER_SRCS.each do |s|
   file json_out_path => s do |t|
     pandoc2json(t.source)
   end
-  # PML to HTML vis PMLC:
+  # PML to HTML via PMLC:
   html_out_file = s.pathmap("%f").ext('.html')
   html_out_path = "#{$writer_dir}/tests/output/#{html_out_file}"
   task :pandoc => html_out_path
   file html_out_path => pml_out_path do |t|
     TaskHeader("PMLC Converting: #{t.source}")
     cd t.source.pathmap("%d")
-    sh "pmlc #{t.source.pathmap("%f")}" # @FIXME: New PMLC 3.0.0 CLI interface!
+    sh "pmlc p2h #{t.source.pathmap("%f")}"
     cd $repo_root, verbose: false
   end
 end

@@ -35,10 +35,10 @@ Created by [Tristano Ajmone] in April 2021; maintained by [Christian Neumanns], 
 
 # Repository Contents
 
-- [`/mustache/`][mustache/] — misc. mustache templates.
-- [`/pandoc/`][pandoc/] — PML &hArr; pandoc assets.
-- [`/pml-samples/`][pml-samples/] — shared PML sample documents and chunks.
-- [`/stylesheets/`][stylesheets/] — PML CSS stylesheets playground.
+- [`/mustache/`][mustache/] \[_broken_\] — misc. mustache templates.
+- [`/pandoc/`][pandoc/] \[_broken_\] — PML &hArr; pandoc assets.
+- [`/pml-samples/`][pml-samples/] \[_broken_\] — shared PML sample documents and chunks.
+- [`/stylesheets/`][stylesheets/] \[_broken_\] — PML CSS stylesheets playground.
 - [`/syntax-guide/`][syntax-guide/] — _PML Syntax Guide_ doc + sources.
 - [`/syntax-hl/`][syntax-hl/] — PML syntax highlighting.
 
@@ -125,7 +125,7 @@ Articles by [Christian Neumanns]:
 
 <!-- badges -->
 
-[PML badge]: https://img.shields.io/badge/PML-3.0.0-yellow "Supported PML version (click for PML Companion download page)"
+[PML badge]: https://img.shields.io/badge/PML-3.1.0-yellow "Supported PML version (click for PML Companion download page)"
 [Travis badge]: https://travis-ci.com/tajmone/Sublime-PML.svg?branch=main
 [Travis link]: https://travis-ci.com/tajmone/Sublime-PML "Travis CI: EditorConfig validation status"
 

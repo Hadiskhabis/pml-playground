@@ -1,13 +1,13 @@
--- "pml-writer.lua" v0.0.6 | 2022/03/01            | PML 2.3.0 | pandoc 2.17.1.1
+-- "pml-writer.lua" v0.0.7 | 2022/10/22            | PML 3.1.0 | pandoc 2.19.2
 -- =============================================================================
 -- ** WARNING ** This PML writer is being built on top of the sample writer that
 --               ships with pandoc; generated via:
 --
 --    pandoc --print-default-data-file sample.lua > pml-writer.lua
 --
--- This source integrates the changes of the sample writer from pandoc 2.17.1.1
+-- This source integrates the changes of the sample writer from pandoc 2.19.2
 -- (i.e. from time to time it's diffed with the latest sample to see if there
--- are new updated worth integrating).
+-- are new code changes worth integrating).
 --
 -- Since it emulates pandoc's HTML writer it will be used as a starting point
 -- to build our PML writer on top of with. PML is structurally similar to HTML,
@@ -193,17 +193,12 @@ function Link(s, tgt, tit, attr)
 end
 
 function Image(s, src, tit, attr)
-  -- @FIXME: If src is a web URL, emit Raw HTML instead!
   local outstr
   outstr = '[image source="' .. escape(src,true) .. '"'
   if #tit ~= 0 then
-    outstr = outstr .. ' html_title="' .. escape(tit,true) .. '"'
+    outstr = outstr .. ' html_alt="' .. escape(tit,true) .. '"'
   end
   return outstr .. ']'
---[[
-  return '<img src="' .. escape(src,true) .. '" title="' ..
-         escape(tit,true) .. '"/>'
---]]
 end
 
 function Code(s, attr)
@@ -336,12 +331,40 @@ function BulletList(items)
   return "[list\n" .. table.concat(buffer, "\n") .. "\n]"
 end
 
-function OrderedList(items)
+-- Look-up Table for pandoc to HTML numeric styles names
+num_styles_lut = {
+-- @TODO: complete list: https://www.w3schools.com/CSSref/pr_list-style-type.asp
+  LowerRoman = "lower-roman",
+  UpperRoman = "upper-roman",
+  LowerAlpha = "lower-alpha",
+  UpperAlpha = "upper-alpha",
+  -- DefaultStyle ???
+  -- Example ???
+  -- Decimal -> already covered by our fallback value
+}
+
+function OrderedList(items, start, style)
+  -- @TODO: Extract info about:
+  --   [x] Numerals list-style-type.
+  --   [ ] Start number (WIP: commented out due to PMLC bug #91).
+  --   [ ] Optimize code: The above LUT should be kept inside the func
+  --       block, to keep the code clean, but *without* the performance
+  --       hit of heap-allocating the table at each function call! See:
+  --          http://lua-users.org/wiki/SwitchStatement
   local buffer = {}
   for _, item in pairs(items) do
     table.insert(buffer, "[el " .. item .. "]")
   end
-  return '[list (html_style="list-style-type:decimal")\n' .. table.concat(buffer, "\n") .. "\n]"
+  html_style = num_styles_lut[style] or "decimal"
+  if start ~= 1
+    then start_str = ' html_start=' .. start
+    else start_str = ''
+  end
+  -- A bug in PML 3.1.0 causes 'html_start' to crash, so we temporarily
+  -- need to suppress the attribute until fixed. See: pml-lang/pml-companion#91
+  start_str = '' -- @DELME!
+  return '[list (html_style="list-style-type:'.. html_style ..'"' ..
+          start_str .. ")\n" .. table.concat(buffer, "\n") .. "\n]"
 end
 
 function DefinitionList(items)
@@ -369,28 +392,18 @@ local function html_align(align)
 end
 
 function CaptionedImage(src, tit, caption, attr)
-  -- @FIXME: If src is a web URL, emit Raw HTML instead!
   if attr.id then
     local img_id = " id=" .. attr.id
   end
   if #caption == 0 then
     return  '[image source="' .. escape(src,true) ..
             '"' .. attr.id .. ']'
---[[
-    return '<p><img src="' .. escape(src,true) .. '"' .. attr.id ..
-      '"/></p>'
---]]
   else
     local ecaption = escape(caption)
     return '[image source="' .. escape(src,true) .. '"' ..
            attr.id ..
            ' html_alt="' .. ecaption .. '"]' ..
            '[caption ' .. ecaption .. ']'
---[[
-    return '<figure>\n<img src="' .. escape(src,true) ..
-        '" id="' .. attr.id .. '" alt="' .. ecaption  .. '"/>' ..
-        '<figcaption>' .. ecaption .. '</figcaption>\n</figure>'
---]]
   end
 end
 

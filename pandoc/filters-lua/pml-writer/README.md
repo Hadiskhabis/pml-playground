@@ -8,8 +8,9 @@ An attempt to implement a PML [custom pandoc writer] via Lua filters.
 
 Builds via `rake pandoc`.
 
-> **NOTE** — Except for a patch fixing the `caption` attribute to the new `[caption` node, the Lua filter hasn't been updated since PML 2.3.0.
-> Many source comments about PML limitations no longer apply, we only need to update the filter to make use of the new PML 3.x features.
+> **IMPORTANT** — The Lua filter contains many obsolete source comments about PML limitations which are no longer true.
+> These comments are left over from PML 2.3.0 and don't take into account the new PML 3.x features.
+> Therefore, until this notice is standing always double check comments against current PMLC status; once all the old comments are purged remove this notice.
 
 -----
 
@@ -88,7 +89,7 @@ In order to build the assets in this folder, you'll need the following tools:
 - [pandoc][pandoc install] — use latest release.
 - Ruby 3 — only required for the Rake toolchain of this project.
 
-To use this pandoc filter in your own projects, you'll only need PMLC, pandoc and the `pml-writer.lua` file.
+To use this pandoc filter in your own projects, you'll only need PMLC, pandoc and the `pml-writer.lua` and `default.pml.lua` files from this folder.
 
 <!-----------------------------------------------------------------------------
                                REFERENCE LINKS

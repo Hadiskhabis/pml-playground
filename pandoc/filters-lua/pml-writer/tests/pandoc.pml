@@ -56,27 +56,82 @@ code]
 [ch [title Bullet Lists]
 
 [list
-[el Bold: [b Lorem ipsum].]
-[el Italic: [i Lorem ipsum].]
-[el Code: [c Lorem ipsum].]
+[el Top level – [b bold].]
+[el Top level – [i italic].
+
+[list
+[el Sub level.]
+[el Sub level.
+
+[list
+[el Sub-sub level.]
+]]
+]]
+[el Top level – [c inline code].]
 ]
 
 ][ch [title Ordered Lists]
 
-[list (html_style="list-style-type:decimal")
-[el AAA
+Decimal numerals:
 
 [list (html_style="list-style-type:decimal")
-[el Sub-element 1.
+[el One
 
 [list (html_style="list-style-type:decimal")
-[el Sub-sub-element.]
+[el One-Sub
+
+[list (html_style="list-style-type:decimal")
+[el One-Sub-Sub]
 ]]
-[el Sub-element 2.]
+[el Two-Sub]
 ]]
-[el BBB]
-[el CCC]
-[el DDD]
+[el Two]
+[el Three]
+[el Four]
+]
+
+Lower-roman numerals:
+
+[list (html_style="list-style-type:lower-roman")
+[el One]
+[el Two]
+[el Three]
+[el Four]
+]
+
+Lower-alpha numerals:
+
+[list (html_style="list-style-type:lower-alpha")
+[el One]
+[el Two]
+[el Three]
+[el Four]
+]
+
+Arbitrary start numbers:
+
+[list (html_style="list-style-type:decimal")
+[el Three (dec)]
+[el Four]
+[el Five
+
+[list (html_style="list-style-type:upper-roman")
+[el Two (roman uc)]
+[el Three]
+[el Four]
+]]
+[el Six]
+[el Seven
+
+[list (html_style="list-style-type:upper-alpha")
+[el Three (alpha uc)]
+[el Four]
+[el Five]
+]]
+]
+
+[quote
+[b WARNING] — The code that handles the list [c start] attribute had to be commented out because [c html_start] crashes PMLC 3.1.0 due to a bug. (See: [link url=https://github.com/pml-lang/pml-companion/issues/91 text="Issue #91"])
 ]
 
 ]][ch [title Horizontal Rules]
@@ -153,11 +208,19 @@ The PML Writer corrects empty links by rendering the link text only:
 
 Images are considered by pandoc to be inline if they are not the only element in a paragraph.
 
+[ch [title Local Image File]
+
 An inline image: [image source="./pml-cool.png"]
 
-An inline image with alt-text: [image source="./pml-cool.png" html_title="Alt-text is cool too!"]
+An inline image with alt-text: [image source="./pml-cool.png" html_alt="Alt-text is cool too!"]
 
-][ch [title Captioned Images]
+][ch [title Web Image]
+
+An inline image: [image source="https://www.pml-lang.dev/images/PML_plane_200_200.png"]
+
+An inline image with alt-text: [image source="https://www.pml-lang.dev/images/PML_plane_200_200.png" html_alt="Alt-text is cool too!"]
+
+]][ch [title Captioned Images]
 
 [image source="./pml-cool.png" html_alt="The PML cool image"][caption The PML cool image]
 

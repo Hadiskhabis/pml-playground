@@ -46,19 +46,55 @@ end
 
 ### Bullet Lists
 
-- Bold: **Lorem ipsum**.
-- Italic: _Lorem ipsum_.
-- Code: `Lorem ipsum`.
+- Top level -- **bold**.
+- Top level -- _italic_.
+    + Sub level.
+    + Sub level.
+        * Sub-sub level.
+- Top level -- `inline code`.
 
 ### Ordered Lists
 
-1. AAA
-    1. Sub-element 1.
-        1. Sub-sub-element.
-    1. Sub-element 2.
-2. BBB
-3. CCC
-4. DDD
+Decimal numerals:
+
+1. One
+    1. One-Sub
+        1. One-Sub-Sub
+    #. Two-Sub
+#. Two
+#. Three
+#. Four
+
+Lower-roman numerals:
+
+i. One
+#. Two
+#. Three
+#. Four
+
+Lower-alpha numerals:
+
+a. One
+#. Two
+#. Three
+#. Four
+
+Arbitrary start numbers:
+
+3. Three (dec)
+#. Four
+#. Five
+    II.  Two (roman uc)
+    #.  Three
+    #.  Four
+#. Six
+#. Seven
+    C.  Three (alpha uc)
+    #.  Four
+    #.  Five
+
+
+> **WARNING** — The code that handles the list `start` attribute had to be commented out because `html_start` crashes PMLC 3.1.0 due to a bug. (See: [Issue #91](https://github.com/pml-lang/pml-companion/issues/91))
 
 
 ## Horizontal Rules
@@ -118,9 +154,17 @@ The PML Writer corrects empty links by rendering the link text only:
 
 Images are considered by pandoc to be inline if they are not the only element in a paragraph.
 
+#### Local Image File
+
 An inline image: ![The PML cool image](./pml-cool.png)
 
 An inline image with alt-text: ![The PML cool image](./pml-cool.png "Alt-text is cool too!")
+
+#### Web Image
+
+An inline image: ![The PML cool image](https://www.pml-lang.dev/images/PML_plane_200_200.png)
+
+An inline image with alt-text: ![The PML cool image](https://www.pml-lang.dev/images/PML_plane_200_200.png "Alt-text is cool too!")
 
 ### Captioned Images
 

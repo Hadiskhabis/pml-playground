@@ -1,8 +1,3 @@
--- =============================================================================
--- The sample writer that ships with pandoc 2.17.1.1; generated via:
---
---    pandoc --print-default-data-file sample.lua > sample.lua
--- =============================================================================
 -- This is a sample custom writer for pandoc.  It produces output
 -- that is very similar to that of pandoc's HTML writer.
 -- There is one new feature: code blocks marked with class 'dot'

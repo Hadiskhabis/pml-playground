@@ -4,7 +4,7 @@ subtitle: "Sample document"
 author:
 - Tristano Ajmone
 - Author Two
-date: 2022-02-06
+date: 2022-10-23
 ...
 
 This WIP document provides examples of how pandoc-markdown features are converted to PML via the `pml-writer`.
@@ -156,9 +156,9 @@ Images are considered by pandoc to be inline if they are not the only element in
 
 #### Local Image File
 
-An inline image: ![The PML cool image](./pml-cool.png)
+An inline image: ![The PML cool image](../_assets/pml-cool.png)
 
-An inline image with alt-text: ![The PML cool image](./pml-cool.png "Alt-text is cool too!")
+An inline image with alt-text: ![The PML cool image](../_assets/pml-cool.png "Alt-text is cool too!")
 
 #### Web Image
 
@@ -168,11 +168,11 @@ An inline image with alt-text: ![The PML cool image](https://www.pml-lang.dev/im
 
 ### Captioned Images
 
-![The PML cool image](./pml-cool.png)
+![The PML cool image](../_assets/pml-cool.png)
 
 Captioned image without caption:
 
-![](./pml-cool.png)
+![](../_assets/pml-cool.png)
 
 <!----------------------------- REFERENCE LINKS ------------------------------>
 

@@ -1,4 +1,4 @@
-=begin "Rakefile" v0.1.10 | 2022/10/20 | by Tristano Ajmone
+=begin "Rakefile" v0.1.11 | 2022/10/23 | by Tristano Ajmone
 ================================================================================
 * * *  W A R N I N G  * * *  Due to breaking changes in PMLC 3.0.0 CLI options,
 the following tasks no longer work and were temporarily removed from the default
@@ -212,7 +212,7 @@ task :pandoc
 $writer_dir = "pandoc/filters-lua/pml-writer"
 
 WRITER_SRCS = FileList[
-  "#{$writer_dir}/tests/*.{markdown,native}"
+  "#{$writer_dir}/tests/**/*.{markdown,native}"
 ]
 
 WRITER_SRCS.each do |s|
@@ -229,7 +229,7 @@ WRITER_SRCS.each do |s|
     TaskHeader("Pandoc to PML: #{t.source}")
     pandoc(
       t.source,
-      "--verbose -t ../pml-writer.lua --template=../default.pml.lua -o #{pml_out_file}"
+      "--verbose -t #{$repo_root}/#{$writer_dir}/pml-writer.lua --template=#{$repo_root}/#{$writer_dir}/default.pml.lua -o #{pml_out_file}"
     )
   end
   # Pandoc to JSON:
@@ -239,13 +239,14 @@ WRITER_SRCS.each do |s|
     pandoc2json(t.source)
   end
   # PML to HTML via PMLC:
-  html_out_file = s.pathmap("%f").ext('.html')
-  html_out_path = "#{$writer_dir}/tests/output/#{html_out_file}"
+  html_out_path = s.ext('.html')
+  html_out_file = html_out_path.pathmap("%f")
+  pml_in_file = s.pathmap("%f").ext('.pml')
   task :pandoc => html_out_path
   file html_out_path => pml_out_path do |t|
     TaskHeader("PMLC Converting: #{t.source}")
     cd t.source.pathmap("%d")
-    sh "pmlc p2h #{t.source.pathmap("%f")}"
+    sh "pmlc p2h --output ./#{html_out_file} #{pml_in_file}"
     cd $repo_root, verbose: false
   end
 end

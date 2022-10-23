@@ -10,6 +10,8 @@ pml_tags.json
 
 # PML converted contents:
 **/output/**
+/pandoc/filters-lua/pml-writer/tests/**/css/
+/pandoc/filters-lua/pml-writer/tests/**/*.html
 # pandoc JSON AST files:
 /pandoc/filters-lua/pml-writer/**/*.json
 # pandoc/PML error logs:

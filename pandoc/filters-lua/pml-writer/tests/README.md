@@ -9,8 +9,8 @@ Various source documents to test that our custom PML writer is working as expect
 
 <!-- MarkdownTOC autolink="true" bracket="round" autoanchor="false" lowercase="only_ascii" uri_encoding="true" levels="1,2,3" -->
 
+- [Directory Contents](#directory-contents)
 - [Introduction](#introduction)
-- [Test Files](#test-files)
 - [Third Party Credits](#third-party-credits)
 - [Reference Links](#reference-links)
 
@@ -18,46 +18,39 @@ Various source documents to test that our custom PML writer is working as expect
 
 -----
 
+# Directory Contents
+
+- [`/_assets/`][_assets/] — shared docs images, etc.
+- [`/elements/`][elements/] — test specific pandoc/PML elements (lists, footnotes, etc.).
+- [`/features/`][features/] — test high order pandoc/PML features (metadata, escapes, etc.).
+- [`/samples/`][samples/] — test entire sample documents.
+- [`PANDOC_COPYING`][PANDOC_COPYING] — pandoc GPLv2 license.
+
+
 # Introduction
 
 In order to test the PML writer, we need multiple sample documents in various formats natively supported by pandoc, since each different format might support some document features not supported by others.
 
-The `:pandoc` Rake task currently autodetects and tests the following source documents file extensions:
+The `:pandoc` Rake task currently autodetects and tests the following source documents file extensions (recursively into the whole directory tree):
 
-1. `*.markdown` — [pandoc's Markdown].
-2. `*.native` — pandoc's native format (Haskell).
+1. `**/*.markdown` — [pandoc's Markdown].
+2. `**/*.native` — pandoc's native format (Haskell).
 
 Each sample document will be converted both to PML and to its representation in pandoc JSON AST, because the latter offers detailed insights into what the custom writer is handling; the generated PML document is then converted to HTML via pmlc:
 
 - `<filename>.{markdown,native}` &rArr; **pandoc**:
     + `<filename>.json` — pandoc JSON AST (_ignored by Git_)
     + `<filename>.pml` &rArr; **pmlc**:
-        * `output/<filename>.html` (_ignored by Git_)
+        * `<filename>.html` (_ignored by Git_)
 
 The JSON representation is generated via `pandoc -t json`.
 Since pandoc generates the JSON AST as a single line, the Rake task prettifies it via Ruby, in order to render it more human readable.
-
-# Test Files
-
-The following table lists the various test files providing info about their status, description and source/author.
-The legend for the **s** column status icons is:
-
-- :hourglass: &rarr; **WIP** (test document not completed)
-- :x: &rarr; **fails** (some elements not rendered correctly)
-- :heavy_check_mark: &rarr; **passed**
-
-|            filename           |      s      |     test type      |      author/source      |
-|-------------------------------|-------------|--------------------|-------------------------|
-| `escapes.markdown`            | :hourglass: | PML escaping rules | by us                   |
-| `pandoc.markdown`             | :hourglass: | sample document    | by us                   |
-| `writers-lang-and-dir.native` | :x:         | languages and BiDi | [pandoc `test/`][test/] |
-
 
 # Third Party Credits
 
 The following test files were taken (and in some cases adapted to need) from the pandoc repository [`test/`][test/] folder (click on filename to see upstream source):
 
-- [`writers-lang-and-dir.native`][writers-lang-and-dir.native]
+- [`features/writers-lang-and-dir.native`][writers-lang-and-dir.native]
 
 Pandoc is Copyright © 2006-2022 John MacFarlane, [released under GPL, version 2 or later]:
 
@@ -128,5 +121,14 @@ A full copy of the GPLv2 license is included in this folder:
 <!-- upstream links -->
 
 [writers-lang-and-dir.native]: https://github.com/jgm/pandoc/blob/18ab8642692caca2716fd9b5a0e6dbfd3d9cf9cc/test/writers-lang-and-dir.native "View upstream source at pandoc repository"
+
+<!-- files & folders -->
+
+[_assets/]: ./_assets/ "Navigate to folder"
+[elements/]: ./elements/ "Navigate to folder"
+[features/]: ./features/ "Navigate to folder"
+[samples/]: ./samples/ "Navigate to folder"
+[PANDOC_COPYING]: ./PANDOC_COPYING "view pandoc GPLv2 license"
+
 
 <!-- EOF -->

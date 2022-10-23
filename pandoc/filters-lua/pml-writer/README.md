@@ -30,9 +30,10 @@ Builds via `rake pandoc`.
 # Folder Contents
 
 - [`/tests/`][tests/] — examples and test files.
-- [`default.pml.lua`][default.pml.lua] — custom PML template.
+- [`default.pml.lua`][default.pml.lua] — custom PML     template.
 - [`pml-writer.lua`][pml-writer.lua] — custom PML writer (Lua).
 - [`sample.lua`][sample.lua] — official example of a custom HTML writer.
+- [`STATUS.md`][STATUS.md] — PML writer progress status and known issues.
 
 After building locally (via Rake), you'll also find the HTML version of the sample, generated via PMLC from the converted PML document:
 
@@ -117,10 +118,11 @@ To use this pandoc filter in your own projects, you'll only need PMLC, pandoc an
 
 <!-- project files & folders -->
 
+[tests/]: ./tests/ "Navigate to samples and tests directory"
+
 [default.pml.lua]: ./default.pml.lua "pandoc template for custom PML writer"
 [pml-writer.lua]: ./pml-writer.lua "Custom PML writer"
 [sample.lua]: ./sample.lua "Sample HTML writer"
-
-[tests/]: ./tests/ "Navigate to samples and tests directory"
+[STATUS.md]: ./STATUS.md "View PML writer status"
 
 <!-- EOF -->

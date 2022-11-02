@@ -1,4 +1,4 @@
--- "pml-writer.lua" v0.0.7 | 2022/10/22            | PML 3.1.0 | pandoc 2.19.2
+-- "pml-writer.lua" v0.0.8 | 2022/11/02            | PML 3.1.0 | pandoc 2.19.2
 -- =============================================================================
 -- ** WARNING ** This PML writer is being built on top of the sample writer that
 --               ships with pandoc; generated via:
@@ -71,6 +71,11 @@ local function escape(s, in_attribute)
         return x
       end
     end)
+end
+
+-- Emit Caption Node
+local function caption_node(s)
+  return '[caption ' .. escape(s) .. ']'
 end
 
 -- Helper function to convert an attributes table into
@@ -396,14 +401,13 @@ function CaptionedImage(src, tit, caption, attr)
     local img_id = " id=" .. attr.id
   end
   if #caption == 0 then
-    return  '[image source="' .. escape(src,true) ..
-            '"' .. attr.id .. ']'
-  else
-    local ecaption = escape(caption)
     return '[image source="' .. escape(src,true) .. '"' ..
-           attr.id ..
-           ' html_alt="' .. ecaption .. '"]' ..
-           '[caption ' .. ecaption .. ']'
+            attr.id .. ']'
+  else
+    return '[image source="' .. escape(src,true) .. '"' ..
+            attr.id ..
+            ' html_alt="' .. escape(caption) .. '"]' ..
+            caption_node(caption)
   end
 end
 
@@ -411,43 +415,39 @@ end
 -- widths is an array of floats, headers is an array of
 -- strings, rows is an array of arrays of strings.
 function Table(caption, aligns, widths, headers, rows)
+  -- @NOTE: Column widths info is discarded. See original "sample.lua"
+  --        on how it was preserved in HTML. For PML, it requires
+  --        adaptation to `[table halign=""` list of comma separated
+  --        values.
   local buffer = {}
   local function add(s)
     table.insert(buffer, s)
   end
-  add('<table>')
-  if caption ~= '' then
-    add('<caption>' .. escape(caption) .. '</caption>')
-  end
-  if widths and widths[1] ~= 0 then
-    for _, w in pairs(widths) do
-      add('<col width="' .. string.format('%.0f%%', w * 100) .. '" />')
-    end
-  end
+  add('[table')
   local header_row = {}
   local empty_header = true
-  for i, h in pairs(headers) do
-    local align = html_align(aligns[i])
-    table.insert(header_row,'<th align="' .. align .. '">' .. h .. '</th>')
+  for _, h in pairs(headers) do
+    table.insert(header_row,'[tc ' .. h .. ']\n')
     empty_header = empty_header and h == ''
   end
   if not empty_header then
-    add('<tr class="header">')
+    add('[theader [tr')
     for _,h in pairs(header_row) do
       add(h)
     end
-    add('</tr>')
+    add(']]')
   end
-  local class = 'even'
   for _, row in pairs(rows) do
-    class = (class == 'even' and 'odd') or 'even'
-    add('<tr class="' .. class .. '">')
+    add('[tr')
     for i,c in pairs(row) do
-      add('<td align="' .. html_align(aligns[i]) .. '">' .. c .. '</td>')
+      add('[tc '.. c .. ']')
     end
-    add('</tr>')
+    add(']')
   end
-  add('</table>')
+  add(']')
+  if caption ~= '' then
+    add(caption_node(caption))
+  end
   return table.concat(buffer,'\n')
 end
 

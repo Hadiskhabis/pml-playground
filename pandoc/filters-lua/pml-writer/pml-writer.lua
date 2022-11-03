@@ -1,4 +1,4 @@
--- "pml-writer.lua" v0.0.12 | 2022/11/03             | PML 3.1.0 | pandoc 2.19.2
+-- "pml-writer.lua" v0.0.13 | 2022/11/04             | PML 3.1.0 | pandoc 2.19.2
 -- =============================================================================
 -- ** WARNING ** This PML writer is being built on top of the sample writer that
 --               ships with pandoc; generated via:
@@ -90,8 +90,8 @@ local function attributes(attr)
   return table.concat(attr_table)
 end
 
--- Table to store footnotes, so they can be included at the end.
-local notes = {}
+-- Footnotes tracker.
+local fnotes = nil
 
 -- Blocksep is used to separate block elements.
 function Blocksep()
@@ -109,20 +109,19 @@ function Doc(body, metadata, variables)
     table.insert(buffer, s)
   end
   add(body)
-  -- @TBD: Inject Footnotes
---[[
-  if #notes > 0 then
-    add('<ol class="footnotes">')
-    for _,note in pairs(notes) do
-      add(note)
-    end
-    add('</ol>')
+
+  -- Inject Footnotes
+  -- ----------------
+  if fnotes then
+    add(Blocksep())
+    add(HorizontalRule())
+    add('[fnotes]')
   end
---]]
 
   -- Close [ch Nodes
   -- ---------------
   -- add("@ openChNodes: " .. tostring(openChNodes))
+  -- @FIXME: Only works if in-doc headings start at H1
   if openChNodes then
     add('\n')
     for i=1,openChNodes do
@@ -282,17 +281,13 @@ function DoubleQuoted(s)
   return '“' .. s .. '”'
 end
 
--- @TBD: Note()
+-- @WIP: Note()
 function Note(s)
-  local num = #notes + 1
-  -- insert the back reference right before the final closing tag.
-  s = string.gsub(s,
-          '(.*)</', '%1 <a href="#fnref' .. num ..  '">&#8617;</a></')
-  -- add a list item with the note to the note table.
-  table.insert(notes, '<li id="fn' .. num .. '">' .. s .. '</li>')
-  -- return the footnote reference, linked to the note.
-  return '<a id="fnref' .. num .. '" href="#fn' .. num ..
-            '"><sup>' .. num .. '</sup></a>'
+  fnotes = true
+  -- @TODO: PML only supports inline nodes within a footnote text,
+  --        but pandoc supports blocks, so we need to handle the
+  --        latter somehow.
+  return '[fnote ' .. s .. ']'
 end
 
 -- @WIP: Span()

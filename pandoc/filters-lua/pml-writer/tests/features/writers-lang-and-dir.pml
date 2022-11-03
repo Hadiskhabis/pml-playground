@@ -12,7 +12,7 @@ div contents</div>
 
 and more text.
 
-Next paragraph with a <span>span</span> and a word-thatincludesa<span>span</span>right?
+Next paragraph with a [span span] and a word-thatincludesa[span span]right?
 
 ][ch [title Directionality]
 
@@ -24,9 +24,9 @@ rtl div contents</div>
 and more text.
 
 <div dir="ltr">
-and a ltr div. with a <span dir="rtl">rtl span</span>.</div>
+and a ltr div. with a [span rtl span].</div>
 
-Next paragraph with a <span dir="rtl">rtl span</span> and a word-that-includesa<span dir="ltr">ltrspan</span>right?
+Next paragraph with a [span rtl span] and a word-that-includesa[span ltrspan]right?
 
 ][ch [title Languages]
 
@@ -37,9 +37,9 @@ German div contents</div>
 
 and more text.
 
-Next paragraph with a <span lang="en-GB">British span</span> and a word-that-includesa<span lang="de-CH">Swiss German span</span>right?
+Next paragraph with a [span British span] and a word-that-includesa[span Swiss German span]right?
 
-Some <span lang="es">Spanish text</span>.
+Some [span Spanish text].
 
 ][ch [title Combined]
 
@@ -50,7 +50,7 @@ French rtl div contents</div>
 
 and more text.
 
-Next paragraph with a <span lang="en-GB" dir="ltr">British ltr span</span> and a word-that-includesa<span lang="de-CH" dir="ltr">Swiss German ltr span</span>right?
+Next paragraph with a [span British ltr span] and a word-that-includesa[span Swiss German ltr span]right?
 
 
 ]

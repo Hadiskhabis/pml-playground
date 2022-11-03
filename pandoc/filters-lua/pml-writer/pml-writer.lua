@@ -1,4 +1,4 @@
--- "pml-writer.lua" v0.0.11 | 2022/11/03             | PML 3.1.0 | pandoc 2.19.2
+-- "pml-writer.lua" v0.0.12 | 2022/11/03             | PML 3.1.0 | pandoc 2.19.2
 -- =============================================================================
 -- ** WARNING ** This PML writer is being built on top of the sample writer that
 --               ships with pandoc; generated via:
@@ -154,6 +154,23 @@ local function pml_node_verbatim(s)
   return '[verbatim ' .. s .. ']'
 end
 
+-- Helper function to convert an attributes table into
+-- an HTML attribute string that can be injected into PML nodes.
+-- @WIP: html_attributes()
+local function html_attributes(attr)
+  -- @NOTE: A bug in PML 3.1.0 causes multiple 'html_*' attributes to crash,
+  --        so this function can't be used safely until next PMLC release.
+  --        See: pml-lang/pml-companion#91
+  local attr_table = {}
+  for x,y in pairs(attr) do
+    if y and y ~= '' then
+      -- @TODO: Use dedicated quoted attributes escaping function
+      table.insert(attr_table, ' html_' .. x .. '="' .. escape(y,true) .. '"')
+    end
+  end
+  return table.concat(attr_table)
+end
+
 
 -- *****************************************************************************
 --
@@ -219,7 +236,10 @@ function Link(s, tgt, tit, attr)
     return escape(s)
   end
   -- @TODO: Add a dedicated URL escape function:
-  return '[link url=' .. tgt .. ' text="' .. escape(s) .. '"]'
+  -- @NOTE: Removed escaping of 'text' value since it might contain
+  --        styled contents, although these don't seem to work in PML:
+  return '[link url=' .. tgt .. ' text="' .. s .. '"]'
+--return '[link url=' .. tgt .. ' text="' .. escape(s) .. '"]'
 --[[
   return '<a href="' .. escape(tgt,true) .. '" title="' ..
          escape(tit,true) .. '"' .. attributes(attr) .. '>' .. s .. '</a>'
@@ -254,14 +274,12 @@ function DisplayMath(s)
   return '\\[' .. escape(s) .. '\\]'
 end
 
--- @TBD: SingleQuoted()
 function SingleQuoted(s)
-  return '&lsquo;' .. s .. '&rsquo;'
+  return '‘' .. s .. '’'
 end
 
--- @TBD: DoubleQuoted()
 function DoubleQuoted(s)
-  return '&ldquo;' .. s .. '&rdquo;'
+  return '“' .. s .. '”'
 end
 
 -- @TBD: Note()
@@ -277,9 +295,13 @@ function Note(s)
             '"><sup>' .. num .. '</sup></a>'
 end
 
--- @TBD: Span()
+-- @WIP: Span()
 function Span(s, attr)
-  return '<span' .. attributes(attr) .. '>' .. s .. '</span>'
+  -- @TODO: A bug in PML 3.1.0 causes multiple 'html_*' attributes to crash,
+  --        so we temporarily need to suppress html attributes until fixed.
+  --        See: pml-lang/pml-companion#91
+  return '[span ' .. s .. ']'
+  -- return '[span (' .. html_attributes(attr) .. ' ) ' .. s .. ']'
 end
 
 -- @WIP: RawInline()

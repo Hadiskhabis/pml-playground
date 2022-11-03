@@ -20,8 +20,10 @@ Overall progress of the pandoc filter, pending tasks and known issues.
     - [Metadata](#metadata)
     - [TOC Settings](#toc-settings)
 - [Known Issues](#known-issues)
+    - [Links Text](#links-text)
     - [Headings Conversion](#headings-conversion)
     - [List Start Number](#list-start-number)
+    - [HTML Attributes](#html-attributes)
 - [Code Improvements and Sanitation](#code-improvements-and-sanitation)
 
 <!-- /MarkdownTOC -->
@@ -41,7 +43,7 @@ Status of pandoc AST nodes conversion functions, by function names to ease sourc
 - [ ] `DefinitionList()` &rarr; no PML equivalent!
 - [ ] `DisplayMath()`
 - [ ] `Div()`
-- [ ] `DoubleQuoted()`
+- [x] `DoubleQuoted()` &rarr; via literal `“` and `”` curly quote characters.
 - [x] `Emph()`
 - [x] `Header()` — works, but only if doc has Level 1 internal headings.
 - [x] `HorizontalRule()` &rarr; `[html` + `<hr/>`
@@ -56,11 +58,11 @@ Status of pandoc AST nodes conversion functions, by function names to ease sourc
 - [ ] `Plain()`
 - [x] `RawBlock()` — only HTML contents are preserved.
 - [x] `RawInline()` &rarr; `[verbatim` — only HTML contents are preserved.
-- [ ] `SingleQuoted()`
+- [x] `SingleQuoted()` &rarr; via literal `‘` and `’` curly quote characters.
 - [x] `SmallCaps()` &rarr; `[span (html_style=`
 - [x] `SoftBreak()` &rarr; `\n`
 - [x] `Space()`
-- [ ] `Span()`
+- [ ] `Span()` &rarr; `[span` — WIP, but HTML Attributes are suppressed to due PMLC bug (See: [Issue #91]).
 - [x] `Str()`
 - [x] `Strikeout()`
 - [x] `Strong()`
@@ -109,6 +111,16 @@ Some of pandoc TOC settings should be portable to PML via `[doc [options` sub-no
 
 Problems that need addressing and which we are already aware of.
 
+## Links Text
+
+When rendering links as `[link` nodes, if we escape the contents of the `text` attributes it will also escape any formatting nodes therein, so I temporarily skipped escaping altogether, in order to preserve the tags.
+
+But I noticed that the resulting PML code is not being styled, and I'm not sure if it's because the `[link` node doesn't support further styling. In any case, since pandoc supports styles in links text, I'll have to address the problem, by either:
+
+- correctly styling link text according to PML rules,
+- stripping away the styles, or
+- rendering the links as raw HTML (when styled only?)
+
 ## Headings Conversion
 
 When converting from pandoc markdown, the filter expects all in-document headings to be Level 1. If the author considers the document `title` (metadata) as the Level-1 entry, and uses Level 2 headings only withing the document (i.e. `##`) then the filter will produce an extra closing bracket at the document end, resulting in an error.
@@ -117,8 +129,13 @@ I need to find a way to track when there's a discrepancy between expected and ac
 
 ## List Start Number
 
-The code that handles the list `start` attribute has been implemented in the filter, but it had to be circumvented because `html_start` crashes PMLC 3.1.0 due to a bug. (See: [Issue #91](https://github.com/pml-lang/pml-companion/issues/91))
+The code that handles the list `start` attribute has been implemented in the filter, but it had to be circumvented because `html_start` crashes PMLC 3.1.0 due to a bug. (See: [Issue #91])
 
+## HTML Attributes
+
+Currently, due to the PMLC 3.1.0 bug mentioned in [Issue #91], which crashes PMLC when a node has multiple HTML attributes, we had to temporary suppress emitting HTML attributes in the output. This is affecting:
+
+- `Span()` and [text highlighting via `.mark`](https://pandoc.org/MANUAL.html#highlighting)
 
 # Code Improvements and Sanitation
 
@@ -148,5 +165,9 @@ The Lua writer code could still be optimized, and there are aspects of the conve
 [attributes escaping rules]: https://www.pml-lang.dev/docs/user_manual/index.html#attribute_escape_characters "PML User Manual » Escape Characters » Attributes"
 
 [node escaping rules]: https://www.pml-lang.dev/docs/user_manual/index.html#node_escape_characters "PML User Manual » Escape Characters » Nodes"
+
+<!-- Issues & Discussions -->
+
+[Issue #91]: https://github.com/pml-lang/pml-companion/issues/91 "Issue #91 — Bug in PMLC 3.1.0 causes crash with multiple HTML attributes"
 
 <!-- EOF -->

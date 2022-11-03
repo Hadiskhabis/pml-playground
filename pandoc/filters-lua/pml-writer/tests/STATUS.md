@@ -48,7 +48,7 @@ Status of pandoc AST nodes conversion functions, by function names to ease sourc
 - [x] `Image()`
 - [ ] `InlineMath()`
 - [ ] `LineBlock()`
-- [ ] `LineBreak()`
+- [x] `LineBreak()` &rarr; `[nl]`
 - [x] `Link()` — works, but discards title and attributes.
 - [ ] `Note()` &rarr; `[fnote_def`
 - [x] `OrderedList()` — fails due to PMLC bug, but code is there.
@@ -58,7 +58,7 @@ Status of pandoc AST nodes conversion functions, by function names to ease sourc
 - [ ] `RawInline()`
 - [ ] `SingleQuoted()`
 - [x] `SmallCaps()` &rarr; `[span (html_style=`
-- [x] `SoftBreak()`
+- [x] `SoftBreak()` &rarr; `\n`
 - [x] `Space()`
 - [ ] `Span()`
 - [x] `Str()`

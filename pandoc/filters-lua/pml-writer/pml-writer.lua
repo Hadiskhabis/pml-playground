@@ -1,4 +1,4 @@
--- "pml-writer.lua" v0.0.9 | 2022/11/03              | PML 3.1.0 | pandoc 2.19.2
+-- "pml-writer.lua" v0.0.10 | 2022/11/03             | PML 3.1.0 | pandoc 2.19.2
 -- =============================================================================
 -- ** WARNING ** This PML writer is being built on top of the sample writer that
 --               ships with pandoc; generated via:
@@ -161,9 +161,8 @@ function SoftBreak()
   return '\n'
 end
 
--- @TBD: LineBreak()
 function LineBreak()
-  return '<br/>'
+  return '[nl]\n'
 end
 
 function Emph(s)

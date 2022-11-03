@@ -200,8 +200,8 @@ Raw PML nodes are not parsed any further, so they can't contain sub-nodes and th
 | &check;
 | &check;
 |
- id +
- label +
+  id +
+  label +
 
 | https://www.pml-lang.dev/docs/reference_manual/index.html#node_audio[Audio (Sound)^] | `audio`
 | block
@@ -209,10 +209,10 @@ Raw PML nodes are not parsed any further, so they can't contain sub-nodes and th
 | &cross;
 | &check;
 |
- align +
- border +
- id +
- source +
+  align +
+  border +
+  id +
+  source +
 
 | https://www.pml-lang.dev/docs/reference_manual/index.html#node_b[Bold Text^] | `b`
 | inline
@@ -234,7 +234,7 @@ Raw PML nodes are not parsed any further, so they can't contain sub-nodes and th
 | &check;
 | &check;
 |
- id +
+  id +
 
 | https://www.pml-lang.dev/docs/reference_manual/index.html#node_ch[Chapter^] | `ch`
 | block
@@ -242,7 +242,7 @@ Raw PML nodes are not parsed any further, so they can't contain sub-nodes and th
 | &check;
 | &check;
 |
- id +
+  id +
 
 | https://www.pml-lang.dev/docs/reference_manual/index.html#node_code[Source Code^] | `code`
 | block
@@ -250,9 +250,9 @@ Raw PML nodes are not parsed any further, so they can't contain sub-nodes and th
 | &cross;
 | &check;
 |
- highlight +
- id +
- lang +
+  highlight +
+  id +
+  lang +
 
 | https://www.pml-lang.dev/docs/reference_manual/index.html#node_div[Division^] | `div`
 | block
@@ -260,7 +260,7 @@ Raw PML nodes are not parsed any further, so they can't contain sub-nodes and th
 | &check;
 | &check;
 |
- id +
+  id +
 
 | https://www.pml-lang.dev/docs/reference_manual/index.html#node_doc[Document^] | `doc`
 | block
@@ -268,7 +268,7 @@ Raw PML nodes are not parsed any further, so they can't contain sub-nodes and th
 | &check;
 | &check;
 |
- id +
+  id +
 
 | https://www.pml-lang.dev/docs/reference_manual/index.html#node_el[List Element^] | `el`
 | block
@@ -276,7 +276,7 @@ Raw PML nodes are not parsed any further, so they can't contain sub-nodes and th
 | &check;
 | &check;
 |
- id +
+  id +
 
 | https://www.pml-lang.dev/docs/reference_manual/index.html#node_fnote[Inline Footnote^] | `fnote`
 | inline
@@ -291,7 +291,7 @@ Raw PML nodes are not parsed any further, so they can't contain sub-nodes and th
 | &check;
 | &check;
 |
- id +
+  id +
 
 | https://www.pml-lang.dev/docs/reference_manual/index.html#node_fnote_ref[Footnote Reference^] | `fnote_ref`
 | inline
@@ -299,8 +299,8 @@ Raw PML nodes are not parsed any further, so they can't contain sub-nodes and th
 | &cross;
 | &check;
 |
- did +
- text +
+  did +
+  text +
 
 | https://www.pml-lang.dev/docs/reference_manual/index.html#node_fnotes[Footnotes Placeholder^] | `fnotes`
 | block
@@ -308,7 +308,7 @@ Raw PML nodes are not parsed any further, so they can't contain sub-nodes and th
 | &cross;
 | &check;
 |
- id +
+  id +
 
 | https://www.pml-lang.dev/docs/reference_manual/index.html#node_header[Header^] | `header`
 | block
@@ -316,7 +316,7 @@ Raw PML nodes are not parsed any further, so they can't contain sub-nodes and th
 | &check;
 | &check;
 |
- id +
+  id +
 
 | https://www.pml-lang.dev/docs/reference_manual/index.html#node_html[HTML Code^] | `html`
 | block
@@ -324,7 +324,7 @@ Raw PML nodes are not parsed any further, so they can't contain sub-nodes and th
 | &cross;
 | &check;
 |
- id +
+  id +
 
 | https://www.pml-lang.dev/docs/reference_manual/index.html#node_i[Italic Text^] | `i`
 | inline
@@ -339,13 +339,13 @@ Raw PML nodes are not parsed any further, so they can't contain sub-nodes and th
 | &cross;
 | &check;
 |
- align +
- border +
- height +
- id +
- link +
- source +
- width +
+  align +
+  border +
+  height +
+  id +
+  link +
+  source +
+  width +
 
 | https://www.pml-lang.dev/docs/reference_manual/index.html#node_input[Input^] | `input`
 | block
@@ -353,7 +353,7 @@ Raw PML nodes are not parsed any further, so they can't contain sub-nodes and th
 | &cross;
 | &check;
 |
- id +
+  id +
 
 | https://www.pml-lang.dev/docs/reference_manual/index.html#node_insert_code[Insert Source Code^] | `insert_code`
 | block
@@ -361,14 +361,14 @@ Raw PML nodes are not parsed any further, so they can't contain sub-nodes and th
 | &cross;
 | &check;
 |
- file +
- from_regex +
- highlight +
- id +
- include_from_regex +
- include_to_regex +
- lang +
- to_regex +
+  file +
+  from_regex +
+  highlight +
+  id +
+  include_from_regex +
+  include_to_regex +
+  lang +
+  to_regex +
 
 | https://www.pml-lang.dev/docs/reference_manual/index.html#node_link[URL Link^] | `link`
 | inline
@@ -376,8 +376,8 @@ Raw PML nodes are not parsed any further, so they can't contain sub-nodes and th
 | &cross;
 | &check;
 |
- text +
- url +
+  text +
+  url +
 
 | https://www.pml-lang.dev/docs/reference_manual/index.html#node_list[List^] | `list`
 | block
@@ -385,7 +385,7 @@ Raw PML nodes are not parsed any further, so they can't contain sub-nodes and th
 | &check;
 | &check;
 |
- id +
+  id +
 
 | https://www.pml-lang.dev/docs/reference_manual/index.html#node_monospace[Monospace^] | `monospace`
 | block
@@ -393,7 +393,7 @@ Raw PML nodes are not parsed any further, so they can't contain sub-nodes and th
 | &check;
 | &check;
 |
- id +
+  id +
 
 | https://www.pml-lang.dev/docs/reference_manual/index.html#node_nl[New Line^] | `nl`
 | inline
@@ -408,7 +408,7 @@ Raw PML nodes are not parsed any further, so they can't contain sub-nodes and th
 | &check;
 | &check;
 |
- id +
+  id +
 
 | https://www.pml-lang.dev/docs/reference_manual/index.html#node_options[Options^] | `options`
 | block
@@ -423,7 +423,7 @@ Raw PML nodes are not parsed any further, so they can't contain sub-nodes and th
 | &cross;
 | &check;
 |
- id +
+  id +
 
 | https://www.pml-lang.dev/docs/reference_manual/index.html#node_p[Paragraph^] | `p`
 | block
@@ -431,7 +431,7 @@ Raw PML nodes are not parsed any further, so they can't contain sub-nodes and th
 | &check;
 | &check;
 |
- id +
+  id +
 
 | https://www.pml-lang.dev/docs/reference_manual/index.html#node_quote[Quote^] | `quote`
 | block
@@ -439,8 +439,8 @@ Raw PML nodes are not parsed any further, so they can't contain sub-nodes and th
 | &check;
 | &check;
 |
- id +
- source +
+  id +
+  source +
 
 | https://www.pml-lang.dev/docs/reference_manual/index.html#node_sp[Space Character^] | `sp`
 | inline
@@ -476,7 +476,7 @@ Raw PML nodes are not parsed any further, so they can't contain sub-nodes and th
 | &check;
 | &check;
 |
- id +
+  id +
 
 | https://www.pml-lang.dev/docs/reference_manual/index.html#node_sup[Superscript Text^] | `sup`
 | inline
@@ -491,8 +491,8 @@ Raw PML nodes are not parsed any further, so they can't contain sub-nodes and th
 | &check;
 | &check;
 |
- halign +
- id +
+  halign +
+  id +
 
 | https://www.pml-lang.dev/docs/reference_manual/index.html#node_table_data[Table Data^] | `table_data`
 | block
@@ -500,8 +500,8 @@ Raw PML nodes are not parsed any further, so they can't contain sub-nodes and th
 | &cross;
 | &check;
 |
- halign +
- id +
+  halign +
+  id +
 
 | https://www.pml-lang.dev/docs/reference_manual/index.html#node_tc[Table Cell^] | `tc`
 | block
@@ -509,7 +509,7 @@ Raw PML nodes are not parsed any further, so they can't contain sub-nodes and th
 | &check;
 | &check;
 |
- id +
+  id +
 
 | https://www.pml-lang.dev/docs/reference_manual/index.html#node_text[Text^] | `text`
 | inline
@@ -524,7 +524,7 @@ Raw PML nodes are not parsed any further, so they can't contain sub-nodes and th
 | &check;
 | &check;
 |
- id +
+  id +
 
 | https://www.pml-lang.dev/docs/reference_manual/index.html#node_theader[Table Header^] | `theader`
 | block
@@ -532,7 +532,7 @@ Raw PML nodes are not parsed any further, so they can't contain sub-nodes and th
 | &check;
 | &check;
 |
- id +
+  id +
 
 | https://www.pml-lang.dev/docs/reference_manual/index.html#node_title[Chapter Title^] | `title`
 | block
@@ -540,7 +540,7 @@ Raw PML nodes are not parsed any further, so they can't contain sub-nodes and th
 | &check;
 | &check;
 |
- id +
+  id +
 
 | https://www.pml-lang.dev/docs/reference_manual/index.html#node_tr[Table Row^] | `tr`
 | block
@@ -548,7 +548,7 @@ Raw PML nodes are not parsed any further, so they can't contain sub-nodes and th
 | &check;
 | &check;
 |
- id +
+  id +
 
 | https://www.pml-lang.dev/docs/reference_manual/index.html#node_verbatim[Verbatim Text^] | `verbatim`
 | inline
@@ -563,12 +563,12 @@ Raw PML nodes are not parsed any further, so they can't contain sub-nodes and th
 | &cross;
 | &check;
 |
- align +
- border +
- height +
- id +
- source +
- width +
+  align +
+  border +
+  height +
+  id +
+  source +
+  width +
 
 | https://www.pml-lang.dev/docs/reference_manual/index.html#node_xref[Cross-Reference^] | `xref`
 | inline
@@ -576,8 +576,8 @@ Raw PML nodes are not parsed any further, so they can't contain sub-nodes and th
 | &cross;
 | &check;
 |
- node_id +
- text +
+  node_id +
+  text +
 
 | https://www.pml-lang.dev/docs/reference_manual/index.html#node_youtube_video[Embedded Youtube Video^] | `youtube_video`
 | block
@@ -585,12 +585,12 @@ Raw PML nodes are not parsed any further, so they can't contain sub-nodes and th
 | &cross;
 | &check;
 |
- align +
- border +
- height +
- id +
- width +
- yid +
+  align +
+  border +
+  height +
+  id +
+  width +
+  yid +
 |=============================================================================
 
 // end::table-nodes-info[]

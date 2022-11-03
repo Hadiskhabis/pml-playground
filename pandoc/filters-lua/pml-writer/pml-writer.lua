@@ -1,4 +1,4 @@
--- "pml-writer.lua" v0.0.8 | 2022/11/02            | PML 3.1.0 | pandoc 2.19.2
+-- "pml-writer.lua" v0.0.9 | 2022/11/03              | PML 3.1.0 | pandoc 2.19.2
 -- =============================================================================
 -- ** WARNING ** This PML writer is being built on top of the sample writer that
 --               ships with pandoc; generated via:
@@ -80,7 +80,12 @@ end
 
 -- Helper function to convert an attributes table into
 -- a string that can be put into HTML tags.
+-- @TBD: attributes()
 local function attributes(attr)
+  -- @TODO: Adapt function to ensure that attributes are handled
+  --        the PML way. E.g. via HTML Attributes. But also need
+  --        to ensure that natively supported attributes (ID?)
+  --        are properly emitted.
   local attr_table = {}
   for x,y in pairs(attr) do
     if y and y ~= '' then
@@ -132,11 +137,16 @@ function Doc(body, metadata, variables)
   return table.concat(buffer,'\n') .. '\n'
 end
 
--- PANDOC ELEMENTS
--- ===============
--- The functions that follow render corresponding pandoc elements.
--- s is always a string, attr is always a table of attributes, and
--- items is always an array of strings (the items in a list).
+-- *****************************************************************************
+--
+--                              PANDOC AST ELEMENTS
+--
+-- *****************************************************************************
+-- Each function renders a corresponding pandoc element.
+-- Parameters naming conventions:
+--   * s -> always a string
+--   * attr -> always a table of attributes
+--   * items -> always an array of strings (the items in a list).
 -- Comments indicate the types of other variables.
 
 function Str(s)
@@ -151,6 +161,7 @@ function SoftBreak()
   return '\n'
 end
 
+-- @TBD: LineBreak()
 function LineBreak()
   return '<br/>'
 end
@@ -183,6 +194,7 @@ function Strikeout(s)
   return '[strike ' .. s .. ']'
 end
 
+-- @WIP: Link()
 function Link(s, tgt, tit, attr)
   -- @TODO: Handle title + attributes
   if #tgt == 0 then
@@ -206,6 +218,7 @@ function Image(s, src, tit, attr)
   return outstr .. ']'
 end
 
+-- @WIP: Code()
 function Code(s, attr)
   -- @TODO: Handle inline-code attributes!
   return '[c ' .. escape(s) .. ']'
@@ -214,22 +227,27 @@ function Code(s, attr)
 --]]
 end
 
+-- @TBD: InlineMath()
 function InlineMath(s)
   return '\\(' .. escape(s) .. '\\)'
 end
 
+-- @TBD: DisplayMath()
 function DisplayMath(s)
   return '\\[' .. escape(s) .. '\\]'
 end
 
+-- @TBD: SingleQuoted()
 function SingleQuoted(s)
   return '&lsquo;' .. s .. '&rsquo;'
 end
 
+-- @TBD: DoubleQuoted()
 function DoubleQuoted(s)
   return '&ldquo;' .. s .. '&rdquo;'
 end
 
+-- @TBD: Note()
 function Note(s)
   local num = #notes + 1
   -- insert the back reference right before the final closing tag.
@@ -242,10 +260,12 @@ function Note(s)
             '"><sup>' .. num .. '</sup></a>'
 end
 
+-- @TBD: Span()
 function Span(s, attr)
   return '<span' .. attributes(attr) .. '>' .. s .. '</span>'
 end
 
+-- @TBD: RawInline()
 function RawInline(format, str)
   if format == 'html' then
     return str
@@ -254,6 +274,7 @@ function RawInline(format, str)
   end
 end
 
+-- @TBD: Cite()
 function Cite(s, cs)
   local ids = {}
   for _,cit in ipairs(cs) do
@@ -263,11 +284,19 @@ function Cite(s, cs)
     '">' .. s .. '</span>'
 end
 
+-- @TBD: Plain()
 function Plain(s)
+  -- @TODO: Need to ensure that this type of contents doesn't need
+  --        escaping or other type of filtering (e.g. HTML entities).
   return s
 end
 
+-- @TBD: Para()
 function Para(s)
+  -- @TODO: Need to ensure that this type of contents doesn't need
+  --        escaping or other type of filtering (e.g. HTML entities).
+  --        Also, check if pandoc paragraph can carry IDs, classes,
+  --        etc., since PML has a '[p' node for that.
   return s
 --[[
   return '<p>' .. s .. '</p>'
@@ -277,6 +306,7 @@ end
 currChLev = 0
 openChNodes = 0
 
+-- @WIP: Header()
 -- lev is an integer, the header level.
 function Header(lev, s, attr)
   local closeNodes = ''
@@ -303,15 +333,18 @@ function BlockQuote(s)
   return '[quote\n' .. s .. '\n]'
 end
 
+-- @TBD: HorizontalRule()
 function HorizontalRule()
   return '[html\n<hr/>\nhtml]'
 end
 
+-- @TBD: LineBlock()
 function LineBlock(ls)
   return '<div style="white-space: pre-line;">' .. table.concat(ls, '\n') ..
          '</div>'
 end
 
+-- @WIP: CodeBlock()
 function CodeBlock(s, attr)
   -- If code block has class 'dot', pipe the contents through dot
   -- and base64, and include the base64-encoded png as a data: URL.
@@ -328,6 +361,7 @@ function CodeBlock(s, attr)
   end
 end
 
+-- @WIP: BulletList()
 function BulletList(items)
   local buffer = {}
   for _, item in pairs(items) do
@@ -348,6 +382,7 @@ num_styles_lut = {
   -- Decimal -> already covered by our fallback value
 }
 
+-- @WIP: OrderedList()
 function OrderedList(items, start, style)
   -- @TODO: Extract info about:
   --   [x] Numerals list-style-type.
@@ -372,6 +407,7 @@ function OrderedList(items, start, style)
           start_str .. ")\n" .. table.concat(buffer, "\n") .. "\n]"
 end
 
+-- @TBD: DefinitionList()
 function DefinitionList(items)
   local buffer = {}
   for _,item in pairs(items) do
@@ -382,9 +418,11 @@ function DefinitionList(items)
   return '<dl>\n' .. table.concat(buffer, '\n') .. '\n</dl>'
 end
 
+
 -- Convert pandoc alignment to something HTML can use.
 -- align is AlignLeft, AlignRight, AlignCenter, or AlignDefault.
 local function html_align(align)
+  -- @TODO: Move elsewhere and adapt to PML use-case!
   if align == 'AlignLeft' then
     return 'left'
   elseif align == 'AlignRight' then
@@ -414,6 +452,7 @@ end
 -- Caption is a string, aligns is an array of strings,
 -- widths is an array of floats, headers is an array of
 -- strings, rows is an array of arrays of strings.
+-- @WIP: Table()
 function Table(caption, aligns, widths, headers, rows)
   -- @NOTE: Column widths info is discarded. See original "sample.lua"
   --        on how it was preserved in HTML. For PML, it requires
@@ -427,22 +466,22 @@ function Table(caption, aligns, widths, headers, rows)
   local header_row = {}
   local empty_header = true
   for _, h in pairs(headers) do
-    table.insert(header_row,'[tc ' .. h .. ']\n')
+    table.insert(header_row,'    [tc ' .. h .. ']\n')
     empty_header = empty_header and h == ''
   end
   if not empty_header then
-    add('[theader [tr')
+    add('  [theader [tr')
     for _,h in pairs(header_row) do
       add(h)
     end
-    add(']]')
+    add('  ]]')
   end
   for _, row in pairs(rows) do
-    add('[tr')
+    add('  [tr')
     for i,c in pairs(row) do
-      add('[tc '.. c .. ']')
+      add('    [tc '.. c .. ']')
     end
-    add(']')
+    add('  ]')
   end
   add(']')
   if caption ~= '' then
@@ -451,6 +490,7 @@ function Table(caption, aligns, widths, headers, rows)
   return table.concat(buffer,'\n')
 end
 
+-- @WIP: RawBlock()
 function RawBlock(format, str)
   if format == 'html' then
     -- @TODO: Intercept HTML comments and convert them to PML comments!
@@ -463,12 +503,16 @@ function RawBlock(format, str)
   end
 end
 
+-- @WIP: Div()
 function Div(s, attr)
   return '<div' .. attributes(attr) .. '>\n' .. s .. '</div>'
 end
 
--- RUNTIME WARNINGS
--- ================
+-- *****************************************************************************
+--
+--                               RUNTIME WARNINGS
+--
+-- *****************************************************************************
 -- The following code will produce runtime warnings when you haven't defined
 -- all of the functions you need for the custom writer, so it's useful
 -- to include when you're working on a writer.

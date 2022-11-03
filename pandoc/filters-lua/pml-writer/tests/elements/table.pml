@@ -6,24 +6,24 @@ Tristano Ajmone |
 
 
 [table
-[theader [tr
-[tc A]
+  [theader [tr
+    [tc A]
 
-[tc B]
+    [tc B]
 
-[tc C]
+    [tc C]
 
-]]
-[tr
-[tc a1]
-[tc b1]
-[tc c1]
-]
-[tr
-[tc a2]
-[tc b2]
-[tc c2]
-]
+  ]]
+  [tr
+    [tc a1]
+    [tc b1]
+    [tc c1]
+  ]
+  [tr
+    [tc a2]
+    [tc b2]
+    [tc c2]
+  ]
 ]
 
 

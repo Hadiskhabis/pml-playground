@@ -44,7 +44,7 @@ Status of pandoc AST nodes conversion functions, by function names to ease sourc
 - [ ] `DoubleQuoted()`
 - [x] `Emph()`
 - [x] `Header()` — works, but only if doc has Level 1 internal headings.
-- [ ] `HorizontalRule()`
+- [x] `HorizontalRule()` &rarr; `[html` + `<hr/>`
 - [x] `Image()`
 - [ ] `InlineMath()`
 - [ ] `LineBlock()`
@@ -54,8 +54,8 @@ Status of pandoc AST nodes conversion functions, by function names to ease sourc
 - [x] `OrderedList()` — fails due to PMLC bug, but code is there.
 - [ ] `Para()`
 - [ ] `Plain()`
-- [x] `RawBlock()` — works, but can be improved.
-- [ ] `RawInline()`
+- [x] `RawBlock()` — only HTML contents are preserved.
+- [x] `RawInline()` &rarr; `[verbatim` — only HTML contents are preserved.
 - [ ] `SingleQuoted()`
 - [x] `SmallCaps()` &rarr; `[span (html_style=`
 - [x] `SoftBreak()` &rarr; `\n`
@@ -124,10 +124,10 @@ The code that handles the list `start` attribute has been implemented in the fil
 
 The Lua writer code could still be optimized, and there are aspects of the conversion process which haven't been fully tested yet.
 
-- [ ] **PML Node Functions** — Some pandoc elements result in the emission of common PML nodes, so we might benefit from creating dedicated functions for PML nodes:
-    + [x] `[caption` &rarr; `caption_node()` — shared by images, tables, and maybe other pandoc elements.
-    + [ ] `[html` — raw HTML nodes are used by elements which have no PML counterpart, but could also be used as a temporary solution for unported elements, so the filter can be used even if not fully implemented.
-    + [ ] Group PML node-emission functions together in the source file, and adopt a proper naming convention for them.
+- [ ] **PML Node Functions** — Some pandoc elements result in common PML nodes, so we might benefit from creating dedicated functions for emitting PML nodes:
+    + [x] `[caption` &rarr; `pml_node_caption()` — shared by images, tables, and maybe other pandoc elements.
+    + [x] `[html`  &rarr; `pml_node_html()` — raw HTML nodes are used by elements which have no PML counterpart, but can also be used as a temporary solution for unported elements, so that the filter can be used even if not fully implemented.
+    + [x] `[verbatim` &rarr; `pml_node_verbatim()` — raw inline HTML needs to be rendered via `[verbatim` to preserve contents flow.
 - [ ] **Contents Filtering** — since the filter is based on the Lua sample filter for an HTML writer, all element functions need to be checked to ensure that node contents and attributes values are handled properly according to PML rules.
     + [ ] **Contents escaping** — [node escaping rules] are handled via `escape()`, which has been quickly adapted to cover PML escaping rules, but its code might need improvements, and also the way its currently used is based on the sample filter and its needs for HTML:
         * [ ] Rename `escape()` to `node_escape()`.

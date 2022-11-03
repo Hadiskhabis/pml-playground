@@ -1,4 +1,4 @@
--- "pml-writer.lua" v0.0.10 | 2022/11/03             | PML 3.1.0 | pandoc 2.19.2
+-- "pml-writer.lua" v0.0.11 | 2022/11/03             | PML 3.1.0 | pandoc 2.19.2
 -- =============================================================================
 -- ** WARNING ** This PML writer is being built on top of the sample writer that
 --               ships with pandoc; generated via:
@@ -73,11 +73,6 @@ local function escape(s, in_attribute)
     end)
 end
 
--- Emit Caption Node
-local function caption_node(s)
-  return '[caption ' .. escape(s) .. ']'
-end
-
 -- Helper function to convert an attributes table into
 -- a string that can be put into HTML tags.
 -- @TBD: attributes()
@@ -136,6 +131,29 @@ function Doc(body, metadata, variables)
   end
   return table.concat(buffer,'\n') .. '\n'
 end
+
+-- *****************************************************************************
+--
+--                            PML NODES & ATTRIBUTES
+--
+-- *****************************************************************************
+
+-- Function to format specific PML nodes, shared by multiple pandoc elements,
+-- to keep the module DRY and easier to maintain when PML syntax changes
+-- (as we know too well that this happens quite often).
+
+local function pml_node_caption(s)
+  return '[caption ' .. escape(s) .. ']'
+end
+
+local function pml_node_html(s)
+  return '[html\n' .. s .. '\nhtml]'
+end
+
+local function pml_node_verbatim(s)
+  return '[verbatim ' .. s .. ']'
+end
+
 
 -- *****************************************************************************
 --
@@ -264,11 +282,19 @@ function Span(s, attr)
   return '<span' .. attributes(attr) .. '>' .. s .. '</span>'
 end
 
--- @TBD: RawInline()
+-- @WIP: RawInline()
 function RawInline(format, str)
   if format == 'html' then
-    return str
+    -- @NOTE: The '[verbatim' node is our current best option, since we
+    --        don't want to break the contents flow by introducing a block
+    --        (as '[html' would). But this solution is only good for PML
+    --        files destined to HTML conversion, so in the future it might
+    --        no longer be viable.
+    -- @TODO: Intercept HTML comments and convert them to PML comments!
+    return pml_node_verbatim(str)
   else
+    -- @TODO: Handle non-HTML raw contents!
+    --        Wrap them in PML comments? or verbatim blocks?
     return ''
   end
 end
@@ -332,9 +358,8 @@ function BlockQuote(s)
   return '[quote\n' .. s .. '\n]'
 end
 
--- @TBD: HorizontalRule()
 function HorizontalRule()
-  return '[html\n<hr/>\nhtml]'
+  return pml_node_html'<hr/>'
 end
 
 -- @TBD: LineBlock()
@@ -444,7 +469,7 @@ function CaptionedImage(src, tit, caption, attr)
     return '[image source="' .. escape(src,true) .. '"' ..
             attr.id ..
             ' html_alt="' .. escape(caption) .. '"]' ..
-            caption_node(caption)
+            pml_node_caption(caption)
   end
 end
 
@@ -484,7 +509,7 @@ function Table(caption, aligns, widths, headers, rows)
   end
   add(']')
   if caption ~= '' then
-    add(caption_node(caption))
+    add(pml_node_caption(caption))
   end
   return table.concat(buffer,'\n')
 end
@@ -493,11 +518,10 @@ end
 function RawBlock(format, str)
   if format == 'html' then
     -- @TODO: Intercept HTML comments and convert them to PML comments!
-    return '[html\n' .. str .. '\nhtml]'
---[[
-    return str
---]]
+    return pml_node_html(str)
   else
+    -- @TODO: Handle non-HTML raw contents!
+    --        Wrap them in PML comments? or verbatim blocks?
     return ''
   end
 end

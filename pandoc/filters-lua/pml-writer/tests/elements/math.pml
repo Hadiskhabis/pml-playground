@@ -6,17 +6,21 @@ Tristano Ajmone |
 
 
 [html
+~~~~~
 <!-- Load required MathJax library -->
 <script type="text/javascript" id="MathJax-script" async
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
+~~~~~
 html]
+
 
 Inline math: [verbatim \\(z = x + y\\)]
 
 Display math block:
 
 [html
+~~~~~
 \[
 \begin{vmatrix}
   a & b\\
@@ -24,7 +28,9 @@ Display math block:
 \end{vmatrix}
 =ad-bc
 \]
+~~~~~
 html]
+
 
 [b References:]
 

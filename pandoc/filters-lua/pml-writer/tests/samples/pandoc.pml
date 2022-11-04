@@ -19,8 +19,11 @@ For more info, refer to the [link url=https://pandoc.org/MANUAL.htm text="Pandoc
 ]
 
 [html
+~~~~~
 <!-- end of list -->
+~~~~~
 html]
+
 
 [quote
 Strange women lying in ponds distributing swords is no basis for a system of government.
@@ -143,8 +146,11 @@ Arbitrary start numbers:
 PML doesn’t support horizontal rules, so the element is rendered via raw HTML.
 
 [html
+~~~~~
 <hr/>
+~~~~~
 html]
+
 
 ]][ch [title Inline Elements]
 
@@ -229,12 +235,18 @@ Captioned image without caption:
 [image source="../_assets/pml-cool.png"]
 
 [html
+~~~~~
 <!----------------------------- REFERENCE LINKS ------------------------------>
+~~~~~
 html]
 
+
 [html
+~~~~~
 <!-- EOF -->
+~~~~~
 html]
+
 
 
 ]

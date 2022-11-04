@@ -9,8 +9,11 @@ Since PML doesn’t have support horizontal rulers, we’ll render
 it via a raw HTML node:
 
 [html
+~~~~~
 <hr/>
+~~~~~
 html]
+
 
 Lorem ipsum dolor sit amet.
 

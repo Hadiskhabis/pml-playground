@@ -6,10 +6,13 @@ Tristano Ajmone |
 
 
 [html
+~~~~~
 <div style="background: #d9e3f0; padding: 1em; font-size: 2em;">
 I'm a raw HTML div block.
 </div>
+~~~~~
 html]
+
 
 
 

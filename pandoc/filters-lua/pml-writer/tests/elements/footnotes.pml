@@ -16,8 +16,11 @@ A footnote reference,[fnote A plain footnote.] and another.[fnote A footnote [i 
 
 
 [html
+~~~~~
 <hr/>
+~~~~~
 html]
+
 [fnotes]
 
 

@@ -1,4 +1,4 @@
--- "pml-writer.lua" v0.0.14 | 2022/11/04             | PML 3.1.0 | pandoc 2.19.2
+-- "pml-writer.lua" v0.0.15 | 2022/11/04             | PML 3.1.0 | pandoc 2.19.2
 -- =============================================================================
 -- ** WARNING ** This PML writer is being built on top of the sample writer that
 --               ships with pandoc; generated via:
@@ -146,7 +146,7 @@ local function pml_node_caption(s)
 end
 
 local function pml_node_html(s)
-  return '[html\n' .. s .. '\nhtml]'
+  return '[html\n~~~~~\n' .. s .. '\n~~~~~\nhtml]\n'
 end
 
 local function pml_node_verbatim(s)

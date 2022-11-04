@@ -1,4 +1,4 @@
--- "pml-writer.lua" v0.0.13 | 2022/11/04             | PML 3.1.0 | pandoc 2.19.2
+-- "pml-writer.lua" v0.0.14 | 2022/11/04             | PML 3.1.0 | pandoc 2.19.2
 -- =============================================================================
 -- ** WARNING ** This PML writer is being built on top of the sample writer that
 --               ships with pandoc; generated via:
@@ -263,14 +263,14 @@ function Code(s, attr)
 --]]
 end
 
--- @TBD: InlineMath()
+-- @WIP: InlineMath()
 function InlineMath(s)
-  return '\\(' .. escape(s) .. '\\)'
+  return pml_node_verbatim('\\\\(' .. s .. '\\\\)')
 end
 
--- @TBD: DisplayMath()
+-- @WIP: DisplayMath()
 function DisplayMath(s)
-  return '\\[' .. escape(s) .. '\\]'
+  return pml_node_html('\\[' .. s .. '\\]')
 end
 
 function SingleQuoted(s)

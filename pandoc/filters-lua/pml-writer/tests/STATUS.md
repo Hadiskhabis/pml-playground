@@ -25,6 +25,7 @@ Overall progress of the pandoc filter, pending tasks and known issues.
     - [List Start Number](#list-start-number)
     - [HTML Attributes](#html-attributes)
     - [Footnotes With Blocks](#footnotes-with-blocks)
+    - [TeX Math Support](#tex-math-support)
 - [Code Improvements and Sanitation](#code-improvements-and-sanitation)
 
 <!-- /MarkdownTOC -->
@@ -42,14 +43,14 @@ Status of pandoc AST nodes conversion functions, by function names to ease sourc
 - [x] `Code()` &rarr; `[c` — works, but discards attributes.
 - [x] `CodeBlock()` — work, but needs polishing.
 - [ ] `DefinitionList()` &rarr; no PML equivalent!
-- [ ] `DisplayMath()`
+- [x] `DisplayMath()` &rarr; `[verbatim` — requires [MathJax] JS library (See: [PMLC #92]).
 - [ ] `Div()`
 - [x] `DoubleQuoted()` &rarr; via literal `“` and `”` curly quote characters.
 - [x] `Emph()`
 - [x] `Header()` — works, but only if doc has Level 1 internal headings.
 - [x] `HorizontalRule()` &rarr; `[html` + `<hr/>`
 - [x] `Image()`
-- [ ] `InlineMath()`
+- [x] `InlineMath()` &rarr; `[verbatim` — requires [MathJax] JS library (See: [PMLC #92]).
 - [ ] `LineBlock()`
 - [x] `LineBreak()` &rarr; `[nl]`
 - [x] `Link()` — works, but discards title and attributes.
@@ -63,7 +64,7 @@ Status of pandoc AST nodes conversion functions, by function names to ease sourc
 - [x] `SmallCaps()` &rarr; `[span (html_style=`
 - [x] `SoftBreak()` &rarr; `\n`
 - [x] `Space()`
-- [ ] `Span()` &rarr; `[span` — WIP, but HTML Attributes are suppressed to due PMLC bug (See: [Issue #91]).
+- [ ] `Span()` &rarr; `[span` — WIP, but HTML Attributes are suppressed to due PMLC bug (See: [PMLC #91]).
 - [x] `Str()`
 - [x] `Strikeout()`
 - [x] `Strong()`
@@ -130,11 +131,11 @@ I need to find a way to track when there's a discrepancy between expected and ac
 
 ## List Start Number
 
-The code that handles the list `start` attribute has been implemented in the filter, but it had to be circumvented because `html_start` crashes PMLC 3.1.0 due to a bug. (See: [Issue #91])
+The code that handles the list `start` attribute has been implemented in the filter, but it had to be circumvented because `html_start` crashes PMLC 3.1.0 due to a bug. (See: [PMLC #91])
 
 ## HTML Attributes
 
-Currently, due to the PMLC 3.1.0 bug mentioned in [Issue #91], which crashes PMLC when a node has multiple HTML attributes, we had to temporary suppress emitting HTML attributes in the output. This is affecting:
+Currently, due to the PMLC 3.1.0 bug mentioned in [PMLC #91], which crashes PMLC when a node has multiple HTML attributes, we had to temporary suppress emitting HTML attributes in the output. This is affecting:
 
 - `Span()` and [text highlighting via `.mark`](https://pandoc.org/MANUAL.html#highlighting)
 
@@ -143,6 +144,27 @@ Currently, due to the PMLC 3.1.0 bug mentioned in [Issue #91], which crashes PML
 PML only supports inline nodes within footnotes text, whereas pandoc supports block elements in notes. Currently, the writer doesn't check the footnote contents, and complex footnotes will most likely result in PML documents that fail to covert.
 
 I have no idea how to circumvent this limitation. The choice is between trimming blocks away from footnotes, and discarding part of their text in favor of a valid PML document; or keep the invalid blocks and let the end user fix them manually. IMO, the latter is a better choice since it doesn't result in contents loss.
+
+## TeX Math Support
+
+- See: [PMLC #92].
+
+[TeX math] contents are passed through to HTML via a `[verbatim` node (inline math) or via an `[html` node (display math), which work fine but require the [MathJax] JS library.
+
+Currently, it's the end user who needs to take care of adding the [MathJax] dependency to HTML document, but we might consider having our PML writer take care of this when TeX math contents are present — we can easily track if the `DisplayMath()` or `InlineMath()` functions were called within a document, and inject the required raw HTML accordingly:
+
+```html
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+```
+
+This is how our `elements/math.markdown` test works, we simply include the above as a raw HTML block, within the document body, and it works just fine after the markdown-to-PML and PML-to-HTML conversions.
+
+But if we could find a way to inject that code in the HTML header it would be much better, but I'm not sure if and how this can be achieved with the current PMLC — if the process requires using custom header template files, it's just not worth the effort.
+
+Also, this might soon be resolved if PML introduces dedicated nodes for math notation support (see [PMLC #92] on this).
+
 
 # Code Improvements and Sanitation
 
@@ -173,8 +195,17 @@ The Lua writer code could still be optimized, and there are aspects of the conve
 
 [node escaping rules]: https://www.pml-lang.dev/docs/user_manual/index.html#node_escape_characters "PML User Manual » Escape Characters » Nodes"
 
+<!-- pandoc refs -->
+
+[TeX math]: https://pandoc.org/MANUAL.html#math "Pandoc Manual » Math"
+
+<!-- 3rd party -->
+
+[MathJax]: https://www.mathjax.org "Visit MathJax website"
+
 <!-- Issues & Discussions -->
 
-[Issue #91]: https://github.com/pml-lang/pml-companion/issues/91 "Issue #91 — Bug in PMLC 3.1.0 causes crash with multiple HTML attributes"
+[PMLC #91]: https://github.com/pml-lang/pml-companion/issues/91 "PMLC Issue #91 — Bug in PMLC 3.1.0 causes crash with multiple HTML attributes"
+[PMLC #92]: https://github.com/pml-lang/pml-companion/issues/92 "PMLC Discussion #92 — TeX Math Support"
 
 <!-- EOF -->

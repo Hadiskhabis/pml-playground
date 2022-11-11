@@ -1,8 +1,8 @@
-=begin "Rakefile" v0.2.0 | 2022/11/11 | by Tristano Ajmone
+=begin "Rakefile" v0.2.1 | 2022/11/11 | by Tristano Ajmone
 ================================================================================
 * * *  W A R N I N G  * * *  Due to breaking changes in PMLC 3.0.0 CLI options,
 the following tasks no longer work and were temporarily removed from the default
-task build:   samples   :css
+task build:   :samples
 They will be amended and reintroduced as soon as possible.
 --------------------------------------------------------------------------------
 This is an initial Rakefile proposal for Alan-i18n.  It's fully working and uses
@@ -237,10 +237,12 @@ WRITER_SRCS.each do |s|
     )
   end
   # Pandoc to JSON:
-  json_out_path = s.ext('.json')
-  task :pandoc => json_out_path
-  file json_out_path => s do |t|
-    pandoc2json(t.source)
+  unless s.pathmap("%f") == "math.markdown" # This file fails JSON prettifying, sometimes crashing Rake.
+    json_out_path = s.ext('.json')
+    task :pandoc => json_out_path
+    file json_out_path => s do |t|
+      pandoc2json(t.source)
+    end
   end
   # PML to HTML via PMLC:
   html_out_path = s.ext('.html')

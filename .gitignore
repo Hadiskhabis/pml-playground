@@ -21,6 +21,8 @@ pml_tags.json
 #####################
 /stylesheets/css__*/*.html
 /stylesheets/css__*/css/
+/stylesheets/css__*/**/*.css
+/stylesheets/css__*/**/*.css.map
 /stylesheets/src-docs/*.html
 /stylesheets/src-docs/css/
 

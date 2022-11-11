@@ -65,7 +65,10 @@ Windows users can also install ZeroBrane Studio via [Chocolatey] or [Chocolatey 
     + [Pandoc Filters]
     + [Pandoc Lua Filters]\:
         * [Debugging Lua filters]
-        * [Lua type reference]
+        * [Lua type reference]\:
+            - [Meta][Lua_t Meta]
+            - [Block][Lua_t Block]
+            - [Inline][Lua_t Inline]
 - [jgm/pandoc] — official pandoc repository.
     + [`test/`][pandoc/test/] — test folder with examples.
 - [github.com/pandoc] — pandoc org on GitHub:
@@ -73,6 +76,7 @@ Windows users can also install ZeroBrane Studio via [Chocolatey] or [Chocolatey 
     + [pandoc/lua-filters] — A collection of Lua filters for pandoc:
         * [lua-debug-example] — Example of [debugging Lua filters] with the [ZeroBrane Studio] IDE.
 - [Pandoc AST format] — in [pandoc-types] package (Haskell).
+
 
 <!-- MarkdownTOC:excluded -->
 ## Lua
@@ -107,8 +111,11 @@ Pandoc v2.x includes a Lua 5.3 interpreter and library built into the pandoc exe
 [Pandoc filters]: https://pandoc.org/filters.html
 
 [Pandoc Lua Filters]: https://pandoc.org/lua-filters.html "Pandoc documentation on Lua Filters"
-[Lua type reference]: https://pandoc.org/lua-filters.html#lua-type-reference
 [Debugging Lua filters]: https://pandoc.org/lua-filters.html#debugging-lua-filters
+[Lua type reference]: https://pandoc.org/lua-filters.html#lua-type-reference "Pandoc » Lua Filters » Lua Types"
+[Lua_t Meta]: https://pandoc.org/lua-filters.html#type-meta "Pandoc » Lua Filters » Lua Types » Meta"
+[Lua_t Block]: https://pandoc.org/lua-filters.html#type-block "Pandoc » Lua Filters » Lua Types » Block"
+[Lua_t Inline]: https://pandoc.org/lua-filters.html#type-inline "Pandoc » Lua Filters » Lua Types » Inline"
 
 <!-- pandoc Haskell -->
 

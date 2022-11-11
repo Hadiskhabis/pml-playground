@@ -318,6 +318,12 @@ end
 
 -- @TBD: Cite()
 function Cite(s, cs)
+  -- https://pandoc.org/lua-filters.html#type-cite
+  -- https://pandoc.org/MANUAL.html#citations
+  -- Citation. Fields:
+  --  * content (Inlines)
+  --  * citations -- citation entries (List of Citations)
+  --  * tag, t -- the literal Cite (string)
   local ids = {}
   for _,cit in ipairs(cs) do
     table.insert(ids, cit.citationId)
@@ -328,6 +334,9 @@ end
 
 -- @TBD: Plain()
 function Plain(s)
+  -- https://pandoc.org/lua-filters.html#type-plain
+  -- Plain text, not a paragraph.
+  -- ----------------------------------------------------------------
   -- @TODO: Need to ensure that this type of contents doesn't need
   --        escaping or other type of filtering (e.g. HTML entities).
   return s
@@ -335,6 +344,10 @@ end
 
 -- @TBD: Para()
 function Para(s)
+  -- https://pandoc.org/lua-filters.html#type-para
+  -- A paragraph. Fields:
+  --  * content -- inline content (Inlines)
+  -- ----------------------------------------------------------------
   -- @TODO: Need to ensure that this type of contents doesn't need
   --        escaping or other type of filtering (e.g. HTML entities).
   --        Also, check if pandoc paragraph can carry IDs, classes,
@@ -381,6 +394,10 @@ end
 
 -- @TBD: LineBlock()
 function LineBlock(ls)
+  -- https://pandoc.org/lua-filters.html#type-lineblock
+  -- https://pandoc.org/MANUAL.html#line-blocks
+  -- A line block, i.e. a list of lines, each separated from the next by a newline.
+  --   * content -- inline content (List of lines, i.e. List of Inlines)
   return '<div style="white-space: pre-line;">' .. table.concat(ls, '\n') ..
          '</div>'
 end
@@ -450,6 +467,9 @@ end
 
 -- @TBD: DefinitionList()
 function DefinitionList(items)
+  -- https://pandoc.org/lua-filters.html#type-definitionlist
+  -- https://pandoc.org/MANUAL.html#definition-lists
+  -- Definition list, containing terms and their explanation.
   local buffer = {}
   for _,item in pairs(items) do
     local k, v = next(item)

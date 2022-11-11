@@ -1,4 +1,4 @@
-=begin "Rakefile" v0.1.11 | 2022/10/23 | by Tristano Ajmone
+=begin "Rakefile" v0.2.0 | 2022/11/11 | by Tristano Ajmone
 ================================================================================
 * * *  W A R N I N G  * * *  Due to breaking changes in PMLC 3.0.0 CLI options,
 the following tasks no longer work and were temporarily removed from the default
@@ -101,7 +101,7 @@ end
 ########
 
 # task :default => [:rouge, :sguide, :mustache, :pandoc, :samples, :css]
-task :default => [:rouge, :sguide, :mustache, :pandoc]
+task :default => [:rouge, :sguide, :mustache, :pandoc, :css]
 
 
 ## Clean & Clobber
@@ -110,7 +110,11 @@ require 'rake/clean'
 CLOBBER.include('**/*.html').exclude('**/docinfo.html')
 CLOBBER.include('mustache/*.{txt,md,json}').exclude('**/README.md')
 CLOBBER.include('pandoc/filters-lua/pml-writer/tests/*.{json,pml}')
-CLOBBER.include('stylesheets/css__*/css/')
+CLOBBER.include(
+  'stylesheets/css__*/css/',
+  'stylesheets/css__*/**/*.css',
+  'stylesheets/css__*/**/*.css.map'
+)
 
 
 ## Syntax HL » Rouge
@@ -271,54 +275,70 @@ end
 
 ## Stylesheets
 ##############
-desc "[ BROKEN ] Build CSS tests"
+desc "Build Stylesheets"
 task :css
 
-CSS_FOLDERS = FileList['stylesheets/css__*'].each do |dir|
-  directory "#{dir}/css"
-  css1 = "#{dir}/css/pml-default.css"
-  css2 = "#{dir}/css/pml-print-default.css"
-  scss1 = "#{dir}/pml-default.scss"
-  scss2 = "#{dir}/pml-print-default.scss"
-  task :css => [css1, css2]
-  file css1 => FileList[scss1, "#{dir}/**/_*.scss"] do |t|
-    TaskHeader("Converting Sass to CSS: #{t.source}")
-    cd "#{t.source.pathmap("%d")}"
-    sh "sass #{t.source.pathmap("%f")} css/#{t.name.pathmap("%f")}"
-    cd $repo_root, verbose: false
-  end
-  file css2 => FileList[scss2, "#{dir}/**/_*.scss"] do |t|
-    TaskHeader("Converting Sass to CSS: #{t.source}")
-    cd "#{t.source.pathmap("%d")}"
-    sh "sass #{t.source.pathmap("%f")} css/#{t.name.pathmap("%f")}"
-    cd $repo_root, verbose: false
-  end
-end
-
-# Special additional rules for 'css_default/':
-file 'stylesheets/css__default/css/pml-default.css' => 'stylesheets/pml-default.css'
-file 'stylesheets/css__default/css/pml-print-default.css' => 'stylesheets/pml-print-default.css'
+# @TODO: Detect any '*.pml' test docs within a stylesheet folder ('css__*/')
+#        and convert them to HTML for that folder (only). This will allow
+#        providing ad hoc test files targeting specific CSS features of a
+#        given stylesheet (e.g. custom classes for certain elements).
 
 CSS_DOCS_PML = FileList['stylesheets/src-docs/*.pml']
 CSS_DOCS_DEPS = FileList['stylesheets/_shared/**/*.*'].exclude('**/*.md')
+CSS_FOLDERS = FileList['stylesheets/css__*']
+
+# Stylesheet Folders:
+
+CSS_FOLDERS.each do |dir|
+  # For each stylesheet folder, establish which CSS files need
+  # to generated and create the required Sass file tasks.
+  css_files = FileList["#{dir}/*.scss"].exclude('_*.scss').ext('css').each do |css_src|
+    task :css => css_src
+    sass_src = css_src.ext('scss')
+    file css_src => FileList[sass_src, "#{dir}/**/_*.scss"] do |t|
+      TaskHeader("Converting Sass to CSS: #{t.source}")
+      cd "#{t.source.pathmap("%d")}"
+      sh "sass #{t.source.pathmap("%f")} #{t.name.pathmap("%f")}"
+      cd $repo_root, verbose: false
+    end
+  end
+  CSS_DOCS_PML.each do |pml_doc|
+    # Within each stylesheet folder, build the sample docs using the
+    # CSS files generated via Sass for that folder.
+    html_fpath = dir + '/' + pml_doc.pathmap("%f").ext('html')
+    task :css => html_fpath
+    file html_fpath => [pml_doc, *CSS_DOCS_DEPS, *css_files] do |t|
+      TaskHeader("Building CSS Test Doc: #{t.name}")
+      cd "#{t.name.pathmap("%d")}"
+      # Must pass the list of actual CSS files, because when passing a
+      # directory PMLC treats *every* file in the folder as a stylesheet!
+      # https://github.com/pml-lang/pml-companion/issues/93
+      css_list = ''
+      css_files.each do |f|
+        css_list += f.pathmap("%f") + ','
+      end
+      sh "pmlc p2h -o #{t.name.pathmap("%f")} -css #{css_list} ../../#{t.source}"
+      cd $repo_root, verbose: false
+    end
+  end
+end
+
+# Additional rules for 'css_default/', since the Sass sources therein
+# simply import the original CSS files from the parent directory:
+file 'stylesheets/css__default/pml-default.css' => 'stylesheets/pml-default.css'
+file 'stylesheets/css__default/pml-print-default.css' => 'stylesheets/pml-print-default.css'
+
+
+# Build Test Docs within their source folder
 
 CSS_DOCS_PML.each do |pml_doc|
   html_doc = pml_doc.ext('.html')
-  # task :css => html_doc
+  task :css => html_doc
   file html_doc => [pml_doc, *CSS_DOCS_DEPS] do |t|
     TaskHeader("Converting CSS Test Docs: #{t.source}")
     cd "#{t.source.pathmap("%d")}"
-    # @FIXME: New PMLC 3.0.0 CLI interface!
-    sh "pmlc convert --input_file #{t.source.pathmap("%f")} --output_directory ./"
+    sh "pmlc p2h -o ./#{t.name.pathmap("%f")} #{t.source.pathmap("%f")}"
     cd $repo_root, verbose: false
-  end
-  CSS_FOLDERS.each do |css_dir|
-    html_copy = css_dir + '/' + html_doc.pathmap("%f")
-    task :css => html_copy
-    file html_copy => html_doc do |t|
-      TaskHeader("Copying CSS Test Doc: #{t.name}")
-      FileUtils.cp t.source, t.name.pathmap("%d")
-    end
   end
 end
 

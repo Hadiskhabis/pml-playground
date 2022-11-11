@@ -6,12 +6,7 @@
 
 Experimenting with PML CSS files via [Sass].
 
-> **WARNING** — Due to breaking changes in PMLC 3.0.0 command line interface and options, this sub-project no longer works and its associated `css` Rake task has been temporarily removed from the default build.
->
-> PMLC 3 introduces [new CSS related options] that render obsolete the current project structure and method, allowing a much cleaner (and hacks-free) approach to testing custom CSS files in PML documents.
-> Therefore, this sub-project will soon be revised from the ground up in order to exploit the new features of PMLC 3.
-
-[new CSS related options]: https://www.pml-lang.dev/docs/commands_manual/index.html#command_PML_to_HTML "See the PMLC Commands Reference Manual"
+> **NEWS** — The stylesheets sub-project now uses the new [new CSS related options] introduced in PMLC 3.x, which allow overriding the default stylesheets with custom `.css` files, which has improved its Rake automation.
 
 -----
 
@@ -36,7 +31,7 @@ Experimenting with PML CSS files via [Sass].
 - [`/_shared/`][_shared/] — assets shared by all test docs.
 - [`/css__default/`][css__default/] — PML default CSS tests.
 - [`/src-docs/`][src-docs/] — test docs sources (PML).
-- [`fetch.bat`][fetch.bat] — fetch latest [default PML stylesheets] from [converter] repository using cURL:
+- [`fetch.bat`][fetch.bat] — fetch latest [default PML stylesheets] from [pml-companion] repository using cURL:
     + [`pml-default.css`][pml-default.css]
     + [`pml-print-default.css`][pml-print-default.css]
 
@@ -60,32 +55,40 @@ or, to force-rebuild them:
 
 The tests system in this directory is designed to allow contributors to add new stylesheets or test documents without having to tweak the main `Rakefile`.
 
-The `Rakefile` is driven rules based on pattern-matching naming conventions, so as long as you abide to the following descriptions you can add new assets to this directory and they will be immediately automated.
+The `Rakefile` is driven by rules based on pattern-matching naming conventions, so as long as you abide to the following descriptions you can add new assets to this directory and they will be immediately automated.
 
 ## Stylesheet Folders
 
-Every folder with a name starting in `css__` contains a different stylesheet to be testes.
-The stylesheets are build from Sass, and each folder _**must**_ contain two Sass main sources named:
+Every folder with a name starting in `css__` contains a different set of stylesheets (one or more) to be tested. All `*.css` files found within a stylesheet folder will be used when building the test HTML documents — i.e. having separate CSS files it's just a matter of convenience.
 
-- `pml-default.scss`
-- `pml-print-default.scss`
+You are not meant to create any `*.css` files directly: instead work on the Sass sources (`*.scss`), and let Rake create each CSS stylesheet automatically from it.
 
-You can add as many Sass modules (`_*.scss`) as needed within each stylesheet folder, and you may organize your Sass modules into subfolders too (`**/_*.scss`).
+> **WARNING!** — All `*.css` files within this directory will be automatically deleted (and _lost_) when the project is clobbered (i.e. `rake clobber`).
 
-When rake detects changes to the Sass sources or their modules, it will automatically (re)compiler them to CSS (in the `css/` subfolder, which is where the HTML docs will be looking for them).
+Sass sources can be arbitrarily named, and their filename will determine the name of the final CSS stylesheet since the two will only differ in their file extension:
+
+- `<filename>.scss` &rarr; `<filename>.css`
+
+You can add to each stylesheet directory as many Sass modules (`_*.scss`) as you like, and even organize them into subfolders. Rake will track changes to any Sass modules, along with Sass sources, and whenever a module has changed it will rebuild the entire stylesheet directory.
 
 The [`/css__default/`][css__default/] folder is a special case, since its Sass sources simply import the default PML stylesheets found in the root folder of the stylesheets project:
 
 - [`pml-default.css`][pml-default.css]
 - [`pml-print-default.css`][pml-print-default.css]
 
-It's intended for comparison with other custom CSS files.
+Currently, it's just intended for study and comparison with other custom CSS files.
+
 
 ## Test Documents
 
-Any `*.pml` document inside the [`/src-docs/`][src-docs/] folder will be converted to HTML and copied to each and every `css__*/` stylesheet folder (the HTML file only, without the default generated CSS files), so that each stylesheet can be tested using the same documents.
+Any `*.pml` document inside the [`/src-docs/`][src-docs/] folder will be converted to HTML into each and every `css__*/` stylesheet folder using the CSS files found within the latter, so that each stylesheet can be tested using the same documents.
 
-Rake will track any changes to the test documents sources, along with their assets (in [`/_shared/`][_shared/]) and update any files as required.
+> **NOTE** — The generated HTML documents won't use the CSS files generated from Sass directly, but instead link to a copy which PMLC creates within the `css/` subfolder (See [Issue #93]).
+> For this reason, whenever the Sass sources are modified, all the HTML sample documents need to be rebuild too.
+> Rake automatically takes care of all this, so this note is just a warning in case you're planning to manually build the stylesheets via Sass.
+
+
+Rake will track any changes to the test documents sources, along with their assets (in [`/_shared/`][_shared/]) and update any file tasks as required.
 
 Test documents should be created as a single `.pml` source file, and any required dependencies should be added to the [`/_shared/`][_shared/] directory instead, so that Rake can track their changes — assets include reusable PML file snippets, images, JavaScript, etc.
 Any files within the [`/_shared/`][_shared/] directory tree (i.e. sub-folders included) will be considered by Rake as requirements (dependencies) of the PML test documents, with the exception of Markdown files (`.md`) which will be ignored.
@@ -93,7 +96,7 @@ Any files within the [`/_shared/`][_shared/] directory tree (i.e. sub-folders in
 
 # Dependencies
 
-To build the assets in this folder you'll need [Dart Sass].
+To build the assets in this folder you'll also need [Dart Sass].
 
 -------------------------------------------------------------------------------
 
@@ -207,9 +210,11 @@ Online Tools:
 
 <!-- PML -->
 
-[converter]: https://github.com/pml-lang/converter "Visit PML converter repository"
+[pml-companion]: https://github.com/pml-lang/pml-companion "Visit PML Companion repository"
 
-[default PML stylesheets]: https://github.com/pml-lang/converter/tree/main/work/resources/resources/css "View PML default stylesheets at converter repository"
+[default PML stylesheets]: https://github.com/pml-lang/pml-companion/tree/main/pmlc-ext/src/main/resources/config/PML_to_HTML/css "View PML default stylesheets at PML Companion repository"
+
+[new CSS related options]: https://www.pml-lang.dev/docs/commands_manual/index.html#command_PML_to_HTML "See the PMLC Commands Reference Manual"
 
 <!-- PML Docs -->
 
@@ -296,10 +301,10 @@ Online Tools:
 
 <!-- badges -->
 
-[PML badge]: https://img.shields.io/badge/PML-2.2.0-yellow "Supported PML version (click for PML download page)"
+[PML badge]: https://img.shields.io/badge/PML-3.1.0-yellow "Supported PML version (click for PML download page)"
 [PML link]: https://www.pml-lang.dev/downloads/install.html "Go to the PML download page"
-[SASS badge]: https://img.shields.io/badge/Dart_Sass-1.49.9-yellow "Supported Dart Sass version (click for download page)"
-[Status badge]: https://img.shields.io/badge/status-BROKEN-red "Project Status: Pending migration to PMLC 3.0.0"
+[SASS badge]: https://img.shields.io/badge/Dart_Sass-1.55-yellow "Supported Dart Sass version (click for download page)"
+[Status badge]: https://img.shields.io/badge/status-ALPHA-red "Project Status: Early Alpha WIP"
 
 <!-- project files and folders -->
 
@@ -310,5 +315,9 @@ Online Tools:
 [fetch.bat]: ./fetch.bat
 [pml-default.css]: ./pml-default.css
 [pml-print-default.css]: ./pml-print-default.css
+
+<!-- Issues & Discussions -->
+
+[Issue #93]: https://github.com/pml-lang/pml-companion/issues/93 "PMLC » Issue #93 — CSS Option Treats Everything As CSS"
 
 <!-- EOF -->

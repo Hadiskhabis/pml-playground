@@ -1,4 +1,4 @@
-=begin "Rakefile" v0.2.1 | 2022/11/11 | by Tristano Ajmone
+=begin "Rakefile" v0.2.2 | 2022/11/14 | by Tristano Ajmone
 ================================================================================
 * * *  W A R N I N G  * * *  Due to breaking changes in PMLC 3.0.0 CLI options,
 the following tasks no longer work and were temporarily removed from the default
@@ -294,7 +294,7 @@ CSS_FOLDERS = FileList['stylesheets/css__*']
 CSS_FOLDERS.each do |dir|
   # For each stylesheet folder, establish which CSS files need
   # to generated and create the required Sass file tasks.
-  css_files = FileList["#{dir}/*.scss"].exclude('_*.scss').ext('css').each do |css_src|
+  css_files = FileList["#{dir}/**/*.scss"].exclude('**/_*.scss').ext('css').each do |css_src|
     task :css => css_src
     sass_src = css_src.ext('scss')
     file css_src => FileList[sass_src, "#{dir}/**/_*.scss"] do |t|

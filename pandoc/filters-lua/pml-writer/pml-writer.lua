@@ -1,4 +1,4 @@
--- "pml-writer.lua" v0.0.15 | 2022/11/04             | PML 3.1.0 | pandoc 2.19.2
+-- "pml-writer.lua" v0.0.16 | 2022/11/14             | PML 3.1.0 | pandoc 2.19.2
 -- =============================================================================
 -- ** WARNING ** This PML writer is being built on top of the sample writer that
 --               ships with pandoc; generated via:
@@ -120,11 +120,9 @@ function Doc(body, metadata, variables)
 
   -- Close [ch Nodes
   -- ---------------
-  -- add("@ openChNodes: " .. tostring(openChNodes))
-  -- @FIXME: Only works if in-doc headings start at H1
-  if openChNodes then
-    add('\n')
-    for i=1,openChNodes do
+  add('\n')
+  if currChLev > 0 then
+    for i = topChLev, currChLev do
       add(']')
     end
   end
@@ -358,25 +356,24 @@ function Para(s)
 --]]
 end
 
+topChLev = 0
 currChLev = 0
-openChNodes = 0
 
--- @WIP: Header()
 -- lev is an integer, the header level.
 function Header(lev, s, attr)
-  local closeNodes = ''
-  if currChLev < lev then
-    for i=0,lev-currChLev do
-      openChNodes = openChNodes +1
+  if topChLev ~= 0 then
+    if lev <= topChLev then
+      topChLev = lev
     end
-    openChNodes = openChNodes -1
-  elseif currChLev > lev then
+  else
+    topChLev = lev
+  end
+  local closeNodes = ''
+  if currChLev > lev then
     for i=0,currChLev-lev do
       closeNodes = closeNodes .. ']'
-      openChNodes = openChNodes -1
     end
-    openChNodes = openChNodes +1
-  else
+  elseif currChLev == lev then
     closeNodes = closeNodes .. ']'
   end
 

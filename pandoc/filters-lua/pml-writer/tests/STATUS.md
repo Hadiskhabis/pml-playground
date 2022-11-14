@@ -21,7 +21,6 @@ Overall progress of the pandoc filter, pending tasks and known issues.
     - [TOC Settings](#toc-settings)
 - [Known Issues](#known-issues)
     - [Links Text](#links-text)
-    - [Headings Conversion](#headings-conversion)
     - [List Start Number](#list-start-number)
     - [HTML Attributes](#html-attributes)
     - [Footnotes With Blocks](#footnotes-with-blocks)
@@ -47,7 +46,7 @@ Status of pandoc AST nodes conversion functions, by function names to ease sourc
 - [ ] `Div()`
 - [x] `DoubleQuoted()` &rarr; via literal `“` and `”` curly quote characters.
 - [x] `Emph()`
-- [x] `Header()` — works, but only if doc has Level 1 internal headings.
+- [x] `Header()`
 - [x] `HorizontalRule()` &rarr; `[html` + `<hr/>`
 - [x] `Image()`
 - [x] `InlineMath()` &rarr; `[verbatim` — requires [MathJax] JS library (See: [PMLC #92]).
@@ -122,12 +121,6 @@ But I noticed that the resulting PML code is not being styled, and I'm not sure 
 - correctly styling link text according to PML rules,
 - stripping away the styles, or
 - rendering the links as raw HTML (when styled only?)
-
-## Headings Conversion
-
-When converting from pandoc markdown, the filter expects all in-document headings to be Level 1. If the author considers the document `title` (metadata) as the Level-1 entry, and uses Level 2 headings only withing the document (i.e. `##`) then the filter will produce an extra closing bracket at the document end, resulting in an error.
-
-I need to find a way to track when there's a discrepancy between expected and actual headings.
 
 ## List Start Number
 

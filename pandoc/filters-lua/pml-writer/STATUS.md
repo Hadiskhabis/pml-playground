@@ -23,7 +23,6 @@ Overall progress of the pandoc filter, pending tasks and known issues.
     - [Links Text](#links-text)
     - [List Start Number](#list-start-number)
     - [HTML Attributes](#html-attributes)
-    - [Footnotes With Blocks](#footnotes-with-blocks)
     - [TeX Math Support](#tex-math-support)
 - [Code Improvements and Sanitation](#code-improvements-and-sanitation)
 
@@ -53,7 +52,7 @@ Status of pandoc AST nodes conversion functions, by function names to ease sourc
 - [ ] `LineBlock()`
 - [x] `LineBreak()` &rarr; `[nl]`
 - [x] `Link()` — works, but discards title and attributes.
-- [x] `Note()` &rarr; `[fnote_def` — works, but PML only supports inline nodes within notes.
+- [x] `Note()` &rarr; `[fnote_ref` and `[fnote_def`
 - [x] `OrderedList()` — fails due to PMLC bug, but code is there.
 - [ ] `Para()`
 - [ ] `Plain()`
@@ -131,12 +130,6 @@ The code that handles the list `start` attribute has been implemented in the fil
 Currently, due to the PMLC 3.1.0 bug mentioned in [PMLC #91], which crashes PMLC when a node has multiple HTML attributes, we had to temporary suppress emitting HTML attributes in the output. This is affecting:
 
 - `Span()` and [text highlighting via `.mark`](https://pandoc.org/MANUAL.html#highlighting)
-
-## Footnotes With Blocks
-
-PML only supports inline nodes within footnotes text, whereas pandoc supports block elements in notes. Currently, the writer doesn't check the footnote contents, and complex footnotes will most likely result in PML documents that fail to covert.
-
-I have no idea how to circumvent this limitation. The choice is between trimming blocks away from footnotes, and discarding part of their text in favor of a valid PML document; or keep the invalid blocks and let the end user fix them manually. IMO, the latter is a better choice since it doesn't result in contents loss.
 
 ## TeX Math Support
 

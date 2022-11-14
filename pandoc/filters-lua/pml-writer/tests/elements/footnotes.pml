@@ -2,10 +2,11 @@
      [subtitle Rendering footnotes as end-notes.]
 
 Tristano Ajmone |
-2022-11-03
+2022-11-14
 
 
-A footnote reference,[fnote A plain footnote.] and another.[fnote A footnote [i with] [b styles].]
+A plain footnote[fnote_ref did=1], one containing styles[fnote_ref did=2],
+and another[fnote_ref did=3] with block elements.
 
 [b References:]
 
@@ -14,12 +15,25 @@ A footnote reference,[fnote A plain footnote.] and another.[fnote A footnote [i 
 ]
 
 
+[- Footnotes definitions -]
 
-[html
-~~~~~
-<hr/>
-~~~~~
-html]
+[fnote_def (id=1)
+I’m a plain footnote.
+]
+
+[fnote_def (id=2)
+I’m a footnote [i with] [b styles].
+]
+
+[fnote_def (id=3)
+I’m a complex footnote with multiple paragraphs and block elements.
+
+This is my second paragraph.
+
+[quote
+I even contain a quotation.
+]
+]
 
 [fnotes]
 

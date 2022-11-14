@@ -1,4 +1,4 @@
--- "pml-writer.lua" v0.0.16 | 2022/11/14             | PML 3.1.0 | pandoc 2.19.2
+-- "pml-writer.lua" v0.0.17 | 2022/11/14             | PML 3.1.0 | pandoc 2.19.2
 -- =============================================================================
 -- ** WARNING ** This PML writer is being built on top of the sample writer that
 --               ships with pandoc; generated via:
@@ -90,8 +90,9 @@ local function attributes(attr)
   return table.concat(attr_table)
 end
 
--- Footnotes tracker.
-local fnotes = nil
+-- Table to store footnote definitions, so they can be injected at
+-- the end of the document as '[fnote_def' nodes.
+local notes = {}
 
 -- Blocksep is used to separate block elements.
 function Blocksep()
@@ -112,10 +113,12 @@ function Doc(body, metadata, variables)
 
   -- Inject Footnotes
   -- ----------------
-  if fnotes then
-    add(Blocksep())
-    add(HorizontalRule())
-    add('[fnotes]')
+  if #notes > 0 then
+    add('\n\n[- Footnotes definitions -]')
+    for _,note in pairs(notes) do
+      add(note)
+    end
+    add('\n[fnotes]')
   end
 
   -- Close [ch Nodes
@@ -279,13 +282,10 @@ function DoubleQuoted(s)
   return '“' .. s .. '”'
 end
 
--- @WIP: Note()
 function Note(s)
-  fnotes = true
-  -- @TODO: PML only supports inline nodes within a footnote text,
-  --        but pandoc supports blocks, so we need to handle the
-  --        latter somehow.
-  return '[fnote ' .. s .. ']'
+  local num = #notes + 1
+  table.insert(notes, '\n[fnote_def (id=' .. num .. ')\n' .. s .. '\n]')
+  return '[fnote_ref did=' .. num .. ']'
 end
 
 -- @WIP: Span()

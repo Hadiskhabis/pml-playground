@@ -166,7 +166,6 @@ The Lua writer code could still be optimized, and there are aspects of the conve
         * [ ] Ensure that all pandoc element functions are correctly invoking the node escaping function, based on PML needs instead of HTML.
     + [ ] **Attributes escaping** — [attributes escaping rules] differ slightly, and only apply to quoted attributes. Currently the filter is not taking care of ensuring that quoted attributes are escaped at all.
         * [ ] Create `attr_escape()` function.
-    + [ ] **HTML entities** — markdown documents might contain HTML entities (either named or code-point value based), so we need to ensure that these are always intercepted and converted to PML Unicode escapes. I'm not sure whether HTML entities are kept in the pandoc AST at all, and if they are I need to find out _how_ they are represented and stored, so I need to create some test documents to see how such entities in a markdown source are transformed in the JSON AST file.
 - [ ] **Comments preservation** — markdown files can contain HTML comments, so it would be nice to be able to preserve them by converting them into PML comments.
     + [ ] Find out how HTML comments are represented in the AST. Are they Raw nodes?
     + [ ] What other input formats might carry comments? (i.e. other than HTML)

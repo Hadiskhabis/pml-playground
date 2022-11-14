@@ -52,7 +52,6 @@ and more text.
 
 Next paragraph with a [span British ltr span] and a word-that-includesa[span Swiss German ltr span]right?
 
-
 ]
 
 ]

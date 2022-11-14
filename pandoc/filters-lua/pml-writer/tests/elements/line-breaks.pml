@@ -12,6 +12,4 @@ Pandoc hard line breaks can be achieved by either
 ending a line with two spaces or with a backslash
 (if [c escaped_line_breaks] is enabled).
 
-
-
 ]

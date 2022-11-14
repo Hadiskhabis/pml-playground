@@ -7,6 +7,4 @@ Tristano Ajmone |
 
 This is [verbatim <a>raw html</a>] inline.
 
-
-
 ]

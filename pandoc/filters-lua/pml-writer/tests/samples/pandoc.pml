@@ -22,7 +22,7 @@ For more info, refer to the [link url=https://pandoc.org/MANUAL.htm text="Pandoc
 ~~~~~
 <!-- end of list -->
 ~~~~~
-html]
+]
 
 
 [quote
@@ -43,7 +43,7 @@ Supreme executive power derives from a mandate from the masses, not from some fa
 [el See: [link url=https://pandoc.org/MANUAL.htm text="Pandoc User’s Guide"] » [link url=https://pandoc.org/MANUAL.html#fenced-code-blocks text="Fenced code blocks"]]
 ]
 
-[code
+[code ()
 function HorizontalRule()
   return '[html\n<hr/>\nhtml]'
 end
@@ -149,7 +149,7 @@ PML doesn’t support horizontal rules, so the element is rendered via raw HTML.
 ~~~~~
 <hr/>
 ~~~~~
-html]
+]
 
 
 ]][ch [title Inline Elements]
@@ -173,7 +173,7 @@ These text formatting styles are natively supported by pandoc Markdown syntax:
 
 Pandoc also supports underline and small caps via custom classes and CSS:
 
-[code
+[code ()
 [Underline]{.underline}
 [Small caps]{.smallcaps}
 code]
@@ -238,19 +238,16 @@ Captioned image without caption:
 ~~~~~
 <!----------------------------- REFERENCE LINKS ------------------------------>
 ~~~~~
-html]
+]
 
 
 [html
 ~~~~~
 <!-- EOF -->
 ~~~~~
-html]
+]
 
 
-
-]
-]
-]
+]]]
 
 ]

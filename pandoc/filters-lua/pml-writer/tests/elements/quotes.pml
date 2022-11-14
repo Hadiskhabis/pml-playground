@@ -9,6 +9,4 @@ Tristano Ajmone |
 
 “double quoted text”
 
-
-
 ]

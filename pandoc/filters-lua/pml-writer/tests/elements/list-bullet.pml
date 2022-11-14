@@ -20,6 +20,4 @@ Tristano Ajmone |
 [el Top level – [c inline code].]
 ]
 
-
-
 ]

@@ -7,6 +7,4 @@ Tristano Ajmone |
 
 This is [span spanned text] with class [c my_class].
 
-
-
 ]

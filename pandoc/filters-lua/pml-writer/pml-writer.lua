@@ -1,4 +1,4 @@
--- "pml-writer.lua" v0.0.17 | 2022/11/14             | PML 3.1.0 | pandoc 2.19.2
+-- "pml-writer.lua" v0.0.18 | 2022/11/14             | PML 3.1.0 | pandoc 2.19.2
 -- =============================================================================
 -- ** WARNING ** This PML writer is being built on top of the sample writer that
 --               ships with pandoc; generated via:
@@ -19,10 +19,6 @@
 -- =============================================================================
 -- This is a sample custom writer for pandoc.  It produces output
 -- that is very similar to that of pandoc's HTML writer.
--- There is one new feature: code blocks marked with class 'dot'
--- are piped through graphviz and images are included in the HTML
--- output using 'data:' URLs. The image format can be controlled
--- via the `image_format` metadata field.
 --
 -- Invoke with: pandoc -t sample.lua
 --
@@ -32,27 +28,12 @@
 -- produce informative error messages if your code contains
 -- syntax errors.
 
-local pipe = pandoc.pipe
 local stringify = (require 'pandoc.utils').stringify
 
 -- The global variable PANDOC_DOCUMENT contains the full AST of
 -- the document which is going to be written. It can be used to
 -- configure the writer.
 local meta = PANDOC_DOCUMENT.meta
-
--- Choose the image format based on the value of the
--- `image_format` meta value.
-local image_format = meta.image_format
-  and stringify(meta.image_format)
-  or 'png'
-local image_mime_type = ({
-    jpeg = 'image/jpeg',
-    jpg = 'image/jpeg',
-    gif = 'image/gif',
-    png = 'image/png',
-    svg = 'image/svg+xml',
-  })[image_format]
-  or error('unsupported image format `' .. image_format .. '`')
 
 -- Character escaping
 -- @TODO: Adapt to PML escaping rules (WIP)
@@ -111,6 +92,16 @@ function Doc(body, metadata, variables)
   end
   add(body)
 
+  -- Close [ch Nodes
+  -- ---------------
+  if currChLev > 0 then
+    local closeChs = '\n'
+    for i = topChLev, currChLev do
+      closeChs = closeChs .. ']'
+    end
+    add(closeChs)
+  end
+
   -- Inject Footnotes
   -- ----------------
   if #notes > 0 then
@@ -121,14 +112,6 @@ function Doc(body, metadata, variables)
     add('\n[fnotes]')
   end
 
-  -- Close [ch Nodes
-  -- ---------------
-  add('\n')
-  if currChLev > 0 then
-    for i = topChLev, currChLev do
-      add(']')
-    end
-  end
   return table.concat(buffer,'\n') .. '\n'
 end
 
@@ -147,7 +130,7 @@ local function pml_node_caption(s)
 end
 
 local function pml_node_html(s)
-  return '[html\n~~~~~\n' .. s .. '\n~~~~~\nhtml]\n'
+  return '[html\n~~~~~\n' .. s .. '\n~~~~~\n]\n'
 end
 
 local function pml_node_verbatim(s)
@@ -401,19 +384,10 @@ end
 
 -- @WIP: CodeBlock()
 function CodeBlock(s, attr)
-  -- If code block has class 'dot', pipe the contents through dot
-  -- and base64, and include the base64-encoded png as a data: URL.
-  if attr.class and string.match(' ' .. attr.class .. ' ',' dot ') then
-    local img = pipe('base64', {}, pipe('dot', {'-T' .. image_format}, s))
-    return '<img src="data:' .. image_mime_type .. ';base64,' .. img .. '"/>'
-  -- otherwise treat as code (one could pipe through a highlighter)
-  else
---[[
-    return '<pre><code' .. attributes(attr) .. '>' .. escape(s) ..
-           '</code></pre>'
---]]
-    return '[code' .. attributes(attr) .. '\n' .. s .. '\ncode]\n'
-  end
+  -- @NOTE: The proper approach would be to also emit fenced delimiters,
+  --        but to do so we need to ensure that the code contents don't
+  --        start with an identical delimiter!
+  return '[code (' .. attributes(attr) .. ')\n' .. s .. '\ncode]\n'
 end
 
 -- @WIP: BulletList()

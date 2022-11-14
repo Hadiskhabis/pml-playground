@@ -27,6 +27,4 @@ Tristano Ajmone |
 ]
 [caption Caption Text]
 
-
-
 ]

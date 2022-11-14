@@ -7,6 +7,4 @@ Tristano Ajmone, Author Two, Author Three |
 
 
 
-
-
 ]

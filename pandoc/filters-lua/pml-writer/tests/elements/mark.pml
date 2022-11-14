@@ -25,6 +25,4 @@ Some [span highlighted text] example.
 [el [link url=https://pandoc.org/MANUAL.html#extension-native_spans text="[c native_spans]"]]
 ]
 
-
-
 ]

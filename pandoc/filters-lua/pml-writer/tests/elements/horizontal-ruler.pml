@@ -12,11 +12,9 @@ it via a raw HTML node:
 ~~~~~
 <hr/>
 ~~~~~
-html]
+]
 
 
 Lorem ipsum dolor sit amet.
-
-
 
 ]

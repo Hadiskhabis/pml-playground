@@ -37,6 +37,4 @@ I even contain a quotation.
 
 [fnotes]
 
-
-
 ]

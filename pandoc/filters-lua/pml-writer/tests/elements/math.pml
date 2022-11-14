@@ -12,7 +12,7 @@ Tristano Ajmone |
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
 </script>
 ~~~~~
-html]
+]
 
 
 Inline math: [verbatim \\(z = x + y\\)]
@@ -29,7 +29,7 @@ Display math block:
 =ad-bc
 \]
 ~~~~~
-html]
+]
 
 
 [b References:]
@@ -38,7 +38,5 @@ html]
 [el [link url=https://pandoc.org/MANUAL.html#math text="Pandoc Manual » Math"]]
 [el [link url=https://www.mathjax.org/ text="MathJax"]]
 ]
-
-
 
 ]

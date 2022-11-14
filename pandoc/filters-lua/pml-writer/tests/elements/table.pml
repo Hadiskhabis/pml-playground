@@ -26,6 +26,4 @@ Tristano Ajmone |
   ]
 ]
 
-
-
 ]

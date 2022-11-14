@@ -23,7 +23,7 @@ This document tests whether PML escaping rules are correctly applied during conv
 
 The escaping rules for text inside nodes (i.e. normal text) are:
 
-[code
+[code ()
 mandatory:  \   [   ]
 optional:   \t  \r  \n  \uhhhh  \Uhhhhhhhh
 code]
@@ -67,13 +67,9 @@ Path C:\\Windows\\ | node [c \[b bold\]]
 ~~~~~
 <!---------------------------- REFERENCE LINKS ------------------------------->
 ~~~~~
-html]
+]
 
 
-
-]
-]
-]
-]
+]]]]
 
 ]

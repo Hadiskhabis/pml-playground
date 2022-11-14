@@ -11,9 +11,7 @@ Tristano Ajmone |
 I'm a raw HTML div block.
 </div>
 ~~~~~
-html]
-
-
+]
 
 
 ]

@@ -1,0 +1,204 @@
+/*****************************************
+ * PML 3.1.0 New Default Style Sheet (WIP)
+ *****************************************/
+
+// An attempt to reorganize the default CSS according to SMACSS guidelines,
+// using Sass sources, and improving the styles at the same time.
+
+@use "normalize";
+
+@use "base";
+@use "layout";
+@use "modules";
+@use "states";
+@use "theme";
+
+// *************
+// ORIGINAL CSS: (untouched leftovers)
+// *************
+
+// To be moved into SMACSS sub-modules...
+
+// /* basics => "_base.scss" */
+
+// /* skeleton => "_layout.scss" */
+
+// /* titles => "_base.scss" */
+
+// @NOTE: These classes don't belong to Base, so where?
+//        Should we just force these styles on their base elements?
+
+
+.pml-doc-title {
+  font-size: 2.2em;
+  margin-top: 0.2em;
+}
+
+.pml-chapter-title {
+}
+
+.pml-chapter-subtitle {
+  margin-top: 0;
+}
+
+.pml-header {
+  margin-top: 1.5em;
+  font-weight: bold;
+}
+
+.pml-caption {
+  font-style: italic;
+}
+
+
+/* text */
+
+.pml-paragraph {
+}
+
+
+/* table */
+
+.pml-table {
+  margin-top: 1em;
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+.pml-table .pml-paragraph {
+  margin: 0;
+}
+
+.pml-table-header-cell, .pml-table-footer-cell, .pml-table-body-cell {
+  padding: 0.3em;
+  border: 1px solid black;
+}
+
+.pml-table-header-cell, .pml-table-footer-cell {
+  font-weight: bold;
+}
+
+.pml-table-header-cell {
+  text-align: center;
+}
+
+
+// /* admonition => "_modules.scss" */
+
+
+/* quote */
+
+.pml-quote {
+  margin-left: 3.0em;
+  margin-right: 3.0em;
+  font-style: italic;
+}
+
+.pml-quote-text-block {
+  display: flex;
+  align-items: flex-start;
+}
+
+.pml-quote-text-prefix, .pml-quote-text-suffix {
+  font-family: "Times New Roman";
+  font-size: 1.5em;
+  font-weight: bold;
+  font-style: italic;
+  margin-top: -0.4em;
+}
+
+.pml-quote-text-prefix {
+  padding-right: 0.2em;
+}
+
+.pml-quote-text-suffix {
+  padding-left: 0.2em;
+}
+
+.pml-quote-text-prefix::before {
+  content: '“';
+}
+
+.pml-quote-text-suffix::after {
+  // @NOTE: Commented out in original!
+  // content: '”';
+}
+
+.pml-quote-text {
+  font-size: 1.2em;
+}
+
+.pml-quote-text .pml-paragraph {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.pml-quote-source {
+  text-align: right;
+}
+
+.pml-quote-source::before {
+  content: "\2014";
+}
+
+
+/* media */
+
+.pml-image {
+}
+
+.pml-audio {
+}
+
+.pml-video {
+}
+
+.pml-youtube-video {
+}
+
+// @NOTE: Are these SMACSS modules?
+
+/* monospace, code, input, output */
+
+.pml-monospace, .pml-code, .pml-inline-code, .pml-input, .pml-output {
+  font-family: Consolas, "DejaVu Sans Mono", monospace;
+  white-space: pre-wrap;
+}
+
+.pml-code code {
+  font-family: Consolas, "DejaVu Sans Mono", monospace;
+}
+
+.pml-code, .pml-inline-code, .pml-input, .pml-output {
+  background: #f5f5f5;
+  word-wrap: break-word;
+}
+
+.pml-code, .pml-input, .pml-output {
+  font-size: 0.9em;
+  line-height: 1.4;
+  border-radius: 7px;
+  margin-top: 0.5em;
+  padding: 1em;
+}
+
+.pml-inline-code {
+  // @NOTE: Commented out in original!
+  // font-size: 0.95em;
+  border-radius: 4px;
+  padding: 0.1em .4em 0.1em .4em;
+  // @NOTE: Commented out in original!
+  // border: 1px dotted lightgrey;
+}
+
+.pml-input, .pml-output {
+  border: dotted 1px grey;
+}
+
+// /* Footnotes => "_modules.scss" */
+
+// /* Table of Contents (TOC) => "_modules.scss" */
+
+// /* global => "_states.scss" */
+
+// EOF //

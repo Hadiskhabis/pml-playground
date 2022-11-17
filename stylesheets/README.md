@@ -30,6 +30,7 @@ Experimenting with PML CSS files via [Sass].
 
 - [`/_shared/`][_shared/] — assets shared by all test docs.
 - [`/css__default/`][css__default/] — PML default CSS tests.
+- [`/css__default-new/`][css__default-new/] — PML experimental new default CSS (WIP).
 - [`/src-docs/`][src-docs/] — test docs sources (PML).
 - [`fetch.bat`][fetch.bat] — fetch latest [default PML stylesheets] from [pml-companion] repository using cURL:
     + [`pml-default.css`][pml-default.css]
@@ -131,6 +132,12 @@ The various CSS design schools of thought (methodologies).
 - [CSS-Tricks.com]
 - [W3Schools CSS Tutorial]
 - [CSS Guidelines] — by Harry Roberts
+
+<!-- MarkdownTOC:excluded -->
+## Free CSS Books
+
+- [CSS Notes for Professionals] — free PDF from GoalKicker, by Stack Overflow community.
+- [SMACSS] — free online + PDF book, by Jonathan Snook.
 
 <!-- MarkdownTOC:excluded -->
 ## CSS Processors
@@ -249,6 +256,10 @@ Online Tools:
 
 [rscss]: https://rscss.io/ "rscss (Reasonable System for CSS Stylesheet Structure website."
 
+<!-- free CSS books -->
+
+[CSS Notes for Professionals]: https://goalkicker.com/CSSBook/ "Free CSS book by GoalKicker (PDF format)"
+
 <!-- HTML/CSS boilerplates -->
 
 [H5BP]: https://html5boilerplate.com "HTML5 Boilerplate"
@@ -309,6 +320,7 @@ Online Tools:
 
 [_shared/]: ./_shared/ "Navigate to shared assets folder"
 [css__default/]: ./css__default/ "Navigate to PML Default CSS test folder"
+[css__default-new/]: ./css__default-new/ "Navigate to PML New Experimental Default CSS folder"
 [src-docs/]: ./src-docs/ "Navigate to test docs sources folder"
 
 [fetch.bat]: ./fetch.bat

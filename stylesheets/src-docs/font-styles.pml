@@ -1,8 +1,14 @@
-[- PML 2.3.0 | 2022-08-11 -]
+[doc
+    [title PML 3.1.0 Font Styles]
+    [subtitle Extensive CSS Tests]
 
-[doc [title Extended Styles Test Document]
+Updated: 2022-11-19
 
-This is a sample document to test stylesheets against all of PML supported nodes and their various combinations, to ensure that styles are correctly rendered as expected.
+This sample document is designed to extensively test stylesheets against
+basic PML font style nodes and their various combinations, to ensure that
+styles are correctly rendered as expected.
+
+[-***************************************************************************-]
 
 [u:set baseliner_opts="{ gridHeight: 16, gridColor: 'red' }"]
 [u:ins_file path=../_shared/baseliner_info.pml]
@@ -10,10 +16,6 @@ This is a sample document to test stylesheets against all of PML supported nodes
 [u:set
   link_ex = "\[link url=https://github.com text=\"link example\"\]"
 ]
-
-
-[-***************************************************************************-]
-[ch (id=inline) [title Inline Nodes]
 
 [-===========================================================================-]
 [ch (id=font_individual) [title Font: Individual Styles]
@@ -285,16 +287,5 @@ consequat."]]
 
 ]
 ]
-]
-[-***************************************************************************-]
-[ch (id=block) [title Block Nodes]
-
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-]
+[-********************************* doc end *********************************-]
 ]

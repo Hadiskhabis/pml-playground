@@ -35,6 +35,7 @@ Experimenting with PML CSS files via [Sass].
 - [`fetch.bat`][fetch.bat] — fetch latest [default PML stylesheets] from [pml-companion] repository using cURL:
     + [`pml-default.css`][pml-default.css]
     + [`pml-print-default.css`][pml-print-default.css]
+- [`HTML_TEMPLATE.md`][HTML_TEMPLATE.md] — Info about PML default HTML template.
 
 > **WARNING!** — The generated CSS files and HTML documents are not tracked by Git, so in order to view the test documents you'll have to build them locally via Rake.
 
@@ -324,6 +325,7 @@ Online Tools:
 [src-docs/]: ./src-docs/ "Navigate to test docs sources folder"
 
 [fetch.bat]: ./fetch.bat
+[HTML_TEMPLATE.md]: ./HTML_TEMPLATE.md "Info about PML default HTML template"
 [pml-default.css]: ./pml-default.css
 [pml-print-default.css]: ./pml-print-default.css
 

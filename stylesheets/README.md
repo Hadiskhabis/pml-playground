@@ -137,8 +137,11 @@ The various CSS design schools of thought (methodologies).
 <!-- MarkdownTOC:excluded -->
 ## Free CSS Books
 
+Useful eBooks, articles and cheat-sheets that can be downloaded and consulted offline.
+
 - [CSS Notes for Professionals] — free PDF from GoalKicker, by Stack Overflow community.
 - [SMACSS] — free online + PDF book, by Jonathan Snook.
+- _[Understanding Flexbox][Understanding Flexbox PDF]_ — Emmanuel Ohans, 2017.
 
 <!-- MarkdownTOC:excluded -->
 ## CSS Processors
@@ -198,10 +201,16 @@ For more articles and tutorials:
 
 Articles:
 
-- _[Why is Vertical Rhythm an Important Typography Practice?][Why Vertical Rhythm?]_ — Zell Liew (2016).
+- _[A guide to vertical rhythm]_ — Steve McKinney (2015).
+- _[Designer Toolbox: Vertical Rhythm]_ — Amazee Labs (2018).
+- _[Why is Vertical Rhythm an Important Typography Practice?]_ — Zell Liew (2016). Covers differences between VR in print- and web-design.
+    + _[Everything I know about Responsive Web Typography]_ — Zell Liew (2016).
 - _[Is Web Typography Completely Broken?]_— Zell Liew (2016).
 - _[Compose to a Vertical Rhythm]_ — Richard Rutter (2006).
 - _[More Meaningful Typography]_ — by Tim BrownMay (2011) at [A List Apart].
+- _[Mastering CSS: Vertical Rhythm]_ — Adrian Bece (2019).
+- _[How to Easily Create a Responsive Vertical Rhythm with CSS]_ — Paula Borowska (2020).
+- _[Creating a Vertical Rhythm with CSS Grid]_ — Aleksandr Hovhannisyan (2021).
 
 Online Tools:
 
@@ -210,6 +219,24 @@ Online Tools:
 - [Modular Scale]
 - [type-scale.com]
 
+<!-- MarkdownTOC:excluded -->
+### Web Page Layout
+
+- _[In Search of the Holy Grail]_ — by Matthew Levine (2006) at [A List Apart].
+- _[Solved by Flexbox » Holy Grail Layout]_ — by Philip Walton (2020).
+
+<!-- MarkdownTOC:excluded -->
+### Flexbox
+
+- _[Understanding Flexbox]_ — by Emmanuel Ohans (2017).
+- _[Solved by Flexbox]_ — by Philip Walton (2020):
+    + [philipwalton/solved-by-flexbox] — source repo with docs + examples showcase.
+    + [_Better, Simpler Grid Systems_][Solved by Flexbox » Better, Simpler Grid Systems]
+    + [_Holy Grail Layout_][Solved by Flexbox » Holy Grail Layout]
+    + [_Input Add-ons_][Solved by Flexbox » Input Add-ons]
+    + [_Media Object_][Solved by Flexbox » Media Object]
+    + [_Sticky Footer_][Solved by Flexbox » Sticky Footer]
+    + [_Vertical Centering_][Solved by Flexbox » Vertical Centering]
 
 <!-----------------------------------------------------------------------------
                                REFERENCE LINKS
@@ -298,10 +325,17 @@ Online Tools:
 
 <!-- vertical rhythm articles -->
 
-[Is Web Typography Completely Broken?]: https://zellwk.com/blog/web-typography-broken "Article by Zell Liew (2016)"
-[Why Vertical Rhythm?]: https://zellwk.com/blog/why-vertical-rhythms "Article by Zell Liew (2016)"
+[A guide to vertical rhythm]: https://iamsteve.me/blog/a-guide-to-vertical-rhythm "Steve McKinney, 2015"
 [Compose to a Vertical Rhythm]: https://24ways.org/2006/compose-to-a-vertical-rhythm "Article by Richard Rutter (2006)"
+[Creating a Vertical Rhythm with CSS Grid]: https://www.aleksandrhovhannisyan.com/blog/vertical-rhythm-with-css-grid/ "Aleksandr Hovhannisyan, 2021"
+[Designer Toolbox: Vertical Rhythm]: https://www.amazeelabs.com/en/journal/designer-toolbox-vertical-rhythm "Amazee Labs, 2018"
+[Everything I know about Responsive Web Typography]: https://zellwk.com/blog/responsive-typography/ "Zell Liew, 2016"
+[How to Easily Create a Responsive Vertical Rhythm with CSS]: https://designmodo.com/vertical-rhythm/ "Paula Borowska, 2020"
+[Is Web Typography Completely Broken?]: https://zellwk.com/blog/web-typography-broken "Article by Zell Liew (2016)"
+[Mastering CSS: Vertical Rhythm]: https://dev.to/adrianbdesigns/mastering-css-vertical-rhythm-om9 "Adrian Bece, 2019"
 [More Meaningful Typography]: https://alistapart.com/article/more-meaningful-typography/ "Article by Tim BrownMay (2011)"
+[Why is Vertical Rhythm an Important Typography Practice?]: https://zellwk.com/blog/why-vertical-rhythms/ "Zell Liew, 2016"
+[Why Vertical Rhythm?]: https://zellwk.com/blog/why-vertical-rhythms "Article by Zell Liew (2016)"
 
 <!-- vertical rhythm online tools -->
 
@@ -309,6 +343,24 @@ Online Tools:
 [drewish » vertical-rhythm]: https://drewish.com/tools/vertical-rhythm/
 [Grid Lover]: https://www.gridlover.net/try
 [Modular Scale]: https://www.modularscale.com/
+
+<!-- layout links -->
+
+[In Search of the Holy Grail]: https://alistapart.com/article/holygrail/ "In Search of the Holy Grail, by Matthew Levine, 2006"
+
+<!-- flexbox links -->
+
+[Understanding Flexbox]: https://www.freecodecamp.org/news/understanding-flexbox-everything-you-need-to-know-b4013d4dc9af/ "Understanding Flexbox: Everything you need to know — Emmanuel Ohans, 2017"
+[Understanding Flexbox PDF]: https://ohansemmanuel.github.io/assets/pdf/understanding-flexbox.pdf "Understanding Flexbox (PDF version) — Emmanuel Ohans, 2017"
+
+[philipwalton/solved-by-flexbox]: https://github.com/philipwalton/solved-by-flexbox "Solved by Flexbox — GitHub repository"
+[Solved by Flexbox]: https://philipwalton.github.io/solved-by-flexbox/ "Solved by Flexbox — website"
+[Solved by Flexbox » Better, Simpler Grid Systems]: https://philipwalton.github.io/solved-by-flexbox/demos/grids/ "Flexbox » Better, Simpler Grid Systems — by Philip Walton, 2020"
+[Solved by Flexbox » Holy Grail Layout]: https://philipwalton.github.io/solved-by-flexbox/demos/holy-grail/ "Flexbox » Holy Grail Layout — by Philip Walton, 2020"
+[Solved by Flexbox » Input Add-ons]: https://philipwalton.github.io/solved-by-flexbox/demos/input-add-ons/ "Flexbox » Input Add-ons — by Philip Walton, 2020"
+[Solved by Flexbox » Media Object]: https://philipwalton.github.io/solved-by-flexbox/demos/media-object/ "Flexbox » Media Object — by Philip Walton, 2020"
+[Solved by Flexbox » Sticky Footer]: https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/ "Flexbox » Sticky Footer — by Philip Walton, 2020"
+[Solved by Flexbox » Vertical Centering]: https://philipwalton.github.io/solved-by-flexbox/demos/vertical-centering/ "Flexbox » Vertical Centering — by Philip Walton, 2020"
 
 <!-- badges -->
 

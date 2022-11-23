@@ -1,8 +1,8 @@
 [doc
     [title PML 3.1.0 Stylesheet Demo]
-    [subtitle () (doc subtitle node)]
+    [subtitle () (\[doc \[subtitle node)]
 
-Updated: 2022-11-19
+Updated: 2022-11-23
 
 This is a demo document to test stylesheets against an average HTML page covering most supported elements.
 
@@ -120,11 +120,20 @@ Strikethrough-combined font styles:
 
 [ch (id=lists) [title Lists]
 
+[note By default, PMLC renders list elements as paragraphs.]
+
 [ch (id=bullet-lists) [title Bullet Lists]
 
 [list
     [el Item.]
-    [el Item.]
+    [el Item.
+    [list
+        [el Sub-item.]
+        [el Sub-item.
+        [list
+            [el Sub-item.]
+        ]]
+    ]]
     [el Item.]
     [el Lorem ipsum dolor sit amet, consectetur adipisicing elit,
         sed do eiusmod tempor incididunt ut labore et dolore magna
@@ -133,7 +142,13 @@ Strikethrough-combined font styles:
     [el Duis aute irure dolor in reprehenderit in voluptate velit
         esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
         occaecat cupidatat non proident, sunt in culpa qui officia
-        deserunt mollit anim id est laborum.]
+        deserunt mollit anim id est laborum.
+    [list
+        [el Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+            sed do eiusmod tempor incididunt ut labore et dolore magna
+            aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+            ullamco laboris nisi ut aliquip ex ea commodo consequat.]
+    ]]
 ]
 
 
@@ -180,7 +195,14 @@ Decimal numerals markers ([c list-style-type:decimal]):
 
 [list (html_style="list-style-type:decimal")
     [el Item.]
-    [el Item.]
+    [el Item.
+    [list (html_style="list-style-type:decimal")
+        [el Sub-item.]
+        [el Sub-item.
+        [list (html_style="list-style-type:decimal")
+            [el Sub-item.]
+        ]]
+    ]]
     [el Item.]
     [el Lorem ipsum dolor sit amet, consectetur adipisicing elit,
         sed do eiusmod tempor incididunt ut labore et dolore magna

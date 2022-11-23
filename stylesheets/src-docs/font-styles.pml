@@ -1,8 +1,7 @@
 [doc
     [title PML 3.1.0 Font Styles]
-    [subtitle Extensive CSS Tests]
 
-Updated: 2022-11-19
+Updated: 2022-11-23
 
 This sample document is designed to extensively test stylesheets against
 basic PML font style nodes and their various combinations, to ensure that

@@ -9,7 +9,7 @@ Created by [Tristano Ajmone] in April 2021; maintained by [Christian Neumanns], 
 - https://github.com/tajmone/pml-playground
 
 
-> **WARNING** — Due to breaking changes in PMLC 3.0.0 command line options, the following Rake tasks no longer work and were temporarily removed from the default build: `:css`.
+> **WARNING** — Due to breaking changes in PMLC 3.0.0 command line options, the following Rake tasks no longer work and were temporarily removed from the default build: `:samples`.
 > They will be amended and reintroduced as soon as possible.
 
 <!-- separator -->

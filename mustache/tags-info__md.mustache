@@ -12,6 +12,8 @@ This document was auto-generated via custom mustache templates at:
 
 - [Tags Lists](#tags-lists)
     - [All Tags](#all-tags)
+    - [Block Nodes Tags](#block-nodes-tags)
+    - [Inline Nodes Tags](#inline-nodes-tags)
     - [Nodes w/ Children](#nodes-w-children)
     - [Childless Nodes](#childless-nodes)
     - [Raw Text Block-Nodes](#raw-text-block-nodes)
@@ -27,6 +29,28 @@ This is the full list of all PML nodes, alphabetically sorted.
 
 {{#pml_tags.tags}}
 - `{{{ id }}}`
+{{/pml_tags.tags}}
+
+
+### Block Nodes Tags
+
+List of all block-type nodes.
+
+{{#pml_tags.tags}}
+{{^is_inline_type}}
+- `{{{ id }}}`
+{{/is_inline_type}}
+{{/pml_tags.tags}}
+
+
+### Inline Nodes Tags
+
+List of all inline-type nodes.
+
+{{#pml_tags.tags}}
+{{#is_inline_type}}
+- `{{{ id }}}`
+{{/is_inline_type}}
 {{/pml_tags.tags}}
 
 

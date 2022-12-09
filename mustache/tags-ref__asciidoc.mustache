@@ -51,6 +51,36 @@ This is the full list of all PML nodes, alphabetically sorted.
 // end::list-tags-all[]
 
 
+=== Block Nodes Tags
+
+List of all block-type nodes.
+
+// tag::list-block-node-tags[]
+
+{{#pml_tags.tags}}
+{{^is_inline_type}}
+* `{{{ id }}}`
+{{/is_inline_type}}
+{{/pml_tags.tags}}
+
+// end::list-block-node-tags[]
+
+
+=== Inline Nodes Tags
+
+List of all inline-type nodes.
+
+// tag::list-inline-node-tags[]
+
+{{#pml_tags.tags}}
+{{#is_inline_type}}
+* `{{{ id }}}`
+{{/is_inline_type}}
+{{/pml_tags.tags}}
+
+// end::list-inline-node-tags[]
+
+
 === Nodes w/ Children
 
 PML nodes that allow children nodes within themselves.

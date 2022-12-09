@@ -1,0 +1,15 @@
+b
+c
+fnote
+fnote_ref
+i
+link
+nl
+sp
+span
+strike
+sub
+sup
+text
+verbatim
+xref

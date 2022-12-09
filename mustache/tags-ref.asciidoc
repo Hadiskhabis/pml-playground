@@ -95,6 +95,73 @@ This is the full list of all PML nodes, alphabetically sorted.
 // end::list-tags-all[]
 
 
+=== Block Nodes Tags
+
+List of all block-type nodes.
+
+// tag::list-block-node-tags[]
+
+* `admon`
+* `audio`
+* `caption`
+* `ch`
+* `code`
+* `div`
+* `doc`
+* `el`
+* `fnote_def`
+* `fnotes`
+* `header`
+* `html`
+* `image`
+* `input`
+* `insert_code`
+* `list`
+* `monospace`
+* `note`
+* `options`
+* `output`
+* `p`
+* `quote`
+* `subtitle`
+* `table`
+* `table_data`
+* `tc`
+* `tfooter`
+* `theader`
+* `title`
+* `tr`
+* `video`
+* `youtube_video`
+
+// end::list-block-node-tags[]
+
+
+=== Inline Nodes Tags
+
+List of all inline-type nodes.
+
+// tag::list-inline-node-tags[]
+
+* `b`
+* `c`
+* `fnote`
+* `fnote_ref`
+* `i`
+* `link`
+* `nl`
+* `sp`
+* `span`
+* `strike`
+* `sub`
+* `sup`
+* `text`
+* `verbatim`
+* `xref`
+
+// end::list-inline-node-tags[]
+
+
 === Nodes w/ Children
 
 PML nodes that allow children nodes within themselves.

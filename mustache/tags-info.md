@@ -12,6 +12,8 @@ This document was auto-generated via custom mustache templates at:
 
 - [Tags Lists](#tags-lists)
     - [All Tags](#all-tags)
+    - [Block Nodes Tags](#block-nodes-tags)
+    - [Inline Nodes Tags](#inline-nodes-tags)
     - [Nodes w/ Children](#nodes-w-children)
     - [Childless Nodes](#childless-nodes)
     - [Raw Text Block-Nodes](#raw-text-block-nodes)
@@ -72,6 +74,65 @@ This is the full list of all PML nodes, alphabetically sorted.
 - `video`
 - `xref`
 - `youtube_video`
+
+
+### Block Nodes Tags
+
+List of all block-type nodes.
+
+- `admon`
+- `audio`
+- `caption`
+- `ch`
+- `code`
+- `div`
+- `doc`
+- `el`
+- `fnote_def`
+- `fnotes`
+- `header`
+- `html`
+- `image`
+- `input`
+- `insert_code`
+- `list`
+- `monospace`
+- `note`
+- `options`
+- `output`
+- `p`
+- `quote`
+- `subtitle`
+- `table`
+- `table_data`
+- `tc`
+- `tfooter`
+- `theader`
+- `title`
+- `tr`
+- `video`
+- `youtube_video`
+
+
+### Inline Nodes Tags
+
+List of all inline-type nodes.
+
+- `b`
+- `c`
+- `fnote`
+- `fnote_ref`
+- `i`
+- `link`
+- `nl`
+- `sp`
+- `span`
+- `strike`
+- `sub`
+- `sup`
+- `text`
+- `verbatim`
+- `xref`
 
 
 ### Nodes w/ Children

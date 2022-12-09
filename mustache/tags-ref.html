@@ -524,9 +524,11 @@ span.green {
 <li><a href="#tags_lists">1. Tags Lists</a>
 <ul class="sectlevel2">
 <li><a href="#all_tags">1.1. All Tags</a></li>
-<li><a href="#nodes_w_children">1.2. Nodes w/ Children</a></li>
-<li><a href="#childless_nodes">1.3. Childless Nodes</a></li>
-<li><a href="#raw_text_block_nodes">1.4. Raw Text Block-Nodes</a></li>
+<li><a href="#block_nodes_tags">1.2. Block Nodes Tags</a></li>
+<li><a href="#inline_nodes_tags">1.3. Inline Nodes Tags</a></li>
+<li><a href="#nodes_w_children">1.4. Nodes w/ Children</a></li>
+<li><a href="#childless_nodes">1.5. Childless Nodes</a></li>
+<li><a href="#raw_text_block_nodes">1.6. Raw Text Block-Nodes</a></li>
 </ul>
 </li>
 <li><a href="#tags_table">2. Tags Table</a></li>
@@ -706,7 +708,168 @@ span.green {
 </div>
 </div>
 <div class="sect2">
-<h3 id="nodes_w_children"><a class="anchor" href="#nodes_w_children"></a>1.2. Nodes w/ Children</h3>
+<h3 id="block_nodes_tags"><a class="anchor" href="#block_nodes_tags"></a>1.2. Block Nodes Tags</h3>
+<div class="paragraph">
+<p>List of all block-type nodes.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>admon</code></p>
+</li>
+<li>
+<p><code>audio</code></p>
+</li>
+<li>
+<p><code>caption</code></p>
+</li>
+<li>
+<p><code>ch</code></p>
+</li>
+<li>
+<p><code>code</code></p>
+</li>
+<li>
+<p><code>div</code></p>
+</li>
+<li>
+<p><code>doc</code></p>
+</li>
+<li>
+<p><code>el</code></p>
+</li>
+<li>
+<p><code>fnote_def</code></p>
+</li>
+<li>
+<p><code>fnotes</code></p>
+</li>
+<li>
+<p><code>header</code></p>
+</li>
+<li>
+<p><code>html</code></p>
+</li>
+<li>
+<p><code>image</code></p>
+</li>
+<li>
+<p><code>input</code></p>
+</li>
+<li>
+<p><code>insert_code</code></p>
+</li>
+<li>
+<p><code>list</code></p>
+</li>
+<li>
+<p><code>monospace</code></p>
+</li>
+<li>
+<p><code>note</code></p>
+</li>
+<li>
+<p><code>options</code></p>
+</li>
+<li>
+<p><code>output</code></p>
+</li>
+<li>
+<p><code>p</code></p>
+</li>
+<li>
+<p><code>quote</code></p>
+</li>
+<li>
+<p><code>subtitle</code></p>
+</li>
+<li>
+<p><code>table</code></p>
+</li>
+<li>
+<p><code>table_data</code></p>
+</li>
+<li>
+<p><code>tc</code></p>
+</li>
+<li>
+<p><code>tfooter</code></p>
+</li>
+<li>
+<p><code>theader</code></p>
+</li>
+<li>
+<p><code>title</code></p>
+</li>
+<li>
+<p><code>tr</code></p>
+</li>
+<li>
+<p><code>video</code></p>
+</li>
+<li>
+<p><code>youtube_video</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="inline_nodes_tags"><a class="anchor" href="#inline_nodes_tags"></a>1.3. Inline Nodes Tags</h3>
+<div class="paragraph">
+<p>List of all inline-type nodes.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>b</code></p>
+</li>
+<li>
+<p><code>c</code></p>
+</li>
+<li>
+<p><code>fnote</code></p>
+</li>
+<li>
+<p><code>fnote_ref</code></p>
+</li>
+<li>
+<p><code>i</code></p>
+</li>
+<li>
+<p><code>link</code></p>
+</li>
+<li>
+<p><code>nl</code></p>
+</li>
+<li>
+<p><code>sp</code></p>
+</li>
+<li>
+<p><code>span</code></p>
+</li>
+<li>
+<p><code>strike</code></p>
+</li>
+<li>
+<p><code>sub</code></p>
+</li>
+<li>
+<p><code>sup</code></p>
+</li>
+<li>
+<p><code>text</code></p>
+</li>
+<li>
+<p><code>verbatim</code></p>
+</li>
+<li>
+<p><code>xref</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="nodes_w_children"><a class="anchor" href="#nodes_w_children"></a>1.4. Nodes w/ Children</h3>
 <div class="paragraph">
 <p>PML nodes that allow children nodes within themselves.</p>
 </div>
@@ -797,7 +960,7 @@ span.green {
 </div>
 </div>
 <div class="sect2">
-<h3 id="childless_nodes"><a class="anchor" href="#childless_nodes"></a>1.3. Childless Nodes</h3>
+<h3 id="childless_nodes"><a class="anchor" href="#childless_nodes"></a>1.5. Childless Nodes</h3>
 <div class="paragraph">
 <p>PML nodes that <em>don&#8217;t</em> allow children nodes within themselves (useful info for Lenient Parsing).</p>
 </div>
@@ -867,7 +1030,7 @@ span.green {
 </div>
 </div>
 <div class="sect2">
-<h3 id="raw_text_block_nodes"><a class="anchor" href="#raw_text_block_nodes"></a>1.4. Raw Text Block-Nodes</h3>
+<h3 id="raw_text_block_nodes"><a class="anchor" href="#raw_text_block_nodes"></a>1.6. Raw Text Block-Nodes</h3>
 <div class="paragraph">
 <p>Raw PML nodes are not parsed any further, so they can&#8217;t contain sub-nodes and their contents are treated as verbatim text.</p>
 </div>

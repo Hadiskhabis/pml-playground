@@ -3,6 +3,6 @@ code
 html
 input
 output
-table_data
+sim_table
 text
 verbatim

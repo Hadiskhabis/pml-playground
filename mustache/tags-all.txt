@@ -1,4 +1,5 @@
 admon
+alabel
 audio
 b
 c
@@ -23,10 +24,11 @@ list
 monospace
 nl
 note
-options
 output
 p
+qsource
 quote
+sim_table
 sp
 span
 strike
@@ -34,7 +36,6 @@ sub
 subtitle
 sup
 table
-table_data
 tc
 text
 tfooter

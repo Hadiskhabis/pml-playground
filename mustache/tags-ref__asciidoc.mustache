@@ -1,8 +1,8 @@
-= PML v{{{ pml_tags.pml_version }}} Tags Reference
+= PML v{{{ pml_meta.pml_version }}} Tags Reference
 :author: Tristano Ajmone
 :email: <tajmone@gmail.com>
-:revdate: {{{ pml_tags.pml_release_date }}}
-:revnumber: {{{ pml_tags.pml_version }}}
+:revdate: {{{ pml_meta.pml_release_date }}}
+:revnumber: {{{ pml_meta.pml_version }}}
 :version-label: PML
 :lang: en
 :doctype: article
@@ -44,9 +44,9 @@ This is the full list of all PML nodes, alphabetically sorted.
 
 // tag::list-tags-all[]
 
-{{#pml_tags.tags}}
+{{#pml_meta.nodes}}
 * `{{{ id }}}`
-{{/pml_tags.tags}}
+{{/pml_meta.nodes}}
 
 // end::list-tags-all[]
 
@@ -57,11 +57,11 @@ List of all block-type nodes.
 
 // tag::list-block-node-tags[]
 
-{{#pml_tags.tags}}
+{{#pml_meta.nodes}}
 {{^is_inline_type}}
 * `{{{ id }}}`
 {{/is_inline_type}}
-{{/pml_tags.tags}}
+{{/pml_meta.nodes}}
 
 // end::list-block-node-tags[]
 
@@ -72,11 +72,11 @@ List of all inline-type nodes.
 
 // tag::list-inline-node-tags[]
 
-{{#pml_tags.tags}}
+{{#pml_meta.nodes}}
 {{#is_inline_type}}
 * `{{{ id }}}`
 {{/is_inline_type}}
-{{/pml_tags.tags}}
+{{/pml_meta.nodes}}
 
 // end::list-inline-node-tags[]
 
@@ -87,11 +87,11 @@ PML nodes that allow children nodes within themselves.
 
 // tag::list-nodes-with-children[]
 
-{{#pml_tags.tags}}
+{{#pml_meta.nodes}}
 {{#child_nodes_allowed}}
 * `{{{ id }}}`
 {{/child_nodes_allowed}}
-{{/pml_tags.tags}}
+{{/pml_meta.nodes}}
 
 // end::list-nodes-with-children[]
 
@@ -102,11 +102,11 @@ PML nodes that _don't_ allow children nodes within themselves (useful info for L
 
 // tag::list-nodes-childless[]
 
-{{#pml_tags.tags}}
+{{#pml_meta.nodes}}
 {{^child_nodes_allowed}}
 * `{{{ id }}}`
 {{/child_nodes_allowed}}
-{{/pml_tags.tags}}
+{{/pml_meta.nodes}}
 
 // end::list-nodes-childless[]
 
@@ -117,11 +117,11 @@ Raw PML nodes are not parsed any further, so they can't contain sub-nodes and th
 
 // tag::list-nodes-raw-text-block[]
 
-{{#pml_tags.tags}}
+{{#pml_meta.nodes}}
 {{#is_raw_text_block}}
 * `{{{ id }}}`
 {{/is_raw_text_block}}
-{{/pml_tags.tags}}
+{{/pml_meta.nodes}}
 
 // end::list-nodes-raw-text-block[]
 
@@ -139,7 +139,7 @@ Raw PML nodes are not parsed any further, so they can't contain sub-nodes and th
 |=============================================================================
 | node | tag | type | raw? | {child} | {html} | attributes
 
-{{#pml_tags.tags}}
+{{#pml_meta.nodes}}
 
 | {{{ latest_doc_url }}}[{{ title }}^] | `{{{ id }}}`
 | {{{type}}}
@@ -149,7 +149,7 @@ Raw PML nodes are not parsed any further, so they can't contain sub-nodes and th
 |{{^attributes}}&cross;{{/attributes}}
 {{#attributes}}  {{{ id }}} +
 {{/attributes}}
-{{/pml_tags.tags}}
+{{/pml_meta.nodes}}
 |=============================================================================
 
 // end::table-nodes-info[]

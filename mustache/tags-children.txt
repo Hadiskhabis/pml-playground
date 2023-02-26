@@ -1,4 +1,5 @@
 admon
+alabel
 b
 caption
 ch
@@ -9,10 +10,12 @@ fnote
 fnote_def
 header
 i
+link
 list
 monospace
 note
 p
+qsource
 quote
 span
 strike
@@ -25,3 +28,4 @@ tfooter
 theader
 title
 tr
+xref

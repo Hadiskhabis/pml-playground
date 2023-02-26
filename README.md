@@ -125,7 +125,7 @@ Articles by [Christian Neumanns]:
 
 <!-- badges -->
 
-[PML badge]: https://img.shields.io/badge/PML-3.1.0-yellow "Supported PML version (click for PML Companion download page)"
+[PML badge]: https://img.shields.io/badge/PML-4.0.0-yellow "Supported PML version (click for PML Companion download page)"
 [Travis badge]: https://travis-ci.com/tajmone/Sublime-PML.svg?branch=main
 [Travis link]: https://travis-ci.com/tajmone/Sublime-PML "Travis CI: EditorConfig validation status"
 

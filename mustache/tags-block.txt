@@ -1,4 +1,5 @@
 admon
+alabel
 audio
 caption
 ch
@@ -16,13 +17,13 @@ insert_code
 list
 monospace
 note
-options
 output
 p
+qsource
 quote
+sim_table
 subtitle
 table
-table_data
 tc
 tfooter
 theader

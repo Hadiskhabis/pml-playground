@@ -1,8 +1,8 @@
-= PML v3.1.0 Tags Reference
+= PML v4.0.0 Tags Reference
 :author: Tristano Ajmone
 :email: <tajmone@gmail.com>
-:revdate: 2022-10-03
-:revnumber: 3.1.0
+:revdate: 2023-02-23
+:revnumber: 4.0.0
 :version-label: PML
 :lang: en
 :doctype: article
@@ -45,6 +45,7 @@ This is the full list of all PML nodes, alphabetically sorted.
 // tag::list-tags-all[]
 
 * `admon`
+* `alabel`
 * `audio`
 * `b`
 * `c`
@@ -69,10 +70,11 @@ This is the full list of all PML nodes, alphabetically sorted.
 * `monospace`
 * `nl`
 * `note`
-* `options`
 * `output`
 * `p`
+* `qsource`
 * `quote`
+* `sim_table`
 * `sp`
 * `span`
 * `strike`
@@ -80,7 +82,6 @@ This is the full list of all PML nodes, alphabetically sorted.
 * `subtitle`
 * `sup`
 * `table`
-* `table_data`
 * `tc`
 * `text`
 * `tfooter`
@@ -102,6 +103,7 @@ List of all block-type nodes.
 // tag::list-block-node-tags[]
 
 * `admon`
+* `alabel`
 * `audio`
 * `caption`
 * `ch`
@@ -119,13 +121,13 @@ List of all block-type nodes.
 * `list`
 * `monospace`
 * `note`
-* `options`
 * `output`
 * `p`
+* `qsource`
 * `quote`
+* `sim_table`
 * `subtitle`
 * `table`
-* `table_data`
 * `tc`
 * `tfooter`
 * `theader`
@@ -169,6 +171,7 @@ PML nodes that allow children nodes within themselves.
 // tag::list-nodes-with-children[]
 
 * `admon`
+* `alabel`
 * `b`
 * `caption`
 * `ch`
@@ -179,10 +182,12 @@ PML nodes that allow children nodes within themselves.
 * `fnote_def`
 * `header`
 * `i`
+* `link`
 * `list`
 * `monospace`
 * `note`
 * `p`
+* `qsource`
 * `quote`
 * `span`
 * `strike`
@@ -195,6 +200,7 @@ PML nodes that allow children nodes within themselves.
 * `theader`
 * `title`
 * `tr`
+* `xref`
 
 // end::list-nodes-with-children[]
 
@@ -214,16 +220,13 @@ PML nodes that _don't_ allow children nodes within themselves (useful info for L
 * `image`
 * `input`
 * `insert_code`
-* `link`
 * `nl`
-* `options`
 * `output`
+* `sim_table`
 * `sp`
-* `table_data`
 * `text`
 * `verbatim`
 * `video`
-* `xref`
 * `youtube_video`
 
 // end::list-nodes-childless[]
@@ -240,7 +243,7 @@ Raw PML nodes are not parsed any further, so they can't contain sub-nodes and th
 * `html`
 * `input`
 * `output`
-* `table_data`
+* `sim_table`
 * `text`
 * `verbatim`
 
@@ -268,7 +271,14 @@ Raw PML nodes are not parsed any further, so they can't contain sub-nodes and th
 | &check;
 |
   id +
-  label +
+
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_alabel[Admonition Label^] | `alabel`
+| block
+| &cross;
+| &check;
+| &check;
+|
+  id +
 
 | https://www.pml-lang.dev/docs/reference_manual/index.html#node_audio[Audio (Sound)^] | `audio`
 | block
@@ -440,10 +450,9 @@ Raw PML nodes are not parsed any further, so they can't contain sub-nodes and th
 | https://www.pml-lang.dev/docs/reference_manual/index.html#node_link[URL Link^] | `link`
 | inline
 | &cross;
-| &cross;
+| &check;
 | &check;
 |
-  text +
   url +
 
 | https://www.pml-lang.dev/docs/reference_manual/index.html#node_list[List^] | `list`
@@ -477,13 +486,6 @@ Raw PML nodes are not parsed any further, so they can't contain sub-nodes and th
 |
   id +
 
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_options[Options^] | `options`
-| block
-| &cross;
-| &cross;
-| &cross;
-|&cross;
-
 | https://www.pml-lang.dev/docs/reference_manual/index.html#node_output[Output^] | `output`
 | block
 | &check;
@@ -500,6 +502,14 @@ Raw PML nodes are not parsed any further, so they can't contain sub-nodes and th
 |
   id +
 
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_qsource[Source of Quote^] | `qsource`
+| block
+| &cross;
+| &check;
+| &check;
+|
+  id +
+
 | https://www.pml-lang.dev/docs/reference_manual/index.html#node_quote[Quote^] | `quote`
 | block
 | &cross;
@@ -507,7 +517,15 @@ Raw PML nodes are not parsed any further, so they can't contain sub-nodes and th
 | &check;
 |
   id +
-  source +
+
+| https://www.pml-lang.dev/docs/reference_manual/index.html#node_sim_table[Simple Table^] | `sim_table`
+| block
+| &check;
+| &cross;
+| &check;
+|
+  halign +
+  id +
 
 | https://www.pml-lang.dev/docs/reference_manual/index.html#node_sp[Space Character^] | `sp`
 | inline
@@ -556,15 +574,6 @@ Raw PML nodes are not parsed any further, so they can't contain sub-nodes and th
 | block
 | &cross;
 | &check;
-| &check;
-|
-  halign +
-  id +
-
-| https://www.pml-lang.dev/docs/reference_manual/index.html#node_table_data[Table Data^] | `table_data`
-| block
-| &check;
-| &cross;
 | &check;
 |
   halign +
@@ -640,11 +649,10 @@ Raw PML nodes are not parsed any further, so they can't contain sub-nodes and th
 | https://www.pml-lang.dev/docs/reference_manual/index.html#node_xref[Cross-Reference^] | `xref`
 | inline
 | &cross;
-| &cross;
+| &check;
 | &check;
 |
-  node_id +
-  text +
+  ref_id +
 
 | https://www.pml-lang.dev/docs/reference_manual/index.html#node_youtube_video[Embedded Youtube Video^] | `youtube_video`
 | block

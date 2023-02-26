@@ -1,17 +1,12 @@
-=begin "Rakefile" v0.2.3 | 2022/11/15 | by Tristano Ajmone
+=begin "Rakefile" v0.3.0 | 2023/02/26 | by Tristano Ajmone
 ================================================================================
 * * *  W A R N I N G  * * *  Due to breaking changes in PMLC 3.0.0 CLI options,
 the following tasks no longer work and were temporarily removed from the default
 task build:   :samples
 They will be amended and reintroduced as soon as possible.
 --------------------------------------------------------------------------------
-This is an initial Rakefile proposal for Alan-i18n.  It's fully working and uses
-namespaces to separate tasks according to locale, but it could do with some
-further improvements.
+Rakefile tech notes:
 
-* Clobbering is global, I haven't found a way to implement namespace clobbering,
-  so if you 'Rake clobber' you'll have to 'Rake' in order not to loose tracked
-  files. Namespaced clobbering would improve working on specific locales.
 * Beware that CDing to a directory is a persistent action affecting all future
   'sh' commands -- always remember to 'cd $repo_root' before issuing shell
   commands from Rake, or manipulating task paths (working dir is affected!).
@@ -230,25 +225,25 @@ end
 ## Mustache
 ###########
 desc "Build mustache templates"
-task :mustache => 'mustache/pml_tags.json'
+task :mustache => 'mustache/PML_meta_data.json'
 
-file 'mustache/pml_tags.json' => :phony do |t|
+file 'mustache/PML_meta_data.json' => :phony do |t|
   TaskHeader("PMLC: Exporting JSON Tags")
   cd t.name.pathmap("%d")
-  sh "pmlc export_tags"
+  sh "pmlc export_meta_data"
   cd $repo_root, verbose: false
 end
 
 FileList['mustache/*.mustache'].each do |s|
   t = s.sub(/^(.*)__(.*)\.mustache$/, "\\1.\\2")
   task :mustache => t
-  file s => 'mustache/pml_tags.json'
+  file s => 'mustache/PML_meta_data.json'
   file t => s do |t|
     TaskHeader("Building Mustache Template: #{t.source}")
     cd t.name.pathmap("%d")
     template = t.source.pathmap("%f")
     output = t.name.pathmap("%f")
-    sh "mustache pml_tags.json #{template} > #{output}"
+    sh "mustache PML_meta_data.json #{template} > #{output}"
     cd $repo_root, verbose: false
   end
 end

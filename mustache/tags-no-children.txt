@@ -7,14 +7,11 @@ html
 image
 input
 insert_code
-link
 nl
-options
 output
+sim_table
 sp
-table_data
 text
 verbatim
 video
-xref
 youtube_video

@@ -1,9 +1,10 @@
-=begin "Rakefile" v0.3.0 | 2023/02/26 | by Tristano Ajmone
+=begin "Rakefile" v0.3.1 | 2023/02/26 | by Tristano Ajmone
 ================================================================================
-* * *  W A R N I N G  * * *  Due to breaking changes in PMLC 3.0.0 CLI options,
-the following tasks no longer work and were temporarily removed from the default
-task build:   :samples
-They will be amended and reintroduced as soon as possible.
+* * *  W A R N I N G  * * *  Due to breaking changes in PMLC v3.0.0 and 4.0.0
+(CLI options or others) the following tasks no longer work and were temporarily
+removed from the default task build:   :samples   :css
+They will be amended and reintroduced as soon as possible, unless it's a project
+that has gone stale.
 --------------------------------------------------------------------------------
 Rakefile tech notes:
 
@@ -159,7 +160,8 @@ end
 ########
 
 # task :default => [:rouge, :sguide, :mustache, :pandoc, :samples, :css]
-task :default => [:rouge, :sguide, :mustache, :pandoc, :css]
+# removed:  :samples :css
+task :default => [:rouge, :sguide, :mustache, :pandoc]
 
 
 ## Clean & Clobber
@@ -335,7 +337,7 @@ end
 
 ## Stylesheets
 ##############
-desc "Build Stylesheets"
+desc "[ BROKEN ] Build Stylesheets"
 task :css
 
 # @TODO: Detect any '*.pml' test docs within a stylesheet folder ('css__*/')

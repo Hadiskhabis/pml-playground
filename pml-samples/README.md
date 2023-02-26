@@ -1,8 +1,11 @@
 # PML Sample Documents
 
-![PML Version][PML badge]
+![PML Version][PML badge]&nbsp;
+![Status][Status badge]
 
 A collection of shared PML example documents and chunks to be used in this project (and elsewhere) for the various tests and demonstrations, ranging from basic to complex features coverage.
+
+> **WARNING** — This sub-project hasn't been updated since PML 2.3.0, the PML sources contain deprecated syntax constructs and won't convert using the latest PMLC, and the `:samples` Rake task is broken due to breaking changes in PMLC command-line options.
 
 -----
 
@@ -189,5 +192,6 @@ Want some thematic random text?
 <!-- badges -->
 
 [PML badge]: https://img.shields.io/badge/PML-2.3.0-yellow "Supported PML version"
+[Status badge]: https://img.shields.io/badge/Status-broken-red "Project Status: Broken and stale"
 
 <!-- EOF -->

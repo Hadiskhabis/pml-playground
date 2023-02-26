@@ -9,8 +9,8 @@ Created by [Tristano Ajmone] in April 2021; maintained by [Christian Neumanns], 
 - https://github.com/tajmone/pml-playground
 
 
-> **WARNING** — Due to breaking changes in PMLC 3.0.0 command line options, the following Rake tasks no longer work and were temporarily removed from the default build: `:samples`.
-> They will be amended and reintroduced as soon as possible.
+> **WARNING** — Due to breaking changes in PMLC v3.0.0 and v4.0.0, the following Rake tasks no longer work and were temporarily removed from the default build: `:samples`, `:css`.
+> They will be amended and reintroduced as soon as possible, except for projects which have turned stale or temporarily discontinued.
 
 <!-- separator -->
 
@@ -38,7 +38,7 @@ Created by [Tristano Ajmone] in April 2021; maintained by [Christian Neumanns], 
 - [`/mustache/`][mustache/] — misc. mustache templates.
 - [`/pandoc/`][pandoc/] — PML &hArr; pandoc assets.
 - [`/pml-samples/`][pml-samples/] \[_broken_\] — shared PML sample documents and chunks.
-- [`/stylesheets/`][stylesheets/] — PML CSS stylesheets playground.
+- [`/stylesheets/`][stylesheets/] \[_broken_\] — PML CSS stylesheets playground.
 - [`/syntax-guide/`][syntax-guide/] — _PML Syntax Guide_ doc + sources.
 - [`/syntax-hl/`][syntax-hl/] — PML syntax highlighting.
 

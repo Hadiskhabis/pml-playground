@@ -8,14 +8,14 @@ Tristano Ajmone, Author Two |
 This WIP document provides examples of how pandoc-markdown features are converted to PML via the [c pml-writer].
 As new PML elements are implemented in the writer, their examples will be added to the document.
 
-For more info, refer to the [link url=https://pandoc.org/MANUAL.htm text="Pandoc User’s Guide"].
+For more info, refer to the [link (url=https://pandoc.org/MANUAL.htm)Pandoc User’s Guide].
 
 [ch [title Block Elements]
 
 [ch [title Block Quotations]
 
 [list
-[el See: [link url=https://pandoc.org/MANUAL.htm text="Pandoc User’s Guide"] » [link url=https://pandoc.org/MANUAL.html#block-quotations text="Block quotations"]]
+[el See: [link (url=https://pandoc.org/MANUAL.htm)Pandoc User’s Guide] » [link (url=https://pandoc.org/MANUAL.html#block-quotations)Block quotations]]
 ]
 
 [html
@@ -34,26 +34,28 @@ Supreme executive power derives from a mandate from the masses, not from some fa
 ][ch [title Code blocks]
 
 [list
-[el See: [link url=https://pandoc.org/MANUAL.htm text="Pandoc User’s Guide"] » [link url=https://pandoc.org/MANUAL.html#verbatim-code-blocks text="Verbatim (code) blocks"]]
+[el See: [link (url=https://pandoc.org/MANUAL.htm)Pandoc User’s Guide] » [link (url=https://pandoc.org/MANUAL.html#verbatim-code-blocks)Verbatim (code) blocks]]
 ]
 
 [ch [title Fenced code blocks]
 
 [list
-[el See: [link url=https://pandoc.org/MANUAL.htm text="Pandoc User’s Guide"] » [link url=https://pandoc.org/MANUAL.html#fenced-code-blocks text="Fenced code blocks"]]
+[el See: [link (url=https://pandoc.org/MANUAL.htm)Pandoc User’s Guide] » [link (url=https://pandoc.org/MANUAL.html#fenced-code-blocks)Fenced code blocks]]
 ]
 
 [code ()
+~~~~~~~
 function HorizontalRule()
   return '[html\n<hr/>\nhtml]'
 end
-code]
+~~~~~~~
+]
 
 
 ]][ch [title Lists]
 
 [list
-[el See: [link url=https://pandoc.org/MANUAL.htm text="Pandoc User’s Guide"] » [link url=https://pandoc.org/MANUAL.html#lists text="Lists"]]
+[el See: [link (url=https://pandoc.org/MANUAL.htm)Pandoc User’s Guide] » [link (url=https://pandoc.org/MANUAL.html#lists)Lists]]
 ]
 
 [ch [title Bullet Lists]
@@ -134,13 +136,13 @@ Arbitrary start numbers:
 ]
 
 [quote
-[b WARNING] — The code that handles the list [c start] attribute had to be commented out because [c html_start] crashes PMLC 3.1.0 due to a bug. (See: [link url=https://github.com/pml-lang/pml-companion/issues/91 text="Issue #91"])
+[b WARNING] — The code that handles the list [c start] attribute had to be commented out because [c html_start] crashes PMLC 3.1.0 due to a bug. (See: [link (url=https://github.com/pml-lang/pml-companion/issues/91)Issue #91])
 ]
 
 ]][ch [title Horizontal Rules]
 
 [list
-[el See: [link url=https://pandoc.org/MANUAL.htm text="Pandoc User’s Guide"] » [link url=https://pandoc.org/MANUAL.html#horizontal-rules text="Horizontal rules"]]
+[el See: [link (url=https://pandoc.org/MANUAL.htm)Pandoc User’s Guide] » [link (url=https://pandoc.org/MANUAL.html#horizontal-rules)Horizontal rules]]
 ]
 
 PML doesn’t support horizontal rules, so the element is rendered via raw HTML.
@@ -157,7 +159,7 @@ PML doesn’t support horizontal rules, so the element is rendered via raw HTML.
 [ch [title Font Styles]
 
 [list
-[el See: [link url=https://pandoc.org/MANUAL.htm text="Pandoc User’s Guide"] » [link url=https://pandoc.org/MANUAL.html#inline-formatting text="Inline formatting"]]
+[el See: [link (url=https://pandoc.org/MANUAL.htm)Pandoc User’s Guide] » [link (url=https://pandoc.org/MANUAL.html#inline-formatting)Inline formatting]]
 ]
 
 These text formatting styles are natively supported by pandoc Markdown syntax:
@@ -174,22 +176,24 @@ These text formatting styles are natively supported by pandoc Markdown syntax:
 Pandoc also supports underline and small caps via custom classes and CSS:
 
 [code ()
+~~~~~~~
 [Underline]{.underline}
 [Small caps]{.smallcaps}
-code]
+~~~~~~~
+]
 
 
 ][ch [title Links]
 
 [list
-[el See: [link url=https://pandoc.org/MANUAL.htm text="Pandoc User’s Guide"] » [link url=https://pandoc.org/MANUAL.html#links-1 text="Links"]]
+[el See: [link (url=https://pandoc.org/MANUAL.htm)Pandoc User’s Guide] » [link (url=https://pandoc.org/MANUAL.html#links-1)Links]]
 ]
 
 Currently the PML writer discards links attributes and title, which will need to be handled in the future.
 
 [list
-[el Automatic link: [link url=https://www.pml-lang.dev text="https://www.pml-lang.dev"]]
-[el Inline link: [link url=https://www.pml-lang.dev/docs/reference_manual/index.html text="PML Reference Manual"]]
+[el Automatic link: [link (url=https://www.pml-lang.dev)https://www.pml-lang.dev]]
+[el Inline link: [link (url=https://www.pml-lang.dev/docs/reference_manual/index.html)PML Reference Manual]]
 ]
 
 [ch [title Empty Links]
@@ -203,7 +207,7 @@ The PML Writer corrects empty links by rendering the link text only:
 ]][ch [title Images]
 
 [list
-[el See: [link url=https://pandoc.org/MANUAL.htm text="Pandoc User’s Guide"] » [link url=https://pandoc.org/MANUAL.html#images text="Images"]]
+[el See: [link (url=https://pandoc.org/MANUAL.htm)Pandoc User’s Guide] » [link (url=https://pandoc.org/MANUAL.html#images)Images]]
 ]
 
 [quote
@@ -228,7 +232,10 @@ An inline image with alt-text: [image source="https://www.pml-lang.dev/images/PM
 
 ]][ch [title Captioned Images]
 
-[image source="../_assets/pml-cool.png" html_alt="The PML cool image"][caption The PML cool image]
+<figure>
+[image source="../_assets/pml-cool.png"]
+<figcaption>The PML cool image</figcaption>
+</figure>
 
 Captioned image without caption:
 

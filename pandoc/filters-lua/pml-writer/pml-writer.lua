@@ -1,13 +1,13 @@
--- "pml-writer.lua" v0.0.18 | 2022/11/14             | PML 3.1.0 | pandoc 2.19.2
+-- "pml-writer.lua" v0.0.18 | 2023/02/26                | PML 4.0.0 | pandoc 3.1
 -- =============================================================================
--- ** WARNING ** This PML writer is being built on top of the sample writer that
---               ships with pandoc; generated via:
+-- ** WARNING ** This PML writer is built on top of the sample HTML writer
+--               found at:
 --
---    pandoc --print-default-data-file sample.lua > pml-writer.lua
+--    https://github.com/jgm/pandoc/blob/main/pandoc-lua-engine/test/sample.lua
 --
--- This source integrates the changes of the sample writer from pandoc 2.19.2
--- (i.e. from time to time it's diffed with the latest sample to see if there
--- are new code changes worth integrating).
+-- This source integrates the changes of the latest sample writer(i.e. from
+-- time to time it's diffed with the latest sample to see if there are new
+-- code changes worth integrating).
 --
 -- Since it emulates pandoc's HTML writer it will be used as a starting point
 -- to build our PML writer on top of with. PML is structurally similar to HTML,
@@ -30,10 +30,15 @@
 
 local stringify = (require 'pandoc.utils').stringify
 
--- The global variable PANDOC_DOCUMENT contains the full AST of
--- the document which is going to be written. It can be used to
--- configure the writer.
-local meta = PANDOC_DOCUMENT.meta
+-- This is a quick temporary patch to ensure that the old pandoc 2 writer
+-- keeps working with pandoc 3:
+
+function Writer (doc, opts)
+  PANDOC_DOCUMENT = doc
+  PANDOC_WRITER_OPTIONS = opts
+  loadfile(PANDOC_SCRIPT_FILE)()
+  return pandoc.write_classic(doc, opts)
+end
 
 -- Character escaping
 -- @TODO: Adapt to PML escaping rules (WIP)
@@ -221,7 +226,7 @@ function Link(s, tgt, tit, attr)
   -- @TODO: Add a dedicated URL escape function:
   -- @NOTE: Removed escaping of 'text' value since it might contain
   --        styled contents, although these don't seem to work in PML:
-  return '[link url=' .. tgt .. ' text="' .. s .. '"]'
+  return '[link (url=' .. tgt .. ')' .. s .. ']'
 --return '[link url=' .. tgt .. ' text="' .. escape(s) .. '"]'
 --[[
   return '<a href="' .. escape(tgt,true) .. '" title="' ..
@@ -267,8 +272,8 @@ end
 
 function Note(s)
   local num = #notes + 1
-  table.insert(notes, '\n[fnote_def (id=' .. num .. ')\n' .. s .. '\n]')
-  return '[fnote_ref did=' .. num .. ']'
+  table.insert(notes, '\n[fnote_def (id=fn' .. num .. ')\n' .. s .. '\n]')
+  return '[fnote_ref did=fn' .. num .. ']'
 end
 
 -- @WIP: Span()
@@ -387,7 +392,7 @@ function CodeBlock(s, attr)
   -- @NOTE: The proper approach would be to also emit fenced delimiters,
   --        but to do so we need to ensure that the code contents don't
   --        start with an identical delimiter!
-  return '[code (' .. attributes(attr) .. ')\n' .. s .. '\ncode]\n'
+  return '[code (' .. attributes(attr) .. ')\n~~~~~~~\n' .. s .. '\n~~~~~~~\n]\n'
 end
 
 -- @WIP: BulletList()
@@ -479,6 +484,12 @@ function CaptionedImage(src, tit, caption, attr)
             ' html_alt="' .. escape(caption) .. '"]' ..
             pml_node_caption(caption)
   end
+end
+
+function Figure(caption, contents, attr)
+  return '<figure' .. attributes(attr) .. '>\n' .. contents ..
+    '\n<figcaption>' .. caption .. '</figcaption>\n' ..
+    '</figure>'
 end
 
 -- Caption is a string, aligns is an array of strings,

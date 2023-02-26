@@ -20,9 +20,9 @@ Some [span highlighted text] example.
 [b References:]
 
 [list
-[el [link url=https://pandoc.org/MANUAL.html#highlighting text="Pandoc Manual » Highlighting"]]
-[el [link url=https://pandoc.org/MANUAL.html#extension-bracketed_spans text="[c bracketed_spans]"]]
-[el [link url=https://pandoc.org/MANUAL.html#extension-native_spans text="[c native_spans]"]]
+[el [link (url=https://pandoc.org/MANUAL.html#highlighting)Pandoc Manual » Highlighting]]
+[el [link (url=https://pandoc.org/MANUAL.html#extension-bracketed_spans)[c bracketed_spans]]]
+[el [link (url=https://pandoc.org/MANUAL.html#extension-native_spans)[c native_spans]]]
 ]
 
 ]

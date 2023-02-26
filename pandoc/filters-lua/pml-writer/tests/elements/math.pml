@@ -35,8 +35,8 @@ Display math block:
 [b References:]
 
 [list
-[el [link url=https://pandoc.org/MANUAL.html#math text="Pandoc Manual » Math"]]
-[el [link url=https://www.mathjax.org/ text="MathJax"]]
+[el [link (url=https://pandoc.org/MANUAL.html#math)Pandoc Manual » Math]]
+[el [link (url=https://www.mathjax.org/)MathJax]]
 ]
 
 ]

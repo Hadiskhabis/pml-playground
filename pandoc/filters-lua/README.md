@@ -38,7 +38,7 @@ Lua filters developers are advised to download the [ZeroBrane] Lua IDE, which na
 > Although [mobdebug] can be run from the terminal, it is more useful run within the donation-ware Lua editor and IDE, [ZeroBrane].
 > ZeroBrane offers a REPL console and UI to step-through and view all variables and state.
 >
-> If you already have Lua 5.3 installed, you can add [mobdebug] and its dependency [luasocket] using [luarocks], which should then be available on the path.
+> If you already have Lua 5.4 installed, you can add [mobdebug] and its dependency [luasocket] using [luarocks], which should then be available on the path.
 > ZeroBrane also includes both of these in its package, so if you don't want to install Lua separately, you should add/modify your `LUA_PATH` and `LUA_CPATH` to include the correct locations; see [detailed instructions here][ZeroBrane remote-debugging].
 
 For detailed instructions on setting up [ZeroBrane Studio] for debugging [pandoc Lua filters], and a sample Lua filter with debugging features, see:
@@ -61,7 +61,7 @@ Windows users can also install ZeroBrane Studio via [Chocolatey] or [Chocolatey 
 
 - [pandoc.org] — pandoc website:
     + [Pandoc User's Guide]\:
-        * [Custom writers]
+        * [Custom readers and writers]
     + [Pandoc Filters]
     + [Pandoc Lua Filters]\:
         * [Debugging Lua filters]
@@ -69,6 +69,8 @@ Windows users can also install ZeroBrane Studio via [Chocolatey] or [Chocolatey 
             - [Meta][Lua_t Meta]
             - [Block][Lua_t Block]
             - [Inline][Lua_t Inline]
+    + [Creating Custom Pandoc Writers in Lua]
+        * [Changes in pandoc 3.0]
 - [jgm/pandoc] — official pandoc repository.
     + [`test/`][pandoc/test/] — test folder with examples.
 - [github.com/pandoc] — pandoc org on GitHub:
@@ -81,17 +83,17 @@ Windows users can also install ZeroBrane Studio via [Chocolatey] or [Chocolatey 
 <!-- MarkdownTOC:excluded -->
 ## Lua
 
-Pandoc v2.x includes a Lua 5.3 interpreter and library built into the pandoc executable.
+Pandoc v3.x includes a Lua 5.4 interpreter and library built into the pandoc executable.
 
 - [www.lua.org] — Lua website:
-    + [Lua 5.3 Reference Manual]
+    + [Lua 5.4 Reference Manual]
         * [§6.4 – String Manipulation]
             - [string.gsub]
         * [§6.4.1 – Patterns]
 - [LuaBinaries] — Pre-compiled Lua libraries and executables.
 - [ZeroBrane Studio] — Lightweight Lua IDE with native support for [debugging Lua filters] via the [MobDebug] package:
     + [Remote Debugging][ZeroBrane remote-debugging]
-    + [Lua 5.3 Debugging][ZeroBrane Lua 5.3 Debugging]
+    + [Lua 5.4 Debugging][ZeroBrane Lua 5.4 Debugging]
 
 <!-----------------------------------------------------------------------------
                                REFERENCE LINKS
@@ -105,8 +107,10 @@ Pandoc v2.x includes a Lua 5.3 interpreter and library built into the pandoc exe
 [pandoc.org]: https://pandoc.org "Visit pandoc website"
 
 [Pandoc User's Guide]: https://pandoc.org/MANUAL.html "Pandoc User's Guide"
-[custom writer]: https://pandoc.org/MANUAL.html#custom-writers "Pandoc User's Guide » Custom writers"
-[Custom writers]: https://pandoc.org/MANUAL.html#custom-writers "Pandoc User's Guide » Custom writers"
+[Custom readers and writers]: https://pandoc.org/MANUAL.html#custom-readers-and-writers "Pandoc User's Guide » Custom readers and writers"
+
+[Creating Custom Pandoc Writers in Lua]: https://pandoc.org/custom-writers.html "Pandoc documentation on Lua Writers"
+[Changes in pandoc 3.0]: https://pandoc.org/custom-writers.html "Changes in Lua writers between pandoc 2 and 3"
 
 [Pandoc filters]: https://pandoc.org/filters.html
 
@@ -138,15 +142,15 @@ Pandoc v2.x includes a Lua 5.3 interpreter and library built into the pandoc exe
 [Lua]: https://www.lua.org "Lua website"
 [www.lua.org]: https://www.lua.org "Lua website"
 
-[Lua 5.3 Reference Manual]: https://www.lua.org/manual/5.3/
-[§6.4 – String Manipulation]: https://www.lua.org/manual/5.3/manual.html#6.4
-[string.gsub]: https://www.lua.org/manual/5.3/manual.html#pdf-string.gsub
-[§6.4.1 – Patterns]: https://www.lua.org/manual/5.3/manual.html#6.4.1
+[Lua 5.4 Reference Manual]: https://www.lua.org/manual/5.4/
+[§6.4 – String Manipulation]: https://www.lua.org/manual/5.4/manual.html#6.4
+[string.gsub]: https://www.lua.org/manual/5.4/manual.html#pdf-string.gsub
+[§6.4.1 – Patterns]: https://www.lua.org/manual/5.4/manual.html#6.4.1
 
 [ZeroBrane]: https://studio.zerobrane.com "ZeroBrane Studio website"
 [ZeroBrane Studio]: https://studio.zerobrane.com "ZeroBrane Studio website"
 [ZeroBrane remote-debugging]: https://studio.zerobrane.com/doc-remote-debugging "ZeroBrane documentation on Remote Debugging"
-[ZeroBrane Lua 5.3 Debugging]: https://studio.zerobrane.com/doc-lua53-debugging "ZeroBrane documentation on Lua 5.3 Debugging"
+[ZeroBrane Lua 5.4 Debugging]: https://studio.zerobrane.com/doc-lua54-debugging "ZeroBrane documentation on Lua 5.4 Debugging"
 
 [MobDebug]: https://github.com/pkulchenko/MobDebug
 [LuaSocket]: https://luarocks.org/modules/luasocket/luasocket

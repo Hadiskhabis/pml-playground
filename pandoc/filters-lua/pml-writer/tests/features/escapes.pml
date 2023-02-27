@@ -21,7 +21,7 @@ This document tests whether PML escaping rules are correctly applied during conv
 
 [ch [title Nodes Text]
 
-The escaping rules for text inside nodes (i.e. normal text) are:
+The escaping rules for text inside nodes (i.e.[sp]normal text) are:
 
 [code ()
 ~~~~~~~

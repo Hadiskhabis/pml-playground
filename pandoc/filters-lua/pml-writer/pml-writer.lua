@@ -1,4 +1,4 @@
--- "pml-writer.lua" v0.0.18 | 2023/02/26                | PML 4.0.0 | pandoc 3.1
+-- "pml-writer.lua" v0.0.19 | 2023/02/27                | PML 4.0.0 | pandoc 3.1
 -- =============================================================================
 -- ** WARNING ** This PML writer is built on top of the sample HTML writer
 --               found at:
@@ -57,6 +57,12 @@ local function escape(s, in_attribute)
         return x
       end
     end)
+end
+
+-- Handle special chars (nbsp, Unicode, etc.)
+local function special_chars(s)
+  -- Conv. non-breaking spaces to '[sp]' (assumes UTF-8 encoding)
+  return s:gsub('\194\160', '[sp]')
 end
 
 -- Helper function to convert an attributes table into
@@ -173,7 +179,7 @@ end
 -- Comments indicate the types of other variables.
 
 function Str(s)
-  return escape(s)
+  return special_chars(escape(s))
 end
 
 function Space()

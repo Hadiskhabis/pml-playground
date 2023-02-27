@@ -32,14 +32,20 @@ For a full discussion of the topic, see [pml-lang/converter#26].
 Lua filters developers are advised to download the [ZeroBrane] Lua IDE, which natively ships with Lua and all the required debugging modules:
 
 > ## [Debugging Lua filters]
->
+
+> William Lupton has written a Lua module with some handy functions for debugging Lua filters, including functions that can pretty-print the Pandoc AST elements manipulated by the filters: it is available at https://github.com/wlupton/pandoc-lua-logging.
+
 > It is possible to use a debugging interface to halt execution and step through a Lua filter line by line as it is run inside Pandoc.
 > This is accomplished using the remote-debugging interface of the package [mobdebug].
-> Although [mobdebug] can be run from the terminal, it is more useful run within the donation-ware Lua editor and IDE, [ZeroBrane].
+> Although mobdebug can be run from the terminal, it is more useful run within the donation-ware Lua editor and IDE, [ZeroBrane Studio].
 > ZeroBrane offers a REPL console and UI to step-through and view all variables and state.
->
-> If you already have Lua 5.4 installed, you can add [mobdebug] and its dependency [luasocket] using [luarocks], which should then be available on the path.
-> ZeroBrane also includes both of these in its package, so if you don't want to install Lua separately, you should add/modify your `LUA_PATH` and `LUA_CPATH` to include the correct locations; see [detailed instructions here][ZeroBrane remote-debugging].
+
+> ZeroBrane doesn’t come with Lua 5.4 bundled, but it can debug it, so you should install Lua 5.4, and then add [mobdebug] and its dependency [luasocket] using [luarocks].
+> ZeroBrane can use your Lua 5.4 install by adding `path.lua = "/path/to/your/lua"` in your ZeroBrane settings file.
+> Next, open your Lua filter in ZeroBrane, and add `require('mobdebug').start()` at the line where you want your breakpoint.
+> Then make sure the **Project** > **Lua Intepreter** is set to the "Lua" you added in settings and enable "Start Debugger Server" see [detailed instructions here][ZeroBrane remote-debugging].
+> Run Pandoc as you normally would, and ZeroBrane should break at the correct line.
+
 
 For detailed instructions on setting up [ZeroBrane Studio] for debugging [pandoc Lua filters], and a sample Lua filter with debugging features, see:
 
@@ -50,6 +56,12 @@ Windows users can also install ZeroBrane Studio via [Chocolatey] or [Chocolatey 
 
 - [Chocolatey » ZeroBrane Studio (Portable)]
 - [Chocolatey » ZeroBrane Studio (Install)]
+
+Since the ZeroBrane IDE can be run in portable mode (unzip to folder and execute) and it's small in size (20 MB unpacked), you might be better off setting up an _ad hoc_ portable edition specifically tweaked for debugging pandoc filters, especially since you'll need to add the Lua 5.4 binaries yourself until ZeroBrane will natively ship with Lua 5.4 binaries (see [pkulchenko/ZeroBraneStudio#1075][ZeroBrane Lua54] to track Lua 5.4 integration progress).
+
+The ZeroBrane Studio IDE is written in Lua, and its source code repository is available at GitHub:
+
+- [pkulchenko/ZeroBraneStudio]
 
 
 -------------------------------------------------------------------------------
@@ -94,6 +106,7 @@ Pandoc v3.x includes a Lua 5.4 interpreter and library built into the pandoc exe
 - [ZeroBrane Studio] — Lightweight Lua IDE with native support for [debugging Lua filters] via the [MobDebug] package:
     + [Remote Debugging][ZeroBrane remote-debugging]
     + [Lua 5.4 Debugging][ZeroBrane Lua 5.4 Debugging]
+    + [pkulchenko/ZeroBraneStudio] — source repository at GitHub.
 
 <!-----------------------------------------------------------------------------
                                REFERENCE LINKS
@@ -151,6 +164,8 @@ Pandoc v3.x includes a Lua 5.4 interpreter and library built into the pandoc exe
 [ZeroBrane Studio]: https://studio.zerobrane.com "ZeroBrane Studio website"
 [ZeroBrane remote-debugging]: https://studio.zerobrane.com/doc-remote-debugging "ZeroBrane documentation on Remote Debugging"
 [ZeroBrane Lua 5.4 Debugging]: https://studio.zerobrane.com/doc-lua54-debugging "ZeroBrane documentation on Lua 5.4 Debugging"
+[pkulchenko/ZeroBraneStudio]: https://github.com/pkulchenko/ZeroBraneStudio "ZeroBraneStudio source repository at GitHub"
+[ZeroBrane Lua54]: https://github.com/pkulchenko/ZeroBraneStudio/issues/1075 "ZeroBraneStudio » Issue #1075 — Add support for Lua 5.4"
 
 [MobDebug]: https://github.com/pkulchenko/MobDebug
 [LuaSocket]: https://luarocks.org/modules/luasocket/luasocket

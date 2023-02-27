@@ -12,8 +12,12 @@ Resources for exchanging contents between [pmlc] and [pandoc]  (see: [pml-lang/c
 
 - [pandoc.org] — pandoc website:
     + [Pandoc User's Guide]
+        * [Custom readers and writers]
     + [Pandoc Filters]
     + [Pandoc Lua Filters]
+        * [Debugging Lua filters]
+    + [Creating Custom Pandoc Writers in Lua]
+        * [Changes in pandoc 3.0]
 
 <!----------------------------- REFERENCE LINKS ------------------------------>
 
@@ -24,9 +28,16 @@ Resources for exchanging contents between [pmlc] and [pandoc]  (see: [pml-lang/c
 
 [pandoc]: https://pandoc.org "Visit pandoc website"
 [pandoc.org]: https://pandoc.org "Visit pandoc website"
-[Pandoc Lua Filters]: https://pandoc.org/lua-filters.html
+
 [Pandoc User's Guide]: https://pandoc.org/MANUAL.html
+[Custom readers and writers]: https://pandoc.org/MANUAL.html#custom-readers-and-writers "Pandoc User's Guide » Custom readers and writers"
+
+[Pandoc Lua Filters]: https://pandoc.org/lua-filters.html
+[Debugging Lua filters]: https://pandoc.org/lua-filters.html#debugging-lua-filters
+
 [Pandoc filters]: https://pandoc.org/filters.html
+[Creating Custom Pandoc Writers in Lua]: https://pandoc.org/custom-writers.html "Pandoc documentation on Lua Writers"
+[Changes in pandoc 3.0]: https://pandoc.org/custom-writers.html "Changes in Lua writers between pandoc 2 and 3"
 
 <!-- project files & folders -->
 
